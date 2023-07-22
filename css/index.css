@@ -1,0 +1,12 @@
+body {
+    background: url('../assets/teashop.png') no-repeat;
+       background-size: cover;
+    background-attachment: fixed;
+    filter: blur(2px) brightness(70%);
+        position: relative;
+        left: 0;
+        top: 0;
+        background-size: 110%;
+        width: 110%;
+        height: 100%;
+}

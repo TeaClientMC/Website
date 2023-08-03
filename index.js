@@ -33,4 +33,5 @@ const SSLserver = https.createServer(
   },
   app
 );
-  SSLserver.listen(3000, () => console.log("Online at https:localhost:3000"));
+const port = process.env.SERVER_PORT
+  SSLserver.listen(port, () => console.log(`online at ${port}`))

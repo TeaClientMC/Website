@@ -1,0 +1,10 @@
+{
+    "Enable-HTTPS": true,
+    "PORT": "",
+    "Discord-Invite-Link": "https://www.discord.gg/teaclient",
+    "Page-Paths": {
+      "About-Page": "",
+      "Home-Page": "./index.html",
+      "Download-link": "./about.html"
+    }
+}

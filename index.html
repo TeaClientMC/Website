@@ -9,7 +9,6 @@
     background: url('https://cdn.discordapp.com/attachments/1131893827192504320/1134936393450262669/image.png');
     background-size: cover;
     background-attachment: fixed;
-    filter: blur(2px) brightness(70%);
     position: relative;
     left: 0;
     top: 0;
@@ -20,42 +19,40 @@
 }
 
 
-/* CSS for the shadow class */
-.shadow-box {
-    width: 200px;
-    /* Adjust the width as needed */
-    height: 200px;
-    /* Adjust the height as needed */
-    border-radius: 10px;
-    /* Adjust the radius to control the roundness of corners */
-    background-color: #ffffff;
-    /* Set the background color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Add the shadow effect */
-    /* You can adjust the values in the box-shadow property for different shadow effects */
-}
 
 
 .shadow-aqua{
     content: "";
     position: absolute;
-    width: 120px; 
-    height: 120px;
-    background-color: #cd2222;
-    left: 15%;
-    top: 20%;
-    top: 20%;
+    width: 900px; 
+    height: 1000px;
+    background-color: #2e50be;
+    filter: drop-shadow(100);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    left: 25%;
+    top: 40%;
+    opacity: .5;
+    border-radius: 5px;
+}
 
+a{
+    color: hotpink;
+    background-color: rgb(87, 87, 87);
+    opacity: 100%;
+    border-radius: 5px;
 }
     </style>
 </head>
 <body class="image">
-    <div class="shadow-aqua">
-<div class="shaddow-box">
-hello
 
-
+<div class="navbar">
+    <a href="discord.html">Discord</a>
 </div>
+
+
+
+    <div class="shadow-aqua">
+
     </div>
 </body>
 </html>

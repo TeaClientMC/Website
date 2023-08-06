@@ -1,5 +1,5 @@
 .image {
-    background: url('../assets/teashop.png');
+    background: url('');
     background-size: cover;
     background-attachment: fixed;
     filter: blur(2px) brightness(70%);

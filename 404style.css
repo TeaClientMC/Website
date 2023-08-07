@@ -1,0 +1,24 @@
+body{
+    background-image: url("./assets/img/background.png");
+    background-size: cover;
+    font-family: 'Roboto', 'sans-serif';
+}
+main{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.header404{
+    font-family: 'Panton', sans-serif;
+    font-size: 60px;
+    color: #ffffff;
+}
+.message-404{
+    color: #929fa5;
+}
+.home-404{
+    text-decoration: none;
+    color: white;
+}

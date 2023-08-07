@@ -11,6 +11,7 @@
     background-size: cover;
     position: relative;
 }
+/* navigation */
 nav{
     display: flex;
     padding: 1% 2%;
@@ -48,60 +49,77 @@ nav img{
 }
 .nav-links ul li:hover::after{
     width: 100%;
+
+/* Footer */
 }
 footer{
     background: #111;
     height: auto;
-    width: 100vw;
+    width: 100%;
     font-family: "Open Sans";
     padding-top: 40px;
     color: #fff;
 }
 .footer-content{
+    font-family: 'Panton', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
 }
-.footer-bottom h3 {
-    font-family: 'Roboto', sans-serif;
-}
-.footer-content p{
-    max-width: 500px;
-    margin: 10px auto;
-    line-height: 28px;
-    font-size: 14px;
-}
 .socials{
-    list-style: none;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 1rem 0 3rem 0;
+    width: 100px;
+    height: 100px;
 }
-.socials li{
-    margin: 0 10px;
+/* footer navigation */
+.fa-brands{
+    color: white;
+    transform: scale(2);
+    margin: 20px;
+    transition: 0.25s;
 }
-.socials a i{
-    font-size: 1.1rem;
-    transition: color .4s ease;
+.fa-brands:hover{
+    color: gray;
 }
-.socials a:hover i{
-    color: darkorchid;
+.footerNav {
+    text-align: center;
 }
+.footerNav a{
+    font-family: 'Panton', sans-serif;
+    display: flex;
+    display: inline-block;
+    margin-right: 10px;
+}
+.footerNav a{
+    color: white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+.footerNav a:hover{
+    opacity: 1;
+}
+/* footer bottom */
 .footer-bottom{
+    overflow: auto;
     background: #000;
-    width: 100vw;
+    width: 100%;
     padding: 20px 0;
     text-align: center;
 }
 .footer-bottom p{
+    margin-left: 20px;
+    float: left;
+    font-family: 'Panton', sans-serif;
     font-size: 14px;
     word-spacing: 2px;
-    text-transform: capitalize;
 }
-.footer-bottom span{
-    opacity: .4;
-    font-weight: 200;
+#affiliation {
+    margin-right: 20px;
+    float: right;
 }

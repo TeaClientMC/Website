@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Panton', sans-serif;
 }
 /* scrollbar */
 ::-webkit-scrollbar {
@@ -37,6 +36,7 @@ nav {
     background-color: rgba(0, 0, 0, 0.3);
 }
 nav h4{
+    font-family: 'Panton', sans-serif;
     color: white;
     padding-left: 20px;
     font-size: 36px;
@@ -58,6 +58,7 @@ nav img{
 .nav-links ul li a{
     color: #FFF;
     text-decoration: none;
+    font-family: 'Panton', sans-serif;
     font-weight: bold;
     font-size: 20px;
 }
@@ -79,10 +80,12 @@ footer{
     background: #111;
     height: auto;
     width: 100%;
+    font-family: "Open Sans";
     padding-top: 40px;
     color: #fff;
 }
 .footer-content{
+    font-family: 'Panton', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,6 +112,7 @@ footer{
     text-align: center;
 }
 .footerNav a{
+    font-family: 'Panton', sans-serif;
     display: flex;
     display: inline-block;
     margin-right: 10px;
@@ -135,6 +139,7 @@ footer{
 .footer-bottom p{
     margin-left: 20px;
     float: left;
+    font-family: 'Panton', sans-serif;
     font-size: 14px;
     word-spacing: 2px;
 }

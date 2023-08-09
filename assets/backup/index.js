@@ -3,7 +3,7 @@ const app = express()
 const path = require('path')
 const https = require('https')
 const fs = require('fs')
-const config = require('./config.json')
+const config = require('../../config.json')
 
 
 

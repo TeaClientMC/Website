@@ -43,6 +43,18 @@ form {
     width: 90%;
     max-width: 600px;
 }
+.input-group{
+    margin-bottom: 30px;
+}
+.input, textarea{
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid white;
+    color: white;
+    background: transparent;
+    font-size: 15px;
+}
 /* navigation */
 nav {
     position: relative;

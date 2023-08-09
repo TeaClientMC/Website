@@ -32,7 +32,7 @@
     position: relative;
     min-height: 100vh;
 }
-.contact-form {
+form {
     padding: 20px;
     position: absolute;
     top: 50%; /* Position the form at the center of the section */

@@ -42,12 +42,6 @@ nav h4{
     font-size: 36px;
     
 }
-nav h4:hover{
-    color: #6E2BEC;
-    padding-left: 20px;
-    font-size: 36px;
-    
-}
 nav img{
     width: 90px;
 }

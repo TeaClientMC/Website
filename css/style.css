@@ -21,7 +21,7 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: url(assets/img/background.png);
+    background-image: url(../assets/img/background.png);
     background-position: center;
     background-size: cover;
     position: relative;

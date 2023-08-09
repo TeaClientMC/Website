@@ -8,14 +8,14 @@
     width: 1em;
 }
 ::-webkit-scrollbar-track {
-    background: hsl(0, 0%, 12%);
+    background: #29292a;
 }
 ::-webkit-scrollbar-thumb {
-    background: hsl(0, 0%, 9%);
+    background: #52565a;
     border-radius: 10vw;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: hsl(0, 0%, 0%);
+    background: #7d8183;
 }
 /* header */
 .header{
@@ -27,11 +27,20 @@
     position: relative;
 }
 /* navigation */
-nav{
+nav {
+    position: relative;
     display: flex;
     padding: 1% 2%;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+nav h4{
+    font-family: 'Panton', sans-serif;
+    color: white;
+    padding-left: 20px;
+    font-size: 36px;
+    
 }
 nav img{
     width: 90px;

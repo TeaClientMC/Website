@@ -3,7 +3,7 @@ const app = express()
 const path = require('path')
 const https = require('https')
 const fs = require('fs')
-const config = require('../../config.json')
+const config = require('./config.json')
 
 
 
@@ -21,6 +21,10 @@ app.get("/about", function (req, res) {
 
 app.get("/discord", function (req, res) {
   res.redirect("https://www.discord.gg/teaclient")
+});
+
+app.get("/terms", function (req, res) {
+  res.redirect(path.join(__dirname + config["Page-Paths"]["Terms-Page"]));
 });
 
 app.get("/docs", function (req, res) {

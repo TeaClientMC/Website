@@ -5,7 +5,7 @@
     font-family: 'Panton', sans-serif;
 }
 #logo:hover {
-    fill: #6E2BEC;
+    fill: rgb(110, 43, 236);
 }
 /* scrollbar */
 ::-webkit-scrollbar {

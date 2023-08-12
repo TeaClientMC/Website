@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: 'Panton', sans-serif;
 }
+#logo:hover {
+    fill: #6E2BEC;
+}
 /* scrollbar */
 ::-webkit-scrollbar {
     width: 1em;

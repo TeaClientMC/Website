@@ -63,6 +63,7 @@ nav h4{
 }
 nav img{
     width: 90px;
+    height: 90px;
 }
 ul li ul.dropdown li {
     display: block;

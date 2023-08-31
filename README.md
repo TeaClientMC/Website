@@ -3,7 +3,7 @@ This is for the website for teaclient.net
 
 
 
-# properties
+# Properties
 
 We're using GitHub pages 
 

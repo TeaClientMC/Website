@@ -78,3 +78,7 @@ git push origin main
 Your pull request will be reviewed by the project maintainers, and they may provide feedback or request further changes. Once your changes are approved, they will be merged into the main repository.
 
 <img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
+
+# Licenced
+
+This Project is licenced under the [Eclipse Public Licence v2.0](https://www.eclipse.org/legal/epl-2.0/)

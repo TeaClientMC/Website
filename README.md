@@ -1,5 +1,5 @@
 # TeaClient Website
-**Switching to react learn more [here]()
+**Switching to NextJS learn more [here]()**
 
 <img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
 

@@ -33,6 +33,8 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+<img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
+
 # Contributing
 
 To contribute to the TeaClientMC/Website project on GitHub, you can follow these steps:

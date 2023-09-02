@@ -2,7 +2,8 @@
 ### Switching to NextJS learn more [here](https://github.com/TeaClientMC/Website/issues/5#issue-1878867410)
 
 # Information
-This is a [Next.js](https://nextjs.org/) project bootstrapped with `create-next-app`.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with `create-next-app`.z
+<br>
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 <img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">

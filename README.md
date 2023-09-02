@@ -1,6 +1,10 @@
 # TeaClient Website
 
+<img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with `create-next-app`.
+
+<img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
 
 ## Getting Started
 
@@ -19,6 +23,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+<img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
 
 ## Learn More
 

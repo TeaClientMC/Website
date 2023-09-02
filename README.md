@@ -9,14 +9,17 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with `create-next-
 
 ## Getting Started
 
-First, run the development server:
+Install the project dependencies by running:
+```
+npm install
+```
 
-```bash
+Make Changes: Make the desired changes to the project. You can modify the files in the app directory to edit the website content, styles, or functionality.
+
+Test Your Changes: Start the development server by running:
+
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -56,7 +59,7 @@ cd Website
 
 5. Install the project dependencies by running:
 ```
-npm i
+npm install
 ```
 
 6. Make Changes: Make the desired changes to the project. You can modify the files in the app directory to edit the website content, styles, or functionality.

@@ -1,5 +1,5 @@
 # TeaClient Website
-## Switching to NextJS learn more [here](https://github.com/TeaClientMC/Website/issues/5#issue-1878867410)
+### Switching to NextJS learn more [here](https://github.com/TeaClientMC/Website/issues/5#issue-1878867410)
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with `create-next-app`.

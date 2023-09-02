@@ -79,6 +79,6 @@ Your pull request will be reviewed by the project maintainers, and they may prov
 
 <img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
 
-# Licenced
+# Licence
 
 This Project is licenced under the [Eclipse Public Licence v2.0](https://www.eclipse.org/legal/epl-2.0/)

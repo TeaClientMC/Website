@@ -61,4 +61,20 @@ npm i
 npm run dev
 ```
 
+6. Commit and Push Changes: Once you are satisfied with your changes, commit them to your local repository with the following command:
+```
+git commit -am "Your commit message"
+```
+Replace "Your commit message" with a short description of the changes you made.
 
+7. Push the changes to your forked repository on GitHub:
+```
+git push origin main
+```
+7. Create a Pull Request: Go to the original repository page at TeaClientMC/Website and click on the "Pull requests" tab. Then click on the "New pull request" button.
+> In the compare branch dropdown, select your forked repository and the branch that contains your changes. Add a title and description for your pull request, explaining the changes you made.
+> Click on the "Create pull request" button to submit your changes for review.
+
+Your pull request will be reviewed by the project maintainers, and they may provide feedback or request further changes. Once your changes are approved, they will be merged into the main repository.
+
+<img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">

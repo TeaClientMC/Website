@@ -47,11 +47,18 @@ git clone https://github.com/your-username/Website.git
 Replace `your-username` with your GitHub username.
 
 4. Set Up the Project: Change into the project directory by running the following command:
-
-   cd Website
-
-5. Install the project dependencies by running:
+```
+cd Website
+```
+Install the project dependencies by running:
 ```
 npm i
 ```
+6. Make Changes: Make the desired changes to the project. You can modify the files in the app directory to edit the website content, styles, or functionality.
+
+    Test Your Changes: Start the development server by running:
+```
+npm run dev
+```
+
 

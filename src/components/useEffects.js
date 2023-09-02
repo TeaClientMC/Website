@@ -9,3 +9,4 @@ export default function App() {
  
   return <h1>{isClient ? 'This is never prerendered' : 'Prerendered'}</h1>
 }
+// test

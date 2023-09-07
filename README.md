@@ -1,4 +1,4 @@
-# TeaClient Website
+<h1 align="center">Website For TeaClient</h1>
 ### Switching to NextJS learn more [here](https://github.com/TeaClientMC/Website/issues/5#issue-1878867410)
 
 <img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">

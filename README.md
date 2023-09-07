@@ -1,4 +1,4 @@
-<h1 align="center">Website For TeaClient</h1>
+<h1 align="center">TeaClient Offical Website</h1>
 
 ### Switching to NextJS learn more [here](https://github.com/TeaClientMC/Website/issues/5#issue-1878867410)
 

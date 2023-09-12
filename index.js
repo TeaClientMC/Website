@@ -40,3 +40,23 @@ Bun.serve({
 
   },
 });
+
+
+
+
+
+function htmlSuupport() {
+    if (url.pathname === "/") {
+        console.log('Starting Home page');
+        response = new Response(Bun.file("./Src/HTML/index.html"), {
+            headers: {
+                "Content-Type": "text/html, charset=UTF-8",
+            },
+        });
+ }
+
+
+
+
+ return response;
+}

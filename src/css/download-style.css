@@ -21,10 +21,17 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: url(../assets/img/background.png);
+    background-image: url("../Assets/Images/background.jpg");
     background-position: center;
     background-size: cover;
     position: relative;
+}
+
+.left_nav #logo:hover {
+    filter: invert(80%) sepia(85%) saturate(1352%) hue-rotate(230deg) brightness(75%) contrast(100%);
+}
+.left_nav #title:hover {
+    color: #6E2BEC;
 }
 /* navigation */
 nav{
@@ -32,6 +39,7 @@ nav{
     padding: 1% 2%;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 nav img{
     width: 90px;
@@ -40,6 +48,9 @@ nav img{
     flex: 1;
     text-align: right;
 }
+
+
+
 .nav-links ul li{
     list-style: none;
     display: inline-block;
@@ -89,6 +100,8 @@ footer{
     width: 100px;
     height: 100px;
 }
+
+
 /* footer navigation */
 .fa-brands{
     color: white;

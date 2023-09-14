@@ -41,7 +41,11 @@
 .header{
     min-height: 100vh;
     width: 100%;
+<<<<<<< HEAD:src/css/style.css
     background-image: url("../Assets/Images/background.jpg");
+=======
+    background-image: url("/background.jpg");
+>>>>>>> bf19d96 (trying out astro.):src/styles/style.css
     background-position: center;
     background-size: cover;
     position: relative;

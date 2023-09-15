@@ -1,5 +1,8 @@
-# Astro Website 
+<h1 align="center">TeaClient Offical Website</h1>
 
+A website for an open-sourced client
+
+<img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
 
 ## 🚀 Project Structure
 
@@ -20,6 +23,8 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory.
 
+<img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
@@ -33,6 +38,15 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+<img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
+
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to check [our documentation](https://docs.teaclient.net)
+
+<img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
+
+# Licence
+
+This Project is licenced under the [Eclipse Public Licence v2.0](https://www.eclipse.org/legal/epl-2.0/)
+

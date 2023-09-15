@@ -1,35 +1,94 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# build output
+dist/
+# generated types
+.astro/
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+node_modules/
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# local env files
-.env*.local
 
-# vercel
-.vercel
+# environment variables
+.env
+.env.production
+bun.lockb
+yarn.lockb
+package-lock.json
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+<<<<<<< HEAD
+# parcel-bundler cache (https://parceljs.org/)
+
+.cache
+.parcel-cache
+
+# Next.js build output
+
+.next
+out
+
+# Nuxt.js build / generate output
+
+.nuxt
+dist
+
+# Gatsby files
+
+.cache/
+
+# Comment in the public line in if your project uses Gatsby and not Next.js
+
+# https://nextjs.org/blog/next-9-1#public-directory-support
+
+# public
+
+# vuepress build output
+
+.vuepress/dist
+
+# vuepress v2.x temp and cache directory
+
+.temp
+.cache
+
+# Docusaurus cache and generated files
+
+.docusaurus
+
+# Serverless directories
+
+.serverless/
+
+# FuseBox cache
+
+.fusebox/
+
+# DynamoDB Local files
+
+.dynamodb/
+
+# TernJS port file
+
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+
+.vscode-test
+
+# yarn v2
+
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.\*
+bun.lockb
+.ds_store
+=======
+# macOS-specific files
+.DS_Store
+>>>>>>> bf19d96 (trying out astro.)

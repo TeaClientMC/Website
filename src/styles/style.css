@@ -41,11 +41,12 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: url(../assets/img/background.png);
+    background-image: url("/background.jpg");
     background-position: center;
     background-size: cover;
     position: relative;
 }
+
 /* navigation */
 nav {
     position: relative;
@@ -63,6 +64,7 @@ nav h4{
 }
 nav img{
     width: 90px;
+    height: 90px;
 }
 ul li ul.dropdown li {
     display: block;
@@ -81,6 +83,9 @@ ul li:hover ul.dropdown {
     top: 0%; /* You can adjust this value as needed */
     left: 0;
 }
+
+
+
 .nav-links{
     flex: 1;
     text-align: right;
@@ -103,6 +108,14 @@ ul li:hover ul.dropdown {
     font-weight: bold;
     font-size: 20px;
 }
+
+/* .discord {
+color: #5865F2;
+}
+.youtube {
+color: #FF0000
+} */
+
 /* Footer */
 footer{
     background: #111;

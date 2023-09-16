@@ -1,32 +1,21 @@
-@media (prefers-color-scheme: dark) {
-    body {
-        background-image: url("/lightmode.jpg");
-    }
+.error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    line-height: 50px;
 }
-
-
-
-body{
-    background-image: url("/background.jpg");
-    background-size: cover;
-    font-family: 'Roboto', 'sans-serif';
+.error h1 {
+    font-size: 52px;
+    font-weight: bold;
 }
-main{
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.header404{
-    font-family: 'Panton', sans-serif;
-    font-size: 60px;
-    color: #ffffff;
-}
-.message-404{
+.error p {
+    font-size: 18px;
     color: #929fa5;
 }
-.home-404{
-    text-decoration: none;
-    color: white;
+.error a {
+    font-size: 16px;
+    text-decoration: underline;
 }

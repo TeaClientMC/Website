@@ -3,6 +3,9 @@ import tailwind from "@astrojs/tailwind";
 import svelte from "@astrojs/svelte";
 import mdx from "@astrojs/mdx";
 import vue from "@astrojs/vue";
+import react from "@astrojs/react";
+import preact from "@astrojs/preact";
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,6 +13,12 @@ export default defineConfig({
     port: 3000,
     host: true
   },
-  cacheDir: "./src/pages/*",
-  integrations: [tailwind(), svelte(), mdx(), vue()],
+  cacheDir: "./src/*",
+  integrations: [
+      tailwind(),
+      svelte(),
+      mdx(),
+      vue(), 
+      react(),
+      ],
 });

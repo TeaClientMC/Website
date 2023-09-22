@@ -11,7 +11,6 @@ import preact from "@astrojs/preact";
 export default defineConfig({
   server: {
     port: 3000,
-    host: true
   },
   cacheDir: "./src/*",
   integrations: [

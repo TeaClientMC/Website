@@ -1,0 +1,24 @@
+# DO NOT TOUCH THIS FILE
+# Please speak to SudoVanilla (Korbs) if you have any issues.
+
+name: Deploy Docs
+
+on:
+  push:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v3
+      # Install Dependenices
+      - run: npm install
+      # Build Website
+      - run: npm run build
+      # Add to NGINX
+      - run: mv dist/ teaclientmc/
+      - run: cp -R teaclientmc/ /home/tea/sites/

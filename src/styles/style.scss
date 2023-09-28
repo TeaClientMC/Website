@@ -40,7 +40,7 @@
     }
 }
 /* header */
-header{
+header {
     min-height: 100vh;
     width: 100%;
     background-image: url("/background.jpg");
@@ -121,27 +121,27 @@ color: #FF0000
 } */
 
 /* Footer */
-footer{
+footer {
     background: #111;
     height: auto;
     width: 100%;
     padding-top: 40px;
     color: #fff;
-    .footer-content{
+    .footer-content {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         text-align: center;
     }
-    .socials{
+    .socials {
         display: flex;
         justify-content: center;
         width: 100px;
         height: 100px;
     }
     /* footer navigation */
-    .fa-brands{
+    .fa-brands {
         color: white;
         transform: scale(2);
         margin: 20px;
@@ -168,7 +168,7 @@ footer{
         }
     }
     /* footer bottom */
-    .footer-bottom{
+    .footer-bottom {
         overflow: auto;
         background: #000;
         width: 100%;

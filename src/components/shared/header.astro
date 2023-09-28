@@ -1,11 +1,13 @@
 ---
-import { Icon } from "astro-icon"
+import {Image} from "astro:assets"
 ---
 
 <header>
     <nav>
         <div class="left_nav">
-            <Icon name="../../../public/logo_white.svg" href="/" id="logo"></Icon>
+        <a href="/">
+    <Image src="/logo_white.svg" width="50" height="50" alt="TeaClient Logo" id="logo"></Image>
+    </a>    
             <!-- <a href="/"><img id="logo" src="/logo_white.svg"></a> -->
             <a href="/" id="title">Tea Client</a>
         </div>

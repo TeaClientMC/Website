@@ -1,8 +1,9 @@
-FROM node:18 AS runtime
-WORKDIR /sites/TeaClient
-COPY package*.json ./
-RUN npm install
+FROM alpine
+RUN apk update
+RUN apk --update add nodejs npm
+COPY package.json .
 COPY . .
-RUN npm run build
-CMD npm astro dev --host
+RUN npm install
+RUN npm install @esbuild/linux-arm64
 EXPOSE 3000
+CMD npm run astro dev --host

@@ -4,20 +4,14 @@ import svelte from "@astrojs/svelte";
 import mdx from "@astrojs/mdx";
 import vue from "@astrojs/vue";
 import react from "@astrojs/react";
-import preact from "@astrojs/preact";
 
+import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
   server: {
-    port: 3000,
+    port: 3000
   },
   cacheDir: "./src/*",
-  integrations: [
-      tailwind(),
-      svelte(),
-      mdx(),
-      vue(), 
-      react(),
-      ],
+  integrations: [mdx(), tailwind(), react(), svelte(), vue(), solidJs()]
 });

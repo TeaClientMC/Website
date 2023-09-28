@@ -5,5 +5,5 @@ COPY package.json .
 COPY . .
 RUN npm install
 RUN npm install @esbuild/linux-arm64
-EXPOSE 3000
+EXPOSE 7053:7053
 CMD npm run astro dev --host

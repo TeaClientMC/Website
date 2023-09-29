@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 import svelte from "@astrojs/svelte";
 import mdx from "@astrojs/mdx";
 import vue from "@astrojs/vue";
@@ -13,5 +12,5 @@ export default defineConfig({
     port: 7053
   },
   cacheDir: "./src/*",
-  integrations: [mdx(), tailwind(), react(), svelte(), vue(), solidJs()]
+  integrations: [mdx(),  react(), svelte(), vue(), solidJs()]
 });

@@ -8,6 +8,7 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://teaclient.net",
   server: {
     port: 7053
   },

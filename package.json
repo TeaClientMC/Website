@@ -13,26 +13,13 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^1.1.0",
-    "@astrojs/react": "^3.0.2",
     "@astrojs/rss": "^3.0.0",
-    "@astrojs/solid-js": "^3.0.1",
-    "@astrojs/svelte": "^4.0.2",
-    "@astrojs/vue": "^3.0.0",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
     "astro": "^3.0.13",
-    "playwright": "latest",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
     "sass": "^1.67.0",
-    "solid-js": "^1.4.3",
-    "svelte": "^4.0.0",
-    "typescript": "^5.2.2",
-    "vue": "^3.2.30"
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.2.0",
-    "@playwright/test": "^1.38.1",
     "@types/node": "^20.8.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",

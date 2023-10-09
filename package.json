@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "test:e2e": "playwright test",
+    "playwright": "playwright",
+    "fmt": "prettier ",
     "astro": "astro"
   },
   "dependencies": {
@@ -19,6 +21,7 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "astro": "^3.0.13",
+    "playwright": "latest",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "sass": "^1.67.0",
@@ -29,6 +32,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.2.0",
+    "@playwright/test": "^1.38.1",
+    "@types/node": "^20.8.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "stylelint": "^15.10.3",

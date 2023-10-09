@@ -23,5 +23,7 @@ package-lock.json
 # macOS-specific files
 .DS_Store
 
-# Cloud stuff 
-
+# Cloud stuff
+/test-results/
+/playwright-report/
+/playwright/.cache/

@@ -1,0 +1,28 @@
+# DO NOT TOUCH THIS FILE
+# Please speak to SudoVanilla (Korbs) if you have any issues.
+# For Security check please contact Eveeifyeve Instead of sudovanilla.
+
+name: BUN UWU
+
+on:
+  push:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+
+    
+
+            
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      # Install Dependenices
+      - run: bun install
+      # Build Website
+      - run: bun build
+      # Add to NGINX
+      - run: mv dist/ teaclientmc/
+      - run: cp -R teaclientmc/ /home/tea/sites/

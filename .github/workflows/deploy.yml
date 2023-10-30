@@ -55,7 +55,7 @@ jobs:
 # Screenshot of website
 
   screenshot:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     needs: [codacy-security-scan]
     steps:
       - name: Checkout code

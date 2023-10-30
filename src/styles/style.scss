@@ -4,6 +4,15 @@
   box-sizing: border-box;
   font-family: "Panton", sans-serif;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
 /* scrollbar */
 ::-webkit-scrollbar {
   width: 1em;
@@ -42,7 +51,7 @@
 }
 /* header */
 header {
-  min-height: 100vh;
+  min-height: 10vh;
   width: 100%;
 }
 .page-background {
@@ -77,24 +86,24 @@ nav {
     height: 90px;
   }
 }
-ul {
-  li {
-    .dropdown {
-      width: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      position: absolute;
-      display: none;
-    }
-  }
-}
+// ul {
+//   li {
+//     .dropdown {
+//       width: 100%;
+//       background: rgba(0, 0, 0, 0.5);
+//       position: absolute;
+//       display: none;
+//     }
+//   }
+// }
 
-ul li:hover ul.dropdown {
-  margin-top: 33px;
-  display: block;
-  text-align: left;
-  top: 0%;
-  left: 0;
-}
+// ul li:hover ul.dropdown {
+//   margin-top: 33px;
+//   display: block;
+//   text-align: left;
+//   top: 0%;
+//   left: 0;
+// }
 
 .nav-links {
   flex: 1;
@@ -135,6 +144,9 @@ footer {
   width: 100%;
   padding-top: 40px;
   color: #fff;
+  top: 100%;
+  position: absolute;
+  
   .footer-content {
     display: flex;
     align-items: center;
@@ -197,6 +209,36 @@ footer {
 
 
 
+.commingSoon {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  line-height: 50px;
+
+
+  h1 {
+    font-size: 52px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 18px;
+    color: #929fa5;
+  }
+  a {
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+}
+
+
+
+
 // errors on pages 
 
 .error {
@@ -222,4 +264,22 @@ footer {
       font-size: 16px;
       text-decoration: underline;
   }
+}
+
+.download-box {
+  background-color: rgba(255, 255, 255, 0.7); // semi-transparent white
+  border-radius: 20px; // rounded corners
+  backdrop-filter: blur(10px); // blur effect
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+.download-button {
+  background-color: #b700ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }

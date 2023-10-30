@@ -1,12 +1,36 @@
+---
+import { SEO } from "astro-seo";
+---
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <SEO
+  title="Tea Client"
+  description = "A Opensourced Minecraft Client"
+  twitter={{
+    creator: "@TeaClientMC"
+  }}
 
-    <title>Tea Client</title>
-    <meta name="description" content="A Opennsourced Minecraft Client">
-    <link rel="icon" type="image/x-icon" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/favicon.png">
+extend={{
+    // extending the default link tags
+    link: [{ rel: "icon", href: "/Favicon.webp" }],
+    // extending the default meta tags
+    meta: [
+      {
+        name: "twitter:image",
+        content: "/screenshot.webp",
+      },
+      { name: "twitter:card", content: "screenshot.webp" },
+      { name: "twitter:title", content: "TeaClient Website" },
+      { name: "twitter:description", content: "The website to an opensourced client" },
+    ],
+  }}
+  />
+    <meta property="og:image" content="/screenshot.webp" />
+    <link rel="icon" type="image/x-icon" href="/Favicon.webp">
+    <link rel="apple-touch-icon" href="/Favicon.webp">
     <meta charset="UTF-8">
 
 

@@ -3,27 +3,24 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev ",
     "start": "astro dev",
     "build": "astro build",
-    "test:e2e": "playwright test",
-    "playwright": "playwright",
-    "fmt": "prettier ",
-    "astro": "astro"
+    "astro": "astro",
+    "screenshot": "node screenshot.js",
+    "clear": ""
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.0",
+    "@astrojs/mdx": "^0.19.7",
     "@astrojs/rss": "^3.0.0",
-    "astro": "^3.0.13",
-    "sass": "^1.67.0",
-    "typescript": "^5.2.2"
+    "astro-seo": "^0.8.0",
+    "puppeteer": "^21.4.1",
+    "sass": "^1.67.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.2.0",
     "@types/node": "^20.8.3",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "stylelint": "^15.10.3",
-    "stylelint-config-standard-scss": "^11.0.0"
+    "astro": "^3.4.0",
+    "typescript": "^5.2.2"
   }
 }

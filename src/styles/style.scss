@@ -5,6 +5,10 @@
   font-family: "Panton", sans-serif;
 }
 
+a, p {
+  color: white;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -13,6 +17,11 @@
 }
 
 
+.content {
+  margin: auto;
+  max-width: 1200px;
+}
+
 /* scrollbar */
 ::-webkit-scrollbar {
   width: 1em;
@@ -20,7 +29,7 @@
 ::-webkit-scrollbar-track {
   background: #29292a;
 }
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {-
   background: #52565a;
   border-radius: 10vw;
 }

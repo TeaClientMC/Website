@@ -85,7 +85,7 @@ jobs:
 # Building the website        
   build:
     runs-on: self-hosted
-    needs: [codacy-security-scan, screenshot]
+    needs: [codacy-security-scan]
     steps:
       - uses: actions/checkout@v3
       # Install Dependenices

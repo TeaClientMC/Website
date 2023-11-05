@@ -2,7 +2,7 @@
 # Please speak to SudoVanilla (Korbs) if you have any issues.
 # For Security check please contact Eveeifyeve Instead of sudovanilla.
 
-name: Deploy Docs
+name: Deploy Website
 
 on:
   push:

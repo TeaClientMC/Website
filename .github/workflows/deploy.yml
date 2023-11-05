@@ -94,4 +94,3 @@ jobs:
       - run: bun run build
       # Add to NGINX
       - run: mv dist/ teaclientmc/
-      - run: cp -R teaclientmc/ /home/tea/sites/

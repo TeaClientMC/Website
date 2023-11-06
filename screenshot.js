@@ -1,4 +1,7 @@
 import puppeteer from 'puppeteer';
+import process from 'process';
+
+
 
 (async () => {
     const browser = await puppeteer.launch({
@@ -11,5 +14,8 @@ import puppeteer from 'puppeteer';
   await 
   await page.screenshot({ path: './public/screenshot.webp', type: 'webp' });
   await browser.close();
-  console.log('done');
+
+  if (process.env.NODE_ENV === 'development'){
+    console.log('done')
+  }
 })();

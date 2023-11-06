@@ -139,13 +139,6 @@ nav {
   }
 }
 
-/* .discord {
-color: #5865F2;
-}
-.youtube {
-color: #FF0000
-} */
-
 /* Footer */
 footer {
   background: #111;
@@ -275,8 +268,24 @@ footer {
   }
 }
 
+
+.box {
+  width: 50%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.359);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1%;
+  padding: 10px;
+  margin: 0 auto; /* centers the box horizontally */
+}
+
+
+
+
 .download-box {
-  background-color: rgba(255, 255, 255, 0.7); // semi-transparent white
+  background-color: rgba(250, 250, 250, 0.7); // semi-transparent white
   border-radius: 20px; // rounded corners
   backdrop-filter: blur(10px); // blur effect
   padding: 20px;

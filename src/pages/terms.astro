@@ -1,7 +1,10 @@
 ---
-import Layout from "../layouts/default.astro"
-import "../styles/terms.scss"
+import Layout from "../layouts/layout.astro"
 ---
+
+
+
+
 
 <Layout>
     <div class="tos-container">
@@ -18,11 +21,12 @@ import "../styles/terms.scss"
         <br>
         <br>
         <h1 class="tos-title">Our Content</h1>
-        <p>Content published on this website and services (digital downloads, images, texts, graphics, logos) is the property of TeaClient, Inc. and/or its content creators and protected by international copyright laws. The entire compilation of the content found on this website and TeaClient is the exclusive property of TeaClientMC.</p>
+        <p>Content published on this website and services (digital downloads, images, texts, graphics, logos) is the property of TeaClient, and/or its content creators and protected by international copyright laws. The entire compilation of the content found on this website and TeaClient is the exclusive property of TeaClientMC.</p>
         <!-- Add the rest of your terms of service here -->
         <br>
         <br>
         <h1 class="tos-title">Govening Law</h1>
+        <p>By visiting this website, you agree that the laws of the California, without regard to principles of conflict laws, will govern these terms of service, or any dispute of any sort that might come between TeaClientMC. and you, or its associates.</p>
         <br>
         <br>
         <h1 class="tos-title">Social Media</h1>
@@ -30,3 +34,40 @@ import "../styles/terms.scss"
 
     </div>
 </Layout>
+
+
+
+<style>
+    body {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+
+
+
+
+
+.tos-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    bottom: 100%;
+    height: 20%;
+    border-radius: 30px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    margin-bottom: 20%;
+
+}
+
+.tos-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+</style>

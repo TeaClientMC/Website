@@ -1,11 +1,14 @@
 ---
-import Layout from "../../layouts/default.astro"
-import DownloadBox from '../../components/shared/DownloadBox.astro';
+import Layout from "../layouts/layout.astro"
+import DownloadBox from '../components/shared/DownloadBox.astro';
 ---
 
 <Layout>
     <div class="container">
+      <div class="box">
         <DownloadBox buttonText="Download Pvp PackRed" src="/packs/TeaClient - PVP PACK RED EDITION.zip" screenshot="/icon.webp" />
+        <br>
         <DownloadBox buttonText="Download all packs" />
+      </div>
       </div>
 </Layout>

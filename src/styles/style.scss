@@ -5,6 +5,10 @@
   font-family: "Panton", sans-serif;
 }
 
+a, p {
+  color: white;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -12,6 +16,11 @@
   height: 100vh;
 }
 
+
+.content {
+  margin: auto;
+  max-width: 1200px;
+}
 
 /* scrollbar */
 ::-webkit-scrollbar {

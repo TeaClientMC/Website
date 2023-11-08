@@ -56,49 +56,55 @@ jobs:
 
 
 # Checks the linting of the website 
-  # linting: 
-  #   runs-on: ubuntu-latest
-  #   needs: [codacy-security-scan]
-  #   steps:
-  #     - name: Checkout Code
-  #       uses: actions/checkout@v2
+  linting: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
       
-  #     - name: Setup Bun
-  #       uses: oven-sh/setup-bun@v1
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
 
-  #     - name: Install dependencies
-  #       run: bun install
+      - name: Install dependencies
+        run: bun install
 
-  #     - name: Run Stylelint
-  #       run: bun run lint:css
+      - name: Run Stylelint
+        run: bun run lint:css
 
 
-# Screenshot of website
+#Screenshot of website
 
-  # screenshot:
-  #   runs-on: ubuntu-latest
-  #   needs: [codacy-security-scan]
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
+  screenshot:
+    runs-on: ubuntu-latest
+    needs: [linting]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v2
-  #       with:
-  #        node-version: '14'
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
 
-  #     - name: Install dependencies
-  #       run: npm install
+      - name: Install dependencies
+        run: bun install
 
-  #     - name: Run screenshot script
-  #       run: npm run screenshot
+      - name: Run server
+        run: |
+          bun start &
+          echo "BUN_PID=$!" >> $GITHUB_ENV
+          sleep 10 # give the server some time to start
+      
+      - name: Take screenshot
+        run: bun screenshot
+      
+      - name: Stop server
+        run: kill ${{ env.BUN_PID }} # this will kill the process started by bun start
 
-  #     - name: Commit and push if it changed
-  #       run: |
-  #         git config --global user.name 'Automated'
-  #         git config --global user.email 'actions@users.noreply.github.com'
-  #         git add -A
-  #         git diff --quiet && git diff --staged --quiet || (git commit -m 'Update: screenshot' && git push)
+      - name: Commit and push if it changed
+        run: |
+          git config --global user.name 'Automated'
+          git config --global user.email 'actions@users.noreply.github.com'
+          git add -A
+          git diff --quiet && git diff --staged --quiet || (git commit -m 'Feat: screenshot(AutoMated)' && git push)
 
         
 
@@ -106,7 +112,7 @@ jobs:
 # Building the website        
   build:
     runs-on: self-hosted
-    # needs: [codacy-security-scan]
+    needs: [screenshot]
     steps:
       - uses: actions/checkout@v3
       # Install Dependenices

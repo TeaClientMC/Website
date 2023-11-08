@@ -7,7 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "astro": "astro",
-    "screenshot": "bun src/scripts/screenshot.ts",
+    "screenshot": "bun screenshot.ts",
     "lint:css": "stylelint 'src/styles/**/*.scss' --fix"
   },
   "dependencies": {

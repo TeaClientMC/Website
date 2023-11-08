@@ -1,19 +1,8 @@
 ---
 import Layout from '../layouts/layout.astro'
-import { takeScreenshot } from '../scripts/screenshot';
+
 ---
 
-<Layout takeScreenshot={takeScreenshot}>
+<Layout>
     <p>Hello</p>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const screenshot = urlParams.get('screenshot');
-
-            if (screenshot) {
-                Astro.props.takeScreenshot();
-                alert('Screenshot has been taken');
-            }
-        });
-    </script>
 </Layout>

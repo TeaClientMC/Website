@@ -7,8 +7,8 @@
 
 :root {
   /* Define the variables for both themes here */
-  --nav-color-dark: rgba(0, 0, 0, 0.5);
-  --nav-color-light: rgba(255, 255, 255, 0.5);
+  --nav-color-dark: rgb(0 0 0 / 50%);
+  --nav-color-light: rgb(255 255 255 / 50%);
   --navBar-Items-dark: white;
   --navBar-Items-light: black;
   --hover-color: #6e2bec;
@@ -41,12 +41,16 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Panton, sans-serif;
-  font-size: 1.5rem
+  font-size: 1.2rem
   // --background-image: url(./background_dark.webp);
   // --nav-color: rgba(0, 0, 0, 0.5);
 }
 
-
+@media only screen and (width <= 768px) {
+  * {
+    font-size: 1.5rem
+}
+}
 
 a, p {
   color: white;
@@ -105,6 +109,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #7d8183;
 }
+
  img#logo:hover {
   filter: invert(78%) sepia(87%) saturate(2524%) hue-rotate(252deg) brightness(87%) contrast(114%);
  }
@@ -143,7 +148,7 @@ header {
     z-index: -1;
     pointer-events: none;
     -webkit-user-drag: none;
-    -webkit-user-select: none;
+    user-select: none;
   }
 
 }
@@ -225,7 +230,15 @@ header {
   padding: 10px;
   margin: 0 auto; /* centers the box horizontally */
 
-  text-container {display: flex; flex-direction: column; justify-content: center; align-items: center; margin: auto; width: fit-content; gap: 10px; }
+  text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin: auto; 
+    width: fit-content;
+    gap: 10px; 
+  }
 }
 
 

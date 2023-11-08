@@ -79,7 +79,11 @@ jobs:
     needs: [linting]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+         ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+         persist-credentials: true
+
 
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -116,7 +120,7 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          ssh: true
           branch: ${{ github.ref }}
 
         

@@ -94,7 +94,10 @@ jobs:
           npm run start &
           echo "NODE_PID=$!" >> $GITHUB_ENV
           sleep 6 # give the server some time to start
-      
+          
+      - name: Install bun
+        run: npm install -g bun
+    
       - name: Take screenshot
         run: | 
          sleep 10 

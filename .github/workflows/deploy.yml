@@ -91,12 +91,14 @@ jobs:
 
       - name: Run server
         run: |
-          npm start &
+          npm run start &
           echo "NODE_PID=$!" >> $GITHUB_ENV
-          sleep 10 # give the server some time to start
+          sleep 6 # give the server some time to start
       
       - name: Take screenshot
-        run: npm run screenshot
+        run: | 
+         sleep 10 
+         npm run screenshot
       
       - name: Stop server
         run: kill ${{ env.NODE_PID }} # this will kill the process started by npm start

@@ -81,23 +81,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16' # or any version you prefer
 
       - name: Install dependencies
-        run: bun install
+        run: npm install
 
       - name: Run server
         run: |
-          bun start &
-          echo "BUN_PID=$!" >> $GITHUB_ENV
+          npm start &
+          echo "NODE_PID=$!" >> $GITHUB_ENV
           sleep 10 # give the server some time to start
       
       - name: Take screenshot
-        run: bun screenshot
+        run: npm run screenshot
       
       - name: Stop server
-        run: kill ${{ env.BUN_PID }} # this will kill the process started by bun start
+        run: kill ${{ env.NODE_PID }} # this will kill the process started by npm start
 
       - name: Commit and push if it changed
         run: |

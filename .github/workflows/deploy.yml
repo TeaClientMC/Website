@@ -74,54 +74,50 @@ jobs:
 
 #Screenshot of website
 
-  screenshot:
-    runs-on: ubuntu-latest
-    needs: [linting]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-         ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-         persist-credentials: true
+  # screenshot:
+  #   runs-on: ubuntu-latest
+  #   needs: [linting]
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+  #       with:
+  #        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #        persist-credentials: true
 
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20' # or any version you prefer
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '20' # or any version you prefer
 
-      - name: Install dependencies
-        run: npm install
+  #     - name: Install dependencies
+  #       run: npm install
 
-      - name: Run server
-        run: |
-          npm run start &
-          echo "NODE_PID=$!" >> $GITHUB_ENV
-          sleep 6 # give the server some time to start
+  #     - name: Run server
+  #       run: |
+  #         npm run start &
+  #         echo "NODE_PID=$!" >> $GITHUB_ENV
+  #         sleep 6 # give the server some time to start
 
-      - name: Install bun
-        run: npm install -g bun
+  #     - name: Install bun
+  #       run: npm install -g bun
     
-      - name: Take screenshot
-        run: | 
-         sleep 10 
-         npm run screenshot
+  #     - name: Take screenshot
+  #       run: | 
+  #        npm run screenshot
       
-      - name: Stop server
-        run: kill ${{ env.NODE_PID }} # this will kill the process started by npm start
+  #     - name: Stop server
+  #       run: kill ${{ env.NODE_PID }} # this will kill the process started by npm start
 
-      - name: Commit and push if it changed
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m 'Feat: Screenshot(AutoMated)'
-      
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          ssh: true
-          branch: ${{ github.ref }}
+  #     - name: Commit and push if it changed
+  #     run: |
+  #      git config --global user.name 'Your Name'
+  #      git config --global user.email 'your-username@users.noreply.github.com'
+  #      git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+  #      git checkout "${GITHUB_REF:11}"
+  #      git commit -am "Automated Screenshot"
+  #      git push
+
 
         
 
@@ -129,7 +125,7 @@ jobs:
 # Building the website        
   build:
     runs-on: self-hosted
-    needs: [screenshot]
+    needs: [linting]
     steps:
       - uses: actions/checkout@v3
       # Install Dependenices

@@ -6,12 +6,99 @@
             <a href="/">Home</a>
             <a href="/about">About Us</a>
             <a href="/contact">Contact Us</a>
-            <a href="/tos">Terms of Service</a>
+            <a href="/terms">Terms of Service</a>
             <a href="/privacy">Privacy Policy</a>
     </div>
     <div class="footer-bottom">
         <p>Copyright &copy; 2023 TeaClient</p>
         <p id="affiliation">Not affiliated with Mojang Studios</p>
-        <div style="clear: both;"></div>
     </div>
 </footer>
+
+
+
+
+
+<style>
+footer {
+  background: #111;
+  height: auto;
+  width: 100%;
+  padding-top: 40px;
+  color: #fff;
+  top: 100%;
+  position: absolute;
+  
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+  }
+
+
+
+  /* footer navigation */
+
+
+  .footerNav {
+    display: flex;
+    justify-content: center;
+
+
+    a {
+      color: rgb(130, 130, 130);
+      margin: 20px;
+      text-decoration: none;
+      font-size: 1.3rem;
+      transition: 0.5s;
+      display: flex;
+      margin-right: 10px;
+      transition: 0.5s;
+
+      &:hover {
+        color: var(--footer-hover)
+      }
+    }
+
+
+
+  }
+
+
+  /* footer bottom */
+  .footer-bottom {
+    overflow: auto;
+    background: #000;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+
+
+    p {
+      margin-left: 20px;
+      float: left;
+      font-size: 14px;
+      word-spacing: 2px;
+    }
+
+
+    #affiliation {
+      margin-right: 20px;
+      float: right;
+    }
+
+
+  }
+}
+</style>

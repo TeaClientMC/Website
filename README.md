@@ -2,7 +2,7 @@
 
 A website for an open-sourced client
 <br>
-[![Deploy Docs](https://github.com/TeaClientMC/Website/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/TeaClientMC/Website/actions/workflows/deploy.yml)
+[![Deploy Website](https://github.com/TeaClientMC/Website/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/TeaClientMC/Website/actions/workflows/deploy.yml)
 
 <img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">
 

@@ -2,7 +2,9 @@
 import { Image } from "astro:assets";
 ---
 
-<header>
+<script src="../../scripts/modeSwitching.ts"/>
+
+
     <nav>
         <div class="left_nav">
         <a href="/">
@@ -13,6 +15,14 @@ import { Image } from "astro:assets";
         </div>
         <div class="nav-links">
             <ul>
+<li>
+  <input type="checkbox" class="checkbox" id="checkbox">
+  <label for="checkbox" class="checkbox-label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <span class="ball"></span>
+  </label>
+</li>
                 <li><a href="/">HOME</a></li>
                 <li><a href="/download/">DOWNLOADS</a></li>
                 <li><a href="https://store.teaclient.net">STORE</a></li>
@@ -30,8 +40,140 @@ import { Image } from "astro:assets";
                 <li><a href="/docs">DOCUMENTS</a></li>
             </ul>
         </div>
+
     </nav>
-    <div class="page-background">
-        <img src="/background.webp" alt="The background"/>
-    </div>
-</header>
+        <div class="page-background">
+            <img src="/background_dark.webp" alt="The background"/>
+        </div>
+
+
+        
+<style>
+nav {
+  position: relative;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--nav-color);
+}
+
+  h4 {
+    color: white;
+    padding-left: 20px;
+    font-size: 36px;
+  }
+
+
+  img {
+    width: 90px;
+    height: 90px;
+  }
+
+.nav-links {
+  flex: 1;
+  text-align: right;
+}
+
+  li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+  }
+
+    a {
+      color: var(--navBar-Items);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 20px;
+
+      &:hover {
+        color: var(--hover-color);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+
+
+
+
+  .left_nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #title {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 36px;
+    margin-left: 15px;
+  }
+}
+
+
+
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: #ff9800;
+  filter: drop-shadow(0px 0px 4px yellow);
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+  background-color: #101010;
+  filter: drop-shadow(0px 0px 4px white);
+  
+}
+/*
+// ul {
+//   li {
+//     .dropdown {
+//       width: 100%;
+//       background: rgba(0, 0, 0, 0.5);
+//       position: absolute;
+//       display: none;
+//     }
+//   }
+// }
+
+// ul li:hover ul.dropdown {
+//   margin-top: 33px;
+//   display: block;
+//   text-align: left;
+//   top: 0%;
+//   left: 0;
+// }
+*/
+</style>

@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/layout.astro'
+import Layout from '../layouts/Layout.astro'
 import { Image } from 'astro:assets';
 import Logo from '/public/Favicon.webp'
 ---
@@ -9,13 +9,12 @@ import Logo from '/public/Favicon.webp'
     <div class="box">
       <div class="logo-text-container">
         <a class= "SocialText">TeaClient Socials</a>
-
       </div>
     </div>
   </Layout>
 
 
-<style lang="scss">
+<style>
 .logo-text-container {display: flex; flex-direction: column; justify-content: center; align-items: center; margin: auto; width: fit-content; gap: 10px; }
 .logo {border-radius: 50%; }
 .SocialText {padding-top: 10px; color: white;}

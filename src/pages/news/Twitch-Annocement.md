@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/news.astro
+layout: ../../layouts/layout.astro
 title: Twitch Announcement
 pubDate: 2023-7-3
 description: ''
@@ -9,6 +9,8 @@ image:
     alt: 'The Twitch Logo'
 tags: ["Twitch", "Streaming", "Stream", "Vods"]
 ---
+
+
 
 
 

@@ -6,7 +6,6 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
-        "src/env.d.ts": true,
         "bun.lockb": true,
     }
 }

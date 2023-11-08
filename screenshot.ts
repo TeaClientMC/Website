@@ -11,4 +11,3 @@ import puppeteer from 'puppeteer';
     await page.screenshot({ path: 'public/screenshot.webp', type: 'webp' });
     await browser.close();
     console.log('Screenshot taken!');
-    process.exit(1)

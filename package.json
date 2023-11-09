@@ -8,7 +8,8 @@
     "build": "astro build",
     "astro": "astro",
     "screenshot": "bun screenshot.ts",
-    "lint:css": "stylelint 'src/styles/**/*.scss' --fix"
+    "lint:css": "stylelint 'src/styles/**/*.scss' --fix",
+    "fmt": "prettier --write ."
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
@@ -31,8 +32,11 @@
     "@types/three": "^0.158.2",
     "astro": "^3.4.0",
     "postcss-scss": "^4.0.9",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.1",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
+    "stylelint-prettier": "^4.0.2",
     "stylelint-scss": "^5.3.1",
     "typescript": "^5.2.2"
   }

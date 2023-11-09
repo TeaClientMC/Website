@@ -2,9 +2,6 @@
 
 // Root(*) main stuff.
 
-
-
-
 :root {
   /* Define the variables for both themes here */
   --nav-color-dark: rgb(0 0 0 / 50%);
@@ -15,47 +12,54 @@
   --text-dark: white;
   --text-light: black;
   --footer-hover: white;
-  --background-image-dark: url("./background_dark.webp");
-  --background-image-light: url("./background_light.webp");
+  --background-image-dark: url('./background_dark.webp');
+  --background-image-light: url('./background_light.webp');
+  --footer-color: black;
+  --footer-color2: #000000;
+  --footer-text-color: white;
 }
 
 /* Apply the variables based on the theme */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --nav-color: var(--nav-color-dark);
   --navBar-Items: var(--navBar-Items-dark);
   --text: var(--text-dark);
   --background-image: var(--background-image-dark);
+  --footer-color: black;
+  --footer-color2: #000000;
+  --footer-text-color: white;
 }
 
-[data-theme="light"] {
+[data-theme='light'] {
   --nav-color: var(--nav-color-light);
   --navBar-Items: var(--navBar-Items-light);
   --text: var(--text-light);
   --background-image: var(--background-image-light);
+  --footer-color: white;
+  --footer-color2: rgb(34, 34, 34);
+  --footer-text-color: black;
 }
-
-
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Panton, sans-serif;
-  font-size: 1.2rem
+  font-size: 1.2rem;
   // --background-image: url(./background_dark.webp);
   // --nav-color: rgba(0, 0, 0, 0.5);
 }
 
 @media only screen and (width <= 768px) {
   * {
-    font-size: 1.5rem
-}
+    font-size: 1.5rem;
+  }
 }
 
-a, p {
+a,
+p {
   color: white;
 }
-
 
 .container {
   display: flex;
@@ -63,7 +67,6 @@ a, p {
   align-items: center;
   height: 100vh;
 }
-
 
 body {
   top: 0;
@@ -75,66 +78,49 @@ body {
   z-index: -1;
 }
 
-
 .content {
   margin: auto;
   max-width: 1200px;
 }
 
-
-
 // ----------------------------------------------------------
 
-
 /* scrollbar */
-
-
 
 ::-webkit-scrollbar {
   width: 1em;
 }
 
-
 ::-webkit-scrollbar-track {
   background: #29292a;
 }
-
 
 ::-webkit-scrollbar-thumb {
   background: #52565a;
   border-radius: 10vw;
 }
 
-
 ::-webkit-scrollbar-thumb:hover {
   background: #7d8183;
 }
 
- img#logo:hover {
-  filter: invert(78%) sepia(87%) saturate(2524%) hue-rotate(252deg) brightness(87%) contrast(114%);
- }
-
-
-
+img#logo:hover {
+  filter: invert(78%) sepia(87%) saturate(2524%) hue-rotate(252deg)
+    brightness(87%) contrast(114%);
+}
 
 // ----------------------------------------------------------
 
 /* header */
-
 
 header {
   min-height: 10vh;
   width: 100%;
 }
 
-
-
 // ----------------------------------------------------------
 
-
-
-// Backgound 
-
+// Backgound
 
 .page-background {
   img {
@@ -150,13 +136,9 @@ header {
     -webkit-user-drag: none;
     user-select: none;
   }
-
 }
 
-
-
 // Comming Soon Text
-
 
 .commingSoon {
   position: absolute;
@@ -166,7 +148,6 @@ header {
   text-align: center;
   transform: translate(-50%, -50%);
   line-height: 50px;
-
 
   h1 {
     font-size: 52px;
@@ -181,17 +162,12 @@ header {
   a {
     font-size: 16px;
     text-decoration: underline;
-}
-
+  }
 }
 
 // ----------------------------------------------------------
 
-
-
 // Error Page Section
-
-
 
 .error {
   position: absolute;
@@ -203,21 +179,20 @@ header {
   line-height: 50px;
 
   h1 {
-      font-size: 52px;
-      font-weight: bold;
+    font-size: 52px;
+    font-weight: bold;
   }
 
   p {
-      font-size: 18px;
-      color: #929fa5;
+    font-size: 18px;
+    color: #929fa5;
   }
 
   a {
-      font-size: 16px;
-      text-decoration: underline;
+    font-size: 16px;
+    text-decoration: underline;
   }
 }
-
 
 .box {
   width: 50%;
@@ -234,27 +209,13 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
-    margin: auto; 
+    align-items: center;
+    margin: auto;
     width: fit-content;
-    gap: 10px; 
+    gap: 10px;
   }
 }
 
-
-
-
 // ----------------------------------------------------------
 
-
-
-
 //  Mobile Support Section
-
-
-
-
-
-
-
-

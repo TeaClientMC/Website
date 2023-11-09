@@ -51,4 +51,3 @@ Feel free to check [our documentation](https://docs.teaclient.net)
 # Licence
 
 This Project is licenced under the [Eclipse Public Licence v2.0](https://www.eclipse.org/legal/epl-2.0/)
-

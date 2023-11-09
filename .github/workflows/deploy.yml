@@ -6,15 +6,12 @@ name: Deploy Website
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
 
   workflow_dispatch:
 
 jobs:
-
-
-
-# Security Check 
+  # Security Check
   # codacy-security-scan:
   #   permissions:
   #     contents: read # for actions/checkout to fetch code
@@ -49,19 +46,15 @@ jobs:
   #       with:
   #         sarif_file: results.sarif
 
+  # -----------------------------------------------
 
-          # -----------------------------------------------
-
-
-
-
-# Checks the linting of the website 
-  linting: 
+  # Checks the linting of the website
+  linting:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
 
@@ -71,8 +64,7 @@ jobs:
       - name: Run Stylelint
         run: bun run lint:css
 
-
-#Screenshot of website
+  #Screenshot of website
 
   # screenshot:
   #   runs-on: ubuntu-latest
@@ -83,7 +75,6 @@ jobs:
   #       with:
   #        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
   #        persist-credentials: true
-
 
   #     - name: Setup Node
   #       uses: actions/setup-node@v2
@@ -101,11 +92,11 @@ jobs:
 
   #     - name: Install bun
   #       run: npm install -g bun
-    
+
   #     - name: Take screenshot
-  #       run: | 
+  #       run: |
   #        npm run screenshot
-      
+
   #     - name: Stop server
   #       run: kill ${{ env.NODE_PID }} # this will kill the process started by npm start
 
@@ -118,11 +109,7 @@ jobs:
   #      git commit -am "Automated Screenshot"
   #      git push
 
-
-        
-
-            
-# Building the website        
+  # Building the website
   build:
     runs-on: self-hosted
     needs: [linting]

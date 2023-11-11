@@ -11,64 +11,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  # Security Check
-  # codacy-security-scan:
-  #   permissions:
-  #     contents: read # for actions/checkout to fetch code
-  #     security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
-  #     actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
-  #   name: Codacy Security Scan
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     # Checkout the repository to the GitHub Actions runner
-  #     - name: Checkout code
-  #       uses: actions/checkout@v3
 
-  #     # Execute Codacy Analysis CLI and generate a SARIF output with the security issues identified during the analysis
-  #     - name: Run Codacy Analysis CLI
-  #       uses: codacy/codacy-analysis-cli-action@d840f886c4bd4edc059706d09c6a1586111c540b
-  #       with:
-  #         # Check https://github.com/codacy/codacy-analysis-cli#project-token to get your project token from your Codacy repository
-  #         # You can also omit the token and run the tools that support default configurations
-  #         project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-  #         verbose: true
-  #         output: results.sarif
-  #         format: sarif
-  #         # Adjust severity of non-security issues
-  #         gh-code-scanning-compat: true
-  #         # Force 0 exit code to allow SARIF file generation
-  #         # This will handover control about PR rejection to the GitHub side
-  #         max-allowed-issues: 2147483647
-
-  #     # Upload the SARIF file generated in the previous step
-  #     - name: Upload SARIF results file
-  #       uses: github/codeql-action/upload-sarif@v2
-  #       with:
-  #         sarif_file: results.sarif
-
-  # -----------------------------------------------
-
-  # Checks the linting of the website
-  linting:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-
-      - name: Install dependencies
-        run: bun install
-
-      - name: Run Stylelint
-        run: bun run lint:css
 
   #Screenshot of website
 
   # screenshot:
   #   runs-on: ubuntu-latest
-  #   needs: [linting]
   #   steps:
   #     - name: Checkout code
   #       uses: actions/checkout@v3
@@ -109,10 +57,61 @@ jobs:
   #      git commit -am "Automated Screenshot"
   #      git push
 
+
+# ---------------------------------------------------------------------
+
+
+  # Checks the linting of the website
+  Linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run Stylelint
+        run: bun run lint:css
+
+
+# ---------------------------------------------------------------------
+
+
+# Formating
+
+  Formating:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install > log.txt 2>&1 || exit 1
+
+      - name: Run bun fmt
+        run: bun fmt >> log.txt 2>&1 || exit 1
+
+      - name: Upload log
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: log
+          path: log.txt
+
+
+# ---------------------------------------------------------------------
+
+
   # Building the website
-  build:
+  Build:
     runs-on: self-hosted
-    needs: [linting]
+    needs: [Linting, Formating]
     steps:
       - uses: actions/checkout@v3
       # Install Dependenices

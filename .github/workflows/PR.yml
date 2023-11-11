@@ -1,0 +1,58 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run Stylelint
+        run: bun run lint:css
+        id: lint
+        continue-on-error: true
+
+      - name: Annotate linting issues
+        uses: github/codeql-action/upload-sarif@v1
+        if: steps.lint.outcome == 'failure'
+        with:
+            sarif_file: linting.sarif
+
+  Formating:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install > log.txt 2>&1 || exit 1
+
+      - name: Run bun fmt
+        run: bun fmt >> log.txt 2>&1 || exit 1
+        id: fmt
+        continue-on-error: true
+
+      - name: Annotate formatting issues
+        uses: github/codeql-action/upload-sarif@v1
+        if: steps.fmt.outcome == 'failure'
+        with:
+            sarif_file: formatting.sarif
+
+      - name: Upload log
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: log
+          path: log.txt

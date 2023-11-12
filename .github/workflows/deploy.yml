@@ -101,7 +101,7 @@ jobs:
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: log
+          name: prettier(fmt)
           path: log.txt
 
 

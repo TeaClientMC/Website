@@ -8,5 +8,6 @@
     "**/Thumbs.db": true,
     "bun.lockb": true
   },
-  "git-blame.gitWebUrl": ""
+  "git-blame.gitWebUrl": "",
+  "IDX.aI.enableInlineCompletion": true
 }

@@ -113,18 +113,16 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install required dependencies
-        run: |
-          apt update
-          apt install -y sudo
-          sudo apt install -y git curl
-          curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-          sudo DEBIAN_FRONTEND=noninteractive apt install -y nodejs
-          npm i -g bun
+        uses: oven-sh/setup-bun@v1
+        with:
+         bun-version: latest
+        
+      - name: Install packages
+        run: | 
+         bun install
+        
       - name: Print versions
         run: |
-          git --version
-          npm --version
-          npx --version
           bun --version
           bunx commitlint --version
       - name: Install commitlint

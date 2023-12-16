@@ -6,13 +6,14 @@ name: Deploy Website
 
 on:
   push:
-    branches: ['main']
-
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-
-
   #Screenshot of website
 
   # screenshot:
@@ -57,11 +58,10 @@ jobs:
   #      git commit -am "Automated Screenshot"
   #      git push
 
+  # ---------------------------------------------------------------------
 
-# ---------------------------------------------------------------------
+  # Linting - StyleLint + ESLint 
 
-
-  # Checks the linting of the website
   Linting:
     runs-on: ubuntu-latest
     steps:
@@ -77,15 +77,13 @@ jobs:
       - name: Run Stylelint
         run: bun run lint:css
 
+  # ---------------------------------------------------------------------
 
-# ---------------------------------------------------------------------
-
-
-# Formating
+  # Formating - Prettier 
 
   Formating:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - uses: actions/checkout@v3
 
       - name: Setup Bun
@@ -104,14 +102,52 @@ jobs:
           name: prettier(fmt)
           path: log.txt
 
+  # ---------------------------------------------------------------------
 
-# ---------------------------------------------------------------------
+  # CommitLinting - Convertential Commits
+
+  CommitLint:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install required dependencies
+        run: |
+          apt update
+          apt install -y sudo
+          sudo apt install -y git curl
+          curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+          sudo DEBIAN_FRONTEND=noninteractive apt install -y nodejs
+          npm i -g bun
+      - name: Print versions
+        run: |
+          git --version
+          npm --version
+          npx --version
+          bun --version
+          bunx commitlint --version
+      - name: Install commitlint
+        run: |
+          bun install conventional-changelog-conventionalcommits
+          bun install commitlint@latest
+
+      - name: Validate current commit (last commit) with commitlint
+        if: github.event_name == 'push'
+        run: bunx commitlint --from HEAD~1 --to HEAD --verbose
+
+      - name: Validate PR commits with commitlint
+        if: github.event_name == 'pull_request'
+        run: bunx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose
+
+
+  # ---------------------------------------------------------------------
 
 
   # Building the website
   Build:
     runs-on: self-hosted
-    needs: [Linting, Formating]
+    needs: [Linting, Formating, CommitLint]
     steps:
       - uses: actions/checkout@v3
       # Install Dependenices

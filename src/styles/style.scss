@@ -12,11 +12,9 @@
   --text-dark: white;
   --text-light: black;
   --footer-hover: white;
+  --footer-color2: rgba(22, 31, 46, 0.75);
   --background-image-dark: url('./background_dark.webp');
   --background-image-light: url('./background_light.webp');
-  --footer-color: black;
-  --footer-color2: rgb(27, 27, 27);
-  --footer-text-color: white;
 }
 
 /* Apply the variables based on the theme */
@@ -26,7 +24,6 @@
   --text: var(--text-dark);
   --background-image: var(--background-image-dark);
   --footer-color: black;
-  --footer-color2: rgb(34, 34, 34);
   --footer-text-color: white;
 }
 
@@ -35,9 +32,8 @@
   --navBar-Items: var(--navBar-Items-light);
   --text: var(--text-light);
   --background-image: var(--background-image-light);
-  --footer-color: white;
-  --footer-color2: rgb(34, 34, 34);
-  --footer-text-color: black;
+  --footer-color: rgba(255, 255, 255, 0.5);
+  --footer-text-color: rgb(0, 0, 0);
 }
 
 * {
@@ -195,15 +191,15 @@ header {
 }
 
 .box {
-  width: 50%;
-  height: 100%;
-  background-color: rgb(0 0 0 / 35.9%);
+  width: 60vh;
+  height: 20vh;
+  background-color: var(--nav-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1%;
-  padding: 10px;
-  margin: 0 auto; /* centers the box horizontally */
+  border-radius: 10px;
+  margin-top: 20%;
+  margin-left: 30%;
 
   text-container {
     display: flex;

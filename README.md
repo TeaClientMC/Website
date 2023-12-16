@@ -1,7 +1,8 @@
-<h1 align="center">TeaClient Offical Website</h1>
+<h3 align="center">TeaClient Offical Website</h3>
+<p align="center">A website for an open-sourced client</p>
 
-A website for an open-sourced client
-<br>
+---
+
 [![Deploy Website](https://github.com/TeaClientMC/Website/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/TeaClientMC/Website/actions/workflows/deploy.yml)
 
 <img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/profile/dividers.png">

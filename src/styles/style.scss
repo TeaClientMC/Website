@@ -12,7 +12,7 @@
   --text-dark: white;
   --text-light: black;
   --footer-hover: white;
-  --footer-color2: rgba(22, 31, 46, 0.75);
+  --footer-color2: rgb(22 31 46 / 75%);
   --background-image-dark: url('./background_dark.webp');
   --background-image-light: url('./background_light.webp');
 }
@@ -32,8 +32,8 @@
   --navBar-Items: var(--navBar-Items-light);
   --text: var(--text-light);
   --background-image: var(--background-image-light);
-  --footer-color: rgba(255, 255, 255, 0.5);
-  --footer-text-color: rgb(0, 0, 0);
+  --footer-color: rgb(255 255 255 / 50%);
+  --footer-text-color: rgb(0 0 0);
 }
 
 * {
@@ -199,6 +199,7 @@ header {
   border-radius: 10px;
   margin-top: 20%;
   margin-left: 30%;
+
   @apply sm:ml-1 sm:w-3/4 md:-mr-[50%];
 
   text-container {

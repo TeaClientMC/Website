@@ -60,7 +60,7 @@ jobs:
 
   # ---------------------------------------------------------------------
 
-  # Linting - StyleLint + ESLint 
+  # Linting - StyleLint + ESLint
 
   Linting:
     runs-on: ubuntu-latest
@@ -79,7 +79,7 @@ jobs:
 
   # ---------------------------------------------------------------------
 
-  # Formating - Prettier 
+  # Formating - Prettier
 
   Formating:
     runs-on: ubuntu-latest
@@ -93,7 +93,7 @@ jobs:
         run: bun install > log.txt 2>&1 || exit 1
 
       - name: Run bun fmt
-        run: bun fmt >> log.txt 2>&1 || exit 1
+        run: bun fmt >> log.txt 2>&1
 
       - name: Upload log
         uses: actions/upload-artifact@v2
@@ -115,12 +115,12 @@ jobs:
       - name: Install required dependencies
         uses: oven-sh/setup-bun@v1
         with:
-         bun-version: latest
-        
+          bun-version: latest
+
       - name: Install packages
-        run: | 
-         bun install
-        
+        run: |
+          bun install
+
       - name: Print versions
         run: |
           bun --version
@@ -138,9 +138,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: bunx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
-
   # ---------------------------------------------------------------------
-
 
   # Building the website
   Build:

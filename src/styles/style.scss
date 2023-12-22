@@ -191,8 +191,7 @@ header {
 }
 
 .box {
-  width: 60vh;
-  height: 20vh;
+  width: 50vh;
   background-color: var(--nav-color);
   display: flex;
   justify-content: center;
@@ -200,6 +199,7 @@ header {
   border-radius: 10px;
   margin-top: 20%;
   margin-left: 30%;
+  @apply sm:ml-1 sm:w-3/4 md:-mr-[50%];
 
   text-container {
     display: flex;

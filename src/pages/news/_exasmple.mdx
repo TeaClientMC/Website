@@ -1,0 +1,21 @@
+---
+layout: '../../layouts/news.astro'
+title: 'Example'
+date: '2000-02-02'
+author: 'Eveeifyeve'
+githubUsername: 'Eveeifyeve'
+---
+
+# {frontmatter.title}
+
+<div class="flex items-center space-x-2 p-4">
+  Posted on {frontmatter.date} by
+  <div class="flex items-center">
+    <img
+      class="w-8 h-8 rounded-full"
+      src={`https://github.com/${frontmatter.githubUsername}.png`}
+      alt={`${frontmatter.author}'s GitHub Profile Picture`}
+    />
+    {frontmatter.author}
+  </div>
+</div>

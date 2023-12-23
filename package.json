@@ -11,7 +11,7 @@
     "fmt": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.19.7",
+    "@astrojs/mdx": "^2.0.2",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/tailwind": "^5.0.2",
     "@astrojs/ts-plugin": "^1.3.1",

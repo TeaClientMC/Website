@@ -52,13 +52,17 @@
   }
 }
 
-a,
+a {
+  color: lightgray;
+  text-decoration: underline;
+}
 p {
   color: white;
 }
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;

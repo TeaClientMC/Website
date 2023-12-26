@@ -9,22 +9,57 @@ import Layout from "../layouts/layout.astro";
   border-radius: 20px;
   backdrop-filter: blur(10px); 
   padding: 20px;
-  width: 300px;
+  margin: 10px;
   text-align: center;
+  justify-content: center;
 }
 
 .download-button {
   background-color: #b700ff;
   color: white;
   padding: 10px 20px;
-  border-radius: 5px;
   border: none;
   cursor: pointer;
+  text-align: center;
+  justify-content: center;
+}
+
+.notes-button {
+  background-color: #c447f5;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+}
+
+h1 {
+  padding-top: 10%;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  justify-content: center;
+}
+
+
+p {
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  justify-content: center;
 }
 </style>
 
 
 
 <Layout>
-    
+  <h1>TeaClient Downloads</h1>
+  <p>Download the latest version of TeaClient here!</p>
+  <div class="download-box">
+    TeaClient latest release
+    <button class="download-button" href="/teaclient.exe">Download</button>
+    <button class="notes-button" href="/relnotes">Release notes</button>
+
+  </div>
 </Layout>

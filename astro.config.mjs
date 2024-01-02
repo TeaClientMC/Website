@@ -9,5 +9,8 @@ export default defineConfig({
     port: 7053
   },
   integrations: [mdx(), tailwind()],
-  experimental: {}
+  experimental: {},
+  redirects: {
+    '/discord': 'https://discord.gg/ejFTe4Hfnc'
+  }
 });

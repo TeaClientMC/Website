@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "astro": "astro",
+    "check": "prettier --check . && stylelint 'src/styles/**/*.scss'",
     "lint:css": "stylelint 'src/styles/**/*.scss' --fix",
     "fmt": "prettier --write ."
   },

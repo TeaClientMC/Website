@@ -5,9 +5,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  # Linting - StyleLint + ESLint
 
-  Linting:
+  # Stylelint + Prettier
+
+  Checks:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -17,44 +18,21 @@ jobs:
         uses: oven-sh/setup-bun@v1
 
       - name: Install dependencies
-        run: bun install >> lint_log.txt 2>&1
+        run: bun install >> install.txt 2>&1
 
-      - name: Run Stylelint
-        run: bun run lint:css >> lint_log.txt 2>&1
+      - name: Run Linting + Formating checks
+        run: bun run lint:css >> checks.txt 2>&1
 
-      - name: Run linting checks
-        run: bun run lint >> lint_log.txt 2>&1
-
-      - name: Upload log
+      - name: Upload checks log
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: prettier(fmt)
-          path: lint_log.txt
+          name: Checks
+          path: checks.txt
 
-  # ---------------------------------------------------------------------
-
-  # Formating - Prettier
-
-  Formating:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-
-      - name: Install dependencies
-        run: bun install > fmt_log.txt 2>&1 || exit 1
-
-      - name: Run bun fmt
-        run: bun fmt >> fmt_log.txt 2>&1
-
-      - name: Upload log
+      - name: Upload install log
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: prettier(fmt)
-          path: fmt_log.txt
-
-  # ---------------------------------------------------------------------
+          name: Install Log
+          path: install.txt

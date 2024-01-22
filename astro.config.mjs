@@ -6,11 +6,11 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://teaclient.net',
   server: {
-    port: 7053
+    port: 7053,
   },
   integrations: [mdx(), tailwind()],
   experimental: {},
   redirects: {
-    '/discord': 'https://discord.gg/ejFTe4Hfnc'
-  }
+    '/discord': 'https://discord.gg/ejFTe4Hfnc',
+  },
 });

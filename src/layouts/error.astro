@@ -3,23 +3,19 @@
 const { Number, Message } = Astro.props.frontmatter || Astro.props;
 
 // Components
-import Head from '../components/shared/head.astro'
-import Header from '../components/shared/header.astro'
-import Footer from '../components/shared/footer.astro'
+import Head from '../components/shared/head.astro';
+import Header from '../components/shared/header.astro';
+import Footer from '../components/shared/footer.astro';
 
 // Styles
-import '../styles/style.scss'
+import '../styles/style.scss';
 ---
 
-
-
-
-
-<Head/>
-<Header/>
+<Head />
+<Header />
 <div class="error">
-    <h1>{Number}</h1>
-    <p>{Message}</p>
-    <a href="/">Back to Home Page</a>
+  <h1>{Number}</h1>
+  <p>{Message}</p>
+  <a href="/">Back to Home Page</a>
 </div>
-<Footer/>
+<Footer />

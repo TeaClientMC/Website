@@ -1,105 +1,88 @@
 <footer>
-    <div class="footer-content">
-        <h3>Tea Client</h3>
-    </div>
-    <div class="footerNav">
-            <a href="/">Home</a>
-            <a href="/about">About Us</a>
-            <a href="/contact">Contact Us</a>
-             <a href="/terms">Terms of Service</a>
-            <a href="/privacy">Privacy Policy</a>
-    </div>
-    <div class="footer-bottom">
-        <p>Copyright &copy; 2023 TeaClient</p>
-        <p id="affiliation">Not affiliated with Mojang Studios</p>
-    </div>
+  <div class="footer-content">
+    <h3>Tea Client</h3>
+  </div>
+  <div class="footerNav">
+    <a href="/">Home</a>
+    <a href="/about">About Us</a>
+    <a href="/contact">Contact Us</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="/privacy">Privacy Policy</a>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright &copy; 2023 TeaClient</p>
+    <p id="affiliation">Not affiliated with Mojang Studios</p>
+  </div>
 </footer>
 
-
-
-
-
 <style type="text/sass">
-footer {
-  background: var(--footer-color2);
-  height: auto;
-  width: 100%;
-  padding-top: 40px;
-  color: #fff;
-  top: 100%;
-  position: absolute;
-  
-  .footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-  }
+  footer {
+    background: var(--footer-color2);
+    height: auto;
+    width: 100%;
+    padding-top: 40px;
+    color: #fff;
+    top: 100%;
+    position: absolute;
 
-
-
-  .socials {
-    display: flex;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-  }
-
-
-
-  /* footer navigation */
-
-
-  .footerNav {
-    display: flex;
-    justify-content: center;
-
-    a {
-      color: rgb(137, 137, 137);
-      margin: 20px;
-      text-decoration: none;
-      font-size: 1.3rem;
-      transition: 0.5s;
+    .footer-content {
       display: flex;
-      margin-right: 20px;
-      transition: 0.5s;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
 
-      &:hover {
-        color: var(--footer-hover)
+    .socials {
+      display: flex;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+    }
+
+    /* footer navigation */
+
+    .footerNav {
+      display: flex;
+      justify-content: center;
+
+      a {
+        color: rgb(137, 137, 137);
+        margin: 20px;
+        text-decoration: none;
+        font-size: 1.3rem;
+        transition: 0.5s;
+        display: flex;
+        margin-right: 20px;
+        transition: 0.5s;
+
+        &:hover {
+          color: var(--footer-hover);
+        }
       }
     }
 
+    /* footer bottom */
+    .footer-bottom {
+      overflow: auto;
+      background: var(--footer-color);
+      border-top: yellow;
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
 
+      p {
+        margin-left: 20px;
+        float: left;
+        font-size: 14px;
+        word-spacing: 2px;
+        color: var(--footer-text-color);
+      }
 
-  }
-
-
-  /* footer bottom */
-  .footer-bottom {
-    overflow: auto;
-    background: var(--footer-color);
-    border-top: yellow;
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-
-
-    p {
-      margin-left: 20px;
-      float: left;
-      font-size: 14px;
-      word-spacing: 2px;
-      color: var(--footer-text-color);
+      #affiliation {
+        margin-right: 20px;
+        float: right;
+      }
     }
-
-
-    #affiliation {
-      margin-right: 20px;
-      float: right;
-    }
-
-
   }
-}
 </style>

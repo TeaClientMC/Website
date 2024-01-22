@@ -1,42 +1,53 @@
 ---
-import { SEO } from "astro-seo";
+import { SEO } from 'astro-seo';
 ---
 
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <SEO
-  title="Tea Client"
-  description = "A Opensourced Minecraft Client"
-  twitter={{
-    creator: "@TeaClientMC"
-  }}
-
-extend={{
-    // extending the default link tags
-    link: [{ rel: "icon", href: "/Favicon.webp" }],
-    // extending the default meta tags
-    meta: [
-      {
-        name: "twitter:image",
-        content: "/screenshot.webp",
-      },
-      { name: "twitter:card", content: "screenshot.webp" },
-      { name: "twitter:title", content: "TeaClient Website" },
-      { name: "twitter:description", content: "The website to an opensourced client" },
-    ],
-  }}
-  />
-    <meta name="viewport" content="width=device-1200px, initial-scale=1.0, shrink-to-fit=yes, viewport-fit=cover">
-    <meta name="darkreader-lock">
+      title="Tea Client"
+      description="A Opensourced Minecraft Client"
+      twitter={{
+        creator: '@TeaClientMC',
+      }}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: 'icon', href: '/Favicon.webp' }],
+        // extending the default meta tags
+        meta: [
+          {
+            name: 'twitter:image',
+            content: '/screenshot.webp',
+          },
+          { name: 'twitter:card', content: 'screenshot.webp' },
+          { name: 'twitter:title', content: 'TeaClient Website' },
+          {
+            name: 'twitter:description',
+            content: 'The website to an opensourced client',
+          },
+        ],
+      }}
+    />
+    <meta
+      name="viewport"
+      content="width=device-1200px, initial-scale=1.0, shrink-to-fit=yes, viewport-fit=cover"
+    />
+    <meta name="darkreader-lock" />
     <meta property="og:image" content="/screenshot.webp" />
-    <link rel="icon" type="image/x-icon" href="/Favicon.webp">
-    <link rel="apple-touch-icon" href="/Favicon.webp">
-    <meta charset="UTF-8">
-    <script defer data-domain="teaclient.net" src="https://plausible.sudovanilla.com/js/script.js"></script>
+    <link rel="icon" type="image/x-icon" href="/Favicon.webp" />
+    <link rel="apple-touch-icon" href="/Favicon.webp" />
+    <meta charset="UTF-8" />
+    <script
+      defer
+      data-domain="teaclient.net"
+      src="https://plausible.sudovanilla.com/js/script.js"></script>
 
-    <meta http-equiv="ContentSecurityPolicy" content="Content-Security-Policy: default-src 'none';  script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self' https://cdn.cloudflare.com;">
+    <meta
+      http-equiv="ContentSecurityPolicy"
+      content="Content-Security-Policy: default-src 'none';  script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self' https://cdn.cloudflare.com;"
+    />
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://kit.fontawesome.com/4f8b78da11.css" crossorigin="anonymous"> -->
-</head>
+  </head>
+</html>

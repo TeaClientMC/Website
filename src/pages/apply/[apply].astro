@@ -3,24 +3,37 @@ import Layout from '../../layouts/layout.astro';
 const { apply } = Astro.params;
 
 export async function getStaticPaths() {
-  return [
-    { params: { apply: 'staff' } },
-    { params: { apply: 'team' } },
-  ];
+  return [{ params: { apply: 'staff' } }, { params: { apply: 'team' } }];
 }
 ---
-<Layout>
-  {apply === 'staff' ? (
-   <div>Closed Application, Currently in the process of remaking.</div>
-   <a href="/apply">Go Back</a>
-  ) : apply === 'team' ? (
-  <div class="box" style="position: relative;">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfy0okWtCh1xMZ5YOrQYD-PYKLog3SzAUEYIfvsIE418pdiDA/viewform?embedded=true" width="640" height="1445" class="bg-transparent" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    <br/>
-    <a href="/apply" style="position: absolute; bottom: 20px; right: 20px;">Go Back</a>
-</div>
 
-  ) : (
-    <h1>Invalid application type</h1>
-  )}
+<Layout>
+  {
+    apply === 'staff' ? (
+      <>
+        <div>Closed Application, Currently in the process of remaking.</div>
+        <a href="/apply">Go Back</a>
+      </>
+    ) : apply === 'team' ? (
+      <div class="box" style="position: relative;">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfy0okWtCh1xMZ5YOrQYD-PYKLog3SzAUEYIfvsIE418pdiDA/viewform?embedded=true"
+          width="640"
+          height="1445"
+          class="bg-transparent"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+        >
+          Loading…
+        </iframe>
+        <br />
+        <a href="/apply" style="position: absolute; bottom: 20px; right: 20px;">
+          Go Back
+        </a>
+      </div>
+    ) : (
+      <h1>Invalid application type</h1>
+    )
+  }
 </Layout>

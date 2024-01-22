@@ -5,10 +5,14 @@ const { buttonText, src, screenshot } = Astro.props;
 
 <div class="download-box">
   <section class="screenshots">
-    <img src={screenshot} width="128" height="128" alt="Screenshot of the file" />
+    <img
+      src={screenshot}
+      width="128"
+      height="128"
+      alt="Screenshot of the file"
+    />
   </section>
   <a href={src} download>
     <button class="download-button">{buttonText}</button>
   </a>
 </div>
-

@@ -2,12 +2,24 @@
 import Layout from '../layouts/layout.astro';
 import { Image } from 'astro:assets';
 import Logo from '/public/Favicon.webp';
+import DiscordSVG from '@assets/svgs/Discord.svg';
+import GithubSVG from "@assets/svgs/Github.svg";
+
 ---
 
 <Layout>
   <div class="box">
     <div class="logo-text-container">
-      <a class="SocialText">TeaClient Socials</a>
+      <a class="SocialText no-underline">TeaClient Socials</a>
+      <br/>
+      <a class="flex justify-between gap-3 text-indigo-500 no-underline">
+        <Image width={32} height={32} src={DiscordSVG} alt='Discord Logo'/>
+        Our Discord
+       </a>
+       <a class="github flex justify-between gap-3 no-underline">
+        <Image width={32} height={32} src={GithubSVG} alt='Discord Logo'/>
+        Our Github
+       </a>
     </div>
   </div>
 </Layout>
@@ -28,6 +40,10 @@ import Logo from '/public/Favicon.webp';
   .SocialText {
     padding-top: 10px;
     color: white;
+  }
+
+  .github {
+    color: var(--navBar-Items);
   }
 
   .box {

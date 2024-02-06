@@ -18,6 +18,7 @@ export default defineConfig({
   experimental: {},
   redirects: {
     '/discord': 'https://discord.gg/ejFTe4Hfnc'
+    '/klaas': 'https://klaas.tiiny.site/',
   },
   vite: {
     resolve: {

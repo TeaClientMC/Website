@@ -1,0 +1,28 @@
+---
+// Components
+import Head from '../components/shared/head.astro';
+import Header from '../components/shared/header.astro';
+import Footer from '../components/shared/footer.astro';
+
+// Styles
+import '../styles/style.scss';
+---
+<!--/*Document containing Terms of Service, Privacy Policy, and other legal documents */ -->
+
+
+<script src="../scripts/webvitals.ts"></script>
+
+<Head />
+<Header />
+<!-- Content -->
+<slot />
+<!--Footer -->
+<Footer />
+
+
+
+<style>
+    .h1 {
+        @apply text-white font-bold text-xl;
+    }
+</style>

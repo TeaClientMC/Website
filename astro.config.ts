@@ -17,8 +17,8 @@ export default defineConfig({
   integrations: [mdx(), tailwind(), metaTags()],
   experimental: {},
   redirects: {
-    '/discord': 'https://discord.gg/ejFTe4Hfnc'
-    '/klaas': 'https://klaas.tiiny.site/',
+    '/discord': 'https://discord.gg/ejFTe4Hfnc',
+    '/klaas': 'https://klaas.tiiny.site/'
   },
   vite: {
     resolve: {

@@ -170,12 +170,8 @@ header {
 // Error Page Section
 
 .error {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  @apply flex flex-col text-center;
   color: var(--text);
-  text-align: center;
-  transform: translate(-50%, -50%);
   line-height: 50px;
 
   h1 {

@@ -1,7 +1,3 @@
-// ----------------------------------------------------------
-
-// Root(*) main stuff.
-
 :root {
   /* Define the variables for both themes here */
   --nav-color-dark: rgb(0 0 0 / 50%);
@@ -76,8 +72,6 @@ body {
   max-width: 1200px;
 }
 
-// ----------------------------------------------------------
-
 /* scrollbar */
 
 ::-webkit-scrollbar {
@@ -102,7 +96,6 @@ img#logo:hover {
     brightness(87%) contrast(114%);
 }
 
-// ----------------------------------------------------------
 
 /* header */
 
@@ -138,8 +131,6 @@ header {
     text-decoration: underline;
   }
 }
-
-// ----------------------------------------------------------
 
 // Error Page Section
 

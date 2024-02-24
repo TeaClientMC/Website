@@ -27,8 +27,8 @@ import { Image } from 'astro:assets';
   </label>
   <ul class="menu flex flex-row list-none m-0 p-0 *:mx-4 *:overflow-hidden">
     <li>
-      <input type="checkbox" class="checkbox" id="checkbox" />
-      <label for="checkbox" class="checkbox-label" aria-label="Toggle theme">
+      <input type="checkbox" class="absolute opacity-0" id="checkbox" />
+      <label for="checkbox" class="checkbox-label bg-[#2e2e2e] w-[50px] h-[26px] rounded-[50px] relative p-[5px] cursor-pointer flex justify-between items-center" aria-label="Toggle theme">
         <i class="fas text-[f1c40f]"></i>
         <i class="fas text-[#f39c12]"></i>
         <span class="ball"></span>
@@ -152,21 +152,10 @@ import { Image } from 'astro:assets';
   }
 
   .menu li button {
-    @apply text-white bg-[#6e2becab] no-underline font-bold;
+    @apply text-white bg-[#6e2becab] no-underline font-bold hover:text-white hover:bg-[var(--hover-color)];
     font-size: 1.1rem;
-
-    &:hover {
-      @apply text-white bg-[var(--hover-color)] no-underline font-bold;
-    }
   }
 
-  .checkbox {
-    @apply absolute opacity-0;
-  }
-
-  .checkbox-label {
-    @apply bg-[#2e2e2e] w-[50px] h-[26px] rounded-[50px] relative p-[5px] cursor-pointer flex justify-between items-center;
-  }
 
   .checkbox-label .ball {
     @apply absolute left-[2px] top-[2px] rounded-[50%] bg-orange-400 aspect-square w-[22px] drop-shadow-[0px_0px_4px_yellow];

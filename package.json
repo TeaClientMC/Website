@@ -1,5 +1,5 @@
 {
-  "name": "square-solstice",
+  "name": "teaclient-website",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -18,10 +18,15 @@
     "@popperjs/core": "^2.11.8",
     "@types/bootstrap": "^5.2.9",
     "astro-bootstrap": "^0.6.1",
+    "astro-meta-tags": "^0.2.1",
     "astro-seo": "^0.8.0",
+    "axios": "^1.6.5",
     "bootstrap": "^5.3.2",
+    "markdown-it": "^14.0.0",
+    "marked": "^11.1.1",
     "puppeteer": "^21.4.1",
     "sass": "^1.67.0",
+    "showdown": "^2.1.0",
     "tailwindcss": "^3.0.24",
     "three": "^0.158.0",
     "web-vitals": "^3.5.0"
@@ -32,7 +37,7 @@
     "@commitlint/config-conventional": "^18.4.3",
     "@types/node": "^20.8.3",
     "@types/three": "^0.158.2",
-    "astro": "^3.4.0",
+    "astro": "^4.2.3",
     "daisyui": "latest",
     "husky": "^8.0.3",
     "postcss-scss": "^4.0.9",

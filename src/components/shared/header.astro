@@ -5,30 +5,30 @@ import { Image } from "astro:assets";
 <script src="../../scripts/modeSwitching.ts"/>
 
 
-    <section class="top-nav">
-      <div class="logo-section">
+    <section class="top-nav flex flex-row items-center justify-between text-white h-[90px] p-[0.7rem]">
+      <div class="flex flex-row items-center justify-center">
         <a href="/">
         <Image src="/icon.webp" width="96" height="96" alt="TeaClient Logo" loading="lazy" id="logo"></Image>
     </a>    
     <a href="/" id="title">Tea Client</a></div>
-            <!-- <a href="/"><img id="logo" src="/logo_white.svg"></a> -->
         </div>
-    <input id="menu-toggle" type="checkbox" />
-    <label class='menu-button-container' for="menu-toggle">
+    <input id="menu-toggle" class="hidden" type="checkbox" />
+    <label class='menu-button-container hidden h-[100%] w-[30px] justify-center flex-col cursor-pointer items-center' for="menu-toggle">
     <div class='menu-button'></div>
   </label>
-    <ul class="menu">
+    <ul class="menu flex flex-row list-none m-0 p-0">
 <li>
   <input type="checkbox" class="checkbox" id="checkbox">
-  <label for="checkbox" class="checkbox-label">
+  <label for="checkbox" class="checkbox-label" >
     <i class="fas fa-moon"></i>
     <i class="fas fa-sun"></i>
     <span class="ball"></span>
+    <span class="sr-only absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden border-0">Toggle theme</span>
   </label>
 </li>
                 <li><a href="/">HOME</a></li>
                 <li><a href="/download/">DOWNLOADS</a></li>
-                <!-- <li><a href="/store">STORE</a></li> -->
+                <li><a href="/store">STORE</a></li>
                 <li>
                     <a href="/socials">SOCIALS</a>
                     <!-- Arrow: &#9662; -->
@@ -51,98 +51,62 @@ import { Image } from "astro:assets";
         
 <style>
 .top-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   background: var(--nav-color);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #FFF;
-  height: 90px;
-  padding: 0.7rem;
 }
 
-.menu {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
+/* Menu Links */
 .menu > li {
-  margin: 0 1rem;
-  overflow: hidden;
+  @apply mx-4 overflow-hidden;
 }
 
-.menu-button-container {
-  display: none;
-  height: 100%;
-  width: 30px;
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.sr-only {
+  clip: rect(0,0,0,0);
 }
 
-#menu-toggle {
-  display: none;
-}
 
+/* Mobile Button */
 .menu-button,
 .menu-button::before,
 .menu-button::after {
-  display: block;
-  background-color: #fff;
-  position: absolute;
-  height: 4px;
-  width: 30px;
+  @apply block bg-white absolute h-[4px] w-[30px] rounded-sm;
   transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-  border-radius: 2px;
 }
 
 .menu-button::before {
+  @apply mt-[-8px];
   content: '';
-  margin-top: -8px;
 }
 
 .menu-button::after {
+  @apply mt-[8px];
   content: '';
-  margin-top: 8px;
 }
 
+
+
 #menu-toggle:checked + .menu-button-container .menu-button::before {
-  margin-top: 0px;
+  @apply mt-0;
   transform: rotate(405deg);
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button {
-  background: rgba(255, 255, 255, 0);
+  @apply bg-[#ffffff00];
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button::after {
-  margin-top: 0px;
+  @apply mt-0;
   transform: rotate(-405deg);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .menu-button-container {
-    display: flex;
+    @apply flex;
   }
   .menu {
-    position: absolute;
-    top: 0;
-    margin-top: 90px;
-    left: 0;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    @apply absolute top-0 mt-[90px] left-0 flex-col w-[100%] justify-center items-center;
   }
   #menu-toggle ~ .menu li {
-    height: 0;
-    margin: 0;
-    padding: 0;
+    @apply h-0 m-0 p-0;
     border: 0;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
@@ -190,12 +154,6 @@ import { Image } from "astro:assets";
       }
     }
 
-    .logo-section {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: left;
-    }
 
 
 

@@ -14,106 +14,36 @@ on:
   workflow_dispatch:
 
 jobs:
-  #Screenshot of website
 
-  # screenshot:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v3
-  #       with:
-  #        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #        persist-credentials: true
 
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '20' # or any version you prefer
-
-  #     - name: Install dependencies
-  #       run: npm install
-
-  #     - name: Run server
-  #       run: |
-  #         npm run start &
-  #         echo "NODE_PID=$!" >> $GITHUB_ENV
-  #         sleep 6 # give the server some time to start
-
-  #     - name: Install bun
-  #       run: npm install -g bun
-
-  #     - name: Take screenshot
-  #       run: |
-  #        npm run screenshot
-
-  #     - name: Stop server
-  #       run: kill ${{ env.NODE_PID }} # this will kill the process started by npm start
-
-  #     - name: Commit and push if it changed
-  #     run: |
-  #      git config --global user.name 'Your Name'
-  #      git config --global user.email 'your-username@users.noreply.github.com'
-  #      git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-  #      git checkout "${GITHUB_REF:11}"
-  #      git commit -am "Automated Screenshot"
-  #      git push
-
-  # ---------------------------------------------------------------------
-
-  # Linting - StyleLint + ESLint
-
-  Linting:
+  Quality:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-
-      - name: Install dependencies
-        run: bun install
-
-      - name: Run Stylelint
-        run: bun run lint:css
-
-  # ---------------------------------------------------------------------
-
-  # Formating - Prettier
-
-  Formating:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-
-      - name: Install dependencies
-        run: bun install > log.txt 2>&1 || exit 1
-
-      - name: Run bun fmt
-        run: bun fmt >> log.txt 2>&1
-
-      - name: Upload log
-        uses: actions/upload-artifact@v2
-        if: always()
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
         with:
-          name: prettier(fmt)
-          path: log.txt
+          version: latest
+      - name: Run Biome
+        run: biome ci .
 
-  # ---------------------------------------------------------------------
+      - uses: oven-sh/setup-bun@v1
+        with: 
+          bun-version: latest
 
-  # CommitLinting - Convertential Commits
+      - name: Check Stylint
+        run: bunx stylint "'src/styles/**/*.scss'"
 
-  CommitLint:
+
+
+  CommitQuality:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Install required dependencies
-        uses: oven-sh/setup-bun@v1
+      - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
 
@@ -138,17 +68,41 @@ jobs:
         if: github.event_name == 'pull_request'
         run: bunx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
-  # ---------------------------------------------------------------------
 
-  # Building the website
   Build:
     runs-on: self-hosted
-    needs: [Linting, Formating, CommitLint]
+    needs: [Quality, CommitQuality]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # Install Dependenices
       - run: bun install
       # Build Website
       - run: bun run build
       # Add to NGINX
       - run: mv dist/ teaclientmc/
+
+
+  BuildGithubDocker:
+      runs-on: ubuntu-latest
+      needs: [Quality, CommitQuality]
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+    
+        - name: Set up Docker Buildx
+          uses: docker/setup-buildx-action@v1
+    
+        - name: Login to GitHub Container Registry
+          uses: docker/login-action@v1
+          with:
+            registry: ghcr.io
+            username: ${{ github.repository_owner }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+    
+        - name: Build and push Docker image
+          uses: docker/build-push-action@v2
+          with:
+            context: .
+            file: ./Dockerfile
+            push: true
+            tags: ghcr.io/${{ github.repository_owner }}/your-image-name:latest

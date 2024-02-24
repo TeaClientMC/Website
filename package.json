@@ -9,6 +9,7 @@
     "astro": "astro",
     "lint": "bunx @biomejs/biome check --apply . && stylelint 'src/styles/**/*.scss' --fix",
     "fmt": "bunx @biomejs/biome format . --write",
+    "stylelint": "stylelint 'src/styles/**/*.scss'",
     "check": "bunx @biomejs/biome check && stylelint 'src/styles/**/*.scss'",
     "postinstall": "husky install"
   },

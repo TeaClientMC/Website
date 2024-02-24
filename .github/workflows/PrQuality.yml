@@ -27,8 +27,8 @@ jobs:
             run: bun install
 
 
-          - name: Check Stylint
-            run: bun stylint 'src/styles/**/*.scss'
+          - name: Check stylelint
+            run: bun stylelint
     
        
     CommitQuality:

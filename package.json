@@ -8,8 +8,9 @@
     "build": "astro build",
     "astro": "astro",
     "lint": "biome lint && stylelint 'src/styles/**/*.scss' --fix",
-    "fmt": "biome format",
-    "check": "biome check && stylelint 'src/styles/**/*.scss'"
+    "fmt": "bunx @biomejs/biome format .",
+    "check": "biome check && stylelint 'src/styles/**/*.scss'",
+    "postinstall": "husky install"
   },
   "stylelint": {
     "extends": "stylelint-config-standard",

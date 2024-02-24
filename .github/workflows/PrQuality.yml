@@ -38,21 +38,23 @@ jobs:
 
       - name: Install packages
         run: |
-          bun install || true
+          bun install || echo "Warning: Failed to install packages"
 
       - name: Print versions
         run: |
-          bun --version || true
-          bunx commitlint --version || true
+          bun --version || echo "Warning: Failed to print bun version"
+          bunx commitlint --version || echo "Warning: Failed to print commitlint version"
       - name: Install commitlint
         run: |
-          bun install conventional-changelog-conventionalcommits || true
-          bun install commitlint@latest || true
+          bun install conventional-changelog-conventionalcommits || echo "Warning: Failed to install conventional-changelog-conventionalcommits"
+          bun install commitlint@latest || echo "Warning: Failed to install commitlint"
 
       - name: Validate current commit (last commit) with commitlint
         if: github.event_name == 'push'
-        run: bunx commitlint --from HEAD~1 --to HEAD --verbose || true
+        run: |
+          bunx commitlint --from HEAD~1 --to HEAD --verbose || echo "Warning: Commitlint validation failed for the last commit"
 
       - name: Validate PR commits with commitlint
         if: github.event_name == 'pull_request'
-        run: bunx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose || true
+        run: |
+          bunx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose || echo "Warning: Commitlint validation failed for PR commits"

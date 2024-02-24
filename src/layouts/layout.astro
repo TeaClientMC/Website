@@ -8,9 +8,17 @@ import Footer from '../components/shared/footer.astro';
 import '../styles/style.scss';
 ---
 
+
 <Head />
 <Header />
-<div class="container flex text-white">
+<div class={`container flex text-white ${Astro.props.class}`}>
     <slot />
 </div>
 <Footer />
+
+
+<style>
+    .mdx {
+            @apply text-blue-600;
+    }
+</style>

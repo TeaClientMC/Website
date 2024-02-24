@@ -27,7 +27,7 @@ import { Image } from 'astro:assets';
   </label>
   <ul class="menu flex flex-row list-none m-0 p-0 *:mx-4 *:overflow-hidden">
     <li>
-      <input type="checkbox" class="absolute opacity-0" id="checkbox" />
+      <input type="checkbox" class="checkbox absolute opacity-0" id="checkbox" />
       <label for="checkbox" class="checkbox-label bg-[#2e2e2e] w-[50px] h-[26px] rounded-[50px] relative p-[5px] cursor-pointer flex justify-between items-center" aria-label="Toggle theme">
         <i class="fas text-[f1c40f]"></i>
         <i class="fas text-[#f39c12]"></i>
@@ -41,6 +41,7 @@ import { Image } from 'astro:assets';
     <li><a href="/">HOME</a></li>
     <li><a href="/store">STORE</a></li>
     <li><a href="/docs">DOCS</a></li>
+    <li><a href="/news">NEWS</a></li>
     <li><button>DOWNLOAD</button></li>
   </ul>
 </section>
@@ -57,11 +58,10 @@ import { Image } from 'astro:assets';
 </div>
 
 <script>
-  const button = document.querySelector('.checkbox') as HTMLInputElement;
-
   function switchTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const button = document.querySelector('.checkbox') as HTMLInputElement;
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     button.checked = newTheme === 'dark';
@@ -76,6 +76,7 @@ import { Image } from 'astro:assets';
 
   document.addEventListener('DOMContentLoaded', event => {
     const currentTheme = localStorage.getItem('theme');
+    const button = document.querySelector('.checkbox') as HTMLInputElement;
     if (currentTheme) {
       document.documentElement.setAttribute('data-theme', currentTheme);
       button.checked = currentTheme === 'dark';
@@ -87,6 +88,7 @@ import { Image } from 'astro:assets';
     setRandomBackgroundImage();
   });
 
+  const button = document.querySelector('.checkbox') as HTMLInputElement;
   button.addEventListener('click', switchTheme);
 </script>
 
@@ -104,7 +106,8 @@ import { Image } from 'astro:assets';
   }
 
   #menu-toggle:checked + .menu-button-container .menu-button::after {
-    @apply mt-0 rotate-[-405deg];
+    @apply mt-0;
+    transform: rotate(-405deg);
   }
 
   @media (max-width: 1400px) {
@@ -129,7 +132,7 @@ import { Image } from 'astro:assets';
     }
 
     #menu-toggle:checked ~ .menu > li a {
-      @apply text-black bg-[#0000001a];
+      @apply bg-[#0000001a];
       &:hover {
         @apply bg-[#0000006a] text-white;
       }

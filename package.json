@@ -10,6 +10,30 @@
     "lint:css": "stylelint 'src/styles/**/*.scss' --fix",
     "fmt": "prettier --write ."
   },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "arrowParens": "avoid",
+    "plugins": [
+      "prettier-plugin-astro",
+      "stylelint-prettier",
+      "prettier-plugin-astro"
+    ],
+    "overrides": [
+      {
+        "files": "*.astro",
+        "options": {
+          "parser": "astro"
+        }
+      }
+    ]
+  },
   "dependencies": {
     "@astrojs/mdx": "^2.0.2",
     "@astrojs/rss": "^3.0.0",

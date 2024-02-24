@@ -3,6 +3,7 @@
 import Head from '../components/shared/head.astro';
 import Header from '../components/shared/header.astro';
 import Footer from '../components/shared/footer.astro';
+import {twMerge} from "tailwind-merge"
 
 // Styles
 import '../styles/style.scss';
@@ -11,7 +12,7 @@ import '../styles/style.scss';
 
 <Head />
 <Header />
-<div class={`container flex text-white ${Astro.props.class}`}>
+<div class={twMerge(`container flex text-white bg-[var(--nav-color)]  ${Astro.props.class}`)}>
     <slot />
 </div>
 <Footer />

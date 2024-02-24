@@ -19,4 +19,4 @@ RUN bun build
 EXPOSE 7053
 
 # Start the app
-CMD [ "bun", "start" ]
+CMD [ "bun", "preview" ]

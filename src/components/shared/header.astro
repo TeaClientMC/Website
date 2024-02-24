@@ -58,6 +58,7 @@ import { Image } from 'astro:assets';
 </div>
 
 <script>
+
   function switchTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -132,7 +133,7 @@ import { Image } from 'astro:assets';
     }
 
     #menu-toggle:checked ~ .menu > li a {
-      @apply bg-[#0000001a];
+      @apply text-black bg-[#0000001a];
       &:hover {
         @apply bg-[#0000006a] text-white;
       }
@@ -155,7 +156,7 @@ import { Image } from 'astro:assets';
   }
 
   .menu li button {
-    @apply text-white bg-[#6e2becab] no-underline font-bold hover:text-white hover:bg-[var(--hover-color)];
+    @apply text-white bg-[#6e2becab] no-underline font-bold hover:text-white hover:bg-[var(--hover-color)] bg-[#fb1515ab];
     font-size: 1.1rem;
   }
 

@@ -18,7 +18,7 @@ import { Image } from 'astro:assets';
         id="logo"
       />
     </a>
-    <a href="/" id="title">Tea Client</a>
+    <a href="/" class="text-white hover:text-purple-600">Tea Client</a>
   </div>
 <input id="menu-toggle" class="hidden" type="checkbox" />
 <label
@@ -138,7 +138,7 @@ import { Image } from 'astro:assets';
     @apply list-none inline-block p-[8px_12px] relative;
   }
 
-  a {
+  .menu li a {
     @apply text-[var(--navBar-Items)] no-underline font-bold;
     font-size: 1.1rem;
 

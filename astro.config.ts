@@ -6,25 +6,25 @@ import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import tailwind from '@astrojs/tailwind';
 
-import metaTags from "astro-meta-tags";
+import metaTags from 'astro-meta-tags';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://teaclient.net',
   server: {
-    port: 7053
+    port: 7053,
   },
   integrations: [mdx(), tailwind(), metaTags()],
   experimental: {},
   redirects: {
     '/discord': 'https://discord.gg/ejFTe4Hfnc',
-    '/klaas': 'https://klaas.tiiny.site/'
+    '/klaas': 'https://klaas.tiiny.site/',
   },
   vite: {
     resolve: {
       alias: {
-        '@assets': '/src/assets/'
-      }
+        '@assets': '/src/assets/',
+      },
     },
     build: {
       minify: true,
@@ -32,8 +32,13 @@ export default defineConfig({
     },
     css: {
       postcss: {
-        plugins: [postcssImport(), tailwindcssNesting(), tailwindcss(), autoprefixer()]
-      }
-    }
-  }
+        plugins: [
+          postcssImport(),
+          tailwindcssNesting(),
+          tailwindcss(),
+          autoprefixer(),
+        ],
+      },
+    },
+  },
 });

@@ -45,7 +45,6 @@
 
 
 .container {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,6 +136,7 @@ header {
 
 .error {
   @apply flex flex-col text-center;
+
   color: var(--text);
   line-height: 50px;
 

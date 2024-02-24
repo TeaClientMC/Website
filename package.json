@@ -3,35 +3,30 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev ",
-    "start": "astro dev",
+    "dev": "astro dev",
+    "preview": "astro preview",
     "build": "astro build",
     "astro": "astro",
-    "lint:css": "stylelint 'src/styles/**/*.scss' --fix",
-    "fmt": "prettier --write ."
+    "lint": "biome lint && stylelint 'src/styles/**/*.scss' --fix",
+    "fmt": "biome format",
+    "check": "biome check && stylelint 'src/styles/**/*.scss'"
   },
-  "prettier": {
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "all",
-    "bracketSpacing": true,
-    "bracketSameLine": false,
-    "arrowParens": "avoid",
+  "stylelint": {
+    "extends": "stylelint-config-standard",
     "plugins": [
-      "prettier-plugin-astro",
-      "stylelint-prettier",
-      "prettier-plugin-astro"
+      "stylelint-scss"
     ],
-    "overrides": [
-      {
-        "files": "*.astro",
-        "options": {
-          "parser": "astro"
-        }
-      }
+    "customSyntax": "postcss-scss",
+    "rules": {
+      "at-rule-no-unknown": null,
+      "selector-class-pattern": null,
+      "scss/at-rule-no-unknown": true,
+      "custom-property-pattern": null
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
     ]
   },
   "dependencies": {
@@ -61,8 +56,13 @@
     "@commitlint/config-conventional": "^18.4.3",
     "@types/node": "^20.8.3",
     "@types/three": "^0.158.2",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
     "astro": "^4.2.3",
+    "biome": "^0.3.3",
     "daisyui": "latest",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^0.31.4",
     "husky": "^8.0.3",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.0.3",

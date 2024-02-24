@@ -10,6 +10,10 @@ COPY . .
 # Install dependencies
 RUN bun install
 
+# Building Website
+RUN bun build
+
+
 
 # Expose the port Astro will run on
 EXPOSE 7053

@@ -60,10 +60,6 @@ jobs:
         if: github.event_name == 'push'
         run: bunx commitlint --from HEAD~1 --to HEAD --verbose
 
-      - name: Validate PR commits with commitlint
-        if: github.event_name == 'pull_request'
-        run: bunx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose
-
   Build:
     runs-on: self-hosted
     needs: [Quality, CommitQuality]

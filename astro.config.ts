@@ -1,10 +1,10 @@
-import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import postcssImport from 'postcss-import';
-import tailwindcssNesting from 'tailwindcss/nesting';
-import tailwindcss from 'tailwindcss';
-import autoprefixer from 'autoprefixer';
 import tailwind from '@astrojs/tailwind';
+import { defineConfig } from 'astro/config';
+import autoprefixer from 'autoprefixer';
+import postcssImport from 'postcss-import';
+import tailwindcss from 'tailwindcss';
+import tailwindcssNesting from 'tailwindcss/nesting';
 
 import metaTags from 'astro-meta-tags';
 

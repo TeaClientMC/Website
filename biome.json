@@ -1,9 +1,14 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
-  "linter": {
-    "ignore": ["node_modules", "**/*.spec.ts", "src/**/*.astro"]
-  },
-  "formatter": {
-    "ignore": ["node_modules", "**/*.spec.ts", "src/**/*.astro"]
-  }
+	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"ignore": ["astro.config.ts"]
+	},
+	"formatter": {
+		"enabled": true,
+		"ignore": ["astro.config.ts"]
+	}
 }

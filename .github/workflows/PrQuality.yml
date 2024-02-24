@@ -38,23 +38,23 @@ jobs:
 
       - name: Install packages
         run: |
-          bun install || echo "Warning: Failed to install packages"
+          bun install || echo "::warning::Warning: Failed to install packages"
 
       - name: Print versions
         run: |
-          bun --version || echo "Warning: Failed to print bun version"
-          bunx commitlint --version || echo "Warning: Failed to print commitlint version"
+          bun --version || echo "::warning::Warning: Failed to print bun version"
+          bunx commitlint --version || echo "::warning::Warning: Failed to print commitlint version"
       - name: Install commitlint
         run: |
-          bun install conventional-changelog-conventionalcommits || echo "Warning: Failed to install conventional-changelog-conventionalcommits"
-          bun install commitlint@latest || echo "Warning: Failed to install commitlint"
+          bun install conventional-changelog-conventionalcommits || echo ::warning::"Warning: Failed to install conventional-changelog-conventionalcommits"
+          bun install commitlint@latest || echo "::warning::Warning: Failed to install commitlint"
 
       - name: Validate current commit (last commit) with commitlint
         if: github.event_name == 'push'
         run: |
-          bunx commitlint --from HEAD~1 --to HEAD --verbose || echo "Warning: Commitlint validation failed for the last commit"
+          bunx commitlint --from HEAD~1 --to HEAD --verbose || echo "::warning::Warning: Commitlint validation failed for the last commit"
 
       - name: Validate PR commits with commitlint
         if: github.event_name == 'pull_request'
         run: |
-          bunx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose || echo "Warning: Commitlint validation failed for PR commits"
+          bunx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose || echo "::warning::Warning: Commitlint validation failed for PR commits"

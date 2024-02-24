@@ -17,13 +17,18 @@ jobs:
               version: latest
           - name: Run Biome
             run: biome ci .
-    
+
           - uses: oven-sh/setup-bun@v1
             with: 
               bun-version: latest
-    
+
+
+          - name: Install Deps
+            run: bun install
+
+
           - name: Check Stylint
-            run: bunx stylint "'src/styles/**/*.scss'"
+            run: bun stylint 'src/styles/**/*.scss'
     
        
     CommitQuality:

@@ -1,220 +1,169 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets';
 ---
 
-<script src="../../scripts/modeSwitching.ts"/>
 
 
-    <section class="top-nav flex flex-row items-center justify-between text-white h-[90px] p-[0.7rem]">
-      <div class="flex flex-row items-center justify-center">
-        <a href="/">
-        <Image src="/icon.webp" width="96" height="96" alt="TeaClient Logo" loading="lazy" id="logo"></Image>
-    </a>    
-    <a href="/" id="title">Tea Client</a></div>
-        </div>
-    <input id="menu-toggle" class="hidden" type="checkbox" />
-    <label class='menu-button-container hidden h-[100%] w-[30px] justify-center flex-col cursor-pointer items-center' for="menu-toggle">
-    <div class='menu-button'></div>
-  </label>
-    <ul class="menu flex flex-row list-none m-0 p-0">
-<li>
-  <input type="checkbox" class="checkbox" id="checkbox">
-  <label for="checkbox" class="checkbox-label" >
-    <i class="fas fa-moon"></i>
-    <i class="fas fa-sun"></i>
-    <span class="ball"></span>
-    <span class="sr-only absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden border-0">Toggle theme</span>
-  </label>
-</li>
-                <li><a href="/">HOME</a></li>
-                <li><a href="/download/">DOWNLOADS</a></li>
-                <li><a href="/store">STORE</a></li>
-                <li>
-                    <a href="/socials">SOCIALS</a>
-                    <!-- Arrow: &#9662; -->
-                    <!-- <ul class="dropdown">
-                        <li><a href="https://twitter.com/TeaClientMine" class="Twitter">Twitter</a></li>
-                        <li><a href="https://www.twitch.tv/teaclientminecraft" class="Twitch">Twitch</a></li>
-                        <li><a href="https://discord.gg/teaclient" class="Discord">Discord</a></li>
-                        <li><a href="https://www.youtube.com/@teaclientmc" class="Youtube">YouTube</a></li>
-                    </ul> -->
-                </li>
+<section
+  class="top-nav bg-[var(--nav-color)] flex flex-row items-center justify-between text-white h-[90px] p-[0.7rem]"
+>
+  <div class="flex flex-row items-center justify-center">
+    <a href="/">
+      <Image
+        src="/icon.webp"
+        width="96"
+        height="96"
+        alt="TeaClient Logo"
+        loading="eager"
+        id="logo"
+      />
+    </a>
+    <a href="/" id="title">Tea Client</a>
+  </div>
+<input id="menu-toggle" class="hidden" type="checkbox" />
+<label
+  class="menu-button-container hidden max-sm:flex h-[100%] w-[30px] justify-center flex-col cursor-pointer items-center"
+  for="menu-toggle"
+>
+  <div class="menu-button before:mt-[-8px] after:mt-[8px]"/>
+</label>
+<ul class="menu flex flex-row list-none m-0 p-0 *:mx-4 *:overflow-hidden">
+  <li>
+    <input type="checkbox" class="checkbox" id="checkbox" />
+    <label for="checkbox" class="checkbox-label" aria-label="Toggle theme">
+      <i class="fas text-[f1c40f]"></i>
+      <i class="fas text-[#f39c12]"></i>
+      <span class="ball"></span>
+      <span class="sr-only absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden border-0">Toggle theme</span>
+    </label>
+  </li>
+  <li><a href="/">HOME</a></li>
+  <li><a href="/download/">DOWNLOADS</a></li>
+  <li><a href="/store">STORE</a></li>
+  <li>
+    <a href="/socials">SOCIALS</a>
+  </li>
 
-                <li><a href="/docs">DOCUMENTS</a></li>
-    </ul>
-  </section>
-        <div class="page-background">
-            <img src="/background_dark.webp" alt="The background"/>
-        </div>
+  <li><a href="/docs">DOCUMENTS</a></li>
+</ul>
+</section>
+
+<div class="page-background">
+  <img class="fixed top-0 left-0 w-full h-full object-cover object-center -z-10 pointer-events-none [-webkit-user-drag: none] select-none" id="background-image" src="background/1.webp" alt="The background" loading="lazy" decoding="async" />
+</div>
 
 
-        
+<script>
+  const button = document.querySelector('.checkbox') as HTMLInputElement;
+
+  function switchTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    button.checked = newTheme === 'dark';
+  }
+
+  function setRandomBackgroundImage() {
+    const images = [
+      '/background/1.webp',
+    ];
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    (document.getElementById('background-image') as HTMLImageElement).src = randomImage;
+  }
+
+  document.addEventListener('DOMContentLoaded', event => {
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      button.checked = currentTheme === 'dark';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      button.checked = true;
+    }
+    setRandomBackgroundImage();
+  });
+
+  button.addEventListener('click', switchTheme);
+</script>
+
+
+
+
 <style>
-.top-nav {
-  background: var(--nav-color);
-}
 
-/* Menu Links */
-.menu > li {
-  @apply mx-4 overflow-hidden;
-}
-
-.sr-only {
-  clip: rect(0,0,0,0);
-}
-
-
-/* Mobile Button */
-.menu-button,
-.menu-button::before,
-.menu-button::after {
-  @apply block bg-white absolute h-[4px] w-[30px] rounded-sm;
-  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.menu-button::before {
-  @apply mt-[-8px];
-  content: '';
-}
-
-.menu-button::after {
-  @apply mt-[8px];
-  content: '';
-}
-
-
-
-#menu-toggle:checked + .menu-button-container .menu-button::before {
-  @apply mt-0;
-  transform: rotate(405deg);
-}
-
-#menu-toggle:checked + .menu-button-container .menu-button {
-  @apply bg-[#ffffff00];
-}
-
-#menu-toggle:checked + .menu-button-container .menu-button::after {
-  @apply mt-0;
-  transform: rotate(-405deg);
-}
-
-@media (max-width: 1400px) {
-  .menu-button-container {
-    @apply flex;
+  /* Mobile Button */
+  .menu-button,
+  .menu-button::before,
+  .menu-button::after {
+    @apply block absolute h-[4px] w-[30px] rounded-sm bg-white;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
-  .menu {
-    @apply absolute top-0 mt-[90px] left-0 flex-col w-[100%] justify-center items-center;
+
+  .menu-button::before {content: '';}
+
+
+  #menu-toggle:checked + .menu-button-container .menu-button::after {
+    @apply mt-0 rotate-[-405deg];
   }
-  #menu-toggle ~ .menu li {
-    @apply h-0 m-0 p-0;
-    border: 0;
-    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+
+  @media (max-width: 1400px) {
+    .menu-button-container {
+      @apply flex;
+    }
+    .menu {
+      @apply absolute top-0 mt-[90px] left-0 flex-col w-[100%] justify-center items-center;
+    }
+    #menu-toggle ~ .menu li {
+      @apply h-0 m-0 p-0;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    #menu-toggle:checked ~ .menu li {
+      /* border: 1px solid #333; /* color of the dropdown menu dividers */
+      height: 2.5em;
+
+      padding: 0.5em;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .menu > li {
+      @apply flex justify-center m-0 w-full text-white backdrop-blur-[10px] bg-[var(--nav-color)];
+    }
+    .menu > li:not(:last-child) {
+      @apply border-b border-b-[#444];
+    }
   }
-  #menu-toggle:checked ~ .menu li {
-    /* border: 1px solid #333; /* color of the dropdown menu dividers */
-    height: 2.5em;
-    padding: 0.5em;
-    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  .menu > li {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    width: 100%;
-    color: white;
-    backdrop-filter: blur(10px);
-    background: var(--nav-color); /* color of the dropdown menu background */
-  }
-  .menu > li:not(:last-child) {
-    border-bottom: 1px solid #444;
-  }
-}
-.nav-links {
-  flex: 1;
-  text-align: right;
-}
 
   li {
-    list-style: none;
-    display: inline-block;
-    padding: 8px 12px;
-    position: relative;
+    @apply list-none inline-block p-[8px_12px] relative;
   }
 
-    a {
-      color: var(--navBar-Items);
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
+  a {
+    @apply text-[var(--navBar-Items)] no-underline font-bold;
+    font-size: 1.1rem;
 
-      &:hover {
-        color: var(--hover-color);
-        text-decoration: none;
-        font-weight: bold;
-      }
+    &:hover {
+      @apply text-[var(--hover-color)] no-underline font-bold;
     }
+  }
 
+  .checkbox {
+    @apply absolute opacity-0;
+  }
 
+  .checkbox-label {
+    @apply bg-[#2e2e2e] w-[50px] h-[26px] rounded-[50px] relative p-[5px] cursor-pointer flex justify-between items-center;
+  }
 
+ 
 
-.checkbox {
-  opacity: 0;
-  position: absolute;
-}
+  .checkbox-label .ball {
+    @apply absolute left-[2px] top-[2px] rounded-[50%] bg-orange-400 aspect-square w-[22px] drop-shadow-[0px_0px_4px_yellow] ; 
+    transition: transform 0.2s linear;
+  }
 
-.checkbox-label {
-  background-color: #2e2e2e;
-  width: 50px;
-  height: 26px;
-  border-radius: 50px;
-  position: relative;
-  padding: 5px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.fa-moon {color: #f1c40f;}
-
-.fa-sun {color: #f39c12;}
-
-.checkbox-label .ball {
-  background-color: #ff9800;
-  filter: drop-shadow(0px 0px 4px yellow);
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
-}
-
-.checkbox:checked + .checkbox-label .ball {
-  transform: translateX(24px);
-  background-color: #101010;
-  filter: drop-shadow(0px 0px 4px white);
-  
-}
-/*
-// ul {
-//   li {
-//     .dropdown {
-//       width: 100%;
-//       background: rgba(0, 0, 0, 0.5);
-//       position: absolute;
-//       display: none;
-//     }
-//   }
-// }
-
-// ul li:hover ul.dropdown {
-//   margin-top: 33px;
-//   display: block;
-//   text-align: left;
-//   top: 0%;
-//   left: 0;
-// }
-*/
+  .checkbox:checked + .checkbox-label .ball {
+    @apply bg-[#101010] drop-shadow-[0px_0px_4px_white];
+    transform: translateX(24px);
+  }
 </style>

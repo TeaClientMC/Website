@@ -2,12 +2,13 @@
 import { SEO } from 'astro-seo';
 
 // SEO SETTINGS
-let title = "TeaClient Website";
-let descr = "A Nice Opensourced Client.";
-let url = "https://teaclient.net/";
-let banner = "/banner.webp";
-let favicon = "/Favicon.webp";
-let theme_color = "#fffff"
+let title = 'TeaClient Website';
+let descr = 'A Nice Opensourced Client.';
+let url = 'https://teaclient.net';
+let banner = '/banner.webp';
+let favicon = '/Favicon.webp';
+let theme_color = '#fffff';
+let language = 'en-us';
 ---
 
 <!doctype html>
@@ -28,42 +29,43 @@ let theme_color = "#fffff"
           title: title,
           type: 'website',
           image: banner,
-          url: url
+          url: url,
         },
         optional: {
-          locale: "en-us",
+          locale: language,
           description: descr,
-          siteName: "Teaclient Website"
+          siteName: title,
         },
         image: {
           url: banner,
-          secureUrl: url + "banner.webp",
-          type: "webp",
+          secureUrl: url + banner,
+          type: 'webp',
           height: 30,
           width: 60,
-          alt: "TeaClient Banner",
-        }
+          alt: `${title} Banner`,
+        },
       }}
       extend={{
-        // extending the default link tags
         link: [
           { rel: 'icon', href: favicon },
-          { rel: 'apple-touch-icon', type: 'image/x-icon', href: favicon}
+          { rel: 'apple-touch-icon', type: 'image/x-icon', href: favicon },
         ],
-        // extending the default meta tags
         meta: [
           { name: 'theme-color', content: theme_color },
           { name: 'darkreader-lock' },
-          { httpEquiv: "ContentSecurityPolicy", content: "Content-Security-Policy: default-src 'none';  script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self' https://cdn.cloudflare.com;"},
-          { name: "viewport", content: "width=device-1200px, initial-scale=1.0, shrink-to-fit=yes, viewport-fit=cover"},
+          {
+            httpEquiv: 'ContentSecurityPolicy',
+            content:
+              "Content-Security-Policy: default-src 'none';  script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self' https://cdn.cloudflare.com;",
+          },
+          {
+            name: 'viewport',
+            content:
+              'width=device-1200px, initial-scale=1.0, shrink-to-fit=yes, viewport-fit=cover',
+          },
         ],
       }}
     />
     <meta charset="UTF-8" />
-    <script
-      defer
-      data-domain="teaclient.net"
-      src="https://plausible.sudovanilla.com/js/script.js"></script>
-
   </head>
 </html>

@@ -26,6 +26,10 @@ export default defineConfig({
         '@assets': '/src/assets/'
       }
     },
+    build: {
+      minify: true,
+      sourcemap: true,
+    },
     css: {
       postcss: {
         plugins: [postcssImport(), tailwindcssNesting(), tailwindcss(), autoprefixer()]

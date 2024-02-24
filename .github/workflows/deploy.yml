@@ -27,8 +27,11 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Check Stylint
-        run: bunx stylint "'src/styles/**/*.scss'"
+      - name: Install Deps
+        run: bun install
+
+      - name: Check stylelint
+        run: bun stylelint
 
   CommitQuality:
     runs-on: ubuntu-22.04

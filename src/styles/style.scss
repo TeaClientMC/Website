@@ -11,8 +11,6 @@
   --hover-color: #6e2bec;
   --text-dark: white;
   --text-light: black;
-  --footer-hover: white;
-  --footer-color2: rgb(22 31 46 / 75%);
 }
 
 /* Apply the variables based on the theme */
@@ -20,16 +18,12 @@
   --nav-color: var(--nav-color-dark);
   --navBar-Items: var(--navBar-Items-dark);
   --text: var(--text-dark);
-  --footer-color: black;
-  --footer-text-color: white;
 }
 
 [data-theme='light'] {
   --nav-color: var(--nav-color-light);
   --navBar-Items: var(--navBar-Items-light);
   --text: var(--text-light);
-  --footer-color: rgb(255 255 255 / 50%);
-  --footer-text-color: rgb(0 0 0);
 }
 
 * {
@@ -44,7 +38,7 @@
 
 @media only screen and (width <= 768px) {
   * {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
 }
 

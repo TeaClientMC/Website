@@ -2,8 +2,6 @@
 import { Image } from 'astro:assets';
 ---
 
-
-
 <section
   class="top-nav bg-[var(--nav-color)] flex flex-row items-center justify-between text-white h-[90px] p-[0.7rem]"
 >
@@ -20,38 +18,43 @@ import { Image } from 'astro:assets';
     </a>
     <a href="/" class="text-white hover:text-purple-600">Tea Client</a>
   </div>
-<input id="menu-toggle" class="hidden" type="checkbox" />
-<label
-  class="menu-button-container hidden max-sm:flex h-[100%] w-[30px] justify-center flex-col cursor-pointer items-center"
-  for="menu-toggle"
->
-  <div class="menu-button before:mt-[-8px] after:mt-[8px]"/>
-</label>
-<ul class="menu flex flex-row list-none m-0 p-0 *:mx-4 *:overflow-hidden">
-  <li>
-    <input type="checkbox" class="checkbox" id="checkbox" />
-    <label for="checkbox" class="checkbox-label" aria-label="Toggle theme">
-      <i class="fas text-[f1c40f]"></i>
-      <i class="fas text-[#f39c12]"></i>
-      <span class="ball"></span>
-      <span class="sr-only absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden border-0">Toggle theme</span>
-    </label>
-  </li>
-  <li><a href="/">HOME</a></li>
-  <li><a href="/download/">DOWNLOADS</a></li>
-  <li><a href="/store">STORE</a></li>
-  <li>
-    <a href="/socials">SOCIALS</a>
-  </li>
-
-  <li><a href="/docs">DOCUMENTS</a></li>
-</ul>
+  <input id="menu-toggle" class="hidden" type="checkbox" />
+  <label
+    class="menu-button-container hidden max-sm:flex h-[100%] w-[30px] justify-center flex-col cursor-pointer items-center"
+    for="menu-toggle"
+  >
+    <div class="menu-button before:mt-[-8px] after:mt-[8px]"></div>
+  </label>
+  <ul class="menu flex flex-row list-none m-0 p-0 *:mx-4 *:overflow-hidden">
+    <li>
+      <input type="checkbox" class="checkbox" id="checkbox" />
+      <label for="checkbox" class="checkbox-label" aria-label="Toggle theme">
+        <i class="fas text-[f1c40f]"></i>
+        <i class="fas text-[#f39c12]"></i>
+        <span class="ball"></span>
+        <span
+          class="sr-only absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden border-0"
+          >Toggle theme</span
+        >
+      </label>
+    </li>
+    <li><a href="/">HOME</a></li>
+    <li><a href="/store">STORE</a></li>
+    <li><a href="/docs">DOCS</a></li>
+    <li><button>DOWNLOAD</button></li>
+  </ul>
 </section>
 
 <div class="page-background">
-  <img class="fixed top-0 left-0 w-full h-full object-cover object-center -z-10 pointer-events-none [-webkit-user-drag: none] select-none" id="background-image" src="background/1.webp" alt="The background" loading="lazy" decoding="async" />
+  <img
+    class="fixed top-0 left-0 w-full h-full object-cover object-center -z-10 pointer-events-none [-webkit-user-drag: none] select-none"
+    id="background-image"
+    src="background/1.webp"
+    alt="The background"
+    loading="lazy"
+    decoding="async"
+  />
 </div>
-
 
 <script>
   const button = document.querySelector('.checkbox') as HTMLInputElement;
@@ -65,11 +68,10 @@ import { Image } from 'astro:assets';
   }
 
   function setRandomBackgroundImage() {
-    const images = [
-      '/background/1.webp',
-    ];
+    const images = ['/background/1.webp'];
     const randomImage = images[Math.floor(Math.random() * images.length)];
-    (document.getElementById('background-image') as HTMLImageElement).src = randomImage;
+    (document.getElementById('background-image') as HTMLImageElement).src =
+      randomImage;
   }
 
   document.addEventListener('DOMContentLoaded', event => {
@@ -88,11 +90,7 @@ import { Image } from 'astro:assets';
   button.addEventListener('click', switchTheme);
 </script>
 
-
-
-
 <style>
-
   /* Mobile Button */
   .menu-button,
   .menu-button::before,
@@ -101,8 +99,9 @@ import { Image } from 'astro:assets';
     transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  .menu-button::before {content: '';}
-
+  .menu-button::before {
+    content: '';
+  }
 
   #menu-toggle:checked + .menu-button-container .menu-button::after {
     @apply mt-0 rotate-[-405deg];
@@ -119,19 +118,24 @@ import { Image } from 'astro:assets';
       @apply h-0 m-0 p-0;
       transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
     }
-    #menu-toggle:checked ~ .menu li {
-      /* border: 1px solid #333; /* color of the dropdown menu dividers */
-      height: 2.5em;
 
+    #menu-toggle:checked ~ .menu li {
+      height: 2.5em;
       padding: 0.5em;
       transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
     }
     .menu > li {
       @apply flex justify-center m-0 w-full text-white backdrop-blur-[10px] bg-[var(--nav-color)];
     }
-    .menu > li:not(:last-child) {
-      @apply border-b border-b-[#444];
+
+    #menu-toggle:checked ~ .menu > li a {
+      @apply text-black bg-[#0000001a];
+      &:hover {
+        @apply bg-[#0000006a] text-white;
+      }
     }
+
+
   }
 
   li {
@@ -147,6 +151,15 @@ import { Image } from 'astro:assets';
     }
   }
 
+  .menu li button {
+    @apply text-white bg-[#6e2becab] no-underline font-bold;
+    font-size: 1.1rem;
+
+    &:hover {
+      @apply text-white bg-[var(--hover-color)] no-underline font-bold;
+    }
+  }
+
   .checkbox {
     @apply absolute opacity-0;
   }
@@ -155,10 +168,8 @@ import { Image } from 'astro:assets';
     @apply bg-[#2e2e2e] w-[50px] h-[26px] rounded-[50px] relative p-[5px] cursor-pointer flex justify-between items-center;
   }
 
- 
-
   .checkbox-label .ball {
-    @apply absolute left-[2px] top-[2px] rounded-[50%] bg-orange-400 aspect-square w-[22px] drop-shadow-[0px_0px_4px_yellow] ; 
+    @apply absolute left-[2px] top-[2px] rounded-[50%] bg-orange-400 aspect-square w-[22px] drop-shadow-[0px_0px_4px_yellow];
     transition: transform 0.2s linear;
   }
 

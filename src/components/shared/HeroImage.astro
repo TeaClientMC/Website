@@ -1,0 +1,48 @@
+---
+import { twMerge } from "tailwind-merge";
+
+let {src, className, flexbasis} = Astro.props;
+---
+
+<div class={twMerge("reveal-image", className)} style=`--image-url: url(${src}); flex-basis:${flexbasis}; `>
+</div>
+
+<style>
+    @keyframes reveal-hero-image {
+        0% {
+            opacity:   0;
+            transform: scale(1.1,   1.1);
+        }
+        100% {
+            opacity:   1;
+            transform: perspective(800px) rotateY(-15deg) translateY(10px) rotateX(10deg) scale(1);
+        }
+    }
+
+    .reveal-image {
+        box-shadow:  0  0  40px var(--nav-color);
+        position: relative;
+        background: var(--image-url) center center / cover;
+        border-radius:  1rem;
+        z-index:  9;
+        animation: reveal-hero-image  3s ease-out backwards;
+        transition: transform  0.3s ease-in-out; 
+        transform: perspective(800px) rotateY(-15deg) translateY(10px) rotateX(10deg) scale(1); 
+    }
+
+    .reveal-image:hover {
+        transform: none;
+    }
+
+    .reveal-image::before {
+        content: '';
+        display: block;
+        padding-top: calc(9 /  16 *  100%);
+    }
+
+    .reveal-image>* {
+        position: absolute;
+        top:  0;
+        left:  0;
+    }
+</style>

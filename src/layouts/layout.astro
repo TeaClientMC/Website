@@ -12,7 +12,7 @@ import '../styles/style.scss';
 
 <Head />
 <Header />
-<div class={twMerge(`container flex text-white bg-[var(--nav-color)]  ${Astro.props.class}`)}>
+<div class={twMerge(`flex flex-col h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg ${Astro.props.class}`)}>
     <slot />
 </div>
 <Footer />

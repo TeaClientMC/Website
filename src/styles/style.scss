@@ -1,7 +1,7 @@
 :root {
   /* Define the variables for both themes here */
   --nav-color-dark: rgb(0 0 0 / 50%);
-  --nav-color-light: rgb(255 255 255 / 50%);
+  --nav-color-light: rgba(255, 255, 255, 0.25);
   --navBar-Items-dark: white;
   --navBar-Items-light: black;
   --hover-color: #6e2bec;
@@ -39,20 +39,8 @@
 }
 
 
-
 .container {
-  display: flex;
-  margin-top: 20%;
-  border-radius: 10px;
-  flex-direction: column;
-
-  text-container {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: fit-content;
-    gap: 10px;
-  }
+  @apply flex flex-col h-[100vh] w-[100vh]
 }
 
 body {

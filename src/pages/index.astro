@@ -1,10 +1,29 @@
 ---
+import HeroImage from '../components/shared/HeroImage.astro';
+import CustomImage from "../components/shared/CustomImage.astro"
 import Layout from '../layouts/layout.astro';
 ---
 
-<Layout class="text-center  h-[100vh] bg-transparent">
-  <h1 class="text-3xl">Client Coming soon</h1>
-  <h2 class="text-2xl">April  21  2024</h2>
+<Layout>
+
+  <div class="flex flex-row p-10 pl-10">
+    <div class="text-center flex flex-col p-10">
+    <h1 class="text-3xl">We Are TeaClient</h1>
+    <h2 class="text-2xl">We Make Minecraft servers and Minecraft Clients</h2>
+  </div>
+    <HeroImage src="/background/1.webp" flexbasis="40%" />
+  </div>
+
+<div class="flex flex-row">
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, dignissimos debitis porro maxime sed quam suscipit tenetur voluptates dolores distinctio exercitationem voluptate dolor quo incidunt natus, iusto dolorum odit? Illo!</p>
+<br>
+<CustomImage src="/background/1.webp" flexbasis="40%" />
+</div>
+<div class="flex flex-row">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, dignissimos debitis porro maxime sed quam suscipit tenetur voluptates dolores distinctio exercitationem voluptate dolor quo incidunt natus, iusto dolorum odit? Illo!</p>
   <br>
-  <p>Check our <a class="text-gray-300 underline hover:text-purple-500" href="/discord">discord</a> for updates</p>
+  <CustomImage src="/background/1.webp" flexbasis="40%" />
+  </div>
+
+  
 </Layout>

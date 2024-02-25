@@ -42,7 +42,7 @@ import { Image } from 'astro:assets';
     <li><a href="/store">STORE</a></li>
     <li><a href="/docs">DOCS</a></li>
     <li><a href="/news">NEWS</a></li>
-    <li><a href="/">DOWNLOAD</a></li>
+    <li><a class="download" href="/">DOWNLOAD</a></li>
   </ul>
 </section>
 
@@ -155,7 +155,7 @@ import { Image } from 'astro:assets';
     }
   }
 
-  .menu li button {
+  .menu li .download {
     @apply text-white bg-[#6e2becab] no-underline font-bold hover:text-white hover:bg-[var(--hover-color)] bg-[#fb1515ab];
     font-size: 1.1rem;
   }

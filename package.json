@@ -13,6 +13,7 @@
     "check": "bunx @biomejs/biome check && stylelint 'src/styles/**/*.scss'",
     "postinstall": "husky install"
   },
+  "trustedDependencies": ["sharp"],
   "stylelint": {
     "extends": "stylelint-config-standard",
     "plugins": [

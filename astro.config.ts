@@ -19,6 +19,7 @@ export default defineConfig({
   redirects: {
     '/discord': 'https://discord.gg/ejFTe4Hfnc',
     '/klaas': 'https://klaas.tiiny.site/',
+    '/github': 'https://github.com/TeaClientMC'
   },
   vite: {
     resolve: {

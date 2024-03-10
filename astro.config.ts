@@ -1,10 +1,6 @@
 import mdx from '@astrojs/mdx';
-import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
-import autoprefixer from 'autoprefixer';
-import postcssImport from 'postcss-import';
-import tailwindcss from 'tailwindcss';
-import tailwindcssNesting from 'tailwindcss/nesting';
+import tailwindcss from '@tailwindcss/vite';
 
 import metaTags from 'astro-meta-tags';
 
@@ -14,7 +10,7 @@ export default defineConfig({
   server: {
     port: 7053,
   },
-  integrations: [mdx(), tailwind(), metaTags()],
+  integrations: [mdx(), metaTags()],
   experimental: {},
   redirects: {
     '/discord': 'https://discord.gg/ejFTe4Hfnc',
@@ -31,15 +27,9 @@ export default defineConfig({
       minify: true,
       sourcemap: true,
     },
+    plugins: [tailwindcss()],
     css: {
-      postcss: {
-        plugins: [
-          postcssImport(),
-          tailwindcssNesting(),
-          tailwindcss(),
-          autoprefixer(),
-        ],
-      },
-    },
+      transformer: 'lightningcss'
+    }
   },
 });

@@ -13,7 +13,9 @@ export default defineConfig({
   },
   integrations: [mdx(), metaTags(), tailwind({
     nesting: true
-  }), sitemap()],
+  }), sitemap({
+    customPages: ["https://teaclient.net/docs"]
+  })],
   redirects: {
     "/discord": "https://discord.gg/ejFTe4Hfnc",
     "/klaas": "https://klaas.tiiny.site/",

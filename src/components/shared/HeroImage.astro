@@ -1,7 +1,7 @@
 ---
 import { twMerge } from "tailwind-merge";
 
-let {src, className, flexbasis} = Astro.props;
+const { src, className, flexbasis } = Astro.props;
 ---
 
 <div class={twMerge("reveal-image", className)} style=`--image-url: url(${src}); flex-basis:${flexbasis}; `>

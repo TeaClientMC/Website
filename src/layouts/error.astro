@@ -1,21 +1,17 @@
 ---
 // Layout Properties
-const { Number, Message } = Astro.props.frontmatter || Astro.props;
+const { errorNumber: Number, Message } = Astro.props.frontmatter || Astro.props;
 
+import Footer from "../components/shared/footer.astro";
 // Components
-import Head from '../components/shared/head.astro'
-import Header from '../components/shared/header.astro'
-import Footer from '../components/shared/footer.astro'
+import Head from "../components/shared/head.astro";
+import Header from "../components/shared/header.astro";
 
 // Styles
-import '../styles/style.scss'
+import "../styles/style.scss";
 ---
 
-
-
-
-
-<Head/>
+<Head title={`${Number}| TeaClient Website`}/>
 <Header/>
 <div class="error justify-center items-center h-[100vh]">
     <h1>{Number}</h1>

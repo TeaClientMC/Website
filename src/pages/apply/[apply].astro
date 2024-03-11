@@ -1,12 +1,9 @@
 ---
-import Layout from '../../layouts/layout.astro';
+import Layout from "../../layouts/layout.astro";
 const { apply } = Astro.params;
 
 export async function getStaticPaths() {
-  return [
-    { params: { apply: 'staff' } },
-    { params: { apply: 'team' } },
-  ];
+	return [{ params: { apply: "staff" } }, { params: { apply: "team" } }];
 }
 ---
 <Layout>

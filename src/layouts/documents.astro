@@ -1,16 +1,16 @@
 ---
+import { twMerge } from "tailwind-merge";
+import Footer from "../components/shared/footer.astro";
 // Components
-import Head from '../components/shared/head.astro';
-import Header from '../components/shared/header.astro';
-import Footer from '../components/shared/footer.astro';
-import {twMerge} from "tailwind-merge"
+import Head from "../components/shared/head.astro";
+import Header from "../components/shared/header.astro";
 
 // Styles
-import '../styles/style.scss';
+import "../styles/style.scss";
 ---
 
 
-<Head />
+<Head title="TeaClient Documents" />
 <Header />
 <div class={twMerge(`container flex text-white bg-[var(--nav-color)]  ${Astro.props.class}`)}>
     <slot />

@@ -1,14 +1,19 @@
 ---
-import { SEO } from 'astro-seo';
+import { SEO } from "astro-seo";
+const { title, customDescription, bannerPath } = Astro.props;
+export interface Props {
+	title: string;
+	customDescription?: string;
+	bannerPath?: string;
+}
 
 // SEO SETTINGS
-let title = 'TeaClient Website';
-let descr = 'A Nice Opensourced Client.';
-let url = 'https://teaclient.net';
-let banner = '/banner.webp';
-let favicon = '/Favicon.webp';
-let theme_color = '#fffff';
-let language = 'en-us';
+const descr = customDescription ?? "A Nice Opensourced Client.";
+const url = "https://teaclient.net";
+const banner = bannerPath ?? "/banner/deafult.webp";
+const favicon = "/Favicon.webp";
+const theme_color = "#fffff";
+const language = "en-us";
 ---
 
 <!doctype html>
@@ -19,15 +24,15 @@ let language = 'en-us';
       description={descr}
       twitter={{
         title: title,
-        creator: '@TeaClientMC',
+        creator: "@TeaClientMC",
         image: banner,
-        card: 'summary_large_image',
+        card: "summary_large_image",
         description: descr,
       }}
       openGraph={{
         basic: {
           title: title,
-          type: 'website',
+          type: "website",
           image: banner,
           url: url,
         },
@@ -39,29 +44,29 @@ let language = 'en-us';
         image: {
           url: banner,
           secureUrl: url + banner,
-          type: 'webp',
+          type: "webp",
           height: 30,
           width: 60,
-          alt: `${title} Banner`,
+          alt: "TeaClient Banner",
         },
       }}
       extend={{
         link: [
-          { rel: 'icon', href: favicon },
-          { rel: 'apple-touch-icon', type: 'image/x-icon', href: favicon },
+          { rel: "icon", href: favicon },
+          { rel: "apple-touch-icon", type: "image/x-icon", href: favicon },
         ],
         meta: [
-          { name: 'theme-color', content: theme_color },
-          { name: 'darkreader-lock' },
+          { name: "theme-color", content: theme_color },
+          { name: "darkreader-lock" },
           {
-            httpEquiv: 'ContentSecurityPolicy',
+            httpEquiv: "ContentSecurityPolicy",
             content:
-              "Content-Security-Policy: default-src 'none';  script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self' https://cdn.cloudflare.com;",
+              "Content-Security-Policy: default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self' https://cdn.cloudflare.com;",
           },
           {
-            name: 'viewport',
+            name: "viewport",
             content:
-              'width=device-1200px, initial-scale=1.0, shrink-to-fit=yes, viewport-fit=cover',
+              "width=device-1200px, initial-scale=1.0, shrink-to-fit=yes, viewport-fit=cover",
           },
         ],
       }}

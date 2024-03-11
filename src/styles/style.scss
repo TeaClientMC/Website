@@ -28,8 +28,6 @@
   box-sizing: border-box;
   font-family: Panton, sans-serif;
   font-size: 1.2rem;
-  // --background-image: url(./background_dark.webp);
-  // --nav-color: rgba(0, 0, 0, 0.5);
 }
 
 @media only screen and (width <= 768px) {
@@ -91,7 +89,6 @@ header {
 }
 
 
-// Comming Soon Text
 
 .commingSoon {
   position: absolute;
@@ -118,7 +115,6 @@ header {
   }
 }
 
-// Error Page Section
 
 .error {
   @apply flex flex-col text-center;

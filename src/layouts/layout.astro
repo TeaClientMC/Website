@@ -1,10 +1,13 @@
 ---
-import { twMerge } from "tailwind-merge";
-import Footer from "../components/shared/footer.astro";
-// Components
 import Head from "../components/shared/head.astro";
 import Header from "../components/shared/header.astro";
+import Footer from "../components/shared/footer.astro";
+
+
+import { twMerge } from "tailwind-merge";
 import "../styles/style.scss";
+
+
 
 export interface Props {
 	title?: string;
@@ -21,3 +24,4 @@ const { title, className, desc, banner } = Astro.props;
     <slot />
 </div>
 <Footer />
+

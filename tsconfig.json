@@ -12,7 +12,7 @@
 			"@component/*": ["src/components/*"],
 			"@scripts/*": ["src/scripts/*"],
 			"@styles/*": ["src/styles/*"],
-			"@assets/*": ["src/assets/*"],
+			"@assets/*": ["src/assets/*"]
 		}
 	}
 }

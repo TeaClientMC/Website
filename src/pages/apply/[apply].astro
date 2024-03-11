@@ -5,8 +5,18 @@ const { apply } = Astro.params;
 export async function getStaticPaths() {
 	return [{ params: { apply: "staff" } }, { params: { apply: "team" } }];
 }
+
+let title = "";
+
+if (apply === "staff") {
+	title = "Staff Application";
+} else if (apply === "team") {
+	title = "Team Application";
+} else {
+	title = "Application";
+}
 ---
-<Layout>
+<Layout title={title}>
   {apply === 'staff' ? (
    <div>Closed Application, Currently in the process of remaking.</div>
    <a href="/apply">Go Back</a>

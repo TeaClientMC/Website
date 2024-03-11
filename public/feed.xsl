@@ -10,13 +10,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         <script src="https://cdn.tailwindcss.com"/>
       </head>
-      <body class="bg-neutral-900 h-screen">
-        <nav class="container-md px-3 py-2 mt-2 mt-md-5 mb-5">
-          <p class="bg-gradient-to-r from-violet-700 via-purple-700 to-pink-700 text-white ml-n1 px-1 py-1 mb-1">
+      <body class="bg-neutral-900 h-screen w-screen flex flex-col items-center">
+        <nav class="container-md px-3 py-2 mt-2 mt-md-5 mb-5 w-full">
+          <p class="bg-gradient-to-r from-violet-700 via-purple-700 to-pink-700 text-white ml-n1 px-1 py-1 mb-1 text-center">
             <strong>This is a web feed,</strong> also known as an RSS feed. <strong>Subscribe</strong> by copying the URL from the address bar into your newsreader.
           </p>
         </nav>
-        <div class="container-md px-3 py-3 markdown-body text-white text-center justify-center">
+        <div class="container-md px-3 py-3 markdown-body text-white text-center w-[40%]">
           <header class="py-5 text-xl">
             <h1 class="text-4xl"><xsl:value-of select="/rss/channel/title"/></h1>
             <p class="text-xl"><xsl:value-of select="/rss/channel/description"/></p>

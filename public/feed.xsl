@@ -18,8 +18,8 @@
         </nav>
         <div class="container-md px-3 py-3 markdown-body text-white text-center justify-center">
           <header class="py-5 text-xl">
-            <h1 class="text-5xl"><xsl:value-of select="/rss/channel/title"/></h1>
-            <p class="text-2xl"><xsl:value-of select="/rss/channel/description"/></p>
+            <h1 class="text-4xl"><xsl:value-of select="/rss/channel/title"/></h1>
+            <p class="text-xl"><xsl:value-of select="/rss/channel/description"/></p>
           </header>
           <h1 class="text-2xl">Recent Items:</h1>
           <xsl:for-each select="/rss/channel/item">

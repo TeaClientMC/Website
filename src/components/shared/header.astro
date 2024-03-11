@@ -75,7 +75,7 @@ import { Image } from "astro:assets";
       randomImage;
   }
 
-  document.addEventListener('DOMContentLoaded', event => {
+  document.addEventListener('DOMContentLoaded', () => {
     const currentTheme = localStorage.getItem('theme');
     const button = document.querySelector('.checkbox') as HTMLInputElement;
     if (currentTheme) {

@@ -18,6 +18,7 @@
   "stylelint": {
     "extends": "stylelint-config-standard",
     "plugins": ["stylelint-scss"],
+    "customSyntax": "postcss-scss",
     "rules": {
       "at-rule-no-unknown": null,
       "selector-class-pattern": null,
@@ -52,9 +53,10 @@
     "@types/node": "^20.8.3",
     "astro": "^4.2.3",
     "husky": "^8.0.3",
+    "postcss-scss": "^4.0.9",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
-    "stylelint-scss": "^5.3.1",
+    "stylelint-scss": "^6.2.1",
     "typescript": "^5.2.2"
   },
   "packageManager": "bun@1.0.25"

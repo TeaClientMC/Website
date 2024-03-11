@@ -5,10 +5,23 @@
 	},
 	"linter": {
 		"enabled": true,
-		"ignore": ["astro.config.ts"]
+		"rules": {
+			"recommended": true
+		}
 	},
 	"formatter": {
 		"enabled": true,
-		"ignore": ["astro.config.ts"]
+		"formatWithErrors": false,
+		"indentWidth": 2,
+		"lineWidth": 80
+	},
+	"css": {
+		"formatter": {
+			"enabled": true,
+			"indentWidth": 4
+		},
+		"parser": {
+			"allowWrongLineComments": false
+		}
 	}
 }

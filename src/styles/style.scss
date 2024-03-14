@@ -14,12 +14,14 @@
   --nav-color: var(--nav-color-dark);
   --navBar-Items: var(--navBar-Items-dark);
   --text: var(--text-dark);
+  --nav-buttons: var(--nav-color-dark);
 }
 
 [data-theme='light'] {
   --nav-color: var(--nav-color-light);
   --navBar-Items: var(--navBar-Items-light);
   --text: var(--text-light);
+  --nav-buttons: #0000005c
 }
 
 * {

@@ -147,11 +147,11 @@ import { Image } from "astro:assets";
   }
 
   .menu li a {
-    @apply text-[var(--navBar-Items)] no-underline font-bold;
+    @apply text-[var(--navBar-Items)] p-[8px] rounded-xl no-underline font-bold;
     font-size: 1.1rem;
 
     &:hover {
-      @apply text-[var(--hover-color)] no-underline font-bold;
+      @apply text-[var(--hover-color)] bg-[var(--nav-buttons)] no-underline font-bold;
     }
   }
 

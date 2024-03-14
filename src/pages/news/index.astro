@@ -1,7 +1,15 @@
 ---
 import Layout from "@layout/layout.astro";
+const newsitems = await Astro.glob("./*/*.{md,mdx}");
 ---
 
-<Layout>
-  <p>Test</p>
+<Layout className="items-center">
+ <div class="p-32 text-xl">
+    <h1 class="bg-gradient-to-r from-indigo-100 to-violet-100 text-3xl bg-clip-text text-transparent">TeaClient News</h1>
+    {newsitems.slice(0, 3).map((news) => (
+      <article>
+        <a class="text-blue-600 underline" href={news.url}>{news.frontmatter.title}</a>
+      </article>
+    ))}
+ </div>
 </Layout>

@@ -1,3 +1,6 @@
+@import "tailwindcss";
+
+
 :root {
   /* Define the variables for both themes here */
   --nav-color-dark: rgb(0 0 0 / 50%);
@@ -10,18 +13,18 @@
 }
 
 /* Apply the variables based on the theme */
-[data-theme='dark'] {
+[data-theme=dark] {
   --nav-color: var(--nav-color-dark);
   --navBar-Items: var(--navBar-Items-dark);
   --text: var(--text-dark);
   --nav-buttons: var(--nav-color-dark);
 }
 
-[data-theme='light'] {
+[data-theme=light] {
   --nav-color: var(--nav-color-light);
   --navBar-Items: var(--navBar-Items-light);
   --text: var(--text-light);
-  --nav-buttons: #0000005c
+  --nav-buttons: #0000005c ;
 }
 
 * {
@@ -37,11 +40,10 @@
     font-size: 1.1rem;
   }
 }
-
-
 .container {
-  @apply flex flex-col h-[100vh] w-[100vh]
+  @apply flex flex-col h-[100vh] w-[100vh];
 }
+
 
 body {
   top: 0;
@@ -59,7 +61,6 @@ body {
 }
 
 /* scrollbar */
-
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -78,19 +79,14 @@ body {
 }
 
 img#logo:hover {
-  filter: invert(78%) sepia(87%) saturate(2524%) hue-rotate(252deg)
-    brightness(87%) contrast(114%);
+  filter: invert(78%) sepia(87%) saturate(2524%) hue-rotate(252deg) brightness(87%) contrast(114%);
 }
 
-
 /* header */
-
 header {
   min-height: 10vh;
   width: 100%;
 }
-
-
 
 .commingSoon {
   position: absolute;
@@ -100,43 +96,34 @@ header {
   text-align: center;
   transform: translate(-50%, -50%);
   line-height: 50px;
-
-  h1 {
-    font-size: 52px;
-    font-weight: bold;
-  }
-
-  p {
-    font-size: 18px;
-    color: #929fa5;
-  }
-
-  a {
-    font-size: 16px;
-    text-decoration: underline;
-  }
 }
-
+.commingSoon h1 {
+  font-size: 52px;
+  font-weight: bold;
+}
+.commingSoon p {
+  font-size: 18px;
+  color: #929fa5;
+}
+.commingSoon a {
+  font-size: 16px;
+  text-decoration: underline;
+}
 
 .error {
   @apply flex flex-col text-center;
-
   color: var(--text);
   line-height: 50px;
-
-  h1 {
-    font-size: 52px;
-    font-weight: bold;
-  }
-
-  p {
-    font-size: 18px;
-    color: #929fa5;
-  }
-
-  a {
-    font-size: 16px;
-    text-decoration: underline;
-  }
 }
-
+.error h1 {
+  font-size: 52px;
+  font-weight: bold;
+}
+.error p {
+  font-size: 18px;
+  color: #929fa5;
+}
+.error a {
+  font-size: 16px;
+  text-decoration: underline;
+}

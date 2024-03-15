@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { twMerge } from "tailwind-merge";
 ---
 
 <section
@@ -42,7 +43,7 @@ import { Image } from "astro:assets";
     <li><a href="/store">STORE</a></li>
     <li><a href="/docs">DOCS</a></li>
     <li><a href="/news">NEWS</a></li>
-    <li><a class="download" href="/">DOWNLOAD</a></li>
+    <li><a class="download text-white font-bold hover:text-white bg-[#6e2bec] hover:bg-[#ec2b2bab]" href="/">DOWNLOAD</a></li>
   </ul>
 </section>
 
@@ -95,79 +96,112 @@ import { Image } from "astro:assets";
 
 <style>
   /* Mobile Button */
-  .menu-button,
-  .menu-button::before,
-  .menu-button::after {
-    @apply block absolute h-[4px] w-[30px] rounded-sm bg-white;
-    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+ display: block;
+ position: absolute;
+ height: 4px;
+ width: 30px;
+ border-radius: 0.25rem;
+ background-color: white;
+ transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+}
 
-  .menu-button::before {
-    content: '';
-  }
+.menu-button::before {
+ content: '';
+}
 
-  #menu-toggle:checked + .menu-button-container .menu-button::after {
-    @apply mt-0;
-    transform: rotate(-405deg);
-  }
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+ margin-top: 0;
+ transform: rotate(-405deg);
+}
 
-  @media (max-width: 1400px) {
-    .menu-button-container {
-      @apply flex;
-    }
-    .menu {
-      @apply absolute top-0 mt-[90px] left-0 flex-col w-[100%] justify-center items-center;
-    }
-    #menu-toggle ~ .menu li {
-      @apply h-0 m-0 p-0;
-      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    #menu-toggle:checked ~ .menu li {
-      height: 2.5em;
-      padding: 0.5em;
-      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .menu > li {
-      @apply flex justify-center m-0 w-full text-white backdrop-blur-[10px] bg-[var(--nav-color)];
-    }
-
-    #menu-toggle:checked ~ .menu > li a {
-      @apply text-black bg-[#0000001a];
-      &:hover {
-        @apply bg-[#0000006a] text-white;
-      }
-    }
+@media (max-width: 1400px) {
+ .menu-button-container {
+  @apply flex;
+ }
+ .menu {
+  @apply absolute top-0 mt-[90px] left-0 flex flex-col w-[100%] justify-center items-center;
+ }
 
 
-  }
+ #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+ }
 
-  li {
-    @apply list-none inline-block p-[8px_12px] relative;
-  }
+ #menu-toggle:checked ~ .menu li {
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+ }
+ .menu > li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+    color: white;
+    backdrop-filter: blur(10px);
+    background-color: var(--nav-color);
+ }
 
-  .menu li a {
-    @apply text-[var(--navBar-Items)] p-[8px] rounded-xl no-underline font-bold;
-    font-size: 1.1rem;
+ #menu-toggle:checked ~ .menu > li a:not(.download) {
+    color: black;
+    background-color: rgba(0, 0, 0, 0.1);
+ }
+ #menu-toggle:checked ~ .menu > li a:hover:not(.download) {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+ }
+}
 
-    &:hover {
-      @apply text-[var(--hover-color)] bg-[var(--nav-buttons)] no-underline font-bold;
-    }
-  }
+li {
+ list-style: none;
+ display: inline-block;
+ padding: 0.5rem 1rem;
+ position: relative;
+}
 
-  .menu li .download {
-    @apply text-white bg-[#6e2becab] no-underline font-bold hover:text-white hover:bg-[var(--hover-color)] bg-[#fb1515ab];
-    font-size: 1.1rem;
-  }
+.menu li:not(.download) a {
+ color: var(--navBar-Items);
+ padding: 0.5rem;
+ text-decoration: none;
+ font-weight: bold;
+ font-size: 1.1rem;
+}
+.menu li:not(.download) a:hover {
+ color: var(--hover-color);
+ background-color: var(--nav-buttons);
+ text-decoration: none;
+ font-weight: bold;
+}
 
 
-  .checkbox-label .ball {
-    @apply absolute left-[2px] top-[2px] rounded-[50%] bg-orange-400 aspect-square w-[22px] drop-shadow-[0px_0px_4px_yellow];
-    transition: transform 0.2s linear;
-  }
+.download:hover {
+ color: white;
+ background-color: var(--hover-color);
+ text-decoration: none;
+ font-weight: bold;
+}
 
-  .checkbox:checked + .checkbox-label .ball {
-    @apply bg-[#101010] drop-shadow-[0px_0px_4px_white];
-    transform: translateX(24px);
-  }
+.checkbox-label .ball {
+ position: absolute;
+ left: 2px;
+ top: 2px;
+ border-radius: 50%;
+ background-color: orange;
+ aspect-ratio: 1 / 1;
+ width: 22px;
+ box-shadow: 0px 0px 4px yellow;
+ transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+ background-color: #101010;
+ box-shadow: 0px 0px 4px white;
+ transform: translateX(24px);
+}
 </style>

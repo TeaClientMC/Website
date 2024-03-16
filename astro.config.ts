@@ -13,9 +13,7 @@ export default defineConfig({
 	integrations: [
 		mdx(),
 		metaTags(),
-		sitemap({
-			customPages: ["https://teaclient.net/docs"],
-		}),
+		sitemap(),
 		tailwindV4({ applyBaseStyles: false }),
 	],
 	redirects: {

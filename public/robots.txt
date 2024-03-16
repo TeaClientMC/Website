@@ -40,4 +40,4 @@ Noindex: /i/u
 
 
 # Sitemap
-Sitemap: https://teaclient.net/sitemap.xml
+Sitemap: https://teaclient.net/sitemap-index.xml

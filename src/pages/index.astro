@@ -1,10 +1,35 @@
 ---
-import Layout from '../layouts/layout.astro';
+import CustomImage from "@component/shared/CustomImage.astro";
+import HeroImage from "@component/shared/HeroImage.astro";
+import Layout from "@layout/layout.astro";
 ---
 
-<Layout>
-  <h1 class="text-white text-6xl">COMING SOON!</h1>
-  <h2 class="text-white text-4xl">Beta: Apirl 21 2024</h2>
-  <br />
-  <p>Check our <a href="/social">Socials</a> for updates</p>
+<Layout title="Home | TeaClient Website">
+
+  <div class="flex flex-row m-10 ml-10">
+    <div class="text-center flex flex-col pl-[20%]">
+    <h1 class="text-3xl">We Are TeaClient</h1>
+    <h2 class="text-2xl">We Make Minecraft servers and Minecraft Clients</h2>
+    <br>
+    <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-violet-500 text-3xl">
+      Client Comming Soon
+    </span>
+    <h4 class="text-2xl">April  21  2024</h4>
+    <p>Check our <a class="text-gray-300 underline hover:text-purple-500" href="/discord">discord</a> for updates</p>
+  </div>
+    <HeroImage src="/background/1.webp" flexbasis="30%" />
+  </div>
+
+<div class="flex flex-row">
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, dignissimos debitis porro maxime sed quam suscipit tenetur voluptates dolores distinctio exercitationem voluptate dolor quo incidunt natus, iusto dolorum odit? Illo!</p>
+<br>
+<CustomImage src="/background/1.webp" flexbasis="20%" />
+</div>
+<div class="flex flex-row">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, dignissimos debitis porro maxime sed quam suscipit tenetur voluptates dolores distinctio exercitationem voluptate dolor quo incidunt natus, iusto dolorum odit? Illo!</p>
+  <br>
+  <CustomImage src="/background/1.webp" flexbasis="20%" />
+  </div>
+
+
 </Layout>

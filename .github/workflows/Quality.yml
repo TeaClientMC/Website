@@ -1,23 +1,12 @@
-# DO NOT TOUCH THIS FILE
-# Please speak to SudoVanilla (Korbs) if you have any issues.
-# For Security check please contact Eveeifyeve Instead of sudovanilla.
-
-name: Deploy Website
+name: Quality
 
 on:
   push:
-    branches:
+    branches-ignore:
       - main
-  workflow_dispatch:
-
-env:
-      # Use docker.io for Docker Hub if empty
-      REGISTRY: ghcr.io
-      # github.repository as <account>/<repo>
-      IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  quality:
+  Quality:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,7 +28,7 @@ jobs:
       - name: Check stylelint
         run: bun stylelint
 
-  commitquality:
+  CommitQuality:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -66,23 +55,6 @@ jobs:
         if: github.event_name == 'push'
         run: bunx commitlint --from HEAD~1 --to HEAD --verbose
 
-  build:
-    needs: [commitquality, quality]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install, build, and upload your site
-        uses: withastro/action@v2
-        with:
-          package-manager:  bun@latest
-          
-  deploy: 
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps: 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Validate PR commits with commitlint
+        if: github.event_name == 'pull_request'
+        run: bunx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose

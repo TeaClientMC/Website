@@ -1,18 +1,26 @@
-<footer>
-    <div class="footer-content">
-        <h3>Tea Client</h3>
-    </div>
-    <div class="footerNav">
-            <a href="/">Home</a>
-            <a href="/about">About Us</a>
-            <a href="/contact">Contact Us</a>
-             <a href="/terms">Terms of Service</a>
-            <a href="/privacy">Privacy Policy</a>
-    </div>
-    <div class="footer-bottom">
-        <p>Copyright &copy; 2023 TeaClient</p>
-        <p id="affiliation">Not affiliated with Mojang Studios</p>
-    </div>
+---
+import { Image } from "astro:assets";
+import DiscordSVG from "@assets/svgs/Discord.svg";
+import GithubSVG from "@assets/svgs/Github-white.svg";
+
+const logosizes = 36;
+---
+
+
+<footer class="w-full pt-[40px] top-full text-white ">
+  <div id="copyright">
+    <p>A Project Made with Love by TeaClient Team ♥️</p>
+    <p>&copy; TeaClientMC. ALL RIGHTS RESERVED</p>
+    <p>Not Afffliated with mojang or Minecraft</p>
+  </div>
+  <div id="Socials">
+    <a href="/discord" target="_blank" rel="noopener noreferrer">
+      <Image src={DiscordSVG} alt="Discord Logo" width={logosizes} height={logosizes} class="grayscale-custom pt-1"/>
+    </a>
+    <a href="/github" target="_blank" rel="noopener noreferrer">
+      <Image src={GithubSVG} alt="Github Logo" width={logosizes} height={logosizes} class="grayscale-custom"/>
+    </a>
+  </div>
 </footer>
 
 
@@ -21,85 +29,26 @@
 
 <style type="text/sass">
 footer {
-  @apply flex-1 flex-row h-full ;
-  background: var(--footer-color2);
-  width: 100%;
-  padding-top: 40px;
-  color: #fff;
-  bottom: 0%;
-  position: relative;
-  
-  .footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-  }
-
-
-
-  .socials {
-    display: flex;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-  }
-
-
-
-  /* footer navigation */
-
-
-  .footerNav {
-    display: flex;
-    justify-content: center;
-
-    a {
-      color: rgb(137, 137, 137);
-      margin: 20px;
-      text-decoration: none;
-      font-size: 1.3rem;
-      transition: 0.5s;
-      display: flex;
-      margin-right: 20px;
-      transition: 0.5s;
-
-      &:hover {
-        color: var(--footer-hover)
-      }
-    }
-
-
-
-  }
-
-
-  /* footer bottom */
-  .footer-bottom {
-    overflow: auto;
-    background: var(--footer-color);
-    border-top: yellow;
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-
-
     p {
-      margin-left: 20px;
-      float: left;
-      font-size: 14px;
+      @apply text-white font-bold font-sans text-sm mb-1;
       word-spacing: 2px;
-      color: var(--footer-text-color);
     }
 
+   #copyright {
+    @apply flex flex-col float-left ml-[20px];
+   }
 
-    #affiliation {
-      margin-right: 20px;
-      float: right;
+   #copyright p:last-child {
+    @apply mb-5 text-gray-600;
+   }
+
+   #Socials .grayscale-custom {
+  filter: grayscale(100%) brightness(140%) saturate(100%);
+  fill: grey;
+}
+
+    #Socials {
+      @apply flex flex-row mr-[20px] gap-x-4 float-right;
     }
-
-
-  }
 }
 </style>

@@ -1,18 +1,24 @@
 ---
-// Components
-import Head from '../components/shared/head.astro';
-import Header from '../components/shared/header.astro';
-import Footer from '../components/shared/footer.astro';
+import Footer from "../components/shared/footer.astro";
+import Head from "../components/shared/head.astro";
+import Header from "../components/shared/header.astro";
 
-// Styles
-import '../styles/style.scss';
+import { twMerge } from "tailwind-merge";
+import "../styles/style.css";
+
+export interface Props {
+	title?: string;
+	className?: string;
+	desc?: string;
+	banner?: string;
+}
+const { title, className, desc, banner } = Astro.props;
 ---
 
-<script src="../scripts/webvitals.ts"></script>
-
-<Head />
+<Head title={String(title) ?? "TeaClent Website"} customDescription={desc} />
 <Header />
-<!-- Content -->
-<slot />
-<!--Footer -->
+<div class={twMerge(`flex flex-col h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg ${className}`)}>
+    <slot />
+</div>
 <Footer />
+

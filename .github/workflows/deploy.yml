@@ -17,7 +17,7 @@ env:
       IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  Quality:
+  quality:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,7 +39,7 @@ jobs:
       - name: Check stylelint
         run: bun stylelint
 
-  CommitQuality:
+  commitquality:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -66,14 +66,23 @@ jobs:
         if: github.event_name == 'push'
         run: bunx commitlint --from HEAD~1 --to HEAD --verbose
 
-  Build:
-    runs-on: self-hosted
-    needs: [Quality, CommitQuality]
+  build:
+    needs: [commitquality, quality]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # Install Dependenices
-      - run: bun install
-      # Build Website
-      - run: bun run build
-      # Add to NGINX
-      - run: mv dist/ teaclientmc/
+      - name: Install, build, and upload your site
+        uses: withastro/action@v2
+        with:
+          package-manager:  bun@latest
+          
+  deploy: 
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps: 
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

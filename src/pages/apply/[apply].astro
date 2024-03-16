@@ -1,20 +1,20 @@
 ---
-import Layout from "@layout/layout.astro";
 import AppError from "@layout/error.astro";
+import Layout from "@layout/layout.astro";
 const { apply } = Astro.params;
 
 export async function getStaticPaths() {
- return [{ params: { apply: "staff" } }, { params: { apply: "team" } }];
+	return [{ params: { apply: "staff" } }, { params: { apply: "team" } }];
 }
 
 let title = "";
 
 if (apply === "staff") {
- title = "Staff Application";
+	title = "Staff Application";
 } else if (apply === "team") {
- title = "Team Application";
+	title = "Team Application";
 } else {
- title = "Application";
+	title = "Application";
 }
 ---
 

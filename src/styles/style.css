@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import url("tailwindcss");
 
 
 :root {
@@ -13,14 +13,14 @@
 }
 
 /* Apply the variables based on the theme */
-[data-theme=dark] {
+[data-theme="dark"] {
   --nav-color: var(--nav-color-dark);
   --navBar-Items: var(--navBar-Items-dark);
   --text: var(--text-dark);
   --nav-buttons: var(--nav-color-dark);
 }
 
-[data-theme=light] {
+[data-theme="light"] {
   --nav-color: var(--nav-color-light);
   --navBar-Items: var(--navBar-Items-light);
   --text: var(--text-light);
@@ -40,6 +40,7 @@
     font-size: 1.1rem;
   }
 }
+
 .container {
   @apply flex flex-col h-[100vh] w-[100vh];
 }
@@ -97,14 +98,17 @@ header {
   transform: translate(-50%, -50%);
   line-height: 50px;
 }
+
 .commingSoon h1 {
   font-size: 52px;
   font-weight: bold;
 }
+
 .commingSoon p {
   font-size: 18px;
   color: #929fa5;
 }
+
 .commingSoon a {
   font-size: 16px;
   text-decoration: underline;
@@ -112,17 +116,21 @@ header {
 
 .error {
   @apply flex flex-col text-center;
+
   color: var(--text);
   line-height: 50px;
 }
+
 .error h1 {
   font-size: 52px;
   font-weight: bold;
 }
+
 .error p {
   font-size: 18px;
   color: #929fa5;
 }
+
 .error a {
   font-size: 16px;
   text-decoration: underline;

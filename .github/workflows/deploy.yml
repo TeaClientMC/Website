@@ -53,15 +53,6 @@ jobs:
         run: |
           bun install
 
-      - name: Print versions
-        run: |
-          bun --version
-          bunx commitlint --version
-      - name: Install commitlint
-        run: |
-          bun install conventional-changelog-conventionalcommits
-          bun install commitlint@latest
-
       - name: Validate current commit (last commit) with commitlint
         if: github.event_name == 'push'
         run: bunx commitlint --from HEAD~1 --to HEAD --verbose

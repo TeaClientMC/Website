@@ -11,7 +11,7 @@ export default defineConfig({
   server: {
     port: 7053
   },
-  integrations: [mdx(), metaTags(), sitemap(), tailwind()],
+  integrations: [mdx(), metaTags(), sitemap(), tailwind({nesting: true, applyBaseStyles: true})],
   redirects: {
     "/discord": "https://discord.gg/ejFTe4Hfnc",
     "/klaas": "https://klaas.tiiny.site/",

@@ -1,4 +1,6 @@
-@import url("tailwindcss");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
 :root {
@@ -134,4 +136,10 @@ header {
 .error a {
   font-size: 16px;
   text-decoration: underline;
+}
+
+
+
+.news-container a {
+  @apply text-red-600
 }

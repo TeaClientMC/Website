@@ -18,7 +18,6 @@ export default defineConfig({
 		sitemap(),
 		tailwind({
 			nesting: true,
-			applyBaseStyles: true,
 		}),
 		icon(),
 	],

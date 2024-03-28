@@ -18,10 +18,16 @@ export default defineConfig({
 		tailwind({ nesting: true, applyBaseStyles: true }),
 	],
 	redirects: {
+		// Resources
 		"/discord": "https://discord.gg/ejFTe4Hfnc",
-		"/klaas": "https://klaas.tiiny.site/",
 		"/github": "https://github.com/TeaClientMC",
 		"/roadmap": "https://github.com/orgs/TeaClientMC/projects/3",
+
+		// Partner Networks
+		"/dropps": "https://discord.gg/qFarXHT32J",
+
+		// Easter-Eggs
+		"/klaas": "https://klaas.tiiny.site/",
 	},
 	vite: {
 		resolve: {

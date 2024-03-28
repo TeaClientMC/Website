@@ -7,13 +7,15 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true
-		}
+		},
+		"ignore": ["./.astro/*"]
 	},
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
 		"indentWidth": 2,
-		"lineWidth": 80
+		"lineWidth": 80,
+		"ignore": ["./.astro/*"]
 	},
 	"css": {
 		"formatter": {

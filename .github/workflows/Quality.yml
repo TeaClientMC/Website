@@ -1,12 +1,12 @@
 name: Quality
 
 on:
-  push:
+ push:
     branches-ignore:
       - main
 
 jobs:
-  Quality:
+ Quality:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,44 +17,34 @@ jobs:
           version: latest
       - name: Run Biome
         run: biome ci .
-
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-
       - name: Install Deps
         run: bun install
-
       - name: Check stylelint
-        run: bun stylelint
+        run: bunx stylelint src/styles/**/*.css
 
-  CommitQuality:
-    runs-on: ubuntu-22.04
+ CommitQuality:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-
       - name: Install packages
-        run: |
-          bun install
+        run: bun install
 
       - name: Print versions
         run: |
           bun --version
           bunx commitlint --version
-      - name: Install commitlint
-        run: |
-          bun install conventional-changelog-conventionalcommits
-          bun install commitlint@latest
-
       - name: Validate current commit (last commit) with commitlint
         if: github.event_name == 'push'
         run: bunx commitlint --from HEAD~1 --to HEAD --verbose
-
       - name: Validate PR commits with commitlint
         if: github.event_name == 'pull_request'
         run: bunx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose

@@ -21,6 +21,7 @@ export default defineConfig({
 		"/discord": "https://discord.gg/ejFTe4Hfnc",
 		"/klaas": "https://klaas.tiiny.site/",
 		"/github": "https://github.com/TeaClientMC",
+		"/roadmap": "https://github.com/orgs/TeaClientMC/projects/3",
 	},
 	vite: {
 		resolve: {

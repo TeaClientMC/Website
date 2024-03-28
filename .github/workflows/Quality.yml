@@ -4,6 +4,7 @@ on:
   push:
     branches-ignore:
       - main
+  
 
 jobs:
   Quality:
@@ -26,7 +27,7 @@ jobs:
         run: bun install
 
       - name: Check stylelint
-        run: bun stylelint
+        run: bunx stylelint src/styles/**/*.css
 
   CommitQuality:
     runs-on: ubuntu-22.04

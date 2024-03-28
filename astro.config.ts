@@ -2,8 +2,9 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import metaTags from "astro-meta-tags";
 import { defineConfig } from "astro/config";
-
 import tailwind from "@astrojs/tailwind";
+
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,7 +16,13 @@ export default defineConfig({
 		mdx(),
 		metaTags(),
 		sitemap(),
-		tailwind({ nesting: true, applyBaseStyles: true }),
+		tailwind({
+			nesting: true,
+			applyBaseStyles: true,
+		}),
+		icon({
+			iconDir: "src/icons",
+		}),
 	],
 	redirects: {
 		"/discord": "https://discord.gg/ejFTe4Hfnc",

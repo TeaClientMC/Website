@@ -8,7 +8,7 @@
 		"rules": {
 			"recommended": true
 		},
-		"ignore": ["./.astro/*"]
+		"ignore": [".astro/**/*"]
 	},
 	"formatter": {
 		"enabled": true,

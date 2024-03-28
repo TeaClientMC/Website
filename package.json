@@ -7,11 +7,10 @@
 		"preview": "astro preview",
 		"build": "astro build",
 		"astro": "astro",
-		"lint": "biome check --apply . && bun lint:css --fix",
-		"lint:css": "stylelint 'src/styles/**/*.css'",
+		"lint": "biome check --apply . && stylelint 'src/styles/**/*.css' --fix",
 		"fmt": "biome format . --write",
 		"biome": "bunx @biomejs/biome",
-		"check": "biome check . && bun lint:css && bun astro check",
+		"check": "biome check . && stylelint 'src/styles/**/*.css'&& bun astro check",
 		"postinstall": "husky install"
 	},
 	"trustedDependencies": ["sharp"],

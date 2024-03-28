@@ -1,8 +1,8 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
 import metaTags from "astro-meta-tags";
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 
 import icon from "astro-icon";
 
@@ -20,9 +20,7 @@ export default defineConfig({
 			nesting: true,
 			applyBaseStyles: true,
 		}),
-		icon({
-			iconDir: "src/icons",
-		}),
+		icon(),
 	],
 	redirects: {
 		"/discord": "https://discord.gg/ejFTe4Hfnc",

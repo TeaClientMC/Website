@@ -26,7 +26,7 @@ jobs:
         run: bunx stylelint src/styles/**/*.css
 
  CommitQuality:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,12 +35,6 @@ jobs:
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-
-      # Needed to fix some issues with commitlint.
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-            node-version: '16'
       - name: Install packages
         run: |
           bun install

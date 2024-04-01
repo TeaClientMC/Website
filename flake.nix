@@ -1,36 +1,37 @@
 {
- description = "Astro website using Bun";
+ description = "TeaClient Website";
 
  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-    astro.url = "github:withastro/astro";
-    bun.url = "github:bunjs/bun";
+    nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
+    systems.url = "github:nix-systems/default";
+    devenv.url = "github:cachix/devenv";
+    devenv.inputs.nixpkgs.follows = "nixpkgs";
  };
 
- outputs = { self, nixpkgs, flake-utils, astro, bun }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-        nodePackages = pkgs.nodePackages;
-        astro = nodePackages.astro;
-        bun = nodePackages.bun;
-      in
-      {
-        devShell = pkgs.mkShell {
-          buildInputs = [
-            astro
-            bun
-            pkgs.nodejs
+ nixConfig = {
+    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
+    extra-substituters = "https://devenv.cachix.org";
+ };
+
+ outputs = { self, nixpkgs, devenv, systems, ... } @ inputs:
+    let
+      forEachSystem = system: {
+        devenv-up = self.devShells.${system}.default.config.procfileScript;
+        devShell = devenv.lib.mkShell {
+          inherit inputs;
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = [
+            {
+              packages = [ nixpkgs.legacyPackages.${system}.hello ];
+              languages.javascript.bun.enable = true;
+              processes.run.exec = "hello";
+            }
           ];
         };
-
-        packages = {
-          astro = astro;
-          bun = bun;
-        };
-
-        defaultPackage = self.packages.${system}.astro;
-      }
-    );
+      };
+    in
+    {
+      packages = forEachSystem (import systems);
+      devShells = forEachSystem (import systems);
+    };
 }

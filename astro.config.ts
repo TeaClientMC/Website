@@ -14,7 +14,7 @@ export default defineConfig({
 	integrations: [
 		mdx(),
 		metaTags(),
-		sitemap(),
+		sitemap({exclude: ['/roblox']}),
 		tailwind({ nesting: true, applyBaseStyles: true }),
 	],
 	redirects: {

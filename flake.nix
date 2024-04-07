@@ -53,6 +53,7 @@
                 # https://devenv.sh/languages/
                 languages.javascript = {
                   enable = true;
+
                   bun = {
                     enable = true;
                     install.enable = true;
@@ -65,7 +66,6 @@
 
                 # https://devenv.sh/pre-commit-hooks/
                 pre-commit.hooks = {
-                  yamllint.settings.preset = "relaxed";
                   nixfmt.package = pkgs.nixfmt-rfc-style;
                   nixfmt.enable = true;
                   rome.enable = true;

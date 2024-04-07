@@ -39,24 +39,6 @@ jobs:
       - name: Check stylelint
         run: bun stylelint
 
-  commitquality:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
-
-      - name: Install packages
-        run: |
-          bun install
-
-      - name: Validate current commit (last commit) with commitlint
-        if: github.event_name == 'push'
-        run: bunx commitlint --from HEAD~1 --to HEAD --verbose
-
   build:
     needs: [commitquality, quality]
     runs-on: ubuntu-latest

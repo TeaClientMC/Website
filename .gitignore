@@ -32,5 +32,3 @@ package-lock.json
 .direnv
 .devenv
 
-# Pre-Commit 
-.pre-commit-config.yaml

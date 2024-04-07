@@ -1,9 +1,10 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
 import metaTags from "astro-meta-tags";
 import { defineConfig } from "astro/config";
 
-import tailwind from "@astrojs/tailwind";
+import pageInsight from "astro-page-insight";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,17 +16,19 @@ export default defineConfig({
 		mdx(),
 		metaTags(),
 		sitemap(),
-		tailwind({ nesting: true, applyBaseStyles: true }),
+		tailwind({
+			nesting: true,
+			applyBaseStyles: true,
+		}),
+		pageInsight(),
 	],
 	redirects: {
 		// Resources
 		"/discord": "https://discord.gg/ejFTe4Hfnc",
 		"/github": "https://github.com/TeaClientMC",
 		"/roadmap": "https://github.com/orgs/TeaClientMC/projects/3",
-
 		// Partner Networks
 		"/dropps": "https://discord.gg/qFarXHT32J",
-
 		// Easter-Eggs
 		"/klaas": "https://klaas.tiiny.site/",
 	},

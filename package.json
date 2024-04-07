@@ -10,7 +10,7 @@
 		"lint": "biome check --apply . && stylelint 'src/styles/**/*.css' --fix",
 		"fmt": "biome format . --write",
 		"biome": "bunx @biomejs/biome",
-		"check": "biome check . && stylelint 'src/styles/**/*.css'&& bun astro check"
+		"check": "biome check . && stylelint 'src/styles/**/*.css' && bun astro check"
 	},
 	"trustedDependencies": ["sharp"],
 	"stylelint": {

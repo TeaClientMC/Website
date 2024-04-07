@@ -23,5 +23,5 @@ jobs:
       - name: Install Deps
         run: bun install
 
-      - name: Check stylelint
-        run: bunx stylelint src/styles/**/*.css
+      - name: Check Quality
+        run: bun check

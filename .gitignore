@@ -28,3 +28,8 @@ package-lock.json
 /playwright-report/
 /playwright/.cache/
 .devenv
+
+
+
+# Nix Shell
+.direnv

@@ -58,6 +58,10 @@
                     enable = true;
                     install.enable = true;
                   };
+                  pnpm = {
+                    enable = false;
+                    install.enable = false;
+                  };
                 };
 
                 languages.typescript = {

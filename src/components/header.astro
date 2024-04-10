@@ -58,38 +58,25 @@ import { Image } from "astro:assets";
 </div>
 
 <script>
-
+  const button = document.querySelector('.checkbox') as HTMLInputElement;
   function switchTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    const button = document.querySelector('.checkbox') as HTMLInputElement;
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     button.checked = newTheme === 'dark';
   }
-
-  function setRandomBackgroundImage() {
-    const images = ['/background/1.webp'];
-    const randomImage = images[Math.floor(Math.random() * images.length)];
-    (document.getElementById('background-image') as HTMLImageElement).src =
-      randomImage;
-  }
-
   document.addEventListener('DOMContentLoaded', () => {
     const currentTheme = localStorage.getItem('theme');
-    const button = document.querySelector('.checkbox') as HTMLInputElement;
     if (currentTheme) {
       document.documentElement.setAttribute('data-theme', currentTheme);
       button.checked = currentTheme === 'dark';
-    } else {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-      button.checked = true;
+      return;
     }
-    setRandomBackgroundImage();
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+    button.checked = true;
   });
-
-  const button = document.querySelector('.checkbox') as HTMLInputElement;
   button.addEventListener('click', switchTheme);
 </script>
 

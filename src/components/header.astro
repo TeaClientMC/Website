@@ -42,7 +42,7 @@ import { Image } from "astro:assets";
     <li><a href="/store">STORE</a></li>
     <li><a href="https://docs.teaclient.net">DOCS</a></li>
     <li><a href="/news">NEWS</a></li>
-    <li><a class="download text-white font-bold hover:text-white bg-[#6e2bec] hover:bg-[#ec2b2bab]" href="/">DOWNLOAD</a></li>
+    <li><a class="download text-white font-bold hover:text-white bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab]" href="/">DOWNLOAD</a></li>
   </ul>
 </section>
 
@@ -159,6 +159,7 @@ li {
  font-size: 1.1rem;
 }
 .menu li:not(.download) a:hover {
+ @apply rounded-lg;
  color: var(--hover-color);
  background-color: var(--nav-buttons);
  text-decoration: none;

@@ -1,15 +1,37 @@
 ---
 import Layout from "@layout/layout.astro";
+import { Image } from "astro:assets";
 const newsitems = await Astro.glob("./*/*.{md,mdx}");
 ---
 
-<Layout className="items-center">
- <div class="p-32 text-xl">
-    <h1 class="bg-gradient-to-r from-indigo-100 to-violet-100 text-3xl bg-clip-text text-transparent">TeaClient News</h1>
-    {newsitems.slice(0, 3).map((news) => (
-      <article>
-        <a class="text-blue-600 underline" href={news.url}>{news.frontmatter.title}</a>
-      </article>
-    ))}
+<Layout title="News Articles | TeaClient Website" className="items-center">
+ <div class="flex flex-col items-center p-32 text-xl w-full h-full">
+    <h1 class="bg-gradient-to-r from-indigo-600 to-violet-500 text-3xl bg-clip-text text-transparent">TeaClient News Articles</h1>
+    <ul class="flex flex-col mt-5">
+      {newsitems
+        .filter(news => !news.frontmatter.title.startsWith('_')) // Filter out items with titles starting with '_'
+        .slice(0, 3)
+        .map((news) => (
+          <li class="relative"> {/* Add relative positioning here */}
+            <a class="flex flex-row gap-5" href={news.url}>
+              {news.frontmatter.banner && news.frontmatter.banner !== "" && (
+                <div class="relative"> {/* Wrap the image in a relative container */}
+                 <Image
+                    src={news.frontmatter.banner}
+                    alt={`${news.title} Banner`}
+                    height={500}
+                    width={500}
+                    loading="lazy"
+                    class="border border-neutral-600 hover:border-purple-600 rounded-xl opacity-70"
+                 />
+                 <div class="absolute top-[5%] text-white hover:border-purple-600 left-[25%] h-auto flex items-center justify-center"> {/* Position the text absolutely */}
+                    <span>{news.frontmatter.title}</span>
+                 </div>
+                </div>
+              )}
+            </a>
+          </li>
+        ))}
+    </ul>
  </div>
 </Layout>

@@ -15,7 +15,10 @@ export default defineConfig({
 	integrations: [
 		mdx(),
 		metaTags(),
-		sitemap(),
+		sitemap({
+			filter: (page) =>
+				page !== `${import.meta.env.SITE}/staffhandbook-13-4-24`,
+		}),
 		tailwind({
 			nesting: true,
 			applyBaseStyles: true,

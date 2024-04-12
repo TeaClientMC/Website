@@ -1,9 +1,9 @@
 :root {
   /* Define the variables for both themes here */
   --nav-color-dark: rgb(0 0 0 / 50%);
-  --nav-color-dark2: rgba(0, 0, 0, 0.79);
+  --nav-color-dark2: rgb(0 0 0 / 79%);
   --nav-color-light: rgb(255 255 255 / 25%);
-  --nav-color-light2: rgb(255 255 255 / 0.5);
+  --nav-color-light2: rgb(255 255 255 / 50%);
   --navBar-Items-dark: white;
   --navBar-Items-light: black;
   --hover-color: #6e2bec;
@@ -15,7 +15,6 @@
 [data-theme="dark"] {
   --nav-color: var(--nav-color-dark);
   --nav-color2: var(--nav-color-dark2);
-
   --navBar-Items: var(--navBar-Items-dark);
   --text: var(--text-dark);
   --nav-buttons: var(--nav-color-dark);

@@ -5,36 +5,35 @@ import Head from "@component/head.astro";
 import Header from "@component/header.astro";
 import DiscordSVG from "@assets/svgs/Discord.svg";
 import GithubSVG from "@assets/svgs/Github-white.svg";
-import { Image } from 'astro:assets';
-
+import { Image } from "astro:assets";
 
 // Styles
 import "../styles/style.css";
 
 export interface Props {
-  postprops: PostProps;
-  className?: string;
+	postprops: PostProps;
+	className?: string;
 }
 
 export interface PostProps {
-  author: AuthorProps;
-  title: string;
-  desc?: string;
-  banner: string;
-  bannerSize: number;
-  pubDate: string;
+	author: AuthorProps;
+	title: string;
+	desc?: string;
+	banner: string;
+	bannerSize: number;
+	pubDate: string;
 }
 
 export interface AuthorProps {
-  name: string;
-  role: string;
-  img?: string;
-  socials?: AuthorSocialsProps;
+	name: string;
+	role: string;
+	img?: string;
+	socials?: AuthorSocialsProps;
 }
 
 export interface AuthorSocialsProps {
-  discordServer?: string;
-  github?: string;
+	discordServer?: string;
+	github?: string;
 }
 const Sociallogosizes = 36;
 

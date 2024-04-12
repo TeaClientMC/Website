@@ -8,14 +8,14 @@
 		"rules": {
 			"recommended": true
 		},
-		"ignore": ["./.astro/*"]
+		"ignore": ["./.astro/*", ".pre-commit-config.yaml"]
 	},
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
 		"indentWidth": 2,
 		"lineWidth": 80,
-		"ignore": ["./.astro/*"]
+		"ignore": ["./.astro/*", ".pre-commit-config.yaml"]
 	},
 	"css": {
 		"formatter": {

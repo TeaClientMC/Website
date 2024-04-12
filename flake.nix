@@ -42,7 +42,7 @@
                 env = { };
 
                 # https://devenv.sh/reference/options/
-                packages = with pkgs; [ ] ++ nodejs-packages;
+                packages = with pkgs; [ biome ] ++ nodejs-packages;
 
                 # https://devenv.sh/scripts/
                 # scripts.hello.exec = "";
@@ -73,6 +73,7 @@
                   nixfmt.package = pkgs.nixfmt-rfc-style;
                   nixfmt.enable = true;
                   rome.enable = true;
+                  rome.package = pkgs.biome;
                 };
 
                 # https://devenv.sh/integrations/dotenv/

@@ -43,7 +43,7 @@ const formattedPubDate = `${pubDate.toLocaleDateString()}`;
 ---
 
 <Head
-  title={String(postprops.title) ?? "TeaClent Website"}
+  title={`${postprops.title} | TeaClient News` ?? "TeaClent Website"}
   customDescription={postprops.desc}
   ,
   bannerPath={postprops.banner}

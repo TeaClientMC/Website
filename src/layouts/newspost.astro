@@ -1,0 +1,103 @@
+---
+import { twMerge } from "tailwind-merge";
+import Footer from "@component/footer.astro";
+import Head from "@component/head.astro";
+import Header from "@component/header.astro";
+import DiscordSVG from "@assets/svgs/Discord.svg";
+import GithubSVG from "@assets/svgs/Github-white.svg";
+import { Image } from 'astro:assets';
+
+
+// Styles
+import "../styles/style.css";
+
+export interface Props {
+  postprops: PostProps;
+  className?: string;
+}
+
+export interface PostProps {
+  author: AuthorProps;
+  title: string;
+  desc?: string;
+  banner: string;
+  bannerSize: number;
+  pubDate: string;
+}
+
+export interface AuthorProps {
+  name: string;
+  role: string;
+  img?: string;
+  socials?: AuthorSocialsProps;
+}
+
+export interface AuthorSocialsProps {
+  discordServer?: string;
+  github?: string;
+}
+const Sociallogosizes = 36;
+
+const { postprops, className } = Astro.props;
+const pubDate = new Date(postprops.pubDate);
+const formattedPubDate = `${pubDate.toLocaleDateString()}`;
+---
+
+<Head
+  title={String(postprops.title) ?? "TeaClent Website"}
+  customDescription={postprops.desc}
+  ,
+  bannerPath={postprops.banner}
+/>
+<Header />
+<div
+  class={twMerge(
+    `h-screen text-[var(--text)] my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg  ${className}`
+  )}
+>
+  <div class="flex justify-between w-full bg-neutral-900 text-neutral-400 rounded-t-lg  mr-5 left-0 space-x-2 p-4">
+    <a href="/news">&lt;- Back to News Articles</a>
+    Published on: {formattedPubDate}
+  </div>
+
+  <div class="flex flex-col items-center justify-center pb-3">
+    <div class="mx-5 my-5">
+        <Image
+        src={postprops.banner}
+        alt={`${postprops.title} Banner`}
+        height={postprops.bannerSize}
+        width={postprops.bannerSize}
+        loading="eager"
+        class="border border-purple-600 rounded-xl w-[100%]"
+    />
+    </div>
+
+    <h1 class="text-2xl">{postprops.title}</h1>
+    <slot />
+  </div>
+
+  <div class="flex justify-between bg-neutral-900 rounded-b-lg  mt-3">
+    <div class="flex flex-col ml-10 mb-5">
+     <div class="flex text-white flex-row gap-x-2 mt-5">
+      <img
+        class="flex w-8 h-8 rounded-full"
+        src={postprops.author.img}
+        alt={`${postprops.author.name}`}
+      />
+      {postprops.author.name}
+     </div>
+     <div class="text-neutral-400 mt-1">{postprops.author.role}</div>
+    </div>
+    {postprops.author.socials && (
+        <div class="flex gap-x-2 mr-4 mt-10">
+            {postprops.author.socials.github && (
+                <a href={postprops.author.socials.github} class="text-gray-500 hover:text-gray-700"><Image src={GithubSVG} alt="Github Logo" width={Sociallogosizes} height={Sociallogosizes}/></a>
+            )}
+            {postprops.author.socials.discordServer && (
+                <a href={postprops.author.socials.discordServer} class="text-blue-500 hover:text-blue-700"><Image src={DiscordSVG} alt="Github Logo" width={Sociallogosizes} height={Sociallogosizes}/></a>
+            )}
+        </div>
+    )}
+  </div>
+</div>
+<Footer />

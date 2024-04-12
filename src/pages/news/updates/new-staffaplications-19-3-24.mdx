@@ -1,29 +1,23 @@
 ---
 title: New Staff Applications!
+banner: /news/new-screenshot-1-19-3-24.png
+bannerSize: 100
 link: 'https://teaclient.net/news'
 pubDate: 2024-03-19
+author:
+  name: eveeifyeve
+  role: CEO/Owner of TeaClient 
+  img: https://github.com/eveeifyeve.png
+  socials: 
+    github: https://github.com/eveeifyeve
+    discordServer: https://teaclient.net/discord
 ---
-import Layout from "@layout/layout.astro";
-
-<Layout className="items-center h-full w-full text-center justify-center" title="New Staff Applications! | TeaClient Website">
-<div className="mx-5 my-5">
-<img src="/news/new-screenshot-1-19-3-24.png" class="border justify-center border-purple-600 rounded-xl w-[50%] h-[60%]"/>
-<div class="w-full h-full">
+import Layout from "@layout/newspost.astro";
 
 
-# {frontmatter.title}
+<Layout postprops={frontmatter} className="h-full bg-[var(--nav-color2)]">
 
-<div class="flex flex-col items-center space-x-2 p-4">
-  Posted at {frontmatter.pubDate}
-  <div class="flex items-center">
-    <img
-      class="w-8 h-8 rounded-full"
-      src={`https://github.com/eveeifyeve.png`}
-      alt={`eveeifyeve's GitHub Profile Picture`}
-    />
-    eveeifyeve
-  </div>
-</div>
+
 
 <br/>
 
@@ -39,10 +33,11 @@ We have a very few plaforms for staff Applications for now but more to come.
 
 
 The full list is:
-<div class="bg-gradient-to-br from-purple-300 to-lime-300 bg-clip-text text-transparent">
-- Our Discord 
-- Revolt(Discord Alternat) 
-
+<div class="bg-gradient-to-br bg-clip-text text-transparent">
+ <ul class="list-disc list-inside">
+    <li class="text-indigo-500">Our Discord</li>
+    <li class="text-red-600">Revolt (Discord Alternative)</li>
+ </ul>
 </div>
 
 <br/>
@@ -54,14 +49,8 @@ You will be showing all the values of teaclient helping out members, moderate, a
 
 <br/>
 
-<div class="bg-gradient-to-br from-purple-300 to-lime-300 bg-clip-text text-transparent">
-So What are you waiting for <a href="/apply" class="bg-gradient-to-br from-blue-300 to-purple-300 bg-clip-text text-transparent">JOIN TODAY!</a>
+<div class="bg-gradient-to-br from-violet-200 to-green-200 bg-clip-text text-transparent">
+So What are you waiting for <a href="/apply" class="bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text text-transparent">JOIN TODAY!</a>
 </div>
 
-
-
-
-
-    </div>
-</div>
 </Layout>

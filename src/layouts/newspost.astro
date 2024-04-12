@@ -16,7 +16,7 @@ export interface Props {
 }
 
 export interface PostProps {
-	author: AuthorProps;
+	authorBlog: AuthorProps;
 	title: string;
 	desc?: string;
 	banner: string;
@@ -80,20 +80,20 @@ const formattedPubDate = `${pubDate.toLocaleDateString()}`;
      <div class="flex text-white flex-row gap-x-2 mt-5">
       <img
         class="flex w-8 h-8 rounded-full"
-        src={postprops.author.img}
-        alt={`${postprops.author.name}`}
+        src={postprops.authorBlog.img}
+        alt={`${postprops.authorBlog.name}`}
       />
-      {postprops.author.name}
+      {postprops.authorBlog.name}
      </div>
-     <div class="text-neutral-400 mt-1">{postprops.author.role}</div>
+     <div class="text-neutral-400 mt-1">{postprops.authorBlog.role}</div>
     </div>
-    {postprops.author.socials && (
+    {postprops.authorBlog.socials && (
         <div class="flex gap-x-2 mr-4 mt-10">
-            {postprops.author.socials.github && (
-                <a href={postprops.author.socials.github} class="text-gray-500 hover:text-gray-700"><Image src={GithubSVG} alt="Github Logo" width={Sociallogosizes} height={Sociallogosizes}/></a>
+            {postprops.authorBlog.socials.github && (
+                <a href={postprops.authorBlog.socials.github} class="text-gray-500 hover:text-gray-700"><Image src={GithubSVG} alt="Github Logo" width={Sociallogosizes} height={Sociallogosizes}/></a>
             )}
-            {postprops.author.socials.discordServer && (
-                <a href={postprops.author.socials.discordServer} class="text-blue-500 hover:text-blue-700"><Image src={DiscordSVG} alt="Github Logo" width={Sociallogosizes} height={Sociallogosizes}/></a>
+            {postprops.authorBlog.socials.discordServer && (
+                <a href={postprops.authorBlog.socials.discordServer} class="text-blue-500 hover:text-blue-700"><Image src={DiscordSVG} alt="Github Logo" width={Sociallogosizes} height={Sociallogosizes}/></a>
             )}
         </div>
     )}

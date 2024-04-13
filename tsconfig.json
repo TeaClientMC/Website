@@ -13,6 +13,7 @@
 			"@scripts/*": ["src/scripts/*"],
 			"@styles/*": ["src/styles/*"],
 			"@assets/*": ["src/assets/*"]
-		}
+		},
+		"types": ["bun-types"]
 	}
 }

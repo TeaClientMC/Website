@@ -46,7 +46,7 @@
 	"devDependencies": {
 		"@astrojs/check": "^0.5.10",
 		"@biomejs/biome": "^1.5.3",
-		"@types/node": "^20.8.3",
+		"@types/bun": "^1.0.12",
 		"astro": "^4.2.3",
 		"postcss-scss": "^4.0.9",
 		"stylelint": "^16.3.1",

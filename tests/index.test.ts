@@ -11,7 +11,7 @@ test("Website Online", async () => {
 		cwd: path.resolve(__dirname, "../"),
 	});
 
-	await new Promise((resolve) => setTimeout(resolve, 3000));
+	await new Promise((resolve) => setTimeout(resolve, 2500));
 
 	const browser = await chromium.launch();
 	const context = await browser.newContext();
@@ -34,13 +34,13 @@ for (const browserType of browsers) {
 			cwd: path.resolve(__dirname, "../"),
 		});
 
-		await new Promise((resolve) => setTimeout(resolve, 3000));
+		await new Promise((resolve) => setTimeout(resolve, 2500));
 
 		// Puppiteer goes to Local Instance
 		const browser = await browserType.launch();
 		const context = await browser.newContext();
 		const page = await context.newPage();
-		const response = await page.goto(TeaClientLocal);
+		await page.goto(TeaClientLocal);
 
 		// Main SEO Check
 		const ogTitle = await page.$eval('meta[property="og:title"]', (el) =>

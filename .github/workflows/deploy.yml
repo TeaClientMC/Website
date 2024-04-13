@@ -18,13 +18,12 @@ env:
 
 jobs:
  quality:
-  name: Quality & Checks
+  name: Quality
   runs-on: ubuntu-latest
   steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Setup Biome
-      uses: biomejs/setup-biome@v2
+    - uses: actions/checkout@v4
+
+    - uses: biomejs/setup-biome@v2
       with:
        version: latest
     - name: Run Biome
@@ -38,11 +37,26 @@ jobs:
       run: bun install
 
     - name: Check Quality
-      run: bun check
+      run: bunx @biomejs/biome check . && bunx stylelint 'src/styles/**/*.css' && bunx astro check
+
+ testing:
+    name: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+        with:
+         bun-version: latest
+
+      - name: Install Deps
+        run: bun install
+      
+      - name: Run Testing
+        run: bun test
 
  build:
     name: Building
-    needs: [quality]
+    needs: [quality,testing]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

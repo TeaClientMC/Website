@@ -36,6 +36,9 @@ jobs:
     - name: Install Deps
       run: bun install
 
+    - name: Install Browsers Required for tests.
+      run: bunx playwright install
+
     - name: Check Quality
       run: bunx @biomejs/biome check . && bunx stylelint 'src/styles/**/*.css' && bunx astro check
 

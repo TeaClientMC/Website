@@ -18,6 +18,7 @@ export default defineConfig({
 		sitemap({
 			filter: (page) =>
 				page !== `${import.meta.env.SITE}/staffhandbook-13-4-24`,
+			customPages: ["docs.teaclient.net"],
 		}),
 		tailwind({
 			nesting: true,

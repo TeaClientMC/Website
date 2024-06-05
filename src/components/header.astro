@@ -27,8 +27,16 @@ import { Image } from "astro:assets";
   </label>
   <ul class="menu flex flex-row list-none m-0 p-0 *:mx-4 *:overflow-hidden">
     <li>
-      <input type="checkbox" class="checkbox absolute opacity-0" id="checkbox" />
-      <label for="checkbox" class="checkbox-label bg-[#2e2e2e] w-[50px] h-[26px] rounded-[50px] relative p-[5px] cursor-pointer flex justify-between items-center" aria-label="Toggle theme">
+      <input
+        type="checkbox"
+        class="checkbox absolute opacity-0"
+        id="checkbox"
+      />
+      <label
+        for="checkbox"
+        class="checkbox-label bg-[#2e2e2e] w-[50px] h-[26px] rounded-[50px] relative p-[5px] cursor-pointer flex justify-between items-center"
+        aria-label="Toggle theme"
+      >
         <i class="fas text-[f1c40f]"></i>
         <i class="fas text-[#f39c12]"></i>
         <span class="ball"></span>
@@ -42,7 +50,11 @@ import { Image } from "astro:assets";
     <li><a href="/store">STORE</a></li>
     <li><a href="https://docs.teaclient.net">DOCS</a></li>
     <li><a href="/news">NEWS</a></li>
-    <li><a class="download text-white font-bold hover:text-white bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab]" href="/">DOWNLOAD</a></li>
+    <li>
+      <a
+        class="download text-white font-bold hover:text-white bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab]"
+        href="/">DOWNLOAD</a>
+    </li>
   </ul>
 </section>
 
@@ -58,137 +70,135 @@ import { Image } from "astro:assets";
 </div>
 
 <script>
-  const button = document.querySelector('.checkbox') as HTMLInputElement;
+  const button = document.querySelector(".checkbox") as HTMLInputElement;
   function switchTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    button.checked = newTheme === 'dark';
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    button.checked = newTheme === "dark";
   }
-  document.addEventListener('DOMContentLoaded', () => {
-    const currentTheme = localStorage.getItem('theme');
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentTheme = localStorage.getItem("theme");
     if (currentTheme) {
-      document.documentElement.setAttribute('data-theme', currentTheme);
-      button.checked = currentTheme === 'dark';
+      document.documentElement.setAttribute("data-theme", currentTheme);
+      button.checked = currentTheme === "dark";
       return;
     }
-    document.documentElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
     button.checked = true;
   });
-  button.addEventListener('click', switchTheme);
+  button.addEventListener("click", switchTheme);
 </script>
 
 <style>
   /* Mobile Button */
-.menu-button,
-.menu-button::before,
-.menu-button::after {
- display: block;
- position: absolute;
- height: 4px;
- width: 30px;
- border-radius: 0.25rem;
- background-color: white;
- transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-}
+  .menu-button,
+  .menu-button::before,
+  .menu-button::after {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    border-radius: 0.25rem;
+    background-color: white;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-.menu-button::before {
- content: '';
-}
+  .menu-button::before {
+    content: "";
+  }
 
-#menu-toggle:checked + .menu-button-container .menu-button::after {
- margin-top: 0;
- transform: rotate(-405deg);
-}
+  #menu-toggle:checked + .menu-button-container .menu-button::after {
+    margin-top: 0;
+    transform: rotate(-405deg);
+  }
 
-@media (max-width: 1400px) {
- .menu-button-container {
-  @apply flex;
- }
- .menu {
-  @apply absolute top-0 mt-[90px] left-0 flex flex-col w-[100%] justify-center items-center;
- }
+  @media (max-width: 1400px) {
+    .menu-button-container {
+      @apply flex;
+    }
+    .menu {
+      @apply absolute top-0 mt-[90px] left-0 flex flex-col w-[100%] justify-center items-center;
+    }
 
+    #menu-toggle ~ .menu li {
+      height: 0;
+      margin: 0;
+      padding: 0;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
 
- #menu-toggle ~ .menu li {
-    height: 0;
-    margin: 0;
-    padding: 0;
-    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
- }
+    #menu-toggle:checked ~ .menu li {
+      height: 2.5em;
+      padding: 0.5em;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .menu > li {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      width: 100%;
+      color: white;
+      backdrop-filter: blur(10px);
+      background-color: var(--nav-color);
+    }
 
- #menu-toggle:checked ~ .menu li {
-    height: 2.5em;
-    padding: 0.5em;
-    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
- }
- .menu > li {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    width: 100%;
+    #menu-toggle:checked ~ .menu > li a:not(.download) {
+      color: white;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    #menu-toggle:checked ~ .menu > li a:hover:not(.download) {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+    }
+  }
+
+  li {
+    list-style: none;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    position: relative;
+  }
+
+  .menu li:not(.download) a {
+    color: var(--navBar-Items);
+    padding: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  .menu li:not(.download) a:hover {
+    @apply rounded-lg;
+    color: var(--hover-color);
+    background-color: var(--nav-buttons);
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .download:hover {
     color: white;
-    backdrop-filter: blur(10px);
-    background-color: var(--nav-color);
- }
+    background-color: var(--hover-color);
+    text-decoration: none;
+    font-weight: bold;
+  }
 
- #menu-toggle:checked ~ .menu > li a:not(.download) {
-    color: black;
-    background-color: rgba(0, 0, 0, 0.1);
- }
- #menu-toggle:checked ~ .menu > li a:hover:not(.download) {
-    background-color: rgba(0, 0, 0, 0.4);
-    color: white;
- }
-}
+  .checkbox-label .ball {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    background-color: orange;
+    aspect-ratio: 1 / 1;
+    width: 22px;
+    box-shadow: 0px 0px 4px yellow;
+    transition: transform 0.2s linear;
+  }
 
-li {
- list-style: none;
- display: inline-block;
- padding: 0.5rem 1rem;
- position: relative;
-}
-
-.menu li:not(.download) a {
- color: var(--navBar-Items);
- padding: 0.5rem;
- text-decoration: none;
- font-weight: bold;
- font-size: 1.1rem;
-}
-.menu li:not(.download) a:hover {
- @apply rounded-lg;
- color: var(--hover-color);
- background-color: var(--nav-buttons);
- text-decoration: none;
- font-weight: bold;
-}
-
-
-.download:hover {
- color: white;
- background-color: var(--hover-color);
- text-decoration: none;
- font-weight: bold;
-}
-
-.checkbox-label .ball {
- position: absolute;
- left: 2px;
- top: 2px;
- border-radius: 50%;
- background-color: orange;
- aspect-ratio: 1 / 1;
- width: 22px;
- box-shadow: 0px 0px 4px yellow;
- transition: transform 0.2s linear;
-}
-
-.checkbox:checked + .checkbox-label .ball {
- background-color: #101010;
- box-shadow: 0px 0px 4px white;
- transform: translateX(24px);
-}
+  .checkbox:checked + .checkbox-label .ball {
+    background-color: #101010;
+    box-shadow: 0px 0px 4px white;
+    transform: translateX(24px);
+  }
 </style>

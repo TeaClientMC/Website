@@ -20,7 +20,7 @@ import { Image } from "astro:assets";
   </div>
   <input id="menu-toggle" class="hidden" type="checkbox" />
   <label
-    class="menu-button-container hidden max-sm:flex h-[100%] w-[30px] justify-center flex-col cursor-pointer items-center"
+    class="menu-button-container flex xl:hidden max-sm:flex h-[100%] w-[30px] justify-center flex-col cursor-pointer items-center"
     for="menu-toggle"
   >
     <div class="menu-button before:mt-[-8px] after:mt-[8px]"></div>
@@ -52,8 +52,9 @@ import { Image } from "astro:assets";
     <li><a href="/news">NEWS</a></li>
     <li>
       <a
-        class="download text-white font-bold hover:text-white bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab]"
-        href="/">DOWNLOAD</a>
+        class="download text-white font-bold bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab]"
+        href="/">DOWNLOAD</a
+      >
     </li>
   </ul>
 </section>
@@ -97,12 +98,7 @@ import { Image } from "astro:assets";
   .menu-button,
   .menu-button::before,
   .menu-button::after {
-    display: block;
-    position: absolute;
-    height: 4px;
-    width: 30px;
-    border-radius: 0.25rem;
-    background-color: white;
+    @apply block absolute h-[4px] w-[30px] rounded bg-white;
     transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
@@ -111,14 +107,14 @@ import { Image } from "astro:assets";
   }
 
   #menu-toggle:checked + .menu-button-container .menu-button::after {
-    margin-top: 0;
-    transform: rotate(-405deg);
+    @apply mt-0 -rotate-[405deg];
   }
 
-  @media (max-width: 1400px) {
-    .menu-button-container {
-      @apply flex;
+  @media (max-width: 1279px) {
+    .download {
+      @apply bg-transparent;
     }
+
     .menu {
       @apply absolute top-0 mt-[90px] left-0 flex flex-col w-[100%] justify-center items-center;
     }

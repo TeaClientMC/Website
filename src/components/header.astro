@@ -52,7 +52,8 @@ import { Image } from "astro:assets";
     <li><a href="/news">NEWS</a></li>
     <li>
       <a
-        class="download text-white font-bold bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab]"
+        class="text-white font-bold bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab]"
+        id="download"
         href="/">DOWNLOAD</a
       >
     </li>
@@ -119,12 +120,10 @@ import { Image } from "astro:assets";
   }
 
   @media (max-width: 1279px) {
-    .download {
-      @apply bg-transparent;
-    }
-
     .menu {
       @apply absolute top-0 mt-[90px] left-0 flex flex-col w-[100%] justify-center items-center;
+      backdrop-filter: blur(25px);
+      background-color: var(--nav-color);
     }
 
     #menu-toggle ~ .menu li {
@@ -140,23 +139,21 @@ import { Image } from "astro:assets";
       transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
     }
     .menu > li {
-      display: flex;
-      justify-content: center;
-      margin: 0;
-      width: 100%;
-      color: white;
-      backdrop-filter: blur(10px);
-      background-color: var(--nav-color);
+      @apply flex justify-center m-0 w-full text-[var(--navBar-Items)];
     }
 
-    #menu-toggle:checked ~ .menu > li a:not(.download) {
-      color: white;
-      background-color: rgba(0, 0, 0, 0.1);
+    #menu-toggle:checked ~ .menu > li a {
+      @apply bg-[#0000001a] text-white;
     }
-    #menu-toggle:checked ~ .menu > li a:hover:not(.download) {
-      background-color: rgba(0, 0, 0, 0.4);
+    #menu-toggle:checked ~ .menu > li a:hover:not(#download) {
+      background-color: #00000066;
       color: white;
     }
+
+    /* #menu-toggle:checked ~ .menu > li #download:hover {
+      background-color: #ec2b2bab;
+      color: white;
+    } */
   }
 
   li {
@@ -167,27 +164,9 @@ import { Image } from "astro:assets";
   }
 
   .menu li:not(.download) a {
-    color: var(--navBar-Items);
-    padding: 0.5rem;
+    @apply text-[var(--navBar-Items)] p-2 font-bold text-lg;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
   }
-  .menu li:not(.download) a:hover {
-    @apply rounded-lg;
-    color: var(--hover-color);
-    background-color: var(--nav-buttons);
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .download:hover {
-    color: white;
-    background-color: var(--hover-color);
-    text-decoration: none;
-    font-weight: bold;
-  }
-
   .checkbox-label .ball {
     position: absolute;
     left: 2px;

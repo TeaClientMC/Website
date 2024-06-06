@@ -143,11 +143,10 @@ import { Image } from "astro:assets";
     }
 
     #menu-toggle:checked ~ .menu > li a {
-      @apply bg-[#0000001a] text-white;
+      @apply text-[var(--navBar-Items)];
     }
     #menu-toggle:checked ~ .menu > li a:hover:not(#download) {
       background-color: #00000066;
-      color: white;
     }
 
     /* #menu-toggle:checked ~ .menu > li #download:hover {

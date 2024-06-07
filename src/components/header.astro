@@ -52,7 +52,7 @@ import { Image } from "astro:assets";
     <li><a href="/news">NEWS</a></li>
     <li>
       <a
-        class="text-white font-bold bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab]"
+        class="font-bold bg-[#00000084] xl:bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab] xl:hover:bg-[#ec2b2bab]"
         id="download"
         href="/">DOWNLOAD</a
       >
@@ -142,11 +142,11 @@ import { Image } from "astro:assets";
       @apply flex justify-center m-0 w-full text-[var(--navBar-Items)];
     }
 
-    #menu-toggle:checked ~ .menu > li a {
-      @apply text-[var(--navBar-Items)];
+    #menu-toggle:checked ~ .menu > li a:not(#download) {
+      @apply text-[var(--navBar-Items)] pb-6 rounded-md hover:bg-[var(--mobile-hover)];
     }
     #menu-toggle:checked ~ .menu > li a:hover:not(#download) {
-      background-color: #00000066;
+      @apply bg-[#00000066];
     }
 
     /* #menu-toggle:checked ~ .menu > li #download:hover {

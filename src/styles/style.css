@@ -1,31 +1,24 @@
 :root {
-  /* Define the variables for both themes here */
-  --nav-color-dark: rgb(0 0 0 / 50%);
-  --nav-color-dark2: rgb(0 0 0 / 79%);
-  --nav-color-light: rgb(255 255 255 / 25%);
-  --nav-color-light2: rgb(255 255 255 / 50%);
-  --navBar-Items-dark: white;
-  --navBar-Items-light: black;
   --hover-color: #6e2bec;
-  --text-dark: white;
-  --text-light: black;
 }
 
 /* Apply the variables based on the theme */
 [data-theme="dark"] {
-  --nav-color: var(--nav-color-dark);
-  --nav-color2: var(--nav-color-dark2);
-  --navBar-Items: var(--navBar-Items-dark);
-  --text: var(--text-dark);
-  --nav-buttons: var(--nav-color-dark);
+  --nav-color: rgb(0 0 0 / 50%);
+  --nav-color2: rgb(0 0 0 / 79%);
+  --navBar-Items: white;
+  --text: white;
+  --nav-buttons: white;
+  --mobile-hover: rgba(255, 255, 255, 0.4);
 }
 
 [data-theme="light"] {
-  --nav-color: var(--nav-color-light);
-  --nav-color2: var(--nav-color-light2);
-  --navBar-Items: var(--navBar-Items-light);
-  --text: var(--text-light);
-  --nav-buttons: #0000005c ;
+  --nav-color: rgb(255 255 255 / 25%);
+  --nav-color2: rgb(255 255 255 / 50%);
+  --navBar-Items: black;
+  --text: black;
+  --nav-buttons: #0000005c;
+  --mobile-hover: rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -45,7 +38,6 @@
 .container {
   @apply flex flex-col h-[100vh] w-[100vh];
 }
-
 
 body {
   top: 0;
@@ -81,7 +73,8 @@ body {
 }
 
 img#logo:hover {
-  filter: invert(78%) sepia(87%) saturate(2524%) hue-rotate(252deg) brightness(87%) contrast(114%);
+  filter: invert(78%) sepia(87%) saturate(2524%) hue-rotate(252deg)
+    brightness(87%) contrast(114%);
 }
 
 /* header */
@@ -137,8 +130,6 @@ header {
   text-decoration: underline;
 }
 
-
-
 .news-container a {
-  @apply text-red-600
+  @apply text-red-600;
 }

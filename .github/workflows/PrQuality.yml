@@ -14,7 +14,7 @@ jobs:
         with:
           version: latest
       - name: Run Biome
-        run: biome ci .
+        run: biome ci . --reporter=github
 
       - uses: oven-sh/setup-bun@v1
         with:

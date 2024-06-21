@@ -27,7 +27,7 @@ jobs:
       with:
        version: latest
     - name: Run Biome
-      run: biome ci .
+      run: biome ci . --reporter=github
 
     - uses: oven-sh/setup-bun@v1
       with:
@@ -36,8 +36,8 @@ jobs:
     - name: Install Deps
       run: bun install
 
-    - name: Check Quality
-      run: bunx @biomejs/biome check . && bunx stylelint 'src/styles/**/*.css' && bunx astro check
+    - name: Check Qual
+      run: bunx stylelint 'src/styles/**/*.css' && bunx astro check
 
 #  testing:
 #     name: Testing

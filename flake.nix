@@ -39,7 +39,9 @@
                 difftastic.enable = true;
 
                 # Enviroment Virables
-                env = { };
+                env = {
+                  BIOME_BINARY = "${pkgs.biome}/bin/biome";
+                };
 
                 # https://devenv.sh/reference/options/
                 packages = with pkgs; [ biome ] ++ nodejs-packages;

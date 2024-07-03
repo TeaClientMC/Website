@@ -8,7 +8,7 @@
 		"rules": {
 			"recommended": true
 		},
-		"ignore": ["./.astro/*", ".pre-commit-config.yaml"]
+		"ignore": ["./.astro/*", "/.pre-commit-config.yaml"]
 	},
 	"formatter": {
 		"enabled": true,

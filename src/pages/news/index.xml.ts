@@ -14,6 +14,5 @@ export async function GET(context: RSSOptions) {
 		)) as RSSFeedItem[],
 		customData: "<language>en-us</language>",
 		trailingSlash: false,
-		stylesheet: "./feed.xsl",
 	});
 }

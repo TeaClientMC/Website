@@ -9,7 +9,7 @@
   --navBar-Items: white;
   --text: white;
   --nav-buttons: white;
-  --mobile-hover: rgba(255, 255, 255, 0.4);
+  --mobile-hover: rgb(255 255 255 / 40%);
 }
 
 [data-theme="light"] {
@@ -18,7 +18,7 @@
   --navBar-Items: black;
   --text: black;
   --nav-buttons: #0000005c;
-  --mobile-hover: rgba(0, 0, 0, 0.4);
+  --mobile-hover: rgb(0 0 0 / 40%);
 }
 
 * {

@@ -2,9 +2,9 @@
 import { SEO } from "astro-seo";
 const { title, customDescription, bannerPath } = Astro.props;
 export interface Props {
-	title: string;
-	customDescription?: string;
-	bannerPath?: string;
+  title: string;
+  customDescription?: string;
+  bannerPath?: string;
 }
 
 // SEO SETTINGS
@@ -12,7 +12,7 @@ const descr = customDescription ?? "A Nice Opensourced Client.";
 const url = "https://teaclient.net";
 const banner = bannerPath ?? "/banner/deafult.webp";
 const favicon = "/Favicon.webp";
-const theme_color = "#d97dff";
+const theme_color = "#bc21ff";
 const language = "en-us";
 ---
 

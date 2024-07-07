@@ -1,0 +1,29 @@
+---
+import Footer from "@component/footer.astro";
+import Head from "@component/head.astro";
+import Header from "@component/header.astro";
+
+import { twMerge } from "tailwind-merge";
+import "../styles/style.css";
+
+export interface Props {
+	title?: string;
+	className?: string;
+}
+const { title, className } = Astro.props;
+---
+
+<Head
+	title={title ?? "TeaClent Wiki"}
+	customDescription={"Offical Documentation for TeaClent for Players & Developers"}
+	bannerPath={null}
+/>
+<Header />
+<div
+	class={twMerge(
+		`flex flex-col h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg ${className}`,
+	)}
+>
+	<slot />
+</div>
+<Footer />

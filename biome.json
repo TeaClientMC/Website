@@ -7,15 +7,13 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true
-		},
-		"ignore": ["./.astro/*"]
+		}
 	},
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
 		"indentWidth": 2,
-		"lineWidth": 80,
-		"ignore": ["./.astro/*"]
+		"lineWidth": 80
 	},
 	"css": {
 		"formatter": {
@@ -25,5 +23,8 @@
 		"parser": {
 			"allowWrongLineComments": false
 		}
+	},
+	"files": {
+		"ignore": ["/nix/store/*", ".astro/*"]
 	}
 }

@@ -29,6 +29,6 @@
 		"clientKind": "git"
 	},
 	"files": {
-		"ignore": ["/nix/store/*", ".astro/*"]
+		"ignore": [".astro/*"]
 	}
 }

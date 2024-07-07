@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.8.1/schema.json",
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"organizeImports": {
 		"enabled": true
 	},
@@ -21,8 +21,12 @@
 			"indentWidth": 4
 		},
 		"parser": {
-			"allowWrongLineComments": false
+			"allowWrongLineComments": false,
 		}
+	},
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git"
 	},
 	"files": {
 		"ignore": ["/nix/store/*", ".astro/*"]

@@ -70,14 +70,6 @@
                   enable = true;
                 };
 
-                # https://devenv.sh/pre-commit-hooks/
-                pre-commit.hooks = {
-                  nixfmt.package = pkgs.nixfmt-rfc-style;
-                  nixfmt.enable = true;
-                  rome.enable = true;
-                  rome.package = pkgs.biome;
-                };
-
                 # https://devenv.sh/integrations/dotenv/
                 dotenv.enable = true;
               }

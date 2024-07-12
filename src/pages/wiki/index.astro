@@ -1,26 +1,77 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/layout.astro";
+
 const wikiContent = await getCollection("wiki");
 ---
 
-<Layout title="Home | TeaClent Wiki">
-    <h1>Welcome to TeaClent Wiki</h1>
-    <p>
-        This is the official documentation for TeaClent for both Players &
-        Developers
-    </p>
-    <section>
-        <ul>
-            {
-                wikiContent.map((page) => {
-                    return (
-                        <a href={`/wiki/${page.slug}/`}>
-                            <h4 class="title">{page.data.title}</h4>
-                        </a>
-                    );
-                })
-            }
-        </ul>
-    </section>
+<Layout title="Home | TeaClient Wiki">
+    <div class="justify-center text-center">
+        <h1 class="font-bold text-3xl mt-10">Welcome to the TeaClient Wiki</h1>
+        <p>
+            This is the official documentation for TeaClient for both Players &
+            Developers
+        </p>
+    </div>
+    <div class="flex flex-row w-full h-full mt-5">
+        <!-- Player Documentation Section -->
+        <section
+            id="player-docs"
+            class="float-left w-1/2 justify-center text-center"
+        >
+            <h2
+                class="font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent"
+            >
+                Player Documentation
+            </h2>
+            <ul>
+                {
+                    wikiContent
+                        .filter((page) => page.slug.startsWith("players/"))
+                        .map((page) => {
+                            return (
+                                <li>
+                                    <a
+                                        class="hover:text-green-300"
+                                        href={`/wiki/${page.slug}/`}
+                                    >
+                                        <h4 class="title">{page.data.title}</h4>
+                                    </a>
+                                </li>
+                            );
+                        })
+                }
+            </ul>
+        </section>
+
+        <!-- Developer Documentation Section -->
+        <section
+            id="developer-docs"
+            class="float-right w-1/2 justify-center text-center"
+        >
+            <h2
+                class="font-bold bg-gradient-to-r from-red-300 to-red-600 bg-clip-text text-transparent"
+            >
+                Developer Documentation
+            </h2>
+            <ul>
+                {
+                    wikiContent
+                        .filter((page) => page.slug.startsWith("developers/"))
+                        .map((page) => {
+                            return (
+                                <li>
+                                    <a
+                                        class="hover:text-red-300"
+                                        href={`/wiki/${page.slug}/`}
+                                    >
+                                        <h4 class="title">{page.data.title}</h4>
+                                    </a>
+                                </li>
+                            );
+                        })
+                }
+            </ul>
+        </section>
+    </div>
 </Layout>

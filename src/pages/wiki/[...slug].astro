@@ -16,6 +16,6 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<WikiContent {...post.data}>
+<WikiContent title={post.data.title}>
     <Content />
 </WikiContent>

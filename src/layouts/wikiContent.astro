@@ -1,0 +1,29 @@
+---
+import Footer from "@component/footer.astro";
+import Head from "@component/head.astro";
+import Header from "@component/header.astro";
+
+import { twMerge } from "tailwind-merge";
+import "../styles/style.css";
+
+export interface Props {
+    className?: string;
+}
+const { title } = Astro.props;
+---
+
+<Head
+    title={String(title) ?? "TeaClient Wiki Page"}
+    customDescription="This is the official documentation for TeaClient for both Players & Developers"
+    bannerPath="/assets/images/banner.png"
+/>
+<Header />
+<div
+    class={twMerge(
+        `flex flex-col h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg`,
+    )}
+>
+    <h1>{title}</h1>
+    <slot />
+</div>
+<Footer />

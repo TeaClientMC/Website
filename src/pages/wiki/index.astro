@@ -1,7 +1,26 @@
 ---
-import Layout from "../../layouts/wiki.astro";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/layout.astro";
+const wikiContent = await getCollection("wiki");
 ---
 
 <Layout title="Home | TeaClent Wiki">
     <h1>Welcome to TeaClent Wiki</h1>
+    <p>
+        This is the official documentation for TeaClent for both Players &
+        Developers
+    </p>
+    <section>
+        <ul>
+            {
+                wikiContent.map((page) => {
+                    return (
+                        <a href={`/wiki/${page.slug}/`}>
+                            <h4 class="title">{page.data.title}</h4>
+                        </a>
+                    );
+                })
+            }
+        </ul>
+    </section>
 </Layout>

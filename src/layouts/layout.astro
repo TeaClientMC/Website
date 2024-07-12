@@ -15,10 +15,18 @@ export interface Props {
 const { title, className, desc, banner } = Astro.props;
 ---
 
-<Head title={String(title) ?? "TeaClent Website"} customDescription={desc}, bannerPath={banner} />
+<Head
+	title={String(title) ?? "TeaClent Website"}
+	customDescription={desc}
+	,
+	bannerPath={banner}
+/>
 <Header />
-<div class={twMerge(`flex flex-col h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg ${className}`)}>
-    <slot />
+<div
+	class={twMerge(
+		`flex flex-col h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] backdrop-blur-[7px] rounded-lg ${className}`,
+	)}
+>
+	<slot />
 </div>
 <Footer />
-

@@ -20,7 +20,7 @@ import { Image } from "astro:assets";
   </div>
   <input id="menu-toggle" class="hidden" type="checkbox" />
   <label
-    class="menu-button-container flex xl:hidden max-sm:flex h-[100%] w-[30px] justify-center flex-col cursor-pointer items-center"
+    class="menu-button-container flex 2xl:hidden max-sm:flex h-[100%] w-[30px] justify-center flex-col cursor-pointer items-center"
     for="menu-toggle"
   >
     <div class="menu-button before:mt-[-8px] after:mt-[8px]"></div>
@@ -48,12 +48,22 @@ import { Image } from "astro:assets";
     </li>
     <li><a href="/">HOME</a></li>
     <li><a href="/store">STORE</a></li>
-    <li><a href="https://docs.teaclient.net">DOCS</a></li>
+    <li>
+      <a
+        class="font-bold bg-[#00000084] 2xl:bg-orange-400 rounded-lg hover:bg-orange-300"
+        href="https://docs.teaclient.net">DOCS</a
+      >
+    </li>
+    <li>
+      <a
+        class="font-bold bg-[#00000084] 2xl:bg-gradient-to-r rounded-lg from-green-200 to-green-400"
+        href="/wiki">WIKI</a
+      >
+    </li>
     <li><a href="/news">NEWS</a></li>
     <li>
       <a
-        class="font-bold bg-[#00000084] xl:bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab] xl:hover:bg-[#ec2b2bab]"
-        id="download"
+        class="font-bold bg-[#00000084] 2xl:bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab]"
         href="/">DOWNLOAD</a
       >
     </li>
@@ -119,7 +129,7 @@ import { Image } from "astro:assets";
     @apply contents;
   }
 
-  @media (max-width: 1279px) {
+  @media (max-width: 1536px) {
     .menu {
       @apply absolute top-0 mt-[90px] left-0 flex flex-col w-[100%] justify-center items-center;
       backdrop-filter: blur(25px);
@@ -142,17 +152,12 @@ import { Image } from "astro:assets";
       @apply flex justify-center m-0 w-full text-[var(--navBar-Items)];
     }
 
-    #menu-toggle:checked ~ .menu > li a:not(#download) {
+    #menu-toggle:checked ~ .menu > li a:not(#download & #docs) {
       @apply text-[var(--navBar-Items)] pb-6 rounded-md hover:bg-[var(--mobile-hover)];
     }
-    #menu-toggle:checked ~ .menu > li a:hover:not(#download) {
+    #menu-toggle:checked ~ .menu > li a:hover:not(#download & #docs) {
       @apply bg-[#00000066];
     }
-
-    /* #menu-toggle:checked ~ .menu > li #download:hover {
-      background-color: #ec2b2bab;
-      color: white;
-    } */
   }
 
   li {

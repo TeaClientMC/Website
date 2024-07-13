@@ -14,8 +14,14 @@ type Props = CollectionEntry<"wiki">;
 
 const post = Astro.props;
 const { Content } = await post.render();
+
+let developer = false;
+
+if (post.slug.startsWith("developer")) {
+    developer = true;
+}
 ---
 
-<WikiContent title={post.data.title}>
+<WikiContent title={post.data.title} developer={developer}>
     <Content />
 </WikiContent>

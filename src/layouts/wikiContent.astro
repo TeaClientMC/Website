@@ -8,8 +8,12 @@ import "../styles/style.css";
 
 export interface Props {
     title: string;
+    developer: boolean;
 }
-const { title } = Astro.props;
+const { title, developer } = Astro.props;
+const titleClass = developer
+    ? "from-red-300 to-red-500"
+    : "from-green-300 to-green-500";
 ---
 
 <Head
@@ -20,12 +24,23 @@ const { title } = Astro.props;
 <Header />
 <div
     class={twMerge(
-        `flex flex-col h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg`,
+        `flex flex-col justify-between h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg`,
     )}
 >
-    <h1 class="text-3xl font-bold text-center pt-5">{title}</h1>
-    <div class="pl-8 pt-5 wiki-content">
+    <div class="flex flex-row pt-3">
+        <a
+            class={`pt-2 pl-8 pb-5 w-2/5 bg-gradient-to-r bg-clip-text hover:text-transparent ${titleClass}`}
+            href="/wiki">Go Back</a
+        >
+        <h1
+            class={`text-3xl font-bold text-center w-3/12 bg-gradient-to-r bg-clip-text text-transparent h-10 ${titleClass} `}
+        >
+            {title}
+        </h1>
+    </div>
+    <div class="pl-8 pb-[35%] wiki-content">
         <slot />
     </div>
+    <a href="/wiki" class="text-center">Go Back</a>
 </div>
 <Footer />

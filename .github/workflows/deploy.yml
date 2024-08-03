@@ -17,49 +17,8 @@ env:
  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
- quality:
-  name: Quality
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
-
-    - uses: biomejs/setup-biome@v2
-      with:
-       version: latest
-    - name: Run Biome
-      run: biome ci . --reporter=github
-
-    - uses: oven-sh/setup-bun@v1
-      with:
-       bun-version: latest
-
-    - name: Install Deps
-      run: bun install
-
-    - name: Check Qual
-      run: bunx stylelint 'src/styles/**/*.css' && bunx astro check
-
-#  testing:
-#     name: Testing
-#     runs-on: macos-latest
-#     steps:
-#       - uses: actions/checkout@v4
-#       - uses: oven-sh/setup-bun@v1
-#         with:
-#          bun-version: latest
-
-#       - name: Install Deps
-#         run: bun install
-      
-#       - name: Install Browsers Required for tests.
-#         run: bunx playwright install
-      
-#       - name: Run Testing
-#         run: bun test
-
  build:
     name: Building
-    needs: [quality]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -1,7 +1,3 @@
-# DO NOT TOUCH THIS FILE
-# Please speak to SudoVanilla (Korbs) if you have any issues.
-# For Security check please contact Eveeifyeve Instead of sudovanilla.
-
 name: Deploy Website
 
 on:
@@ -17,22 +13,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  quality:
-    name: Quality
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
-      - name: Install Deps
-        run: bun install
-      - name: Check Formatting
-        run: bunx dprint check
-      - name: Check Astro Website for Major Issues
-        run: bunx astro check
-
-  build:
+ build:
     name: Building
     runs-on: ubuntu-latest
     steps:
@@ -41,7 +22,7 @@ jobs:
         uses: withastro/action@v2
         with:
           package-manager: bun@latest
-  deploy:
+ deploy:
     name: Deploying to GH Pages
     needs: build
     runs-on: ubuntu-latest

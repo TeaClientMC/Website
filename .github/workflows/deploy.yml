@@ -17,67 +17,41 @@ env:
  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
- quality:
-  name: Quality
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
+  quality:
+    name: Quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - name: Install Deps
+        run: bun install
+      - name: Check Formatting
+        run: bunx dprint check
+      - name: Check Astro Website for Major Issues
+        run: bunx astro check
 
-    - uses: biomejs/setup-biome@v2
-      with:
-       version: latest
-    - name: Run Biome
-      run: biome ci . --reporter=github
-
-    - uses: oven-sh/setup-bun@v1
-      with:
-       bun-version: latest
-
-    - name: Install Deps
-      run: bun install
-
-    - name: Check Qual
-      run: bunx stylelint 'src/styles/**/*.css' && bunx astro check
-
-#  testing:
-#     name: Testing
-#     runs-on: macos-latest
-#     steps:
-#       - uses: actions/checkout@v4
-#       - uses: oven-sh/setup-bun@v1
-#         with:
-#          bun-version: latest
-
-#       - name: Install Deps
-#         run: bun install
-      
-#       - name: Install Browsers Required for tests.
-#         run: bunx playwright install
-      
-#       - name: Run Testing
-#         run: bun test
-
- build:
+  build:
     name: Building
-    needs: [quality]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Install, build, and upload your site
         uses: withastro/action@v2
         with:
-         package-manager:  bun@latest    
- deploy: 
-   name: Deploying to GH Pages
-   needs: build
-   runs-on: ubuntu-latest
-   permissions: 
-    pages: write
-    id-token: write
-   environment:
-    name: github-pages
-    url: ${{ steps.deployment.outputs.page_url }}
-   steps: 
-     - name: Deploy to GitHub Pages
-       id: deployment
-       uses: actions/deploy-pages@v4
+          package-manager: bun@latest
+  deploy: 
+    name: Deploying to GH Pages
+    needs: build
+    runs-on: ubuntu-latest
+    permissions: 
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps: 
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

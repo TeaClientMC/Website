@@ -12,21 +12,9 @@
     "biome": "bunx @biomejs/biome",
     "check": "biome check ./ && stylelint 'src/styles/**/*.css' && bun astro check && bun test"
   },
-  "trustedDependencies": ["sharp"],
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "plugins": ["stylelint-scss"],
-    "customSyntax": "postcss-scss",
-    "rules": {
-      "at-rule-no-unknown": null,
-      "selector-class-pattern": null,
-      "scss/at-rule-no-unknown": true,
-      "custom-property-pattern": null
-    }
-  },
-  "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
-  },
+  "trustedDependencies": [
+    "sharp"
+  ],
   "dependencies": {
     "@astrojs/mdx": "^2.0.2",
     "@astrojs/rss": "^4.0.5",
@@ -37,8 +25,8 @@
     "astro-page-insight": "^0.6.1",
     "astro-seo": "^0.8.0",
     "axios": "^1.6.5",
+    "dprint": "^0.47.2",
     "octokit": "^4.0.2",
-    "sass": "^1.71.1",
     "sharp": "^0.33.2",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
@@ -46,15 +34,11 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.5.10",
-    "@biomejs/biome": "^1.5.3",
     "@types/bun": "^1.0.12",
     "astro": "^4.2.3",
     "happy-dom": "^14.7.1",
     "playwright": "^1.43.1",
     "postcss-scss": "^4.0.9",
-    "stylelint": "^16.3.1",
-    "stylelint-config-standard": "^36.0.0",
-    "stylelint-scss": "^6.2.1",
     "typescript": "^5.2.2"
   },
   "packageManager": "bun@1.0.25"

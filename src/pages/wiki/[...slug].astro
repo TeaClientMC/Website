@@ -4,11 +4,11 @@ import WikiContent from "../../layouts/wikiContent.astro";
 import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-    const wikis = await getCollection("wiki");
-    return wikis.map((wiki) => ({
-        params: { slug: wiki.slug },
-        props: wiki,
-    }));
+	const wikis = await getCollection("wiki");
+	return wikis.map((wiki) => ({
+		params: { slug: wiki.slug },
+		props: wiki,
+	}));
 }
 type Props = CollectionEntry<"wiki">;
 
@@ -18,10 +18,10 @@ const { Content } = await post.render();
 let developer = false;
 
 if (post.slug.startsWith("developer")) {
-    developer = true;
+	developer = true;
 }
 ---
 
 <WikiContent title={post.data.title} developer={developer}>
-    <Content />
+  <Content />
 </WikiContent>

@@ -7,40 +7,40 @@ import { twMerge } from "tailwind-merge";
 import "../styles/style.css";
 
 export interface Props {
-    title: string;
-    developer: boolean;
+	title: string;
+	developer: boolean;
 }
 const { title, developer } = Astro.props;
 const titleClass = developer
-    ? "from-red-300 to-red-500"
-    : "from-green-300 to-green-500";
+	? "from-red-300 to-red-500"
+	: "from-green-300 to-green-500";
 ---
 
 <Head
-    title={String(title) ?? "TeaClient Wiki Page"}
-    customDescription="This is the official documentation for TeaClient for both Players & Developers"
-    bannerPath="/assets/images/banner.png"
+  title={String(title) ?? "TeaClient Wiki Page"}
+  customDescription="This is the official documentation for TeaClient for both Players & Developers"
+  bannerPath="/assets/images/banner.png"
 />
 <Header />
 <div
-    class={twMerge(
-        `flex flex-col justify-between h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg`,
-    )}
+  class={twMerge(
+  	`flex flex-col justify-between h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg`,
+  )}
 >
-    <div class="flex flex-row pt-3">
-        <a
-            class={`pt-2 pl-8 pb-5 w-2/5 bg-gradient-to-r bg-clip-text hover:text-transparent ${titleClass}`}
-            href="/wiki">Go Back</a
-        >
-        <h1
-            class={`text-3xl font-bold text-center w-3/12 bg-gradient-to-r bg-clip-text text-transparent h-10 ${titleClass} `}
-        >
-            {title}
-        </h1>
-    </div>
-    <div class="pl-8 pb-[35%] wiki-content">
-        <slot />
-    </div>
-    <a href="/wiki" class="text-center">Go Back</a>
+  <div class="flex flex-row pt-3">
+    <a
+      class={`pt-2 pl-8 pb-5 w-2/5 bg-gradient-to-r bg-clip-text hover:text-transparent ${titleClass}`}
+      href="/wiki"
+    >Go Back</a>
+    <h1
+      class={`text-3xl font-bold text-center w-3/12 bg-gradient-to-r bg-clip-text text-transparent h-10 ${titleClass} `}
+    >
+      {title}
+    </h1>
+  </div>
+  <div class="pl-8 pb-[35%] wiki-content">
+    <slot />
+  </div>
+  <a href="/wiki" class="text-center">Go Back</a>
 </div>
 <Footer />

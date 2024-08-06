@@ -6,8 +6,7 @@ import GithubSVG from "@assets/svgs/Github-white.svg";
 const logosizes = 36;
 ---
 
-
-<footer class="w-full pt-[40px] top-full text-white ">
+<footer class="w-full pt-[40px] top-full text-white">
   <div id="copyright">
     <p>A Project Made with Love by TeaClient Team ♥️</p>
     <p>&copy; TeaClientMC. ALL RIGHTS RESERVED</p>
@@ -15,40 +14,48 @@ const logosizes = 36;
   </div>
   <div id="Socials">
     <a href="/discord" target="_blank" rel="noopener noreferrer">
-      <Image src={DiscordSVG} alt="Discord Logo" width={logosizes} height={logosizes} class="grayscale-custom pt-1"/>
+      <Image
+        src={DiscordSVG}
+        alt="Discord Logo"
+        width={logosizes}
+        height={logosizes}
+        class="grayscale-custom pt-1"
+      />
     </a>
     <a href="/github" target="_blank" rel="noopener noreferrer">
-      <Image src={GithubSVG} alt="Github Logo" width={logosizes} height={logosizes} class="grayscale-custom"/>
+      <Image
+        src={GithubSVG}
+        alt="Github Logo"
+        width={logosizes}
+        height={logosizes}
+        class="grayscale-custom"
+      />
     </a>
   </div>
 </footer>
 
-
-
-
-
 <style>
 footer {
-    p {
-      @apply text-white font-bold font-sans text-sm mb-1;
-      word-spacing: 2px;
-    }
+	p {
+		@apply text-white font-bold font-sans text-sm mb-1;
+		word-spacing: 2px;
+	}
 
-   #copyright {
-    @apply flex flex-col float-left ml-[20px];
-   }
+	#copyright {
+		@apply flex flex-col float-left ml-[20px];
+	}
 
-   #copyright p:last-child {
-    @apply mb-5 text-gray-600;
-   }
+	#copyright p:last-child {
+		@apply mb-5 text-gray-600;
+	}
 
-   #Socials .grayscale-custom {
-  filter: grayscale(100%) brightness(140%) saturate(100%);
-  fill: grey;
-}
+	#Socials .grayscale-custom {
+		filter: grayscale(100%) brightness(140%) saturate(100%);
+		fill: grey;
+	}
 
-    #Socials {
-      @apply flex flex-row mr-[20px] gap-x-4 float-right;
-    }
+	#Socials {
+		@apply flex flex-row mr-[20px] gap-x-4 float-right;
+	}
 }
 </style>

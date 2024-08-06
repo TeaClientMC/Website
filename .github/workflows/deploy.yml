@@ -5,16 +5,16 @@
 name: Deploy Website
 
 on:
- push:
-  branches:
-   - main
- workflow_dispatch:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 env:
- # Use docker.io for Docker Hub if empty
- REGISTRY: ghcr.io
- # github.repository as <account>/<repo>
- IMAGE_NAME: ${{ github.repository }}
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   quality:
@@ -41,17 +41,17 @@ jobs:
         uses: withastro/action@v2
         with:
           package-manager: bun@latest
-  deploy: 
+  deploy:
     name: Deploying to GH Pages
     needs: build
     runs-on: ubuntu-latest
-    permissions: 
+    permissions:
       pages: write
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    steps: 
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

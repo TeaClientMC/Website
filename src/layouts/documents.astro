@@ -9,10 +9,13 @@ import { twMerge } from "tailwind-merge";
 import "../styles/style.css";
 ---
 
-
 <Head title="TeaClient Documents" />
 <Header />
-<div class={twMerge(`container flex text-white bg-[var(--nav-color)]  ${Astro.props.class}`)}>
-    <slot />
+<div
+  class={twMerge(
+  	`container flex text-white bg-[var(--nav-color)]  ${Astro.props.class}`,
+  )}
+>
+  <slot />
 </div>
 <Footer />

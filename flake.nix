@@ -18,6 +18,17 @@
           packages = with pkgs; [
             bun
           ];
+          nativeBuildInputs = with pkgs; [
+            playwright
+            playwright-driver.browsers
+          ];
+
+          PLAYWRIGHT_NODEJS_PATH = "${pkgs.nodejs}/bin/node";
+          PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+          PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true;
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = 1;
+
+
           shellHook = ''
             bun install
           '';

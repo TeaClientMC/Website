@@ -13,6 +13,9 @@
     "**/*-lock.json",
     "**/node_modules"
   ],
+  "includes": [
+    "**/*.{md,mdx,yml,ts,mjs,md,mdx,css,astro,yaml,json}"
+  ],
   "plugins": [
     "https://plugins.dprint.dev/json-0.19.3.wasm",
     "https://plugins.dprint.dev/markdown-0.17.2.wasm",

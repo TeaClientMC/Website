@@ -25,7 +25,6 @@
     "astro-seo": "^0.8.0",
     "axios": "^1.6.5",
     "dprint": "^0.47.2",
-    "dprint": "^0.47.2",
     "octokit": "^4.0.2",
     "sharp": "^0.33.2",
     "tailwind-merge": "^2.2.1",

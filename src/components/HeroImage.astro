@@ -1,6 +1,12 @@
 ---
 import { twMerge } from "tailwind-merge";
 
+interface Props {
+	src: string;
+	className?: string;
+	flexbasis?: string;
+}
+
 const { src, className, flexbasis } = Astro.props;
 ---
 

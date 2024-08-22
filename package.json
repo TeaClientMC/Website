@@ -8,8 +8,8 @@
     "build": "astro build",
     "astro": "astro",
     "fmt": "bunx dprint fmt",
-    "biome": "bunx dprint",
-    "check": "bunx dprint check && bun astro check && bun test"
+    "dprint": "bunx dprint",
+    "check": "bunx dprint check && bun astro check && bun run test"
   },
   "trustedDependencies": [
     "sharp"

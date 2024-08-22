@@ -11,6 +11,8 @@ test("Website Online", async () => {
 		cwd: path.resolve(__dirname, "../"),
 	});
 
+	print
+
 	await new Promise((resolve) => setTimeout(resolve, 2500));
 
 	const browser = await chromium.launch();

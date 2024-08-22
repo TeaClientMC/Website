@@ -13,7 +13,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
- build:
+  build:
     name: Building
     runs-on: ubuntu-latest
     steps:
@@ -22,7 +22,7 @@ jobs:
         uses: withastro/action@v2
         with:
           package-manager: bun@latest
- deploy:
+  deploy:
     name: Deploying to GH Pages
     needs: build
     runs-on: ubuntu-latest

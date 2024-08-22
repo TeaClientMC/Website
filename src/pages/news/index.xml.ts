@@ -2,7 +2,7 @@ import { getCollection } from "astro:content";
 import rss, { type RSSOptions } from "@astrojs/rss";
 
 export async function GET(context: RSSOptions) {
-	const posts = await (await getCollection("news")).map((post) => ({
+	const posts = (await getCollection("news")).map((post) => ({
 		title: post.data.title,
 		description: post.data.desc,
 		author: post.data.author.id || "Unknown Author",

@@ -11,6 +11,8 @@ const developerDocs = wikiContent.filter((page) =>
   page.slug.startsWith("developers/"),
 );
 let wikiTitleClass = "font-bold bg-gradient-to-r bg-clip-text text-transparent";
+let wikiDescClass = "text-sm text-gray-400 pb-2";
+let wikiLiClass = "relative bg-[#171717a3] rounded-lg border";
 ---
 
 <Layout
@@ -38,10 +40,10 @@ let wikiTitleClass = "font-bold bg-gradient-to-r bg-clip-text text-transparent";
         {
           playerDocs.map((page) => {
             return (
-              <li class="relative bg-[#171717e4] rounded-lg border border-green-800">
+              <li class={`${wikiLiClass} border-green-800`}>
                 <a class="hover:text-green-300" href={`/wiki/${page.slug}/`}>
                   <h4 class="title text-xl">{page.data.title}</h4>
-                  <p class="text-sm text-gray-400 pb-2">{page.data.desc}</p>
+                  <p class={wikiDescClass}>{page.data.desc}</p>
                 </a>
               </li>
             );
@@ -62,10 +64,10 @@ let wikiTitleClass = "font-bold bg-gradient-to-r bg-clip-text text-transparent";
         {
           developerDocs.map((page) => {
             return (
-              <li class="relative bg-[#171717e4] rounded-lg border border-red-800">
+              <li class={`${wikiLiClass} border-red-800`}>
                 <a class="hover:text-red-300" href={`/wiki/${page.slug}/`}>
                   <h4 class="title text-xl">{page.data.title}</h4>
-                  <p class="text-sm text-gray-400 pb-2">{page.data.desc}</p>
+                  <p class={wikiDescClass}>{page.data.desc}</p>
                 </a>
               </li>
             );

@@ -7,12 +7,13 @@ import { twMerge } from "tailwind-merge";
 import "../styles/style.css";
 
 export interface Props {
-	title?: string;
-	className?: string;
-	desc?: string;
-	banner?: string;
+  title?: string;
+  className?: string;
+  desc?: string;
+  banner?: string;
+  extraFooterClass?: string;
 }
-const { title, className, desc, banner } = Astro.props;
+const { title, className, desc, banner, extraFooterClass } = Astro.props;
 ---
 
 <Head
@@ -24,9 +25,9 @@ const { title, className, desc, banner } = Astro.props;
 <Header />
 <div
   class={twMerge(
-  	`flex flex-col h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] backdrop-blur-[7px] rounded-lg ${className}`,
+    `flex flex-col h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] backdrop-blur-[7px] rounded-lg ${className}`,
   )}
 >
   <slot />
 </div>
-<Footer />
+<Footer extraClass={extraFooterClass} />

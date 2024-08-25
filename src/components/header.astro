@@ -42,7 +42,8 @@ import { Image } from "astro:assets";
         <span class="ball"></span>
         <span
           class="sr-only absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden border-0"
-        >Toggle theme</span>
+          >Toggle theme</span
+        >
       </label>
     </li>
     <li><a href="/">HOME</a></li>
@@ -50,21 +51,21 @@ import { Image } from "astro:assets";
     <li>
       <a
         class="font-bold bg-[#00000084] 2xl:bg-orange-400 rounded-lg hover:bg-orange-300"
-        href="https://docs.teaclient.net"
-      >DOCS</a>
+        href="https://docs.teaclient.net">DOCS</a
+      >
     </li>
     <li>
       <a
         class="font-bold bg-[#00000084] 2xl:bg-gradient-to-r rounded-lg from-green-200 to-green-400"
-        href="/wiki"
-      >WIKI</a>
+        href="/wiki">WIKI</a
+      >
     </li>
     <li><a href="/news">NEWS</a></li>
     <li>
       <a
         class="font-bold bg-[#00000084] 2xl:bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab]"
-        href="/"
-      >DOWNLOAD</a>
+        href="/">DOWNLOAD</a
+      >
     </li>
   </ul>
 </section>
@@ -81,110 +82,110 @@ import { Image } from "astro:assets";
 </div>
 
 <script>
-const button = document.querySelector(".checkbox") as HTMLInputElement;
-function switchTheme() {
-	const currentTheme = document.documentElement.getAttribute("data-theme");
-	const newTheme = currentTheme === "dark" ? "light" : "dark";
-	document.documentElement.setAttribute("data-theme", newTheme);
-	localStorage.setItem("theme", newTheme);
-	button.checked = newTheme === "dark";
-}
-document.addEventListener("DOMContentLoaded", () => {
-	const currentTheme = localStorage.getItem("theme");
-	if (currentTheme) {
-		document.documentElement.setAttribute("data-theme", currentTheme);
-		button.checked = currentTheme === "dark";
-		return;
-	}
-	document.documentElement.setAttribute("data-theme", "dark");
-	localStorage.setItem("theme", "dark");
-	button.checked = true;
-});
-button.addEventListener("click", switchTheme);
+  const button = document.querySelector(".checkbox") as HTMLInputElement;
+  function switchTheme() {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    button.checked = newTheme === "dark";
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme) {
+      document.documentElement.setAttribute("data-theme", currentTheme);
+      button.checked = currentTheme === "dark";
+      return;
+    }
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+    button.checked = true;
+  });
+  button.addEventListener("click", switchTheme);
 </script>
 
 <style>
-/* Mobile Button */
-.menu-button,
-.menu-button::before,
-.menu-button::after {
-	@apply block absolute h-[4px] w-[30px] rounded bg-white;
-	transition: transform 800ms cubic-bezier(0.23, 1, 0.32, 1);
-}
+  /* Mobile Button */
+  .menu-button,
+  .menu-button::before,
+  .menu-button::after {
+    @apply block absolute h-[4px] w-[30px] rounded bg-white;
+    transition: transform 800ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-.menu-button::before {
-	content: "";
-}
+  .menu-button::before {
+    content: "";
+  }
 
-#menu-toggle:checked + .menu-button-container .menu-button::after {
-	@apply mt-0 -rotate-[405deg] hover:bg-red-500;
-}
+  #menu-toggle:checked + .menu-button-container .menu-button::after {
+    @apply mt-0 -rotate-[405deg] hover:bg-red-500;
+  }
 
-#menu-toggle:checked + .menu-button-container .menu-button::before {
-	@apply mt-0  rotate-[405deg] hover:bg-red-500;
-}
+  #menu-toggle:checked + .menu-button-container .menu-button::before {
+    @apply mt-0  rotate-[405deg] hover:bg-red-500;
+  }
 
-#menu-toggle:checked + .menu-button-container .menu-button {
-	@apply contents;
-}
+  #menu-toggle:checked + .menu-button-container .menu-button {
+    @apply contents;
+  }
 
-@media (max-width: 1536px) {
-	.menu {
-		@apply absolute top-0 mt-[90px] left-0 flex flex-col w-[100%] justify-center items-center;
-		backdrop-filter: blur(25px);
-		background-color: var(--nav-color);
-	}
+  @media (max-width: 1536px) {
+    .menu {
+      @apply absolute top-0 mt-[90px] left-0 flex flex-col w-[100%] justify-center items-center z-10;
+      backdrop-filter: blur(25px);
+      background-color: var(--nav-color);
+    }
 
-	#menu-toggle ~ .menu li {
-		height: 0;
-		margin: 0;
-		padding: 0;
-		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-	}
+    #menu-toggle ~ .menu li {
+      height: 0;
+      margin: 0;
+      padding: 0;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
 
-	#menu-toggle:checked ~ .menu li {
-		height: 2.5em;
-		padding: 0.5em;
-		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-	}
-	.menu > li {
-		@apply flex justify-center m-0 w-full text-[var(--navBar-Items)];
-	}
+    #menu-toggle:checked ~ .menu li {
+      height: 2.5em;
+      padding: 0.5em;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .menu > li {
+      @apply flex justify-center m-0 w-full text-[var(--navBar-Items)];
+    }
 
-	#menu-toggle:checked ~ .menu > li a:not(#download & #docs) {
-		@apply text-[var(--navBar-Items)] pb-6 rounded-md hover:bg-[var(--mobile-hover)];
-	}
-	#menu-toggle:checked ~ .menu > li a:hover:not(#download & #docs) {
-		@apply bg-[#00000066];
-	}
-}
+    #menu-toggle:checked ~ .menu > li a:not(#download & #docs) {
+      @apply text-[var(--navBar-Items)] pb-6 rounded-md hover:bg-[var(--mobile-hover)];
+    }
+    #menu-toggle:checked ~ .menu > li a:hover:not(#download & #docs) {
+      @apply bg-[#00000066];
+    }
+  }
 
-li {
-	list-style: none;
-	display: inline-block;
-	padding: 0.5rem 1rem;
-	position: relative;
-}
+  li {
+    list-style: none;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    position: relative;
+  }
 
-.menu li:not(.download) a {
-	@apply text-[var(--navBar-Items)] p-2 font-bold text-lg;
-	text-decoration: none;
-}
-.checkbox-label .ball {
-	position: absolute;
-	left: 2px;
-	top: 2px;
-	border-radius: 50%;
-	background-color: orange;
-	aspect-ratio: 1 / 1;
-	width: 22px;
-	box-shadow: 0px 0px 4px yellow;
-	transition: transform 0.2s linear;
-}
+  .menu li:not(.download) a {
+    @apply text-[var(--navBar-Items)] p-2 font-bold text-lg;
+    text-decoration: none;
+  }
+  .checkbox-label .ball {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    background-color: orange;
+    aspect-ratio: 1 / 1;
+    width: 22px;
+    box-shadow: 0px 0px 4px yellow;
+    transition: transform 0.2s linear;
+  }
 
-.checkbox:checked + .checkbox-label .ball {
-	background-color: #101010;
-	box-shadow: 0px 0px 4px white;
-	transform: translateX(24px);
-}
+  .checkbox:checked + .checkbox-label .ball {
+    background-color: #101010;
+    box-shadow: 0px 0px 4px white;
+    transform: translateX(24px);
+  }
 </style>

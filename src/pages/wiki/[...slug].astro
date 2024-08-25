@@ -22,6 +22,10 @@ if (post.slug.startsWith("developer")) {
 }
 ---
 
-<WikiContent title={post.data.title} developer={developer}>
-  <Content />
+<WikiContent
+	title={post.data.title}
+	developer={developer}
+	extraFooterClass={post.data.extraFooterClass}
+>
+	<Content />
 </WikiContent>

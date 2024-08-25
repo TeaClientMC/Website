@@ -1,9 +1,7 @@
 import { Octokit } from "octokit";
 
 export const GET = async () => {
-	let octokit = new Octokit({
-		auth: import.meta.env.GITHUB_TOKEN,
-	});
+	let octokit = new Octokit();
 
 	try {
 		const owner = "TeaClientMC";

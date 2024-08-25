@@ -15,8 +15,8 @@ export const GET = async () => {
 			return Error("Config schema not found");
 		}
 
-		const {url} = await octokit.request(
-			'GET /repos/{owner}/{repo}/releases/assets/{asset_id}',
+		const { url } = await octokit.request(
+			"GET /repos/{owner}/{repo}/releases/assets/{asset_id}",
 			{
 				owner,
 				repo,
@@ -25,17 +25,17 @@ export const GET = async () => {
 				},
 				asset_id: schema.id,
 			},
-		)
+		);
 
-		const response = await fetch(url, { 
+		const response = await fetch(url, {
 			method: "GET",
-		})
+		});
 
 		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`)
+			throw new Error(`HTTP error! status: ${response.status}`);
 		}
 
-		const responseText = await response.json()
+		const responseText = await response.json();
 
 		return new Response(JSON.stringify(responseText), { status: 200 });
 	} catch (error) {

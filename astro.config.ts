@@ -6,9 +6,14 @@ import fs from "node:fs";
 import { defineConfig } from "astro/config";
 
 // import pageInsight from "astro-page-insight";
-import astroExpressiveCode, {ExpressiveCodeTheme } from "astro-expressive-code";
+import astroExpressiveCode, {
+	ExpressiveCodeTheme,
+} from "astro-expressive-code";
 
-const customStyle = fs.readFileSync(new URL("./src/styles/codeTheme.jsonc", import.meta.url), "utf8");
+const customStyle = fs.readFileSync(
+	new URL("./src/styles/codeTheme.jsonc", import.meta.url),
+	"utf8",
+);
 const customTheme = ExpressiveCodeTheme.fromJSONString(customStyle);
 
 // https://astro.build/config
@@ -19,7 +24,7 @@ export default defineConfig({
 	},
 	integrations: [
 		astroExpressiveCode({
-			themes: [ customTheme]
+			themes: [customTheme],
 		}),
 		mdx(),
 		metaTags(),

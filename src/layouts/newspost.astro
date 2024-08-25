@@ -11,8 +11,8 @@ import { Image } from "astro:assets";
 import "../styles/style.css";
 
 interface Props {
-	post: CollectionEntry<"news">;
-	className?: string;
+  post: CollectionEntry<"news">;
+  className?: string;
 }
 
 const { post, className } = Astro.props;
@@ -29,14 +29,15 @@ const Sociallogosizes = 24;
 <Header />
 <div
   class={twMerge(
-  	`h-screen text-[var(--text)] my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg  ${className}`,
+    `h-screen text-[var(--text)] my-[5%] mx-[5%] bg-[var(--nav-color)] h-full rounded-lg  ${className}`,
   )}
 >
   <div
     class="flex justify-between w-full bg-neutral-900 text-neutral-400 rounded-t-lg mr-5 left-0 space-x-2 p-4"
   >
     <a class="hover:text-white transition ease-in-out delay-75" href="/news"
-    >&lt;- Back to News Articles</a>
+      >&lt;- Back to News Articles</a
+    >
     Published on: {post.data.pubDate.toLocaleDateString() ?? ""}
   </div>
 
@@ -53,7 +54,9 @@ const Sociallogosizes = 24;
     </div>
 
     <h1 class="text-2xl">{post.data.title ?? ""}</h1>
-    <slot />
+    <div class="mx-5">
+      <slot />
+    </div>
   </div>
   <div class="flex justify-between bg-neutral-900 rounded-b-lg mt-3">
     <div class="flex flex-col ml-10 mb-5">
@@ -70,39 +73,35 @@ const Sociallogosizes = 24;
     {
       authorData.socials && (
         <div class="flex gap-x-2 mr-4 mt-10">
-          {
-            authorData.socials.github && (
-              <a
-                href={authorData.socials.github}
-                class="text-gray-500 hover:text-gray-700"
-              >
-                <Image
-                  src={GithubSVG}
-                  alt="Github Logo"
-                  width={Sociallogosizes}
-                  height={Sociallogosizes}
-                />
-              </a>
-            )
-          }
-          {
-            authorData.socials.discordServer && (
-              <a
-                href={authorData.socials.discordServer}
-                class="text-blue-500 hover:text-blue-700"
-              >
-                <Image
-                  src={DiscordSVG}
-                  alt="Github Logo"
-                  width={Sociallogosizes}
-                  height={Sociallogosizes}
-                />
-              </a>
-            )
-          }
+          {authorData.socials.github && (
+            <a
+              href={authorData.socials.github}
+              class="text-gray-500 hover:text-gray-700"
+            >
+              <Image
+                src={GithubSVG}
+                alt="Github Logo"
+                width={Sociallogosizes}
+                height={Sociallogosizes}
+              />
+            </a>
+          )}
+          {authorData.socials.discordServer && (
+            <a
+              href={authorData.socials.discordServer}
+              class="text-blue-500 hover:text-blue-700"
+            >
+              <Image
+                src={DiscordSVG}
+                alt="Github Logo"
+                width={Sociallogosizes}
+                height={Sociallogosizes}
+              />
+            </a>
+          )}
         </div>
       )
     }
   </div>
 </div>
-<Footer />
+<Footer extraClass={post.data.extraFooterClass} />

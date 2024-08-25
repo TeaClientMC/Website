@@ -4,7 +4,7 @@ import tailwind from "@astrojs/tailwind";
 import metaTags from "astro-meta-tags";
 import { defineConfig } from "astro/config";
 
-import pageInsight from "astro-page-insight";
+// import pageInsight from "astro-page-insight";
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,7 +24,7 @@ export default defineConfig({
 			nesting: true,
 			applyBaseStyles: true,
 		}),
-		pageInsight(),
+		// pageInsight(),
 	],
 	redirects: {
 		// Resources

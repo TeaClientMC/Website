@@ -3,6 +3,14 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/layout.astro";
 
 const wikiContent = await getCollection("wiki");
+
+const playerDocs = wikiContent.filter((page) =>
+  page.slug.startsWith("players/"),
+);
+const developerDocs = wikiContent.filter((page) =>
+  page.slug.startsWith("developers/"),
+);
+let wikiTitleClass = "font-bold bg-gradient-to-r bg-clip-text text-transparent";
 ---
 
 <Layout title="Home | TeaClient Wiki">
@@ -19,26 +27,19 @@ const wikiContent = await getCollection("wiki");
       id="player-docs"
       class="float-left w-1/2 justify-center text-center"
     >
-      <h2
-        class="font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent"
-      >
+      <h2 class={`${wikiTitleClass} from-green-400 to-green-600`}>
         Player Documentation
       </h2>
       <ul>
         {
-          wikiContent
-          .filter((page) => page.slug.startsWith("players/"))
-          .map((page) => {
-          	return (
-            <li>
-              <a
-                class="hover:text-green-300"
-                href={`/wiki/${page.slug}/`}
-              >
-                <h4 class="title">{page.data.title}</h4>
-              </a>
-            </li>
-          );
+          playerDocs.map((page) => {
+            return (
+              <li>
+                <a class="hover:text-green-300" href={`/wiki/${page.slug}/`}>
+                  <h4 class="title">{page.data.title}</h4>
+                </a>
+              </li>
+            );
           })
         }
       </ul>
@@ -49,26 +50,19 @@ const wikiContent = await getCollection("wiki");
       id="developer-docs"
       class="float-right w-1/2 justify-center text-center"
     >
-      <h2
-        class="font-bold bg-gradient-to-r from-red-300 to-red-600 bg-clip-text text-transparent"
-      >
+      <h2 class={`${wikiTitleClass} from-red-400 to-red-600`}>
         Developer Documentation
       </h2>
       <ul>
         {
-          wikiContent
-          .filter((page) => page.slug.startsWith("developers/"))
-          .map((page) => {
-          	return (
-            <li>
-              <a
-                class="hover:text-red-300"
-                href={`/wiki/${page.slug}/`}
-              >
-                <h4 class="title">{page.data.title}</h4>
-              </a>
-            </li>
-          );
+          developerDocs.map((page) => {
+            return (
+              <li>
+                <a class="hover:text-red-300" href={`/wiki/${page.slug}/`}>
+                  <h4 class="title">{page.data.title}</h4>
+                </a>
+              </li>
+            );
           })
         }
       </ul>

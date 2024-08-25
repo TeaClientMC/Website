@@ -2,11 +2,17 @@
 import { Image } from "astro:assets";
 import DiscordSVG from "@assets/svgs/Discord.svg";
 import GithubSVG from "@assets/svgs/Github-white.svg";
+import { twMerge } from "tailwind-merge";
+
+interface Props {
+  extraClass?: string;
+}
 
 const logosizes = 36;
+const { extraClass } = Astro.props;
 ---
 
-<footer class="w-full pt-[40px] top-full text-white">
+<footer class={twMerge("w-full pt-[40px] top-full text-white", extraClass)}>
   <div id="copyright">
     <p>A Project Made with Love by TeaClient Team ♥️</p>
     <p>&copy; TeaClientMC. ALL RIGHTS RESERVED</p>
@@ -32,30 +38,30 @@ const logosizes = 36;
       />
     </a>
   </div>
+
+  <style>
+    footer {
+      p {
+        @apply text-white font-bold font-sans text-sm mb-1;
+        word-spacing: 2px;
+      }
+
+      #copyright {
+        @apply flex flex-col float-left ml-[20px];
+      }
+
+      #copyright p:last-child {
+        @apply mb-5 text-gray-600;
+      }
+
+      #Socials .grayscale-custom {
+        filter: grayscale(100%) brightness(140%) saturate(100%);
+        fill: grey;
+      }
+
+      #Socials {
+        @apply flex flex-row mr-[20px] gap-x-4 float-right;
+      }
+    }
+  </style>
 </footer>
-
-<style>
-footer {
-	p {
-		@apply text-white font-bold font-sans text-sm mb-1;
-		word-spacing: 2px;
-	}
-
-	#copyright {
-		@apply flex flex-col float-left ml-[20px];
-	}
-
-	#copyright p:last-child {
-		@apply mb-5 text-gray-600;
-	}
-
-	#Socials .grayscale-custom {
-		filter: grayscale(100%) brightness(140%) saturate(100%);
-		fill: grey;
-	}
-
-	#Socials {
-		@apply flex flex-row mr-[20px] gap-x-4 float-right;
-	}
-}
-</style>

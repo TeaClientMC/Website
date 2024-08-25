@@ -32,6 +32,7 @@ const wiki = defineCollection({
 	type: "content",
 	schema: z.object({
 		title: z.string(),
+		desc: z.string(),
 		extraFooterClass: z.string().optional(),
 	}),
 });

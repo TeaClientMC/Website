@@ -13,7 +13,11 @@ const developerDocs = wikiContent.filter((page) =>
 let wikiTitleClass = "font-bold bg-gradient-to-r bg-clip-text text-transparent";
 ---
 
-<Layout title="Home | TeaClient Wiki">
+<Layout
+  title="Home | TeaClient Wiki"
+  className="h-full pb-16 backdrop-blur-sm"
+  extraFooterClass="mt-[90%]"
+>
   <div class="justify-center text-center">
     <h1 class="font-bold text-3xl mt-10">Welcome to the TeaClient Wiki</h1>
     <p>
@@ -25,18 +29,19 @@ let wikiTitleClass = "font-bold bg-gradient-to-r bg-clip-text text-transparent";
     <!-- Player Documentation Section -->
     <section
       id="player-docs"
-      class="float-left w-1/2 justify-center text-center"
+      class="float-left w-1/2 mx-5 justify-center text-center"
     >
       <h2 class={`${wikiTitleClass} from-green-400 to-green-600`}>
         Player Documentation
       </h2>
-      <ul>
+      <ul class="flex flex-col gap-5">
         {
           playerDocs.map((page) => {
             return (
-              <li>
+              <li class="relative bg-[#171717e4] rounded-lg border border-green-800">
                 <a class="hover:text-green-300" href={`/wiki/${page.slug}/`}>
-                  <h4 class="title">{page.data.title}</h4>
+                  <h4 class="title text-xl">{page.data.title}</h4>
+                  <p class="text-sm text-gray-400 pb-2">{page.data.desc}</p>
                 </a>
               </li>
             );
@@ -48,18 +53,19 @@ let wikiTitleClass = "font-bold bg-gradient-to-r bg-clip-text text-transparent";
     <!-- Developer Documentation Section -->
     <section
       id="developer-docs"
-      class="float-right w-1/2 justify-center text-center"
+      class="float-right w-1/2 justify-center text-center mx-5"
     >
       <h2 class={`${wikiTitleClass} from-red-400 to-red-600`}>
         Developer Documentation
       </h2>
-      <ul>
+      <ul class="flex flex-col gap-5">
         {
           developerDocs.map((page) => {
             return (
-              <li>
+              <li class="relative bg-[#171717e4] rounded-lg border border-red-800">
                 <a class="hover:text-red-300" href={`/wiki/${page.slug}/`}>
-                  <h4 class="title">{page.data.title}</h4>
+                  <h4 class="title text-xl">{page.data.title}</h4>
+                  <p class="text-sm text-gray-400 pb-2">{page.data.desc}</p>
                 </a>
               </li>
             );

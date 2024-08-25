@@ -50,20 +50,20 @@ import { Image } from "astro:assets";
     <li><a href="/store">STORE</a></li>
     <li>
       <a
-        class="font-bold bg-[#00000084] 2xl:bg-orange-400 rounded-lg hover:bg-orange-300"
+        class="font-bold bg-[#00000084] bg-gradient-to-tr from-orange-200 to-orange-500 rounded-lg 2xl:hover:bg-orange-300 ignore-a"
         href="https://docs.teaclient.net">DOCS</a
       >
     </li>
     <li>
       <a
-        class="font-bold bg-[#00000084] 2xl:bg-gradient-to-r rounded-lg from-green-200 to-green-400"
+        class="font-bold bg-[#00000084] bg-gradient-to-tr rounded-lg from-green-200 to-green-400 ignore-a"
         href="/wiki">WIKI</a
       >
     </li>
     <li><a href="/news">NEWS</a></li>
     <li>
       <a
-        class="font-bold bg-[#00000084] 2xl:bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab]"
+        class="font-bold bg-[#00000084] bg-[#6e2bec] rounded-lg 2xl:hover:bg-[#9359ff] ignore-a"
         href="/">DOWNLOAD</a
       >
     </li>
@@ -152,11 +152,12 @@ import { Image } from "astro:assets";
       @apply flex justify-center m-0 w-full text-[var(--navBar-Items)];
     }
 
-    #menu-toggle:checked ~ .menu > li a:not(#download & #docs) {
-      @apply text-[var(--navBar-Items)] pb-6 rounded-md hover:bg-[var(--mobile-hover)];
+    #menu-toggle:checked ~ .menu > li a:not(.ignore-a) {
+      @apply text-[var(--navBar-Items)] pb-6 rounded-md bg-[#00000066];
     }
-    #menu-toggle:checked ~ .menu > li a:hover:not(#download & #docs) {
-      @apply bg-[#00000066];
+
+    #menu-toggle:checked ~ .menu > li a .ignore-a {
+      @apply pb-6 rounded-md;
     }
   }
 

@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/layout.astro";
-import { twMerge } from "tailwind-merge";
 
 const wikiContent = await getCollection("wiki");
 
@@ -23,6 +22,14 @@ const playerDocs = wikiContent.filter((page) =>
 const developerDocs = wikiContent.filter((page) =>
   page.slug.startsWith("developers/"),
 );
+
+interface WikiPost {
+  slug: string;
+  data: {
+    title: string;
+    desc: string;
+  };
+}
 
 const playerDocsGrouped = groupBySubcategory(
   wikiContent.filter((page) => page.slug.startsWith("players/")),
@@ -86,25 +93,30 @@ let wikiUlClass = "flex flex-col gap-3 justify-center items-center";
       </h1>
       <ul class="flex flex-col gap-5">
         {
-          Object.entries(playerDocsGrouped).map(([subcategory, docs]) => (
-            <>
-              <h2 class={`${wikiSubClass} from-green-400 to-green-600`}>
-                {formatSubcategory(subcategory)}
-              </h2>
-              <ul class={wikiUlClass}>
-                {docs.map((doc) => (
-                  <li class={`${wikiLiClass} border-green-800`}>
-                    <a class="hover:text-green-300" href={`/wiki/${doc.slug}/`}>
-                      <h4 class="title text-base md:text-xs xl:text-xl">
-                        {doc.data.title}
-                      </h4>
-                      <p class={wikiDescClass}>{doc.data.desc}</p>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </>
-          ))
+          Object.entries(playerDocsGrouped).map(
+            ([subcategory, docs]: [string, WikiPost[]]) => (
+              <>
+                <h2 class={`${wikiSubClass} from-green-400 to-green-600`}>
+                  {formatSubcategory(subcategory)}
+                </h2>
+                <ul class={wikiUlClass}>
+                  {docs.map((doc) => (
+                    <li class={`${wikiLiClass} border-green-800`}>
+                      <a
+                        class="hover:text-green-300"
+                        href={`/wiki/${doc.slug}/`}
+                      >
+                        <h4 class="title text-base md:text-xs xl:text-xl">
+                          {doc.data.title}
+                        </h4>
+                        <p class={wikiDescClass}>{doc.data.desc}</p>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ),
+          )
         }
       </ul>
     </section>
@@ -119,25 +131,27 @@ let wikiUlClass = "flex flex-col gap-3 justify-center items-center";
       </h1>
       <ul class="flex flex-col gap-5">
         {
-          Object.entries(developerDocsGrouped).map(([subcategory, docs]) => (
-            <>
-              <h2 class={`${wikiSubClass} from-red-400 to-red-600`}>
-                {formatSubcategory(subcategory)}
-              </h2>
-              <ul class={wikiUlClass}>
-                {docs.map((doc) => (
-                  <li class={`${wikiLiClass} border-red-800`}>
-                    <a class="hover:text-red-300" href={`/wiki/${doc.slug}/`}>
-                      <h4 class="title text-base md:text-xs xl:text-xl">
-                        {doc.data.title}
-                      </h4>
-                      <p class={wikiDescClass}>{doc.data.desc}</p>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </>
-          ))
+          Object.entries(developerDocsGrouped).map(
+            ([subcategory, docs]: [string, WikiPost[]]) => (
+              <>
+                <h2 class={`${wikiSubClass} from-red-400 to-red-600`}>
+                  {formatSubcategory(subcategory)}
+                </h2>
+                <ul class={wikiUlClass}>
+                  {docs.map((doc) => (
+                    <li class={`${wikiLiClass} border-red-800`}>
+                      <a class="hover:text-red-300" href={`/wiki/${doc.slug}/`}>
+                        <h4 class="title text-base md:text-xs xl:text-xl">
+                          {doc.data.title}
+                        </h4>
+                        <p class={wikiDescClass}>{doc.data.desc}</p>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ),
+          )
         }
       </ul>
     </section>

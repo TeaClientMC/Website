@@ -25,7 +25,7 @@ const { title, className, desc, banner, extraFooterClass } = Astro.props;
 <Header />
 <div
   class={twMerge(
-    `flex flex-col h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] backdrop-blur-[7px] rounded-lg ${className}`,
+    `flex flex-col h-full text-white my-[5%] mx-[5%] bg-[var(--nav-color)] backdrop-blur-[7px] rounded-lg ${className}`,
   )}
 >
   <slot />

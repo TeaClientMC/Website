@@ -3,10 +3,10 @@ import Layout from "@layout/documents.astro";
 const updated = "27/8/2024";
 ---
 
-<Layout>
-  <div class="text-container">
+<Layout title="Terms of Service" desc="Terms of Service for TeaClient">
+  <div class="px-[1%] justify-center items-center">
     <h1>Terms of Service</h1>
-    <p class="text-slate-400">Last updated: {updated}</p>
+    <p class="text-slate-500">Last updated: {updated}</p>
 
     <p>
       Please read these terms of service (“terms”, “terms of service”) carefully
@@ -14,10 +14,17 @@ const updated = "27/8/2024";
       TeaClientMC. (“us”, ‘we”, “our”).
     </p>
 
-    <h2>Disclaimers</h2>
+    <h2>Disclaimer</h2>
     <p class="text-red-700">
       We are not affiliated with Microsoft, Mojang, or Minecraft. We are also
       not affiliated with TLauncher, or the company behind TLauncher.
+    </p>
+
+    <h2>Appon Using TeaClient/Sourcing it for other OS/Package-managers</h2>
+    <p>
+      You must include this terms of service in any source code that you use to
+      package/distribute TeaClient. Note: There is guides under contributing for
+      the launcher on how to do this.
     </p>
 
     <h2>Condition of Use</h2>

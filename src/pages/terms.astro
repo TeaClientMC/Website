@@ -1,16 +1,23 @@
 ---
 import Layout from "@layout/documents.astro";
-const updated = "2/9/2024";
+const updated = "27/8/2024";
 ---
 
 <Layout>
   <div class="text-container">
     <h1>Terms of Service</h1>
     <p class="text-slate-400">Last updated: {updated}</p>
+
     <p>
       Please read these terms of service (“terms”, “terms of service”) carefully
       before using TeaClient (the “service” or "project") operated by
       TeaClientMC. (“us”, ‘we”, “our”).
+    </p>
+
+    <h2>Disclaimers</h2>
+    <p class="text-red-700">
+      We are not affiliated with Microsoft, Mojang, or Minecraft. We are also
+      not affiliated with TLauncher, or the company behind TLauncher.
     </p>
 
     <h2>Condition of Use</h2>
@@ -70,18 +77,18 @@ const updated = "2/9/2024";
 </Layout>
 
 <style>
-h1 {
-	@apply text-2xl font-bold;
-}
-h2 {
-	@apply text-xl font-semibold;
-}
+  h1 {
+    @apply text-2xl font-bold;
+  }
+  h2 {
+    @apply text-xl font-semibold;
+  }
 
-p {
-	@apply mb-4;
-}
+  p {
+    @apply mb-4;
+  }
 
-.todo-section {
-	@apply text-orange-500; /* Adjust the shade of orange as needed */
-}
+  .todo-section {
+    @apply text-orange-500; /* Adjust the shade of orange as needed */
+  }
 </style>

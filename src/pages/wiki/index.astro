@@ -17,10 +17,10 @@ const groupBySubcategory = (docs) => {
 };
 
 const playerDocs = wikiContent.filter((page) =>
-  page.slug.startsWith("players/"),
+  page.slug.startsWith("players/")
 );
 const developerDocs = wikiContent.filter((page) =>
-  page.slug.startsWith("developers/"),
+  page.slug.startsWith("developers/")
 );
 
 interface WikiPost {
@@ -32,11 +32,11 @@ interface WikiPost {
 }
 
 const playerDocsGrouped = groupBySubcategory(
-  wikiContent.filter((page) => page.slug.startsWith("players/")),
+  wikiContent.filter((page) => page.slug.startsWith("players/"))
 );
 
 const developerDocsGrouped = groupBySubcategory(
-  wikiContent.filter((page) => page.slug.startsWith("developers/")),
+  wikiContent.filter((page) => page.slug.startsWith("developers/"))
 );
 
 function formatSubcategory(subcategory) {
@@ -47,7 +47,6 @@ function formatSubcategory(subcategory) {
   return subcategory
     .split(" ")
     .map((word) => {
-      console.log("Word: ", word);
       // Capitalize the first letter if the word is not already capitalized
       if (!word.match(/^[A-Z]/)) {
         word = word.charAt(0).toUpperCase() + word.slice(1);
@@ -115,7 +114,7 @@ let wikiUlClass = "flex flex-col gap-3 justify-center items-center";
                   ))}
                 </ul>
               </>
-            ),
+            )
           )
         }
       </ul>
@@ -150,7 +149,7 @@ let wikiUlClass = "flex flex-col gap-3 justify-center items-center";
                   ))}
                 </ul>
               </>
-            ),
+            )
           )
         }
       </ul>

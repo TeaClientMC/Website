@@ -4,18 +4,6 @@ import Layout from "../../layouts/layout.astro";
 
 const wikiContent = await getCollection("wiki");
 
-const groupBySubcategory = (docs) => {
-  const groupedDocs = {};
-  docs.forEach((doc) => {
-    const subcategory = doc.slug.split("/")[1]; // Assuming the second part of the slug is the subcategory
-    if (!groupedDocs[subcategory]) {
-      groupedDocs[subcategory] = [];
-    }
-    groupedDocs[subcategory].push(doc);
-  });
-  return groupedDocs;
-};
-
 const playerDocs = wikiContent.filter((page) =>
   page.slug.startsWith("players/")
 );
@@ -31,6 +19,20 @@ interface WikiPost {
   };
 }
 
+const groupBySubcategory = (docs) => {
+  const groupedDocs = {};
+  docs.forEach((doc) => {
+    const pathParts = doc.slug.split("/");
+    const subcategory = pathParts.slice(1).join("/");
+    console.log(subcategory);
+    if (!groupedDocs[subcategory]) {
+      groupedDocs[subcategory] = [];
+    }
+    groupedDocs[subcategory].push(doc);
+  });
+  return groupedDocs;
+};
+
 const playerDocsGrouped = groupBySubcategory(
   wikiContent.filter((page) => page.slug.startsWith("players/"))
 );
@@ -42,23 +44,22 @@ const developerDocsGrouped = groupBySubcategory(
 function formatSubcategory(subcategory) {
   const specialWords = {
     "getting-started": ["Getting Started"],
+    api: ["API"],
+    mods: ["Mods"],
   };
 
   return subcategory
-    .split(" ")
+    .split("/")
     .map((word) => {
-      // Capitalize the first letter if the word is not already capitalized
       if (!word.match(/^[A-Z]/)) {
         word = word.charAt(0).toUpperCase() + word.slice(1);
       }
-      // Replace certain words to make it more readable
       if (specialWords[word.toLowerCase()]) {
         word = specialWords[word.toLowerCase()][0];
       }
-
       return word;
     })
-    .join(" ");
+    .join(" / ");
 }
 
 let wikiTitleClass = "font-bold bg-gradient-to-r bg-clip-text text-transparent";

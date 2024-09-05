@@ -1,10 +1,50 @@
 ---
-title: API Notices & Info
-desc: Notices and Information about the API
+title: "API Notices & Info"
+desc: "Notices and Information about the API"
 ---
 
-<div class="flex flex-col gap-5 pt-5 justify-center items-center">
-<h2 class="text-2xl font-bold bg-gradient-to-tr from-red-300 to-red-500 bg-clip-text text-transparent">Notices</h2>
+import TabComponent from "../../../../components/TabComponent.astro";
 
-<div><a class="text-sm text-red-500 pb-2 justify-start">API Key Required 403,</a> At this time, the API is not available to the public. It's avalible by using the bot, Owners & Certain Developers.</div>
+export const tabData = [
+  {
+    label: "Notices",
+    content: `
+      <div class="flex flex-col gap-5 pt-5 justify-center items-center">
+        <h2 class="text-2xl font-bold bg-gradient-to-tr from-red-300 to-red-500 bg-clip-text text-transparent">Notices</h2>
+        <div>
+          <a class="text-sm text-red-500 pb-2 justify-start">API Key Required 403,</a> 
+          At this time, the API is not available to the public. It's available by using the bot, Owners & Certain Developers.
+        </div>
+      </div>
+    `,
+  },
+  {
+    label: "Information",
+    content: `
+      <div class="flex flex-col gap-5 pt-5 justify-center items-center">
+        <h2 class="text-2xl font-bold bg-gradient-to-tr from-blue-300 to-blue-500 bg-clip-text text-transparent">API Information</h2>
+        <div>
+          <p>Here you can add more information about the API, its usage, endpoints, etc.</p>
+        </div>
+      </div>
+    `,
+  },
+  {
+    label: "Documentation",
+    content: `
+      <div class="flex flex-col gap-5 pt-5 justify-center items-center">
+        <h2 class="text-2xl font-bold bg-gradient-to-tr from-green-300 to-green-500 bg-clip-text text-transparent">API Documentation</h2>
+        <div>
+          <p>This section can contain links to detailed API documentation or brief explanations of key concepts.</p>
+        </div>
+      </div>
+    `,
+  },
+];
+
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold text-center mb-6">{frontmatter.title}</h1>
+  <p class="text-center mb-8">{frontmatter.desc}</p>
+
+  <TabComponent tabs={tabData} client:load />
 </div>

@@ -3,7 +3,7 @@
 }
 
 /* Apply the variables based on the theme */
-[data-theme="dark"] {
+[data-theme="dark"] * {
 	--nav-color: rgb(0 0 0 / 50%);
 	--nav-color2: rgb(0 0 0 / 79%);
 	--navBar-Items: white;
@@ -12,7 +12,7 @@
 	--mobile-hover: rgb(255 255 255 / 40%);
 }
 
-[data-theme="light"] {
+[data-theme="light"] * {
 	--nav-color: rgb(255 255 255 / 25%);
 	--nav-color2: rgb(255 255 255 / 50%);
 	--navBar-Items: black;

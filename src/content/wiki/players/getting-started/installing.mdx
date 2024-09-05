@@ -2,6 +2,35 @@
 title: "Installing TeaClient"
 desc: A guide on how to install TeaClient
 ---
+import TabComponent from "@/components/wiki/TabComponent.astro";
+
+export const tabData = [
+    {
+        label: "Homebrew",
+        content: `
+    if you use Homebrew install TeaClient with the following command:
+   <pre><code lang="sh">brew install teaclient</code></pre>
+    `,
+    },
+    {
+        label: "MacPorts",
+        content: `
+    if you use MacPorts install TeaClient with the following command:
+   <pre><code lang="sh">sudo port install teaclient</code></pre>
+    `,
+    },
+    {
+        label: "Nix",
+        content: `
+        if you use Nix install TeaClient with the package below: 
+        <pre><code lang="nix">pkgs.teaclient</code></pre>
+    `,
+    },
+
+];
+
+
+<pre><code lang="sh">brew install teaclient</code></pre>
 
 
 Before you download and install, make sure you have the following specifications:
@@ -22,15 +51,9 @@ For MacOS, click <a class="text-blue-500" href="/download#macos">here</a> to dow
 
 <h5 class="text-sm font-bold pt-5">Package Managers</h5>
 
-if you use Homebrew install TeaClient with the following command:
-```sh
-brew install teaclient
-```
-<br/>
-if you use MacPorts install TeaClient with the following command:
-```sh
-sudo port install teaclient
-```
+
+<TabComponent tabs={tabData} client:load/>
+
 
 <h5 class="text-sm font-bold pt-5">Nix</h5>
 if you use Nix install TeaClient with the package below: 

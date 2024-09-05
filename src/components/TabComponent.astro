@@ -1,0 +1,78 @@
+---
+// TabComponent.astro
+export interface Tab {
+  label: string;
+  content: string;
+}
+
+interface Props {
+  tabs: Tab[];
+}
+
+const { tabs } = Astro.props;
+---
+
+<div class="tab-container">
+  <div class="tab-buttons">
+    {tabs.map((tab, index) => (
+      <button class="tab-button" data-tab={index}>
+        {tab.label}
+      </button>
+    ))}
+  </div>
+  <div class="tab-content">
+    {tabs.map((tab, index) => (
+      <div class="content" data-content={index} set:html={tab.content}></div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .tab-container {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .tab-buttons {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+  }
+  .tab-button {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .tab-button:hover, .tab-button.active {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .content {
+    display: none;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .content.active {
+    display: block;
+  }
+</style>
+
+<script>
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const contentDivs = document.querySelectorAll('.content');
+
+  tabButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const tabIndex = button.getAttribute('data-tab');
+      
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      contentDivs.forEach(div => div.classList.remove('active'));
+      
+      button.classList.add('active');
+      document.querySelector(`.content[data-content="${tabIndex}"]`).classList.add('active');
+    });
+  });
+
+  // Activate the first tab by default
+  tabButtons[0].click();
+</script>

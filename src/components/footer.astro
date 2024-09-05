@@ -12,56 +12,13 @@ const logosizes = 36;
 const { extraClass } = Astro.props;
 ---
 
-<footer class={twMerge("w-full pt-[40px] top-full text-white", extraClass)}>
-  <div id="copyright">
-    <p>A Project Made with Love by TeaClient Team ♥️</p>
-    <p>&copy; TeaClientMC. ALL RIGHTS RESERVED</p>
-    <p>Not Afffliated with mojang or Minecraft</p>
+<footer
+  class={twMerge(
+    "w-full pt-[40px] top-full text-white bg-black bg-opacity-30 backdrop-blur-md",
+    extraClass
+  )}
+>
+  <div class="flex flex-col gap-5 justify-center items-center">
+    TeaClientMC © {new Date().getFullYear()}
   </div>
-  <div id="Socials">
-    <a href="/discord" target="_blank" rel="noopener noreferrer">
-      <Image
-        src={DiscordSVG}
-        alt="Discord Logo"
-        width={logosizes}
-        height={logosizes}
-        class="grayscale-custom pt-1"
-      />
-    </a>
-    <a href="/github" target="_blank" rel="noopener noreferrer">
-      <Image
-        src={GithubSVG}
-        alt="Github Logo"
-        width={logosizes}
-        height={logosizes}
-        class="grayscale-custom"
-      />
-    </a>
-  </div>
-
-  <style>
-    footer {
-      p {
-        @apply text-white font-bold font-sans text-sm mb-1;
-        word-spacing: 2px;
-      }
-
-      #copyright {
-        @apply flex flex-col float-left ml-[20px];
-      }
-
-      #copyright p:last-child {
-        @apply mb-5 text-gray-600;
-      }
-
-      #Socials .grayscale-custom {
-        filter: grayscale(100%) brightness(140%) saturate(100%);
-        fill: grey;
-      }
-
-      #Socials {
-        @apply flex flex-row mr-[20px] gap-x-4 float-right;
-      }
-    }
-  </style>
 </footer>

@@ -1,5 +1,6 @@
 ---
 import { SEO } from "astro-seo";
+import { ViewTransitions } from "astro:transitions";
 const { title, customDescription, bannerPath } = Astro.props;
 export interface Props {
   title: string;
@@ -17,6 +18,7 @@ const language = "en-us";
 
 <html lang="en">
   <head>
+    <!-- <ViewTransitions /> -->
     <SEO
       title={title}
       description={descr}

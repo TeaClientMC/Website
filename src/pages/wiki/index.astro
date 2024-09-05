@@ -24,7 +24,7 @@ const groupBySubcategory = (docs) => {
   docs.forEach((doc) => {
     const pathParts = doc.slug.split("/");
     const subcategory = pathParts.slice(1).join("/");
-    console.log(subcategory);
+
     if (!groupedDocs[subcategory]) {
       groupedDocs[subcategory] = [];
     }

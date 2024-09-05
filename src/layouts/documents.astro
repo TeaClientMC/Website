@@ -1,7 +1,7 @@
 ---
-import Footer from "@component/footer.astro";
-import Head from "@component/head.astro";
-import Header from "@component/header.astro";
+import Footer from "@/components/footer.astro";
+import Head from "@/components/head.astro";
+import Header from "@/components/header.astro";
 
 import { twMerge } from "tailwind-merge";
 import "../styles/style.css";
@@ -24,7 +24,7 @@ const { title, className, desc, banner } = Astro.props;
 <Header />
 <div
   class={twMerge(
-    `flex h-full text-white mt-4 mx-[1%] bg-[var(--nav-color)] backdrop-blur-[100px] rounded-lg ${className}`,
+    `flex h-full text-white mt-4 mx-[1%] bg-[var(--nav-color)] backdrop-blur-[100px] rounded-lg ${className}`
   )}
 >
   <slot />

@@ -1,52 +1,56 @@
 ---
-import Layout from "@layout/layout.astro";
+import Layout from "@/layouts/layout.astro";
 const { apply } = Astro.params;
 
 export async function getStaticPaths() {
-	return [{ params: { apply: "staff" } }, { params: { apply: "team" } }];
+  return [{ params: { apply: "staff" } }, { params: { apply: "team" } }];
 }
 
 let title = "";
 
 if (apply === "staff") {
-	title = "Staff Application";
+  title = "Staff Application";
 } else if (apply === "teams") {
-	title = "Teams Application";
+  title = "Teams Application";
 } else {
-	title = "Invalid application";
+  title = "Invalid application";
 }
 ---
 
 <Layout title={title}>
   {
-    apply === "staff"
-    ? (
+    apply === "staff" ? (
       <div class="box" style="position: relative;">
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLScOuyHA9sX_fW3bijeuDOoUWVIPLptbuyavkZ4XC__8DTHLSg/viewform?embedded=true"
           width="640"
           height="1445"
           class="bg-transparent border-none"
-        >Loading…</iframe>
+        >
+          Loading…
+        </iframe>
         <br />
-        <a href="/apply" style="position: absolute; bottom: 20px; right: 20px;"
-        >Go Back</a>
+        <a href="/apply" style="position: absolute; bottom: 20px; right: 20px;">
+          Go Back
+        </a>
       </div>
-    )
-    : apply === "team"
-    	? (
+    ) : apply === "team" ? (
       <div class="box" style="position: relative;">
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSfy0okWtCh1xMZ5YOrQYD-PYKLog3SzAUEYIfvsIE418pdiDA/viewform?embedded=true"
           width="640"
           height="1445"
           class="bg-transparent border-none"
-        >Loading…</iframe>
+        >
+          Loading…
+        </iframe>
         <br />
-        <a href="/apply" style="position: absolute; bottom: 20px; right: 20px;"
-        >Go Back</a>
+        <a href="/apply" style="position: absolute; bottom: 20px; right: 20px;">
+          Go Back
+        </a>
       </div>
+    ) : (
+      <div>Error: Invalid application type</div>
     )
-    : <div>Error: Invalid application type</div>
   }
 </Layout>

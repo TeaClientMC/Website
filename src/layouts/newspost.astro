@@ -1,10 +1,10 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import DiscordSVG from "@assets/svgs/Discord.svg";
-import GithubSVG from "@assets/svgs/Github-white.svg";
-import Footer from "@component/footer.astro";
-import Header from "@component/header.astro";
-import Head from "@component/head.astro";
+import DiscordSVG from "@/assets/svgs/Discord.svg";
+import GithubSVG from "@/assets/svgs/Github-white.svg";
+import Footer from "@/components/footer.astro";
+import Header from "@/components/header.astro";
+import Head from "@/components/head.astro";
 import { twMerge } from "tailwind-merge";
 import { getEntry } from "astro:content";
 import { Image } from "astro:assets";
@@ -29,7 +29,7 @@ const Sociallogosizes = 24;
 <Header />
 <div
   class={twMerge(
-    `h-full text-[var(--text)] my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg  ${className}`,
+    `h-full text-[var(--text)] my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg  ${className}`
   )}
 >
   <div

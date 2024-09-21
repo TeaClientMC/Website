@@ -2,31 +2,18 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import metaTags from "astro-meta-tags";
-import fs from "node:fs";
 import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
 
-// import pageInsight from "astro-page-insight";
-import astroExpressiveCode, {
-	ExpressiveCodeTheme,
-} from "astro-expressive-code";
-
-const customStyle = fs.readFileSync(
-	new URL("./src/styles/codeTheme.jsonc", import.meta.url),
-	"utf8",
-);
-const customTheme = ExpressiveCodeTheme.fromJSONString(customStyle);
+const site = "https://teaclient.net";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://teaclient.net",
+	site: site,
 	server: {
 		port: 7053,
 	},
 	integrations: [
-		astroExpressiveCode({
-			themes: [customTheme],
-		}),
-		mdx(),
 		metaTags(),
 		sitemap({
 			filter: (page) =>
@@ -37,16 +24,45 @@ export default defineConfig({
 			nesting: true,
 			applyBaseStyles: true,
 		}),
-		// pageInsight(),
+		starlight({
+			title: "TeaClient",
+			disable404Route: true,
+			tableOfContents: true,
+			social: {
+				discord: site + "/discord",
+				github: site + "/github",
+			},
+			sidebar: [
+				{
+					label: "Home",
+					link: "wiki/index",
+				},
+				{
+					label: "Players",
+					autogenerate: {
+						directory: "wiki/players",
+						collapsed: false,
+					},
+				},
+				{
+					label: "Developers",
+					autogenerate: {
+						directory: "wiki/developers",
+						collapsed: true,
+					},
+				}
+			],
+			editLink: {
+				baseUrl: "https://github.com/teaclientmc/website",
+			},
+		}),
+		mdx(),
 	],
 	redirects: {
-		// Resources
 		"/discord": "https://discord.gg/ejFTe4Hfnc",
 		"/github": "https://github.com/TeaClientMC",
 		"/roadmap": "https://github.com/orgs/TeaClientMC/projects/3",
-		// Partner Networks
 		"/dropps": "https://discord.gg/qFarXHT32J",
-		// Easter-Eggs
 		"/klaas": "https://klaas.tiiny.site/",
 	},
 	vite: {

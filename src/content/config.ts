@@ -1,4 +1,5 @@
 import { defineCollection, reference, z } from "astro:content";
+import { docsSchema } from '@astrojs/starlight/schema';
 
 const news = defineCollection({
 	type: "content",
@@ -28,13 +29,8 @@ const authors = defineCollection({
 	}),
 });
 
-const wiki = defineCollection({
-	type: "content",
-	schema: z.object({
-		title: z.string(),
-		desc: z.string(),
-		extraFooterClass: z.string().optional(),
-	}),
-});
+const docs = defineCollection({
+	schema: docsSchema()
+})
 
-export const collections = { news, wiki, authors };
+export const collections = { news, authors, docs };

@@ -1,25 +1,16 @@
 ---
 title: Mod-list API
-desc: Our Custom Mod List
-extraFooterClass: "mt-[100%]"
+description: Our Custom Mod List
 ---
+<p>{frontmatter.description}</p>
 
-import TabComponent from "@/components/wiki/TabComponent.astro";
 
-export const tabData = [
-  {
-    label: "Curl",
-    content: `
-    	<Code code="curl https://"	lang="sh"/> 
-    `,
-  },
-];
+import Http from "@/components/starlight/Http.astro";
+
 
 <div class="container mx-auto px-4 py-8">
-  <TabComponent tabs={tabData} client:load />
-
-	<h1 class="font-bold text-2xl text-center">Response:</h1>
-	<br/>
+	<Http method = "get" url="https://api.teaclient.net/mods/" />
+	# Response:
 	```json
 	{
 		    "mods": [

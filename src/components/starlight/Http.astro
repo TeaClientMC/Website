@@ -1,0 +1,61 @@
+---
+import { Code, Tabs, TabItem } from "@astrojs/starlight/components";
+interface Props {
+    method: string;
+    url: string;
+    body?: string;
+    headers?: Record<string, string>;
+}
+
+const { method, url, body, headers } = Astro.props;
+let types = "curl" || "rust" || "typescript";
+---
+
+<Tabs>
+    <TabItem label="curl">
+        <Code
+            lang="txt"
+            code={`curl -X ${method} ${url}${body ? ` -d '${body}'` : ""}${
+                headers
+                    ? Object.entries(headers)
+                          .map(([key, value]) => `-H '${key}: ${value}'`)
+                          .join(" ")
+                    : ""
+            }`}
+        />
+    </TabItem>
+    <TabItem label="rust">
+        <Code
+            lang="rs"
+            code={`let client = reqwest::Client::new();
+let res = client.request("${method}", "${url}")
+    .header(${
+        headers
+            ? Object.entries(headers)
+                  .map(([key, value]) => `("${key}", "${value}")`)
+                  .join(", ")
+            : "None"
+    })
+    .body(${body ? `"${body}"` : "None"})
+    .send()
+    .await
+    .unwrap();`}
+        />
+    </TabItem>
+    <TabItem label="typescript">
+        <Code
+            lang="ts"
+            code={`const res = await fetch("${url}", {
+    method: "${method}",
+    headers: ${
+        headers
+            ? Object.entries(headers)
+                  .map(([key, value]) => `{ "${key}": "${value}" }`)
+                  .join(", ")
+            : "{}"
+    },
+    body: ${body ? `"${body}"` : "null"}
+});`}
+        />
+    </TabItem>
+</Tabs>

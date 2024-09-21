@@ -28,10 +28,16 @@ export default defineConfig({
 			title: "TeaClient",
 			disable404Route: true,
 			tableOfContents: true,
+			lastUpdated: true,
+			favicon: "/Favicon.png",
+			logo: {
+				src: "./public/icon.webp",
+			},
 			social: {
 				discord: site + "/discord",
 				github: site + "/github",
 			},
+			customCss: ["./src/styles/starlight.css"],
 			sidebar: [
 				{
 					label: "Home",

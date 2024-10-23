@@ -70,6 +70,8 @@ export default defineConfig({
 		"/roadmap": "https://github.com/orgs/TeaClientMC/projects/3",
 		"/dropps": "https://discord.gg/qFarXHT32J",
 		"/klaas": "https://klaas.tiiny.site/",
+		"/readme": "https://github.com/TeaClientMC/.github",
+		"/configSchema.json": "https://api.teaclient.net/config-schema",
 	},
 	vite: {
 		resolve: {

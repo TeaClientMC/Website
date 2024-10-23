@@ -28,7 +28,7 @@
 
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.teaclient.net)
+Feel free to check [our wiki](https://teaclient.net/wiki)
 
 <img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/assets/dividers.png" alt="divider">
 

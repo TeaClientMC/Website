@@ -1,22 +1,50 @@
 ---
-import { Image } from "astro:assets";
-import { twMerge } from "tailwind-merge";
-
-interface Props {
-  extraClass?: string;
-}
-
-const logosizes = 36;
-const { extraClass } = Astro.props;
 ---
 
-<footer
-  class={twMerge(
-    "w-full pt-[40px] top-full text-white bg-black bg-opacity-30 backdrop-blur-md",
-    extraClass
-  )}
->
-  <div class="flex flex-col gap-5 justify-center items-center">
-    TeaClientMC © {new Date().getFullYear()}
+
+<footer class="w-full pt-[40px] top-full text-white ">
+  <div id="copyright">
+    <p>A Project Made with Love by TeaClient Team ♥️</p>
+    <p>&copy; TeaClientMC. ALL RIGHTS RESERVED</p>
+    <p>Not Afffliated with mojang or Minecraft</p>
+  </div>
+  <div id="Socials" class="flex flex-row mr-[20px] gap-x-4 float-right">
+		<a href="/community">
+			Community
+		</a>
+		<a href="/policies">
+			Terms & Privacy
+		</a>
+		<a href="/apply">
+			Applications
+		</a>
+		<a href="/github">
+			TeaMC
+    </a>
   </div>
 </footer>
+
+
+
+
+
+<style>
+footer {
+  p {
+    @apply text-white font-bold font-sans text-sm mb-1;
+    word-spacing: 2px;
+	}
+
+	#socials > a {
+		@apply text-white;
+	}
+
+   #copyright {
+    @apply flex flex-col float-left ml-[20px];
+   }
+
+   #copyright p:last-child {
+    @apply mb-5 text-gray-600;
+   }
+}
+</style>

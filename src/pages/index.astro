@@ -1,21 +1,24 @@
 ---
-import CustomImage from "@component/CustomImage.astro";
-import HeroImage from "@component/HeroImage.astro";
-import Layout from "@layout/layout.astro";
+import CustomImage from "@/components/CustomImage.astro";
+import HeroImage from "@/components/HeroImage.astro";
+import Layout from "@/layouts/layout.astro";
 ---
 
-<Layout className="h-full pb-16" title="Home | TeaClient Website">
+<Layout
+  className="h-full pb-16 backdrop-blur-sm"
+  title="Home | TeaClient Website"
+  extraFooterClass="mt-[9%]"
+>
   <div class="flex flex-row m-10 xl:ml-10">
     <div class="text-center flex flex-col pl-[10%] xl:pl-[20%]">
       <h1 class="text-3xl">We Are TeaClient</h1>
       <h2 class="text-2xl">We Make Minecraft servers and Minecraft Clients</h2>
       <br />
-      <span
-        class="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-violet-500 text-3xl"
+      <p
+        class="text-2xl bg-gradient-to-tr bg-clip-text text-transparent from-violet-500 to-violet-300"
       >
-        Client Comming Soon
-      </span>
-      <p class="text-2xl">DELAYED approximately 22-24 Apirl</p>
+			Coming Soon, Estimate: 2025
+      </p>
       <p>
         Check our <a
           class="text-gray-300 underline hover:text-purple-500"

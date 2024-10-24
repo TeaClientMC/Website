@@ -1,24 +1,24 @@
 ---
 import { SEO } from "astro-seo";
+import { ViewTransitions } from "astro:transitions";
 const { title, customDescription, bannerPath } = Astro.props;
 export interface Props {
   title: string;
   customDescription?: string;
   bannerPath?: string;
 }
-
 // SEO SETTINGS
 const descr = customDescription ?? "A Nice Opensourced Client.";
 const url = "https://teaclient.net";
-const banner = bannerPath ?? "/banner/deafult.webp";
+const banner = bannerPath ?? "/Banner.webp";
 const favicon = "/Favicon.webp";
 const theme_color = "#bc21ff";
 const language = "en-us";
 ---
 
-<!doctype html>
 <html lang="en">
   <head>
+    <!-- <ViewTransitions /> -->
     <SEO
       title={title}
       description={descr}
@@ -53,7 +53,11 @@ const language = "en-us";
       extend={{
         link: [
           { rel: "icon", href: favicon },
-          { rel: "apple-touch-icon", type: "image/x-icon", href: favicon },
+          {
+            rel: "apple-touch-icon",
+            type: "image/x-icon",
+            href: favicon,
+          },
           { rel: "sitemap", href: "/sitemap-index.xml" },
         ],
         meta: [

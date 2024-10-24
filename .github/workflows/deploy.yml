@@ -1,23 +1,19 @@
-# DO NOT TOUCH THIS FILE
-# Please speak to SudoVanilla (Korbs) if you have any issues.
-# For Security check please contact Eveeifyeve Instead of sudovanilla.
-
 name: Deploy Website
 
 on:
- push:
-  branches:
-   - main
- workflow_dispatch:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 env:
- # Use docker.io for Docker Hub if empty
- REGISTRY: ghcr.io
- # github.repository as <account>/<repo>
- IMAGE_NAME: ${{ github.repository }}
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
- build:
+  build:
     name: Building
     runs-on: ubuntu-latest
     steps:
@@ -25,18 +21,18 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v2
         with:
-         package-manager:  bun@latest    
- deploy: 
-   name: Deploying to GH Pages
-   needs: build
-   runs-on: ubuntu-latest
-   permissions: 
-    pages: write
-    id-token: write
-   environment:
-    name: github-pages
-    url: ${{ steps.deployment.outputs.page_url }}
-   steps: 
-     - name: Deploy to GitHub Pages
-       id: deployment
-       uses: actions/deploy-pages@v4
+          package-manager: bun@latest
+  deploy:
+    name: Deploying to GH Pages
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

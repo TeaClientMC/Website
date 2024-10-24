@@ -1,9 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import DiscordSVG from "@assets/svgs/Discord.svg";
-import GithubSVG from "@assets/svgs/Github-white.svg";
-
-const logosizes = 36;
 ---
 
 
@@ -13,12 +8,18 @@ const logosizes = 36;
     <p>&copy; TeaClientMC. ALL RIGHTS RESERVED</p>
     <p>Not Afffliated with mojang or Minecraft</p>
   </div>
-  <div id="Socials">
-    <a href="/discord" target="_blank" rel="noopener noreferrer">
-      <Image src={DiscordSVG} alt="Discord Logo" width={logosizes} height={logosizes} class="grayscale-custom pt-1"/>
-    </a>
-    <a href="/github" target="_blank" rel="noopener noreferrer">
-      <Image src={GithubSVG} alt="Github Logo" width={logosizes} height={logosizes} class="grayscale-custom"/>
+  <div id="Socials" class="[&_a]:bg-blue-300 [&_a]:no-underline flex flex-row mr-[20px] gap-x-4 float-right">
+		<a href="/community">
+			Community
+		</a>
+		<a href="/policies">
+			Terms & Privacy
+		</a>
+		<a href="/apply">
+			Applications
+		</a>
+		<a href="/github">
+			TeaMC
     </a>
   </div>
 </footer>
@@ -29,10 +30,10 @@ const logosizes = 36;
 
 <style>
 footer {
-    p {
-      @apply text-white font-bold font-sans text-sm mb-1;
-      word-spacing: 2px;
-    }
+  p {
+    @apply text-white font-bold font-sans text-sm mb-1;
+    word-spacing: 2px;
+	}
 
    #copyright {
     @apply flex flex-col float-left ml-[20px];
@@ -41,14 +42,5 @@ footer {
    #copyright p:last-child {
     @apply mb-5 text-gray-600;
    }
-
-   #Socials .grayscale-custom {
-  filter: grayscale(100%) brightness(140%) saturate(100%);
-  fill: grey;
-}
-
-    #Socials {
-      @apply flex flex-row mr-[20px] gap-x-4 float-right;
-    }
 }
 </style>

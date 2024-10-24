@@ -8,11 +8,12 @@ interface Props {
 }
 
 const { src, className, flexbasis } = Astro.props;
+const imageStyle = `--image-url: url(${src}); flex-basis: ${flexbasis};`;
 ---
 
 <div
   class={twMerge("reveal-image", className)}
-  style="--image-url: url(${src}); flex-basis:${flexbasis};"
+		style={imageStyle}
 >
 </div>
 

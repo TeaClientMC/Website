@@ -1,11 +1,10 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import DiscordSVG from "@/assets/svgs/Discord.svg";
-import GithubSVG from "@/assets/svgs/Github-white.svg";
 import Footer from "@/components/footer.astro";
 import Header from "@/components/header.astro";
 import Head from "@/components/head.astro";
 import { twMerge } from "tailwind-merge";
+import { Icon } from "astro-icon/components";
 import { getEntry } from "astro:content";
 import { Image } from "astro:assets";
 import "../styles/style.css";
@@ -78,9 +77,8 @@ const Sociallogosizes = 24;
               href={authorData.socials.github}
               class="text-gray-500 hover:text-gray-700"
             >
-              <Image
-                src={GithubSVG}
-                alt="Github Logo"
+              <Icon
+                name="mdi:github"
                 width={Sociallogosizes}
                 height={Sociallogosizes}
               />
@@ -91,9 +89,8 @@ const Sociallogosizes = 24;
               href={authorData.socials.discordServer}
               class="text-blue-500 hover:text-blue-700"
             >
-              <Image
-                src={DiscordSVG}
-                alt="Github Logo"
+              <Icon
+                name="ic:baseline-discord"
                 width={Sociallogosizes}
                 height={Sociallogosizes}
               />

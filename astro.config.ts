@@ -2,6 +2,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import metaTags from "astro-meta-tags";
+import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
@@ -63,6 +64,7 @@ export default defineConfig({
 			},
 		}),
 		mdx(),
+		icon(),
 	],
 	redirects: {
 		"/discord": "https://discord.gg/ejFTe4Hfnc",

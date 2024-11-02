@@ -17,6 +17,7 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             bun
+						nodejs_20
 						dprint
           ];
           nativeBuildInputs = with pkgs; [

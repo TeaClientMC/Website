@@ -57,7 +57,7 @@ export default defineConfig({
 						directory: "wiki/developers",
 						collapsed: true,
 					},
-				}
+				},
 			],
 			editLink: {
 				baseUrl: "https://github.com/teaclientmc/website",

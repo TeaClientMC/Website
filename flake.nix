@@ -17,6 +17,7 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             bun
+						dprint
           ];
           nativeBuildInputs = with pkgs; [
             playwright
@@ -27,11 +28,6 @@
           PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
           PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true;
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = 1;
-
-
-          shellHook = ''
-            bun install
-          '';
         };
       };
     };

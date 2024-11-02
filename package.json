@@ -28,7 +28,6 @@
     "astro-meta-tags": "^0.2.2",
     "astro-page-insight": "^0.8.7",
     "astro-seo": "^0.8.4",
-    "dprint": "^0.47.5",
     "octokit": "^4.0.2",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.4",
@@ -38,8 +37,12 @@
     "@astrojs/check": "^0.5.10",
     "@types/bun": "^1.1.12",
     "astro": "^4.16.7",
+    "dprint": "^0.47.5",
     "playwright": "^1.48.2",
     "typescript": "^5.6.3"
+  },
+  "overrides": {
+    "astro-expressive-code": "^0.38.0"
   },
   "packageManager": "bun@1.0.25"
 }

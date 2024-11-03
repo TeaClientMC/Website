@@ -1,18 +1,32 @@
 ---
-import Footer from "@component/footer.astro";
-// Components
-import Head from "@component/head.astro";
-import Header from "@component/header.astro";
-import { twMerge } from "tailwind-merge";
+import Footer from "@/components/footer.astro";
+import Head from "@/components/head.astro";
+import Header from "@/components/header.astro";
 
-// Styles
+import { twMerge } from "tailwind-merge";
 import "../styles/style.css";
+
+export interface Props {
+  title: string;
+  className?: string;
+  desc: string;
+  banner?: string;
+}
+const { title, className, desc, banner } = Astro.props;
 ---
 
-
-<Head title="TeaClient Documents" />
+<Head
+  title={String(title) ?? "TeaClent Legal Document"}
+  customDescription={desc}
+  ,
+  bannerPath={banner}
+/>
 <Header />
-<div class={twMerge(`container flex text-white bg-[var(--nav-color)]  ${Astro.props.class}`)}>
-    <slot />
+<div
+  class={twMerge(
+    `flex h-full text-white mt-4 mx-[1%] bg-[var(--nav-color)] backdrop-blur-[100px] rounded-lg ${className}`
+  )}
+>
+  <slot />
 </div>
 <Footer />

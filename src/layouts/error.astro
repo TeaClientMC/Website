@@ -1,22 +1,22 @@
 ---
 // Layout Properties
 const { errorNumber: errorNumberProp, Message } =
-	Astro.props.frontmatter || Astro.props;
+  Astro.props.frontmatter || Astro.props;
 
-import Footer from "@component/footer.astro";
+import Footer from "@/components/footer.astro";
 // Components
-import Head from "@component/head.astro";
-import Header from "@component/header.astro";
+import Head from "@/components/head.astro";
+import Header from "@/components/header.astro";
 
 // Styles
 import "../styles/style.css";
 ---
 
-<Head title={`${errorNumberProp}| TeaClient Website`}/>
-<Header/>
+<Head title={`${errorNumberProp}| TeaClient Website`} />
+<Header />
 <div class="error justify-center items-center h-[100vh]">
-    <h1>{errorNumberProp}</h1>
-    <p>{Message}</p>
-    <a href="/">Back to Home Page</a>
+  <h1>{errorNumberProp}</h1>
+  <p>{Message}</p>
+  <a href="/">Back to Home Page</a>
 </div>
-<Footer/>
+<Footer />

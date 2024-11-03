@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header {
+	backdrop-filter: blur(6px) saturate(10%);
+}
+
+.header > div {
+	@apply bg-[#00000015] bg-no-repeat;
+}
+
+body {
+	@apply bg-[url("/background/1.webp")] bg-no-repeat bg-cover;
+}

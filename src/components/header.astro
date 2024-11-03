@@ -20,7 +20,7 @@ import { Image } from "astro:assets";
   </div>
   <input id="menu-toggle" class="hidden" type="checkbox" />
   <label
-    class="menu-button-container flex xl:hidden max-sm:flex h-[100%] w-[30px] justify-center flex-col cursor-pointer items-center"
+    class="menu-button-container flex 2xl:hidden max-sm:flex h-[100%] w-[30px] justify-center flex-col cursor-pointer items-center"
     for="menu-toggle"
   >
     <div class="menu-button before:mt-[-8px] after:mt-[8px]"></div>
@@ -48,12 +48,22 @@ import { Image } from "astro:assets";
     </li>
     <li><a href="/">HOME</a></li>
     <li><a href="/store">STORE</a></li>
-    <li><a href="https://docs.teaclient.net">DOCS</a></li>
+    <li>
+      <a
+        class="font-bold bg-[#00000084] bg-gradient-to-tr from-orange-200 to-orange-500 rounded-lg 2xl:hover:bg-orange-300 ignore-a"
+        href="https://docs.teaclient.net">DOCS</a
+      >
+    </li>
+    <li>
+      <a
+        class="font-bold bg-[#00000084] bg-gradient-to-tr rounded-lg from-green-200 to-green-400 ignore-a"
+        href="/wiki">WIKI</a
+      >
+    </li>
     <li><a href="/news">NEWS</a></li>
     <li>
       <a
-        class="font-bold bg-[#00000084] xl:bg-[#6e2bec] rounded-lg hover:bg-[#ec2b2bab] xl:hover:bg-[#ec2b2bab]"
-        id="download"
+        class="font-bold bg-[#00000084] bg-[#6e2bec] rounded-lg 2xl:hover:bg-[#9359ff] ignore-a"
         href="/">DOWNLOAD</a
       >
     </li>
@@ -119,9 +129,9 @@ import { Image } from "astro:assets";
     @apply contents;
   }
 
-  @media (max-width: 1279px) {
+  @media (max-width: 1536px) {
     .menu {
-      @apply absolute top-0 mt-[90px] left-0 flex flex-col w-[100%] justify-center items-center;
+      @apply absolute top-0 mt-[90px] left-0 flex flex-col w-[100%] justify-center items-center z-10;
       backdrop-filter: blur(25px);
       background-color: var(--nav-color);
     }
@@ -142,17 +152,13 @@ import { Image } from "astro:assets";
       @apply flex justify-center m-0 w-full text-[var(--navBar-Items)];
     }
 
-    #menu-toggle:checked ~ .menu > li a:not(#download) {
-      @apply text-[var(--navBar-Items)] pb-6 rounded-md hover:bg-[var(--mobile-hover)];
-    }
-    #menu-toggle:checked ~ .menu > li a:hover:not(#download) {
-      @apply bg-[#00000066];
+    #menu-toggle:checked ~ .menu > li a:not(.ignore-a) {
+      @apply text-[var(--navBar-Items)] pb-6 rounded-md bg-[#00000066];
     }
 
-    /* #menu-toggle:checked ~ .menu > li #download:hover {
-      background-color: #ec2b2bab;
-      color: white;
-    } */
+    #menu-toggle:checked ~ .menu > li a .ignore-a {
+      @apply pb-6 rounded-md;
+    }
   }
 
   li {

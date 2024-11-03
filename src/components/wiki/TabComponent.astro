@@ -1,0 +1,70 @@
+---
+// TabComponent.astro
+export interface Tab {
+  label: string;
+  content: string;
+}
+
+interface Props {
+  tabs: Tab[];
+}
+
+const { tabs } = Astro.props;
+---
+
+<div class="mx-auto font-serif max-w-[600px]">
+  <div class="flex border-b border-slate-100">
+    {
+      tabs.map((tab, index) => (
+        <button
+          class="tab-button animate-tabgroup_transisiton p-[10px_20px] border-none hover:bg-[#ffffff1a] background-none cursor-pointer"
+          data-tab={index}
+        >
+          {tab.label}
+        </button>
+      ))
+    }
+  </div>
+  <div>
+    {
+      tabs.map((tab, index) => (
+        <div
+          class="content hidden p-5 bg-[#00000080] "
+          data-content={index}
+          set:html={tab.content}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .tab-button.active {
+    @apply bg-[#ffffff1a];
+  }
+  .content.active {
+    @apply block;
+  }
+</style>
+
+<script>
+	const tabButtons = Array.from(document.querySelectorAll(".tab-button")) as HTMLButtonElement[];
+  const contentDivs = document.querySelectorAll(".content");
+
+  tabButtons.forEach((button:HTMLButtonElement) => {
+    button.addEventListener("click", () => {
+      const tabIndex = button.getAttribute("data-tab");
+
+      tabButtons.forEach((btn: HTMLButtonElement) => btn.classList.remove("active"));
+      contentDivs.forEach((div) => div.classList.remove("active"));
+
+      button.classList.add("active");
+      document
+        .querySelector(`.content[data-content="${tabIndex}"]`)
+        .classList.add("active");
+    });
+  });
+
+  // Activate the first tab by default
+  tabButtons[0].click();
+</script>

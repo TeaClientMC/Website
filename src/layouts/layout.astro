@@ -1,24 +1,33 @@
 ---
-import Footer from "@component/footer.astro";
-import Head from "@component/head.astro";
-import Header from "@component/header.astro";
+import Footer from "@/components/footer.astro";
+import Head from "@/components/head.astro";
+import Header from "@/components/header.astro";
 
 import { twMerge } from "tailwind-merge";
 import "../styles/style.css";
 
 export interface Props {
-	title?: string;
-	className?: string;
-	desc?: string;
-	banner?: string;
+  title?: string;
+  className?: string;
+  desc?: string;
+  banner?: string;
+  extraFooterClass?: string;
 }
-const { title, className, desc, banner } = Astro.props;
+const { title, className, desc, banner, extraFooterClass } = Astro.props;
 ---
 
-<Head title={String(title) ?? "TeaClent Website"} customDescription={desc}, bannerPath={banner} />
+<Head
+  title={String(title) ?? "TeaClent Website"}
+  customDescription={desc}
+  ,
+  bannerPath={banner}
+/>
 <Header />
-<div class={twMerge(`flex flex-col h-screen text-white my-[5%] mx-[5%] bg-[var(--nav-color)] rounded-lg ${className}`)}>
-    <slot />
+<div
+  class={twMerge(
+    `flex flex-col text-white my-[5%] mx-[5%] bg-[var(--nav-color)] backdrop-blur-[7px] rounded-lg ${className}`
+  )}
+>
+  <slot />
 </div>
-<Footer />
-
+<Footer extraClass={extraFooterClass} />

@@ -2,18 +2,19 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import metaTags from "astro-meta-tags";
+import icon from "astro-icon";
 import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
 
-import pageInsight from "astro-page-insight";
+const site = "https://teaclient.net";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://teaclient.net",
+	site: site,
 	server: {
 		port: 7053,
 	},
 	integrations: [
-		mdx(),
 		metaTags(),
 		sitemap({
 			filter: (page) =>
@@ -24,26 +25,60 @@ export default defineConfig({
 			nesting: true,
 			applyBaseStyles: true,
 		}),
-		pageInsight(),
+		starlight({
+			title: "TeaClient",
+			disable404Route: true,
+			tableOfContents: true,
+			lastUpdated: true,
+			favicon: "/Favicon.png",
+			logo: {
+				src: "./public/icon.webp",
+			},
+			social: {
+				discord: site + "/discord",
+				github: site + "/github",
+			},
+			customCss: ["./src/styles/starlight.css"],
+			sidebar: [
+				{
+					label: "Home",
+					link: "wiki/index",
+				},
+				{
+					label: "Players",
+					autogenerate: {
+						directory: "wiki/players",
+						collapsed: false,
+					},
+				},
+				{
+					label: "Developers",
+					autogenerate: {
+						directory: "wiki/developers",
+						collapsed: true,
+					},
+				},
+			],
+			editLink: {
+				baseUrl: "https://github.com/teaclientmc/website",
+			},
+		}),
+		mdx(),
+		icon(),
 	],
 	redirects: {
-		// Resources
 		"/discord": "https://discord.gg/ejFTe4Hfnc",
 		"/github": "https://github.com/TeaClientMC",
 		"/roadmap": "https://github.com/orgs/TeaClientMC/projects/3",
-		// Partner Networks
 		"/dropps": "https://discord.gg/qFarXHT32J",
-		// Easter-Eggs
 		"/klaas": "https://klaas.tiiny.site/",
+		"/readme": "https://github.com/TeaClientMC/.github",
+		"/configSchema.json": "https://api.teaclient.net/config-schema",
 	},
 	vite: {
 		resolve: {
 			alias: {
-				"@layout": "src/layouts",
-				"@component": "src/components",
-				"@scripts": "src/scripts",
-				"@styles": "src/styles",
-				"@assets": "src/assets",
+				"@": "src/",
 			},
 		},
 		build: {

@@ -2,27 +2,37 @@ name: Pull Request Quality
 
 on:
   pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 jobs:
-  Quality:
+  quality:
+    name: Quality
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v2
-        with:
-          version: latest
-      - name: Run Biome
-        run: biome ci . --reporter=github
-
+      - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-
       - name: Install Deps
         run: bun install
-
-      - name: Check Quality
-        run: bun check
+      - name: Check Formatting
+        run: bunx dprint check
+      - name: Check Astro Website for Major Issues
+        run: bunx astro check
+      - name: Post failure message
+        if: failure()
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const prNumber = context.issue.number;
+            // Constructing the URL to the logs for the current run
+            const logsUrl = `https://github.com/${owner}/${repo}/actions/runs/${context.runId}`;
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: prNumber,
+              body: `The quality check has failed. Please review the changes.\n\n[View Logs](${logsUrl})`,
+            });

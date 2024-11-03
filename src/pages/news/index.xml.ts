@@ -1,17 +1,20 @@
-import rss, {
-	pagesGlobToRssItems,
-	type RSSFeedItem,
-	type RSSOptions,
-} from "@astrojs/rss";
+import { getCollection } from "astro:content";
+import rss, { type RSSOptions } from "@astrojs/rss";
 
 export async function GET(context: RSSOptions) {
+	const posts = (await getCollection("news")).map((post) => ({
+		title: post.data.title,
+		description: post.data.desc,
+		author: post.data.author.id || "Unknown Author",
+		banner: post.data.banner,
+		pubDate: post.data.pubDate,
+		link: `${context.site}/${post.slug}`,
+	}));
 	return rss({
 		title: "TeaClient News/Updates",
 		description: "Update your self on the latest news.",
 		site: context.site,
-		items: (await pagesGlobToRssItems(
-			import.meta.glob("./*/*.{md,mdx}"),
-		)) as RSSFeedItem[],
+		items: posts,
 		customData: "<language>en-us</language>",
 		trailingSlash: false,
 	});

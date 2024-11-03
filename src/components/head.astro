@@ -6,18 +6,16 @@ export interface Props {
   customDescription?: string;
   bannerPath?: string;
 }
-
 // SEO SETTINGS
 const descr = customDescription ?? "A Nice Opensourced Client.";
 const url = "https://teaclient.net";
-const banner = bannerPath ?? "/banner/deafult.webp";
+const banner = bannerPath ?? "/Banner.webp";
 const favicon = "/Favicon.webp";
 const theme_color = "#bc21ff";
 const language = "en-us";
 ---
 
-<!doctype html>
-<html lang="en">
+<html class="h-full w-full" lang="en">
   <head>
     <SEO
       title={title}
@@ -53,7 +51,11 @@ const language = "en-us";
       extend={{
         link: [
           { rel: "icon", href: favicon },
-          { rel: "apple-touch-icon", type: "image/x-icon", href: favicon },
+          {
+            rel: "apple-touch-icon",
+            type: "image/x-icon",
+            href: favicon,
+          },
           { rel: "sitemap", href: "/sitemap-index.xml" },
         ],
         meta: [

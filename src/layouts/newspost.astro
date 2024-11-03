@@ -20,7 +20,7 @@ const Sociallogosizes = 24;
 ---
 
 <Head
-  title={`${post.data.title} | TeaClient News` ?? "TeaClent Website"}
+  title={`${post.data.title} | TeaClient News`}
   customDescription={post.data.desc ?? ""}
   ,
   bannerPath={post.data.banner ?? ""}
@@ -44,7 +44,7 @@ const Sociallogosizes = 24;
     <div class="mx-5 my-5">
       <Image
         src={post.data.banner ?? ""}
-        alt={`${post.data.title} Banner` ?? ""}
+        alt={`${post.data.title} Banner`}
         height={post.data.bannerSize ?? 0}
         width={post.data.bannerSize ?? 0}
         loading="eager"

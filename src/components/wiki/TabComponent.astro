@@ -48,14 +48,14 @@ const { tabs } = Astro.props;
 </style>
 
 <script>
-  const tabButtons = document.querySelectorAll(".tab-button");
+	const tabButtons = Array.from(document.querySelectorAll(".tab-button")) as HTMLButtonElement[];
   const contentDivs = document.querySelectorAll(".content");
 
-  tabButtons.forEach((button) => {
+  tabButtons.forEach((button:HTMLButtonElement) => {
     button.addEventListener("click", () => {
       const tabIndex = button.getAttribute("data-tab");
 
-      tabButtons.forEach((btn) => btn.classList.remove("active"));
+      tabButtons.forEach((btn: HTMLButtonElement) => btn.classList.remove("active"));
       contentDivs.forEach((div) => div.classList.remove("active"));
 
       button.classList.add("active");

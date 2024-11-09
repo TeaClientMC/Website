@@ -42,7 +42,7 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: "Home",
-					link: "wiki/index",
+					link: "wiki",
 				},
 				{
 					label: "Players",

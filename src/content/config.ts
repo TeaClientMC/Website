@@ -22,6 +22,7 @@ const authors = defineCollection({
 		img: z.string(),
 		socials: z
 			.object({
+				personalWebsite: z.string().optional(),
 				github: z.string().optional(),
 				discordServer: z.string().optional(),
 			})

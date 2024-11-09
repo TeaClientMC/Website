@@ -68,10 +68,22 @@ const Sociallogosizes = 24;
         {authorData.name}
       </div>
       <div class="text-neutral-400 mt-1">{authorData.role} @ TeaClient</div>
-    </div>
+		</div>
     {
       authorData.socials && (
-        <div class="flex gap-x-2 mr-4 mt-10">
+			<div class="flex gap-x-2 mr-4 mt-10">
+          {authorData.socials.personalWebsite && (
+            <a
+              href={authorData.socials.personalWebsite}
+              class="text-white hover:text-stone-200"
+            >
+              <Icon
+                name="mdi:internet"
+                width={Sociallogosizes}
+                height={Sociallogosizes}
+              />
+            </a>
+          )}
           {authorData.socials.github && (
             <a
               href={authorData.socials.github}

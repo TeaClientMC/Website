@@ -1,7 +1,7 @@
 <div align="center">
 <img src=".github/assets/hero.png" alt="Image of the website" width="500" height="300"/>
 <h3>TeaClient Offical Website</h3>
-<p>A website for an open-sourced client</p>
+<p>A website for an Quality of Life</p>
 
 [![Stars](https://img.shields.io/github/stars/teaclientmc/website?style=for-the-badge&logo=starship&color=7d1fdb&logoColor=D9E0EE&labelColor=573422)](https://github.com/TeaClientMC/Website/pulls)
 [![Issues](https://img.shields.io/github/issues/teaclientmc/website?style=for-the-badge&logo=gitbook&color=7d1fdb&logoColor=D9E0EE&labelColor=573422)](https://github.com/TeaClientMC/Website/issues)

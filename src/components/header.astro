@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 
 const links = {
-docs: "https://docs.teaclient.net",
 store: "https://store.teaclient.net",
 download: "/",
 news: "/news",
@@ -55,26 +54,10 @@ wiki: "/wiki",
       </label>
     </li>
     <li><a href="/">HOME</a></li>
-		<li><a href=`${links.store}`>STORE</a></li>
-    <li>
-      <a
-        class="font-bold bg-[#00000084] bg-gradient-to-tr from-orange-200 to-orange-500 rounded-lg 2xl:hover:bg-orange-300 ignore-a"
-				href=`${links.docs}`>DOCS</a
-      >
-    </li>
-    <li>
-      <a
-        class="font-bold bg-[#00000084] bg-gradient-to-tr rounded-lg from-green-200 to-green-400 ignore-a"
-				href=`${links.wiki}`>WIKI</a
-      >
-    </li>
-		<li><a href=`${links.news}`>NEWS</a></li>
-    <li>
-      <a
-        class="font-bold bg-[#00000084] bg-[#6e2bec] rounded-lg 2xl:hover:bg-[#9359ff] ignore-a"
-				href=`${links.download}`>DOWNLOAD</a
-      >
-    </li>
+    <li><a href=`${links.store}`>STORE</a></li>
+    <li><a href=`${links.wiki}`>WIKI</a></li>
+    <li><a href=`${links.news}`>NEWS</a></li>
+    <li><aclass="font-bold bg-[#00000084] bg-[#6e2bec] rounded-lg 2xl:hover:bg-[#9359ff] ignore-a"href=`${links.download}`>DOWNLOAD</a></li>
   </ul>
 </section>
 

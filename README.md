@@ -18,6 +18,6 @@
 
 <img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/assets/dividers.png" alt="divider">
 
-# Licence
+# License
 
-This Project is licenced under the [Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/legalcode.en)
+This Repository is Licensed under the [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.en)

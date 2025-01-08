@@ -21,7 +21,7 @@
 						dprint
           ];
           nativeBuildInputs = with pkgs; [
-            playwright
+            playwright-driver
             playwright-driver.browsers
           ];
 

@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
 	--hover-color: #6e2bec;
 }

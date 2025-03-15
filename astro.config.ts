@@ -22,7 +22,7 @@ export default defineConfig({
 			customPages: ["docs.teaclient.net"],
 		}),
 		starlight({
-			title: "TeaClient",
+			title: "TeaClient Docs",
 			disable404Route: true,
 			tableOfContents: true,
 			lastUpdated: true,

@@ -65,11 +65,8 @@ export default defineConfig({
 	redirects: {
 		"/discord": "https://discord.gg/ejFTe4Hfnc",
 		"/github": "https://github.com/TeaClientMC",
-		"/roadmap": "https://github.com/orgs/TeaClientMC/projects/3",
-		"/dropps": "https://discord.gg/qFarXHT32J",
-		"/klaas": "https://klaas.tiiny.site/",
-		"/readme": "https://github.com/TeaClientMC/.github",
-		"/configSchema.json": "https://api.teaclient.net/config-schema",
+		"/eveeifyeve": "https://eveeifyeve.pages.dev",
+		"/klaasa": "https://klaas.tiiny.site/",
 	},
 	vite: {
 		resolve: {

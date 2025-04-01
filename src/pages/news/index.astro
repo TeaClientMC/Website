@@ -22,29 +22,33 @@ const newsitems = await getCollection("news");
             {}
             {/* Add relative positioning here */}
             <a class="flex flex-row gap-5" href={`/news/${news.slug}`}>
-              {
-                news.data.banner && news.data.banner !== "" && (
-                  <div class="relative">
-                    {}
-                    {/* Wrap the image in a relative container */}
-                    <Image
-                      src={news.data.banner}
-                      alt={`${news.data.title} Banner`}
-                      height={500}
-                      width={500}
-                      loading="lazy"
-                      class="border border-neutral-600 hover:border-purple-600 rounded-xl opacity-70"
-                    />
-                    <div
-                      class="absolute top-[5%] text-white hover:border-purple-600 left-[25%] h-auto flex items-center justify-center"
-                    >
-                      {}
-                      {/* Position the text absolutely */}
-                      <span>{news.data.title}</span>
-                    </div>
-                  </div>
-                )
-              }
+{
+  news.data.banner && news.data.banner !== "" ? (
+    <div class="relative">
+      <Image
+        src={news.data.banner}
+        alt={`${news.data.title} Banner`}
+        height={500}
+        width={500}
+        loading="lazy"
+        class="border border-neutral-600 hover:border-purple-600 rounded-xl opacity-70"
+      />
+      <div
+        class="absolute top-[5%] text-white hover:border-purple-600 left-[25%] h-auto flex items-center justify-center"
+      >
+        <span>{news.data.title}</span>
+      </div>
+    </div>
+  ) : (
+    <div class="relative">
+      <div
+        class="absolute top-[5%] text-white hover:border-purple-600 left-[25%] h-auto flex items-center justify-center"
+      >
+        <span>{news.data.title}</span>
+      </div>
+    </div>
+  )
+}
             </a>
           </li>
         ))

@@ -7,7 +7,7 @@ const news = defineCollection({
 		title: z.string(),
 		desc: z.string(),
 		pubDate: z.coerce.date(),
-		banner: z.string(),
+		banner: z.string().nullish(),
 		bannerSize: z.number(),
 		extraFooterClass: z.string(),
 		author: reference("authors"),

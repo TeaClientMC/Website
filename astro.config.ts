@@ -1,43 +1,42 @@
-import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
-import metaTags from "astro-meta-tags";
-import icon from "astro-icon";
+// @ts-check
 import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
 import starlight from "@astrojs/starlight";
+import sitemap from "@astrojs/sitemap";
 
-const site = "https://teaclient.net";
+import pageInsight from "astro-page-insight";
+
+import metaTags from "astro-meta-tags";
 
 // https://astro.build/config
 export default defineConfig({
-	site: site,
-	server: {
-		port: 7053,
+	site: "https://teaclient.net",
+	redirects: {
+		"/discord": "https://discord.gg/nCSPd7XeWh",
+		"/github": "https://github.com/TeaClientMC",
+		"/twitter": "https://twitter.com/@TeaClientMC",
 	},
 	integrations: [
-		metaTags(),
-		sitemap({
-			filter: (page) =>
-				page !== `${import.meta.env.SITE}/staffhandbook-13-4-24`,
-			customPages: ["docs.teaclient.net"],
-		}),
-		tailwind({
-			nesting: true,
-			applyBaseStyles: true,
-		}),
 		starlight({
 			title: "TeaClient",
+			logo: {
+				src: "./public/icon_clear.webp",
+			},
 			disable404Route: true,
 			tableOfContents: true,
 			lastUpdated: true,
-			favicon: "/Favicon.png",
-			logo: {
-				src: "./public/icon.webp",
-			},
-			social: {
-				discord: site + "/discord",
-				github: site + "/github",
-			},
+			social: [
+				{
+					icon: "discord",
+					label: "Discord",
+					href: "/discord",
+				},
+				{
+					icon: "github",
+					label: "GitHub",
+					href: "/github",
+				},
+			],
 			customCss: ["./src/styles/starlight.css"],
 			sidebar: [
 				{
@@ -63,27 +62,20 @@ export default defineConfig({
 				baseUrl: "https://github.com/teaclientmc/website",
 			},
 		}),
-		mdx(),
-		icon(),
+		sitemap(),
+		pageInsight(),
+		metaTags(),
 	],
-	redirects: {
-		"/discord": "https://discord.gg/ejFTe4Hfnc",
-		"/github": "https://github.com/TeaClientMC",
-		"/roadmap": "https://github.com/orgs/TeaClientMC/projects/3",
-		"/dropps": "https://discord.gg/qFarXHT32J",
-		"/klaas": "https://klaas.tiiny.site/",
-		"/readme": "https://github.com/TeaClientMC/.github",
-		"/configSchema.json": "https://api.teaclient.net/config-schema",
-	},
 	vite: {
 		resolve: {
 			alias: {
-				"@": "src/",
+				"@/*": "src/*",
 			},
 		},
 		build: {
 			minify: true,
-			sourcemap: false,
+			sourcemap: "hidden",
 		},
+		plugins: [tailwindcss()],
 	},
 });

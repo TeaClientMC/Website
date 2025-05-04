@@ -1,42 +1,94 @@
-<footer class="flex justify-between w-full h-auto bg-[color:var(--nav-color)] pt-[40px] top-full text-white">
-	<div class="flex">
-		<img src="/icon.webp" loading="eager" width=70 height=70 alt="logo" class="hidden sm:block">
-		<div id="copyright" class="p-2">
-    <p>&copy; TeaClientMC. ALL RIGHTS RESERVED</p>
-		<p>Not Afffliated with mojang or Minecraft</p>
-		</div>
-  </div>
-  <div id="Socials" class="[&_a]:text-white [&_a]:no-underline hover:[&_a]:font-bold flex flex-col md:flex-row mr-[20px] gap-x-4 float-right p-5">
-		<a href="/community">
-			Community
-		</a>
-		<a href="/policies">
-			Terms & Privacy
-		</a>
-		<a href="/apply">
-			Applications
-		</a>
-		<a href="/">
-			TeaMC
-    </a>
-	</div>
-</footer>
-
-
-<style>
-	footer {
-
-  p {
-    @apply text-white font-bold font-sans text-sm;
-    word-spacing: 2px;
-	}
-
-   #copyright {
-    @apply flex flex-col float-left ml-[20px];
-   }
-
-   #copyright p:last-child {
-    @apply mb-5 text-gray-600;
-   }
+---
+interface FooterLink {
+	label: string;
+	href: string;
 }
-</style>
+
+interface FooterSection {
+	title: string;
+	links: FooterLink[];
+}
+
+interface Footer {
+	sections: FooterSection[];
+}
+
+const defaultFooter: Footer = {
+	sections: [
+		{
+			title: "TeaClient",
+			links: [
+				//{ label: "About Us", href: "/about" },
+				//{ label: "Our History", href: "/our-history" },
+				{ label: "Applications", href: "/discord" },
+			],
+		},
+		{
+			title: "Resources",
+			links: [
+				{ label: "Wiki", href: "/wiki" },
+				//{ label: "Support", href: "/support" },
+				//{ label: "Status", href: "/status" },
+			],
+		},
+		{
+			title: "Legal",
+			links: [
+				//{ label: "Privacy Policy", href: "/privacy" },
+				{ label: "Terms of Service", href: "/terms" },
+			],
+		},
+		{
+			title: "Connect",
+			links: [
+				{ label: "Discord", href: "/discord" },
+				{ label: "Twitter", href: "/twitter" },
+				//{ label: "Bluesky", href: "/" },
+				{ label: "GitHub", href: "/Github" },
+			],
+		},
+	],
+};
+
+// fallback to default if not passed via props
+const footer: Footer = Astro.props.footer ?? defaultFooter;
+---
+<footer class="text-purple-300 h-[3%] justify-center content-center text-center px-6 mt-auto mb-[15%] sticky bottom-0">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-5">
+    {
+      footer.sections.map((section) => (
+        <div>
+          <h3 class="font-semibold text-white text-sm md:text-xl mb-3">
+            {section.title}
+          </h3>
+          <ul class="space-y-2">
+            {
+              section.links.map((link) => (
+                <li>
+                  <a
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    aria-label={link.label}
+                    href={link.href}
+                    class="hover:underline text-sm md:text-xl"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+  <!-- Copyright Section -->
+  <div class="mt-8 pt-5 space-y-1 rounded-3xl border-t border-b pb-5 border-purple-800/30 text-purple-400 px-2 text-center w-[40%] sm:col-span-4 mx-auto">
+    <p class="text-sm sm:text-md text-purple-400/25">
+      Not Affiliated with Mojang or Minecraft
+    </p>
+    <p class="text-sm sm:text-md text-purple-300 sm:text-purple-400">
+      &copy; {new Date().getFullYear()} TeaClient. All rights reserved.
+    </p>
+  </div>
+</footer>

@@ -1,22 +1,78 @@
 ---
-// Layout Properties
-const { errorNumber: errorNumberProp, Message } =
-  Astro.props.frontmatter || Astro.props;
-
+import { SEO } from "astro-seo";
 import Footer from "@/components/footer.astro";
-// Components
-import Head from "@/components/head.astro";
-import Header from "@/components/header.astro";
+import "../styles/global.css";
+const title = "error | TeaClient Website";
+const description = "A QOL Minecraft Client for modern versions of Minecraft";
+const url = "https://teaclient.net";
+const image = "/banner.webp";
+const favicon = "/icon.webp";
 
-// Styles
-import "../styles/style.css";
+const { errorNumber: errorNumberProp, Message } =
+	Astro.props.frontmatter || Astro.props;
 ---
-
-<Head title={`${errorNumberProp}| TeaClient Website`} />
-<Header />
-<div class="error justify-center items-center h-[100vh]">
-  <h1>{errorNumberProp}</h1>
-  <p>{Message}</p>
-  <a href="/">Back to Home Page</a>
-</div>
-<Footer />
+<!DOCTYPE html>
+<html class="h-full" lang="en">
+  <head>
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+      	basic: {
+      		title,
+      		type: "website",
+      		image,
+      		url,
+      	},
+      	optional: {
+      		description,
+      		siteName: "TeaClient",
+      	},
+      }}
+      twitter={{
+      	card: "summary_large_image",
+      	title,
+      	description,
+      	image,
+      }}
+      extend={{
+      	link: [
+      		{ rel: "icon", href: favicon },
+      		{
+      			rel: "apple-touch-icon",
+      			type: "image/x-icon",
+      			href: favicon,
+      		},
+      		{ rel: "sitemap", href: "/sitemap-index.xml" },
+      		{ rel: "canonical", href: url },
+      	],
+      	meta: [
+      		{ name: "theme-color", content: "#410A6B" },
+      		{ name: "darkreader-lock" },
+      		{
+      			httpEquiv: "ContentSecurityPolicy",
+      			content:
+      				"Content-Security-Policy: default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self' https://cdn.cloudflare.com;",
+      		},
+      		{
+      			name: "viewport",
+      			content:
+      				"width=device-width, initial-scale=1.0, shrink-to-fit=yes, viewport-fit=cover",
+      		},
+      	],
+      }}
+      ,
+    />
+    <meta charset="UTF-8" />
+  </head>
+  <body class="text-white h-full w-full flex flex-col bg-gradient-to-b from-purple-950 from-20% to-80% to-black bg-no-repeat bg-fixed">
+    <div class="absolute -top-10 -z-5 m-auto h-1/6 w-full rounded-full bg-gradient-to-b from-white/5 blur-[100px]">
+    </div>
+    <div class="error justify-center items-center text-center content-center h-[100vh]">
+      <h1 class="text-3xl text-purple-400 mb-5">{errorNumberProp}</h1>
+      <p class="text-lg">{Message}</p>
+      <a class="text-sky-300 text-sm" href="/">Back to Home Page</a>
+    </div>
+    <Footer />
+  </body>
+</html>

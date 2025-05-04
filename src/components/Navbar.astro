@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+
+interface NavLinks {
+	name: string;
+	href: string;
+}
+interface Nav {
+	links: NavLinks[];
+}
+
+interface Props {
+	nav?: Nav;
+}
+
+const defaultNav: Nav = {
+	links: [
+		{
+			name: "Home",
+			href: "/",
+		},
+		/*{
+		name: "Shop",
+		href: "/shop"
+		},*/
+		{
+			name: "News",
+			href: "/news",
+		},
+		/*
+	{
+		name: "Download",
+		href: "/"
+		},
+		*/
+	],
+};
+
+const nav: Nav = Astro.props.nav ?? defaultNav;
+---
+
+<nav class="border-b border-purple-800/50 backdrop-blur-2xl fixed w-full rounded-b-xl ml2 mr-5 py-4">
+  <div class="container mx-auto flex items-center">
+    <a href="/" class="flex items-center text-xl font-bold space-x-2">
+      <Image
+        width={64}
+        height={64}
+        src="/icon_clear.webp"
+        loading="eager"
+        alt="Logo"
+      />
+      <span class="text-purple-100">TeaClient</span>
+    </a>
+    <ul class="flex text-center space-x-4 ml-auto">
+      {
+        nav.links
+		.filter((link: NavLinks) => link.name !== "Download")
+		.map((link: NavLinks) => (
+          <li>
+            <a href={link.href} class="text-white hover:text-purple-100">
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+      {
+        nav.links.find((link: NavLinks) => link.name === "Download") &&
+		(
+          <li>
+            <a
+              href={nav.links.find((link: NavLinks) => link.name === "Download")?.href}
+              class="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded transition"
+            >
+              Download
+            </a>
+          </li>
+        )
+      }
+    </ul>
+  </div>
+</nav>

@@ -1,15 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer base, starlight, theme, components, utilities;
 
-.header {
-	backdrop-filter: blur(6px) saturate(10%);
-}
+@import "@astrojs/starlight-tailwind";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
-.header > div {
-	@apply bg-[#00000015] bg-no-repeat;
-}
-
-body {
-	@apply bg-[url("/background/1.webp")] bg-no-repeat bg-cover;
+@theme {
+  /* Generated accent color palettes. */
+  --color-accent-200: #e3b6ed;
+  --color-accent-600: #8b00a3;
+  --color-accent-900: #4e0e5b;
+  --color-accent-950: #36113e;
+  /* Generated gray color palettes. */
+  --color-gray-100: #f8f4ff;
+  --color-gray-200: #f2e9ff;
+  --color-gray-300: #c8bbda;
+  --color-gray-400: #977eb8;
+  --color-gray-500: #634b80;
+  --color-gray-700: #422a5d;
+  --color-gray-800: #301849;
+  --color-gray-900: #1d1229;
 }

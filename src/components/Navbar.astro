@@ -39,7 +39,7 @@ const defaultNav: Nav = {
 const nav: Nav = Astro.props.nav ?? defaultNav;
 ---
 
-<nav class="border-b border-purple-800/50 backdrop-blur-2xl fixed w-full rounded-b-xl ml2 mr-5 py-4">
+<nav class="border-b border-purple-800/50 backdrop-blur-2xl fixed w-full rounded-b-xl py-2">
   <div class="container mx-auto flex items-center">
     <a href="/" class="flex items-center text-xl font-bold space-x-2">
       <Image
@@ -49,7 +49,7 @@ const nav: Nav = Astro.props.nav ?? defaultNav;
         loading="eager"
         alt="Logo"
       />
-      <span class="text-purple-100">TeaClient</span>
+      <span class="text-purple-100 hover:text-purple-200">TeaClient</span>
     </a>
     <ul class="flex text-center space-x-4 ml-auto">
       {

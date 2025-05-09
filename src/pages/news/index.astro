@@ -17,12 +17,11 @@ const newsitems = await getCollection("news");
               {
                 news.data.banner ? (
                   <div class="relative w-full aspect-[4/3]">
-                    <Image
+                    <img
                       src={news.data.banner.src}
                       alt={`${news.data.title} Banner`}
                       loading="lazy"
-                      class="object-cover border border-purple-700/30 h-[50%] rounded-xl opacity-80"
-                      inferSize
+                      class="object-cover w-full border border-purple-700/30 h-[50%] rounded-xl opacity-80"
                     />
 
                     <div class="absolute top-4 left-4 bg-black/50 px-3 py-1 rounded text-white text-sm">

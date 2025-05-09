@@ -58,7 +58,7 @@ const footer: Footer = Astro.props.footer ?? defaultFooter;
     {
       footer.sections.map((section) => (
         <div>
-          <h3 class="font-semibold text-white text-sm md:text-xl mb-3">
+          <h3 class="font-semibold text-white text-sm md:text-lg mb-3">
             {section.title}
           </h3>
           <ul class="space-y-2">
@@ -70,7 +70,7 @@ const footer: Footer = Astro.props.footer ?? defaultFooter;
                     target="_blank"
                     aria-label={link.label}
                     href={link.href}
-                    class="hover:underline text-sm md:text-xl"
+                    class="hover:underline hover:text-purple-100 text-sm md:text-md"
                   >
                     {link.label}
                   </a>
@@ -87,7 +87,7 @@ const footer: Footer = Astro.props.footer ?? defaultFooter;
     <p class="text-sm sm:text-md text-purple-400/25">
       Not Affiliated with Mojang or Minecraft
     </p>
-    <p class="text-sm sm:text-md text-purple-300 sm:text-purple-400">
+    <p class="text-sm sm:text-md font-extralight sm:text-purple-400/80">
       &copy; {new Date().getFullYear()} TeaClient. All rights reserved.
     </p>
   </div>

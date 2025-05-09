@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --animate-pulse-custom: pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

@@ -1,21 +1,101 @@
 ---
-import Layout from "@/layouts/newspost.astro";
-import { getCollection } from "astro:content";
+import Layout from "@/layouts/layout.astro";
+import { Image } from "astro:assets";
+import { render } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { Github, Namemc, Discord } from "simple-icons-astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("news");
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { ...post },
-  }));
+	const posts = await getCollection("news");
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { ...post },
+	}));
 }
-type Props = CollectionEntry<"news">;
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
+const author: CollectionEntry<"authors"> | undefined = await getEntry(
+	"authors",
+	post.data.author.id,
+);
+const authorData = author?.data;
+const banner = post.data.banner;
 ---
 
-<Layout post={post} className="">
-  <Content />
+<Layout agreement={false}>
+  <div class="mx-5 pt-[15%] w-full flex flex-col gap-6">
+    <Image
+      src={banner}
+      alt="banner"
+      class="rounded-xl w-[20%] h-[20%] mx-auto"
+    />
+    <!-- Main content -->
+    <article class="flex-1 bg-neutral-950/50 prose-invert mx-auto prose md:prose-lg lg:prose-xl rounded-2xl p-4">
+      <Content />
+    </article>
+
+    {
+      authorData && (
+        <>
+          <div class="ml-auto w-full max-w-xs bg-neutral-950/15 p-4 rounded-2xl text-sm">
+            <div class="flex items-center gap-4">
+              <div class="overflow-hidden">
+                <span class="text-white text-sm truncate block">{
+                  authorData.name
+                }</span>
+              </div>
+            </div>
+
+            {
+              (authorData.github || authorData.discord || authorData.namemc) &&
+		(
+                <div class="flex gap-3 mt-4 ml-2">
+                  {
+                    authorData.github && (
+                      <a
+                        href={`https://github.com/${authorData.github}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${authorData.name}'s GitHub profile`}
+                        class="w-6 h-6"
+                      >
+                        <Github />
+                      </a>
+                    )
+                  }
+                  {
+                    authorData.discord && (
+                      <a
+                        href={`https://discord.com/users/${authorData.discord}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${authorData.name}'s Discord profile`}
+                        class="w-6 h-6"
+                      >
+                        <Discord />
+                      </a>
+                    )
+                  }
+                  {
+                    authorData.namemc && (
+                      <a
+                        href={authorData.namemc}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${authorData.name}'s NameMC profile`}
+                        class="w-6 h-6"
+                      >
+                        <Namemc />
+                      </a>
+                    )
+                  }
+                </div>
+              )
+            }
+          </div>
+        </>
+      )
+    }
+  </div>
 </Layout>
----

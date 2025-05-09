@@ -1,0 +1,34 @@
+---
+import Layout from "@/layouts/layout.astro";
+import { getCollection, render } from "astro:content";
+export async function getStaticPaths() {
+	const posts = await getCollection("legal");
+	return posts.map((post) => ({
+		params: { id: post.id }, // or post.id if defined
+		props: { post },
+	}));
+}
+const { post } = Astro.props;
+function formatDate(date: Date) {
+	return date.toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	});
+}
+
+const { Content } = await render(post);
+---
+<Layout agreement={false}>
+  <div class="mx-5 mt-[15%] flex flex-col pb-32 min-h-[calc(100vh-10rem)">
+    <div class="bg-neutral-950/50 rounded-2xl p-3 mb-auto flex-1">
+      <div class="prose md:prose-lg lg:prose-xl text-center content-center prose-invert max-w-none overflow-hidden">
+        <h2 class="font-bold">{post.data.title}</h2>
+        <h5 class="text-neutral-400 mb-4">
+          Last updated: {formatDate(post.data.lastUpdated)}
+        </h5>
+        <Content />
+      </div>
+    </div>
+  </div>
+</Layout>

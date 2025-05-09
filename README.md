@@ -1,23 +1,48 @@
-<div align="center">
-<img src=".github/assets/hero.png" alt="Image of the website" width="500" height="300"/>
-<h3>Our Official Website</h3>
-<p>A Quality Of life Minecraft Client for modern versions of Minecraft</p>
+# Astro Starter Kit: Basics
 
-[![Stars](https://img.shields.io/github/stars/teaclientmc/website?style=for-the-badge&logo=starship&color=7d1fdb&logoColor=D9E0EE&labelColor=573422)](https://github.com/TeaClientMC/Website/pulls)
-[![Issues](https://img.shields.io/github/issues/teaclientmc/website?style=for-the-badge&logo=gitbook&color=7d1fdb&logoColor=D9E0EE&labelColor=573422)](https://github.com/TeaClientMC/Website/issues)
-[![Deployment](https://img.shields.io/github/actions/workflow/status/teaclientmc/website/deploy.yml?style=for-the-badge&logo=github&color=7d1fdb&logoColor=D9E0EE&labelColor=573422)](https://github.com/teaclientmc/website/actions)
+```sh
+bun create astro@latest -- --template basics
+```
 
-</div>
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-<img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/assets/dividers.png" alt="divider">
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-# Table of Contents
+![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
-- [Table of Contents](#table-of-contents)
-- [Licence](#licence)
+## 🚀 Project Structure
 
-<img src="https://raw.githubusercontent.com/TeaclientMinecraft/.github/main/assets/dividers.png" alt="divider">
+Inside of your Astro project, you'll see the following folders and files:
 
-# License
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-This Repository is Licensed under the [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.en)
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command               | Action                                           |
+| :-------------------- | :----------------------------------------------- |
+| `bun install`         | Installs dependencies                            |
+| `bun dev`             | Starts local dev server at `localhost:4321`      |
+| `bun build`           | Build your production site to `./dist/`          |
+| `bun preview`         | Preview your build locally, before deploying     |
+| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `bun astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

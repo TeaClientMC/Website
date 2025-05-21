@@ -1,7 +1,7 @@
 {
 	"name": "teaclient-website",
 	"type": "module",
-	"version": "0.5.0",
+	"version": "0.5.1",
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
@@ -11,7 +11,9 @@
 		"dprint": "dprint",
 		"check": "dprint check && astro check"
 	},
-	"trustedDependencies": ["sharp"],
+	"trustedDependencies": [
+		"sharp"
+	],
 	"dependencies": {
 		"@astrojs/rss": "^4.0.11",
 		"@astrojs/sitemap": "^3.4.0",

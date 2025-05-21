@@ -1,5 +1,5 @@
 import { defineCollection, z, reference } from "astro:content";
-import { glob } from "astro/loaders";
+import { glob, file } from "astro/loaders";
 import { docsSchema } from "@astrojs/starlight/schema";
 import { docsLoader } from "@astrojs/starlight/loaders";
 
@@ -34,4 +34,10 @@ export const collections = {
 			lastUpdated: z.coerce.date(),
 		}),
 	}),
+	annoucement_bar: defineCollection({
+		loader: glob({ pattern: "index.mdx", base: "./src/content/annoucement_bar/" }),
+		schema: z.object({
+			type: z.enum(["important", "danger", "newspost"]),
+		})
+	})
 };

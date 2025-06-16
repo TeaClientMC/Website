@@ -1,22 +1,28 @@
 ---
-import { render } from 'astro:content';
-import { getCollection } from 'astro:content';
-import { twMerge } from 'tailwind-merge';
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+import { twMerge } from "tailwind-merge";
 
-const announcement = (await getCollection('annoucement_bar'))[0];
+const announcement = (await getCollection("annoucement_bar"))[0];
 
 const typeToColor = {
-  important: 'bg-purple-400',
-  newspost: 'bg-purple-500',
-  danger: 'bg-red-500',
+	important: "bg-purple-400",
+	newspost: "bg-purple-500",
+	danger: "bg-red-500",
 };
 
 const { Content } = await render(announcement);
 ---
 
-{announcement && (
-  <div class={twMerge("announcement-bar text-center text-black px-4 py-2 rounded", typeToColor[announcement.data.type])}>
-    <Content />
-  </div>
-)}
-
+{
+  announcement && (
+    <div
+      class={twMerge(
+      	"announcement-bar text-center text-black px-4 py-2 rounded",
+      	typeToColor[announcement.data.type],
+      )}
+    >
+      <Content />
+    </div>
+  )
+}

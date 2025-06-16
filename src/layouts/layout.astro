@@ -8,7 +8,7 @@ import AgreementModel from "@/components/AgreementModel.astro";
 import "@/styles/global.css";
 const title = "Home | TeaClient Website";
 const description = "A QOL Minecraft Client for modern versions of Minecraft";
-const url = "https://teaclient.net";
+const url = import.meta.env.SITE;
 const image = "/banner.webp";
 const favicon = "/icon.webp";
 
@@ -73,9 +73,9 @@ const agree = agreement ?? true;
     />
     <meta charset="UTF-8" />
   </head>
-	<body class="text-white h-full w-full bg-gradient-to-b from-purple-950 from-20% to-80% to-black bg-no-repeat bg-fixed">
-		<AnnoucementBar/>
-		<Navbar />
+  <body class="text-white h-full w-full bg-gradient-to-b from-purple-950 from-20% to-80% to-black bg-no-repeat bg-fixed">
+    <AnnoucementBar />
+    <Navbar />
     <div class="absolute -top-10 -z-5 m-auto h-1/6 w-full rounded-full bg-gradient-to-b from-white/5 blur-[100px]">
     </div>
     {agree && <AgreementModel />}

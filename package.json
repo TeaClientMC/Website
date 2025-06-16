@@ -11,9 +11,7 @@
 		"dprint": "dprint",
 		"check": "dprint check && astro check"
 	},
-	"trustedDependencies": [
-		"sharp"
-	],
+	"trustedDependencies": ["sharp"],
 	"dependencies": {
 		"@astrojs/rss": "^4.0.11",
 		"@astrojs/sitemap": "^3.4.0",
@@ -25,6 +23,7 @@
 		"astro": "^5.7.13",
 		"astro-meta-tags": "^0.3.2",
 		"astro-page-insight": "^0.10.2",
+		"astro-robots": "^2.3.1",
 		"astro-seo": "^0.8.4",
 		"dprint": "^0.50.0",
 		"simple-icons-astro": "^14.14.0",

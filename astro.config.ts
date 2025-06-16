@@ -3,14 +3,13 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
-
 import pageInsight from "astro-page-insight";
-
 import metaTags from "astro-meta-tags";
+import robots from "astro-robots";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://teaclient.net",
+	site: "https://teaclient.com",
 	redirects: {
 		"/discord": "https://discord.gg/nCSPd7XeWh",
 		"/github": "https://github.com/TeaClientMC",
@@ -62,9 +61,32 @@ export default defineConfig({
 				baseUrl: "https://github.com/teaclientmc/website",
 			},
 		}),
-		sitemap(),
+		sitemap({
+			filter: (page) =>
+				page !== `${import.meta.env.SITE}/staffhandbook-13-4-24`,
+		}),
 		pageInsight(),
 		metaTags(),
+		robots({
+			host: import.meta.env.SITE,
+			sitemap: true,
+			policy: [
+				{
+					userAgent: [
+						"Applebot",
+						"Googlebot",
+						"bingbot",
+						"Yandex",
+						"Yeti",
+						"Baiduspider",
+						"360Spider",
+						"*",
+					],
+					allow: ["/", "/wiki"],
+					disallow: ["/landing"],
+				},
+			],
+		}),
 	],
 	vite: {
 		resolve: {

@@ -35,9 +35,12 @@ export const collections = {
 		}),
 	}),
 	annoucement_bar: defineCollection({
-		loader: glob({ pattern: "index.mdx", base: "./src/content/annoucement_bar/" }),
+		loader: glob({
+			pattern: "index.mdx",
+			base: "./src/content/annoucement_bar/",
+		}),
 		schema: z.object({
 			type: z.enum(["important", "danger", "newspost"]),
-		})
-	})
+		}),
+	}),
 };

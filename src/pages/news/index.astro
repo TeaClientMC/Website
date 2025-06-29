@@ -15,7 +15,7 @@ const newsitems = await getCollection("news");
             <a class="block" href={`/news/${news.id}`}>
               {
                 news.data.banner ? (
-                  <div class="relative w-full aspect-[4/3]">
+                  <div class="relative w-full aspect-4/3">
                     <img
                       src={news.data.banner.src}
                       alt={`${news.data.title} Banner`}

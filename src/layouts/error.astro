@@ -65,10 +65,10 @@ const { errorNumber: errorNumberProp, Message } =
     />
     <meta charset="UTF-8" />
   </head>
-  <body class="text-white h-full w-full flex flex-col bg-gradient-to-b from-purple-950 from-20% to-80% to-black bg-no-repeat bg-fixed">
-    <div class="absolute -top-10 -z-5 m-auto h-1/6 w-full rounded-full bg-gradient-to-b from-white/5 blur-[100px]">
+  <body class="text-white h-full w-full flex flex-col bg-linear-to-b from-purple-950 from-20% to-80% to-black bg-no-repeat bg-fixed">
+    <div class="absolute -top-10 -z-5 m-auto h-1/6 w-full rounded-full bg-linear-to-b from-white/5 blur-[100px]">
     </div>
-    <div class="error justify-center items-center text-center content-center h-[100vh]">
+    <div class="error justify-center items-center text-center content-center h-screen">
       <h1 class="text-3xl text-purple-400 mb-5">{errorNumberProp}</h1>
       <p class="text-lg">{Message}</p>
       <a class="text-sky-300 text-sm" href="/">Back to Home Page</a>

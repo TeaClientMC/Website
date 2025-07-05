@@ -6,6 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import pageInsight from "astro-page-insight";
 import metaTags from "astro-meta-tags";
 import robots from "astro-robots";
+import { defaultMeta } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -56,6 +57,15 @@ export default defineConfig({
 						collapsed: true,
 					},
 				},
+			],
+			head: [
+				{
+					tag: "meta",
+					attrs: {
+						name: "themecolor",
+						content: defaultMeta.extend.meta[0].content
+					}
+				}
 			],
 			editLink: {
 				baseUrl: "https://github.com/teaclientmc/website",

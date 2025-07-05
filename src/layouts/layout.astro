@@ -1,12 +1,14 @@
 ---
 import { SEO } from "astro-seo";
+import { defaultMeta } from "@/config";
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/footer.astro";
 import Scroll from "@/components/Scroll.astro";
 import AnnoucementBar from "@/components/AnnoucementBar.astro";
 import AgreementModel from "@/components/AgreementModel.astro";
 import "@/styles/global.css";
-const title = "Home | TeaClient Website";
+
+const title = defaultMeta.title;
 const description = "A QOL Minecraft Client for modern versions of Minecraft";
 const url = import.meta.env.SITE;
 const image = "/banner.webp";
@@ -23,8 +25,8 @@ const agree = agreement ?? true;
 <html class="h-full" lang="en">
   <head>
     <SEO
-      title={title}
-      description={description}
+			title,
+			description,
       openGraph={{
       	basic: {
       		title,
@@ -43,14 +45,8 @@ const agree = agreement ?? true;
       	description,
       	image,
       }}
-      extend={{
-      	link: [
-      		{ rel: "icon", href: favicon },
-      		{
-      			rel: "apple-touch-icon",
-      			type: "image/x-icon",
-      			href: favicon,
-      		},
+			extend={{
+			link: [
       		{ rel: "sitemap", href: "/sitemap-index.xml" },
       		{ rel: "canonical", href: url },
       	],
@@ -69,7 +65,6 @@ const agree = agreement ?? true;
       		},
       	],
       }}
-      ,
     />
     <meta charset="UTF-8" />
   </head>

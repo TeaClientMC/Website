@@ -20,7 +20,7 @@
 		"@lucide/astro": "^0.525.0",
 		"@tailwindcss/typography": "^0.5.16",
 		"@tailwindcss/vite": "^4.1.11",
-		"astro": "5.10.1",
+		"astro": "https://pkg.pr.new/astro@14002",
 		"astro-meta-tags": "^0.3.2",
 		"astro-page-insight": "^0.10.2",
 		"astro-robots": "^2.3.1",

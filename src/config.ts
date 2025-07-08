@@ -29,14 +29,14 @@ export const defaultMeta = {
 			{ name: "darkreader-lock" },
 			{
 				httpEquiv: "Content-Security-Policy",
-				content: "Content-Security-Policy: default-src 'none'; script-src 'self'; ...",
+				content:
+					"Content-Security-Policy: default-src 'none'; script-src 'self'; ...",
 			},
 			{
 				name: "viewport",
-				content: "width=device-width, initial-scale=1.0, shrink-to-fit=yes, viewport-fit=cover",
+				content:
+					"width=device-width, initial-scale=1.0, shrink-to-fit=yes, viewport-fit=cover",
 			},
 		],
 	},
 };
-
-

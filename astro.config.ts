@@ -25,6 +25,7 @@ export default defineConfig({
 			disable404Route: true,
 			tableOfContents: true,
 			lastUpdated: true,
+			routeMiddleware: ["src/routeData.ts"],
 			social: [
 				{
 					icon: "discord",
@@ -63,9 +64,9 @@ export default defineConfig({
 					tag: "meta",
 					attrs: {
 						name: "themecolor",
-						content: defaultMeta.extend.meta[0].content
-					}
-				}
+						content: defaultMeta.extend.meta[0].content,
+					},
+				},
 			],
 			editLink: {
 				baseUrl: "https://github.com/teaclientmc/website",

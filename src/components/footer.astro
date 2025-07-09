@@ -53,7 +53,7 @@ const defaultFooter: Footer = {
 // fallback to default if not passed via props
 const footer: Footer = Astro.props.footer ?? defaultFooter;
 ---
-<footer class="text-purple-300 h-[3%] justify-center content-center text-center px-6 mt-auto mb-[15%] sticky bottom-0">
+<footer class="text-purple-300 h-[3%] justify-center content-center text-center px-6 mt-auto mb-[15%] sticky -bottom-10 -z-10 transition-opacity duration-300">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-5">
     {
       footer.sections.map((section) => (

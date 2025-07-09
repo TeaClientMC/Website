@@ -2,80 +2,138 @@
 import { Image } from "astro:assets";
 
 interface NavLinks {
-	name: string;
-	href: string;
+  name: string;
+  href: string;
 }
 interface Nav {
-	links: NavLinks[];
+  links: NavLinks[];
 }
-
-interface Props {
-	nav?: Nav;
-}
-
 const defaultNav: Nav = {
-	links: [
-		{
-			name: "Home",
-			href: "/",
-		},
-		/*{
-		name: "Shop",
-		href: "/shop"
-		},*/
-		{
-			name: "News",
-			href: "/news",
-		},
-		/*
-	{
-		name: "Download",
-		href: "/"
-		},
-		*/
-	],
+  links: [
+    { name: "Home", href: "/" },
+    { name: "News", href: "/news" },
+  ],
 };
-
 const nav: Nav = Astro.props.nav ?? defaultNav;
 ---
 
-<nav class="border-b border-purple-800/50 backdrop-blur-2xl fixed w-full rounded-b-xl py-2">
-  <div class="container mx-auto flex items-center">
-    <a href="/" class="flex items-center text-xl font-bold space-x-2">
-      <Image
-        width={64}
-        height={64}
-        src="/icon_clear.webp"
-        loading="eager"
-        alt="Logo"
-      />
+<!-- 
+  For smooth transitions, add these classes to your layout:
+  <main class="transition-opacity duration-300">...</main>
+  <footer class="transition-opacity duration-300">...</footer>
+-->
+
+<nav id="main-nav" class="border-b border-purple-800/50 backdrop-blur-2xl fixed w-full rounded-b-xl py-2 md:pt-13 pt-16 transition-colors duration-300">
+  <div class="container mx-auto flex items-center justify-between flex-wrap">
+    <a href="/" id="nav-logo-link" class="flex items-center text-xl font-bold space-x-2 transition-opacity duration-300">
+      <Image width={64} height={64} src="/icon_clear.webp" loading="eager" alt="Logo" />
       <span class="text-purple-100 hover:text-purple-200">TeaClient</span>
     </a>
-    <ul class="flex text-center space-x-4 ml-auto">
-      {
-        nav.links
-		.filter((link: NavLinks) => link.name !== "Download")
-		.map((link: NavLinks) => (
-          <li>
-            <a href={link.href} class="text-white hover:text-purple-100">
-              {link.name}
-            </a>
-          </li>
-        ))
-      }
-      {
-        nav.links.find((link: NavLinks) => link.name === "Download") &&
-		(
-          <li>
-            <a
-              href={nav.links.find((link: NavLinks) => link.name === "Download")?.href}
-              class="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded transition"
-            >
-              Download
-            </a>
-          </li>
-        )
-      }
-    </ul>
+    <!-- Hamburger button for mobile -->
+    <button id="menu-toggle" class="ml-auto block md:hidden text-white focus:outline-none p-2 z-50" aria-label="Toggle menu">
+      <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
+      </svg>
+      <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <!-- Mobile menu overlay -->
+    <div id="nav-links" class="md:items-center md:flex md:w-auto md:ml-auto md:static md:inset-auto md:h-auto md:bg-transparent fixed flex inset-0 bg-black z-10 items-center justify-center">
+      <ul class="flex flex-col md:flex-row text-center md:space-x-4 w-full md:w-auto items-center space-y-8 md:space-y-0">
+        {
+          nav.links.filter(l => l.name !== "Download").map(link => (
+            <li class="py-2 md:py-0">
+              <a href={link.href} class="text-white hover:text-purple-200 text-3xl md:text-base">{link.name}</a>
+            </li>
+          ))
+        }
+        {
+          nav.links.find(l => l.name === "Download") && (
+            <li class="mt-2 md:mt-0 md:ml-2">
+              <a
+                href={nav.links.find(l => l.name === "Download")?.href}
+                class="block px-6 py-3 md:px-4 md:py-2 bg-purple-700 hover:bg-purple-600 text-white rounded transition text-3xl md:text-base"
+              >Download</a>
+            </li>
+          )
+        }
+      </ul>
+    </div>
   </div>
 </nav>
+
+<script>
+  // Utility to toggle multiple classes
+  function toggleClasses(el, classes, add) {
+    if (!el) return;
+    classes.forEach(cls => el.classList[add ? 'add' : 'remove'](cls));
+  }
+
+  // Elements
+  const nav = document.getElementById('main-nav');
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  const logo = document.getElementById('nav-logo-link');
+  const main = document.querySelector('main');
+  const footer = document.querySelector('footer');
+  const openIcon = document.getElementById('menu-open-icon');
+  const closeIcon = document.getElementById('menu-close-icon');
+
+  // Always start with menu closed
+  function resetMenuState() {
+    navLinks.classList.add('hidden');
+    openIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+    toggleClasses(logo, ['opacity-0', 'pointer-events-none'], false);
+    toggleClasses(main, ['opacity-0', 'pointer-events-none'], false);
+    toggleClasses(footer, ['opacity-0', 'pointer-events-none'], false);
+    nav.classList.remove('border-transparent');
+    nav.classList.add('border-purple-800/50', 'backdrop-blur-2xl');
+    document.body.style.overflow = '';
+  }
+
+  // Menu open/close handlers
+  function setMenu(open) {
+    navLinks.classList.toggle('hidden', !open);
+    openIcon.classList.toggle('hidden', open);
+    closeIcon.classList.toggle('hidden', !open);
+    toggleClasses(logo, ['opacity-0', 'pointer-events-none'], open);
+    toggleClasses(main, ['opacity-0', 'pointer-events-none'], open);
+    toggleClasses(footer, ['opacity-0', 'pointer-events-none'], open);
+    nav.classList.toggle('border-transparent', open);
+    nav.classList.toggle('border-purple-800/50', !open);
+    nav.classList.toggle('backdrop-blur-2xl', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+function handleScroll() {
+  if (nav.classList.contains('border-purple-800/50')) {
+    if (window.scrollY <= 10) {
+      nav.classList.add('md:pt-13');
+      nav.classList.add('pt-16');
+    } else {
+      nav.classList.remove('md:pt-13');
+      nav.classList.remove('pt-16');
+    }
+  }
+}
+
+
+  // --- Initialize on DOMContentLoaded for reliability ---
+  document.addEventListener('DOMContentLoaded', () => {
+    resetMenuState();
+
+    if (menuToggle && navLinks && openIcon && closeIcon && logo) {
+      menuToggle.addEventListener('click', () => setMenu(navLinks.classList.contains('hidden')));
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 768) setMenu(false);
+        });
+      });
+      window.addEventListener('scroll', handleScroll, { passive: true });
+    }
+  });
+</script>
+
+

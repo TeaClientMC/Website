@@ -69,13 +69,13 @@ const agree = agreement ?? true;
     <meta charset="UTF-8" />
   </head>
   <body class="text-white h-full w-full bg-linear-to-b from-purple-950 from-20% to-80% to-black bg-no-repeat bg-fixed">
-    <AnnoucementBar />
-    <Navbar />
+		<AnnoucementBar />
+		<Navbar />
     <div class="absolute -top-10 -z-5 m-auto h-1/6 w-full rounded-full bg-linear-to-b from-white/5 blur-[100px]">
     </div>
     {agree && <AgreementModel />}
     <Scroll />
-    <main class="flex flex-col w-full">
+    <main class="flex flex-col w-full z-0 transition-opacity duration-300 sm:pt-none pt-24">
       <slot />
     </main>
     <Footer />

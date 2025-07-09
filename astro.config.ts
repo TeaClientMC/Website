@@ -15,6 +15,7 @@ export default defineConfig({
 		"/discord": "https://discord.gg/nCSPd7XeWh",
 		"/github": "https://github.com/TeaClientMC",
 		"/twitter": "https://twitter.com/@TeaClientMC",
+		"/download": "/"
 	},
 	integrations: [
 		starlight({

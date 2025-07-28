@@ -12,10 +12,10 @@ import { defaultMeta } from "./src/config";
 export default defineConfig({
 	site: "https://teaclient.com",
 	redirects: {
-		"/discord": "https://discord.gg/nCSPd7XeWh",
+		"/discord": "https://discord.gg/YKR36BuRba",
 		"/github": "https://github.com/TeaClientMC",
 		"/twitter": "https://twitter.com/@TeaClientMC",
-		"/download": "/"
+		"/download": "/",
 	},
 	integrations: [
 		starlight({

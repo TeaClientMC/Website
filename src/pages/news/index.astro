@@ -10,7 +10,7 @@ const newsitems = await getCollection("news");
     </h1>
     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl mt-10">
       {
-        newsitems.slice(0, 3).map((news) => (
+        newsitems.map((news) => (
           <li class="relative">
             <a class="block" href={`/news/${news.id}`}>
               {

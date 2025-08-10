@@ -15,6 +15,8 @@ export default defineConfig({
 		"/discord": "https://discord.gg/YKR36BuRba",
 		"/github": "https://github.com/TeaClientMC",
 		"/twitter": "https://twitter.com/@TeaClientMC",
+		"/twitch": "https://twitch.tv/teaclient",
+		"/bluesky": "https://bsky.app/profile/teaclient.bsky.social",
 		"/download": "/",
 	},
 	integrations: [

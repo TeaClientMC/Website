@@ -17,6 +17,16 @@ export default defineConfig({
 		"/twitter": "https://twitter.com/@TeaClientMC",
 		"/download": "/",
 	},
+	experimental: {
+		csp: {
+			styleDirective: {
+				resources: [
+					"'self'",
+					"https://cdn.cloudflare.com/"
+				]
+			}
+		}
+	},
 	integrations: [
 		starlight({
 			title: "TeaClient",

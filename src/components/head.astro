@@ -1,0 +1,65 @@
+---
+import { defaultMeta } from "@/config";
+import { SEO } from "astro-seo";
+
+export type Props = {
+	title?: string;
+	description?: string;
+	image?: string;
+	image_alt?: string;
+	url?: string;
+};
+
+const props = Astro.props as Props;
+
+const meta = {
+	title: props.title ?? defaultMeta.title,
+	description: props.description ?? defaultMeta.description,
+	image: props.image ?? defaultMeta.image,
+	image_alt: props.image_alt ?? defaultMeta.image_alt,
+};
+---
+
+<head>
+  <SEO
+    title={meta.title}
+    description={meta.description}
+    charset="UTF-8"
+    openGraph={{
+    	basic: {
+    		title: meta.title,
+    		type: "website",
+    		image: meta.image,
+    		url: Astro.url.href,
+    	},
+    	image: {
+    		alt: meta.image_alt,
+    	},
+    	optional: {
+    		description: meta.description,
+    		siteName: "TeaClient",
+    	},
+    }}
+    twitter={{
+    	card: "summary_large_image",
+    	title: meta.title,
+    	description: meta.description,
+    	image: meta.image,
+    }}
+    extend={{
+    	link: [
+    		{ rel: "sitemap", href: "/sitemap-index.xml" },
+    		{ rel: "canonical", href: Astro.url.href },
+    	],
+    	meta: [
+    		{ name: "theme-color", content: defaultMeta.theme_color },
+    		{ name: "darkreader-lock" },
+    		{
+    			name: "viewport",
+    			content:
+    				"width=device-width, initial-scale=1.0, shrink-to-fit=yes, viewport-fit=cover",
+    		},
+    	],
+    }}
+  />
+</head>

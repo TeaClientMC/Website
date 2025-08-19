@@ -1,71 +1,23 @@
 ---
-import { SEO } from "astro-seo";
 import Footer from "@/components/footer.astro";
+import Head from "@/components/head.astro";
 import "../styles/global.css";
-const title = "error | TeaClient Website";
-const description = "A QOL Minecraft Client for modern versions of Minecraft";
-const url = import.meta.env.SITE;
-const image = "/banner.webp";
-const favicon = "/icon.webp";
 
-const { errorNumber: errorNumberProp, Message } =
+const { errorNumber: errorNumberProp, Message: message } =
 	Astro.props.frontmatter || Astro.props;
 ---
 <!DOCTYPE html>
 <html class="h-full" lang="en">
-  <head>
-    <SEO
-      title={title}
-      description={description}
-      openGraph={{
-      	basic: {
-      		title,
-      		type: "website",
-      		image,
-      		url,
-      	},
-      	optional: {
-      		description,
-      		siteName: "TeaClient",
-      	},
-      }}
-      twitter={{
-      	card: "summary_large_image",
-      	title,
-      	description,
-      	image,
-      }}
-      extend={{
-      	link: [
-      		{ rel: "icon", href: favicon },
-      		{
-      			rel: "apple-touch-icon",
-      			type: "image/x-icon",
-      			href: favicon,
-      		},
-      		{ rel: "sitemap", href: "/sitemap-index.xml" },
-      		{ rel: "canonical", href: url },
-      	],
-      	meta: [
-      		{ name: "theme-color", content: "#410A6B" },
-      		{ name: "darkreader-lock" },
-      		{
-      			name: "viewport",
-      			content:
-      				"width=device-width, initial-scale=1.0, shrink-to-fit=yes, viewport-fit=cover",
-      		},
-      	],
-      }}
-      ,
-    />
-    <meta charset="UTF-8" />
-  </head>
+  <Head
+    title={`${errorNumberProp} | TeaClient Website`}
+    description={message}
+  />
   <body class="text-white h-full w-full flex flex-col bg-linear-to-b from-purple-950 from-20% to-80% to-black bg-no-repeat bg-fixed">
     <div class="absolute -top-10 -z-5 m-auto h-1/6 w-full rounded-full bg-linear-to-b from-white/5 blur-[100px]">
     </div>
     <div class="error justify-center items-center text-center content-center h-screen">
       <h1 class="text-3xl text-purple-400 mb-5">{errorNumberProp}</h1>
-      <p class="text-lg">{Message}</p>
+      <p class="text-lg">{message}</p>
       <a class="text-sky-300 text-sm" href="/">Back to Home Page</a>
     </div>
     <Footer />

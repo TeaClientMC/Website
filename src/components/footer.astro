@@ -1,19 +1,7 @@
 ---
-interface FooterLink {
-	label: string;
-	href: string;
-}
+import { socials } from "@/config";
 
-interface FooterSection {
-	title: string;
-	links: FooterLink[];
-}
-
-interface Footer {
-	sections: FooterSection[];
-}
-
-const defaultFooter: Footer = {
+const defaultFooter = {
 	sections: [
 		{
 			title: "TeaClient",
@@ -40,41 +28,32 @@ const defaultFooter: Footer = {
 		},
 		{
 			title: "Connect",
-			links: [
-				{ label: "Discord", href: "/discord" },
-				{ label: "Twitter", href: "/twitter" },
-				{ label: "Twitch", href: "/twitch" },
-				{ label: "Bluesky", href: "/bluesky" },
-				{ label: "GitHub", href: "/github" },
-			],
+			links: socials.map(({ title }) => ({
+				label: title,
+				href: `/${title.toLowerCase()}`, // use href (not link)
+			})),
 		},
 	],
 };
 
-// fallback to default if not passed via props
-const footer: Footer = Astro.props.footer ?? defaultFooter;
+// Properly closed type with commas and brackets
+type Link = { label: string; href: string; icon?: any };
+type Section = { title: string; links: Link[] };
+type Sections = Section[];
+
+const footer: { sections: Sections } = Astro.props.footer ?? defaultFooter;
 ---
 <footer class="text-purple-300 h-[3%] justify-center content-center text-center px-6 mt-auto mb-[15%] sticky -bottom-10 transition-opacity duration-300">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-5">
     {
-      footer.sections.map((section) => (
+      (footer.sections ?? []).map((section: Section) => (
         <div>
-          <h3 class="font-semibold text-white text-sm md:text-lg mb-3">
-            {section.title}
-          </h3>
-          <ul class="space-y-2">
+          <h3>{section.title}</h3>
+          <ul>
             {
-              section.links.map((link) => (
+              (section.links ?? []).map((link: Link) => (
                 <li>
-                  <a
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    aria-label={link.label}
-                    href={link.href}
-                    class="hover:underline hover:text-purple-100 text-sm md:text-md"
-                  >
-                    {link.label}
-                  </a>
+                  <a href={link.href} aria-label={link.label}>{link.label}</a>
                 </li>
               ))
             }

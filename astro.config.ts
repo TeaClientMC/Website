@@ -6,19 +6,12 @@ import sitemap from "@astrojs/sitemap";
 import pageInsight from "astro-page-insight";
 import metaTags from "astro-meta-tags";
 import robots from "astro-robots";
-import { defaultMeta } from "./src/config";
+import { defaultMeta, redirects, starlightSocials } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
 	site: "https://teaclient.com",
-	redirects: {
-		"/discord": "https://discord.gg/YKR36BuRba",
-		"/github": "https://github.com/TeaClientMC",
-		"/twitter": "https://twitter.com/@TeaClientMC",
-		"/twitch": "https://twitch.tv/teaclient",
-		"/bluesky": "https://bsky.app/profile/teaclient.bsky.social",
-		"/download": "/",
-	},
+	redirects,
 	experimental: {
 		csp: {
 			styleDirective: {
@@ -36,18 +29,7 @@ export default defineConfig({
 			tableOfContents: true,
 			lastUpdated: true,
 			routeMiddleware: ["src/routeData.ts"],
-			social: [
-				{
-					icon: "discord",
-					label: "Discord",
-					href: "/discord",
-				},
-				{
-					icon: "github",
-					label: "GitHub",
-					href: "/github",
-				},
-			],
+			social: starlightSocials,
 			customCss: ["./src/styles/starlight.css"],
 			sidebar: [
 				{
@@ -114,6 +96,9 @@ export default defineConfig({
 			alias: {
 				"@/*": "src/*",
 			},
+		},
+		ssr: {
+			noExternal: ["simple-icons-astro"],
 		},
 		build: {
 			minify: true,

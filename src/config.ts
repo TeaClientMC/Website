@@ -90,5 +90,5 @@ export const redirects = {
 export const starlightSocials = socials.map((info) => ({
 	icon: info.starlightIcon,
 	label: info.title,
-	href: `/${info.title.toLowerCase()}`,
+	href: info.link,
 }));

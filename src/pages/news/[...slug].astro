@@ -23,7 +23,13 @@ const authorData = author?.data;
 const banner = post.data.banner;
 ---
 
-<Layout agreement={false}>
+<Layout
+  title={`${post.data.title} | TeaClient News`}
+  description={post.data.description}
+  image={post.data.banner.src}
+  image_alt="News Post Banner"
+  agreement={false}
+>
   <div class="mx-5 pt-[15%] w-full flex flex-col gap-6">
     <Image
       src={banner}

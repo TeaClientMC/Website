@@ -3,7 +3,11 @@ import Layout from "@/layouts/layout.astro";
 import { getCollection } from "astro:content";
 const newsitems = await getCollection("news");
 ---
-<Layout agreement={false}>
+<Layout
+  title="TeaClient News | TeaClient Website"
+  description="View our latest and exciting news of TeaClient!"
+  agreement={false}
+>
   <div class="flex flex-col items-center px-6 py-32 md:px-20 lg:px-32 text-xl">
     <h1 class="text-purple-200 text-3xl text-center">
       TeaClient News Articles

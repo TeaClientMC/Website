@@ -14,25 +14,25 @@
 	"trustedDependencies": ["sharp"],
 	"dependencies": {
 		"@astrojs/rss": "4.0.12",
-		"@astrojs/sitemap": "3.4.1",
-		"@astrojs/starlight": "0.34.4",
+		"@astrojs/sitemap": "3.5.1",
+		"@astrojs/starlight": "0.35.2",
 		"@astrojs/starlight-tailwind": "^4.0.1",
-		"@lucide/astro": "^0.525.0",
+		"@lucide/astro": "^0.542.0",
 		"@tailwindcss/typography": "^0.5.16",
-		"@tailwindcss/vite": "^4.1.11",
-		"astro": "5.10.1",
-		"astro-meta-tags": "^0.3.2",
+		"@tailwindcss/vite": "^4.1.12",
+		"astro": "5.13.5",
+		"astro-meta-tags": "^0.4.0",
 		"astro-page-insight": "^0.10.2",
 		"astro-robots": "^2.3.1",
 		"astro-seo": "^0.8.4",
-		"dprint": "^0.50.0",
-		"simple-icons-astro": "^15.4.0",
-		"starlight-openapi": "^0.19.1",
+		"dprint": "^0.50.1",
+		"simple-icons-astro": "^15.13.0",
+		"starlight-openapi": "^0.20.0",
 		"tailwind-merge": "^3.3.1",
-		"tailwindcss": "^4.1.11"
+		"tailwindcss": "^4.1.12"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.4",
-		"typescript": "^5.8.3"
+		"typescript": "^5.9.2"
 	}
 }

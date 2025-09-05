@@ -8,102 +8,109 @@ import metaTags from "astro-meta-tags";
 import robots from "astro-robots";
 import { defaultMeta, redirects, starlightSocials } from "./src/config";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
-	site: "https://teaclient.com",
-	redirects,
-	experimental: {
-		csp: {
-			styleDirective: {
-				resources: ["'self'", "https://cdn.cloudflare.com/"],
-			},
-		},
+  site: "https://teaclient.com",
+  redirects,
+
+  experimental: {
+      csp: {
+          styleDirective: {
+              resources: ["'self'", "https://cdn.cloudflare.com/"],
+          },
+      },
 	},
-	integrations: [
-		starlight({
-			title: "TeaClient",
-			logo: {
-				src: "./public/icon_clear.webp",
-			},
-			disable404Route: true,
-			tableOfContents: true,
-			lastUpdated: true,
-			routeMiddleware: ["src/routeData.ts"],
-			social: starlightSocials,
-			customCss: ["./src/styles/starlight.css"],
-			sidebar: [
-				{
-					label: "Home",
-					link: "wiki",
-				},
-				{
-					label: "Players",
-					autogenerate: {
-						directory: "wiki/players",
-						collapsed: false,
-					},
-				},
-				{
-					label: "Developers",
-					autogenerate: {
-						directory: "wiki/developers",
-						collapsed: true,
-					},
-				},
-			],
-			head: [
-				{
-					tag: "meta",
-					attrs: {
-						name: "themecolor",
-						content: defaultMeta.theme_color,
-					},
-				},
-			],
-			editLink: {
-				baseUrl: "https://github.com/teaclientmc/website",
-			},
-		}),
-		sitemap({
-			filter: (page) =>
-				page !== `${import.meta.env.SITE}/staffhandbook-13-4-24`,
-		}),
-		pageInsight(),
-		metaTags(),
-		robots({
-			host: import.meta.env.SITE,
-			sitemap: true,
-			policy: [
-				{
-					userAgent: [
-						"Applebot",
-						"Googlebot",
-						"bingbot",
-						"Yandex",
-						"Yeti",
-						"Baiduspider",
-						"360Spider",
-						"*",
-					],
-					allow: ["/", "/wiki"],
-					disallow: ["/landing"],
-				},
-			],
-		}),
+
+  integrations: [
+      starlight({
+          title: "TeaClient",
+          logo: {
+              src: "./public/icon_clear.webp",
+          },
+          disable404Route: true,
+          tableOfContents: true,
+          lastUpdated: true,
+          routeMiddleware: ["src/routeData.ts"],
+          social: starlightSocials,
+          customCss: ["./src/styles/starlight.css"],
+          sidebar: [
+              {
+                  label: "Home",
+                  link: "wiki",
+              },
+              {
+                  label: "Players",
+                  autogenerate: {
+                      directory: "wiki/players",
+                      collapsed: false,
+                  },
+              },
+              {
+                  label: "Developers",
+                  autogenerate: {
+                      directory: "wiki/developers",
+                      collapsed: true,
+                  },
+              },
+          ],
+          head: [
+              {
+                  tag: "meta",
+                  attrs: {
+                      name: "themecolor",
+                      content: defaultMeta.theme_color,
+                  },
+              },
+          ],
+          editLink: {
+              baseUrl: "https://github.com/teaclientmc/website",
+          },
+      }),
+      sitemap({
+          filter: (page) =>
+              page !== `${import.meta.env.SITE}/staffhandbook-13-4-24`,
+      }),
+      pageInsight(),
+      metaTags(),
+      robots({
+          host: import.meta.env.SITE,
+          sitemap: true,
+          policy: [
+              {
+                  userAgent: [
+                      "Applebot",
+                      "Googlebot",
+                      "bingbot",
+                      "Yandex",
+                      "Yeti",
+                      "Baiduspider",
+                      "360Spider",
+                      "*",
+                  ],
+                  allow: ["/", "/wiki"],
+                  disallow: ["/landing"],
+              },
+          ],
+      }),
 	],
-	vite: {
-		resolve: {
-			alias: {
-				"@/*": "src/*",
-			},
-		},
-		ssr: {
-			noExternal: ["simple-icons-astro"],
-		},
-		build: {
-			minify: true,
-			sourcemap: "hidden",
-		},
-		plugins: [tailwindcss()],
+
+  vite: {
+      resolve: {
+          alias: {
+              "@/*": "src/*",
+          },
+      },
+      ssr: {
+          noExternal: ["simple-icons-astro"],
+      },
+      build: {
+          minify: true,
+          sourcemap: "hidden",
+      },
+      plugins: [tailwindcss()],
 	},
+
+  adapter: cloudflare(),
 });

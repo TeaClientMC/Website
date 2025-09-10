@@ -13,37 +13,42 @@ export const socials: Array<{
 	link: string;
 	starlightIcon: StarlightIcon;
 }> = [
-	{
-		title: "Discord",
-		link: "https://discord.gg/YKR36BuRba",
-		starlightIcon: "discord",
-	},
-	{
-		title: "Youtube",
-		link: "https://youtube.com/@TeaClientMC",
-		starlightIcon: "youtube",
-	},
-	{
-		title: "Twitch",
-		link: "https://twitch.tv/teaclient",
-		starlightIcon: "twitch",
-	},
-	{
-		title: "Bluesky",
-		link: "https://bsky.app/profile/teaclient.bsky.social",
-		starlightIcon: "blueSky",
-	},
-	{
-		title: "X",
-		link: "https://x.com/@TeaClientMC",
-		starlightIcon: "x.com",
-	},
-	{
-		title: "Github",
-		link: "https://github.com/TeaClientMC",
-		starlightIcon: "github",
-	},
-];
+		{
+			title: "Discord",
+			link: "https://discord.gg/YKR36BuRba",
+			starlightIcon: "discord",
+		},
+		{
+			title: "Youtube",
+			link: "https://youtube.com/@TeaClientMC",
+			starlightIcon: "youtube",
+		},
+		{
+			title: "Twitch",
+			link: "https://twitch.tv/teaclient",
+			starlightIcon: "twitch",
+		},
+		{
+			title: "Tiktok",
+			link: "https://www.tiktok.com/@teaclientmc",
+			starlightIcon: "tiktok"
+		},
+		{
+			title: "Bluesky",
+			link: "https://bsky.app/profile/teaclient.bsky.social",
+			starlightIcon: "blueSky",
+		},
+		{
+			title: "X",
+			link: "https://x.com/@TeaClientMC",
+			starlightIcon: "x.com",
+		},
+		{
+			title: "Github",
+			link: "https://github.com/TeaClientMC",
+			starlightIcon: "github",
+		},
+	];
 
 export const redirects = {
 	"/download": "/",

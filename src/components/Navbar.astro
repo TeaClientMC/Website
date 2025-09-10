@@ -16,7 +16,9 @@ const defaultNav: Nav = {
 };
 const nav: Nav = Astro.props.nav ?? defaultNav;
 
-Astro.insertScriptHash("sha256-/CVXUAbdhThW0bL8oDbhlg25FZhh0g3P8WKoUJDLigE=");
+Astro.csp.insertScriptHash(
+	"sha256-/CVXUAbdhThW0bL8oDbhlg25FZhh0g3P8WKoUJDLigE=",
+);
 ---
 
 <!-- 

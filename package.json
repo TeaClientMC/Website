@@ -22,7 +22,7 @@
 		"@astrojs/starlight-tailwind": "^4.0.1",
 		"@lucide/astro": "^0.542.0",
 		"@tailwindcss/typography": "^0.5.16",
-		"@tailwindcss/vite": "^4.1.12",
+		"@tailwindcss/vite": "^4.1.13",
 		"astro": "5.13.5",
 		"astro-meta-tags": "^0.4.0",
 		"astro-page-insight": "^0.10.2",
@@ -32,7 +32,8 @@
 		"simple-icons-astro": "^15.13.0",
 		"starlight-openapi": "^0.20.0",
 		"tailwind-merge": "^3.3.1",
-		"tailwindcss": "^4.1.12"
+		"tailwindcss": "^4.1.13",
+		"vite": "^7.1.4"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.4",

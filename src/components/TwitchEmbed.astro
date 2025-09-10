@@ -1,0 +1,66 @@
+---
+import { isTwitchLive } from "../lib/twitch";
+const channel = "teaclient";
+const isLive = await isTwitchLive(channel);
+import { Twitch } from "simple-icons-astro";
+Astro.csp.insertScriptHash(
+	"sha256-rwJxr6HZy4bzqrm4thnLLV/OaUP5+1r0jiPW2TmArw8=",
+);
+---
+{
+  isLive && (
+    <>
+      <button
+        id="twitch-btn"
+        class="text-white absolute bottom-15 left-9 aspect-auto items-center px-4 py-2 rounded-full hover:bg-purple-800 transition"
+      >
+        <div class="absolute right-4/12 top-4/12"><Twitch /></div>
+        <div class="animate-pulse bg-red-700 text-white h-24 w-24 rounded-full content-center">
+          Watch Live
+        </div>
+      </button>
+
+      <div
+        id="modal"
+        class="fixed inset-0 items-center justify-center bg-black/70 backdrop-blur-lg z-50 hidden"
+      >
+        <div class="relative bg-transparent rounded-lg shadow-lg w-full h-full mx-4">
+          <button
+            id="close-modal"
+            class="absolute top-2 right-2 text-white text-2xl p-2 hover:text-gray-400 cursor-pointer"
+          >
+            ×
+          </button>
+          <div class="w-full h-full rounded-md flex justify-center items-center">
+            <iframe
+              id="twitch-player"
+              allowfullscreen
+              class="w-3/4 h-3/4 rounded-md"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <script is:inline>
+      const btn = document.getElementById("twitch-btn");
+const modal = document.getElementById("modal");
+const closeBtn = document.getElementById("close-modal");
+const iframe = document.getElementById("twitch-player");
+const channel = "teaclient";
+const parent = window.location.hostname; // Twitch requires parent to be the domain only
+
+btn.addEventListener("click", () => {
+	iframe.src = `https://player.twitch.tv/?channel=${encodeURIComponent(channel)}&parent=${encodeURIComponent(parent)}`;
+	modal.classList.remove("hidden");
+	modal.classList.add("flex");
+});
+
+closeBtn.addEventListener("click", () => {
+	modal.classList.add("hidden");
+	modal.classList.remove("flex");
+	iframe.src = ""; // stop playback when closing
+});
+      </script>
+    </>
+  )
+}

@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
@@ -22,7 +22,18 @@ export default defineConfig({
 			},
 		},
 	},
-
+	env: {
+		schema: {
+			TWITCH_CLIENT_ID: envField.string({
+				context: "server",
+				access: "public",
+			}),
+			TWITCH_CLIENT_SECRET: envField.string({
+				context: "server",
+				access: "secret",
+			}),
+		},
+	},
 	integrations: [
 		starlight({
 			title: "TeaClient",

@@ -4,22 +4,31 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      flake-parts,
+      ...
+    }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = nixpkgs.lib.systems.flakeExposed;
-      perSystem = {
-        pkgs,
-        config,
-        lib,
-        ...
-      }: 
-      {
-        devShells.default = pkgs.mkShell
+      perSystem =
         {
-          packages = with pkgs; [
-            bun
-          ];
+          pkgs,
+          config,
+          lib,
+          ...
+        }:
+        {
+          devShells.default = pkgs.mkShell {
+            packages = with pkgs; [
+              bun
+              # Until bun fixes workers
+              pnpm
+              nodejs
+            ];
+          };
         };
-      };
     };
 }

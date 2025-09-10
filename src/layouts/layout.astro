@@ -7,6 +7,7 @@ import Scroll from "@/components/Scroll.astro";
 import AnnoucementBar from "@/components/AnnoucementBar.astro";
 import AgreementModel from "@/components/AgreementModel.astro";
 import "@/styles/global.css";
+import TwitchEmbed from "@/components/TwitchEmbed.astro";
 
 interface AditionalProps {
 	agreement?: boolean | true;
@@ -24,6 +25,7 @@ const agree = props.agreement ?? true;
   <Head {...props} />
   <body class="text-white h-full w-full bg-linear-to-b from-purple-950 from-20% to-80% to-black bg-no-repeat bg-fixed">
     <AnnoucementBar />
+    <TwitchEmbed />
     <Navbar />
     <div class="absolute -top-10 -z-5 m-auto h-1/6 w-full rounded-full bg-linear-to-b from-white/5 blur-[100px]">
     </div>

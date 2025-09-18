@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
@@ -8,15 +8,30 @@ import metaTags from "astro-meta-tags";
 import robots from "astro-robots";
 import { defaultMeta, redirects, starlightSocials } from "./src/config";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
 	site: "https://teaclient.com",
+	output: "server",
 	redirects,
 	experimental: {
 		csp: {
 			styleDirective: {
 				resources: ["'self'", "https://cdn.cloudflare.com/"],
 			},
+		},
+	},
+	env: {
+		schema: {
+			TWITCH_CLIENT_ID: envField.string({
+				context: "server",
+				access: "public",
+			}),
+			TWITCH_CLIENT_SECRET: envField.string({
+				context: "server",
+				access: "secret",
+			}),
 		},
 	},
 	integrations: [
@@ -68,6 +83,9 @@ export default defineConfig({
 			filter: (page) =>
 				page !== `${import.meta.env.SITE}/staffhandbook-13-4-24`,
 		}),
+		cloudflare({
+			imageService: "cloudflare",
+		}),
 		pageInsight(),
 		metaTags(),
 		robots({
@@ -91,6 +109,7 @@ export default defineConfig({
 			],
 		}),
 	],
+
 	vite: {
 		resolve: {
 			alias: {
@@ -104,6 +123,8 @@ export default defineConfig({
 			minify: true,
 			sourcemap: "hidden",
 		},
-		plugins: [tailwindcss()],
+		plugins: [tailwindcss() as any],
 	},
+
+	adapter: cloudflare(),
 });

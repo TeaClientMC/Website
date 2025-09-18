@@ -5,21 +5,25 @@
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
-		"preview": "astro preview",
+		"preview": "astro build && wrangler pages dev",
+		"deploy": "astro build && wrangler pages deploy",
+		"cf-typegen": "wrangler types",
 		"astro": "astro",
 		"fmt": "dprint fmt",
-		"dprint": "dprint",
 		"check": "dprint check && astro check"
 	},
-	"trustedDependencies": ["sharp"],
+	"trustedDependencies": [
+		"sharp"
+	],
 	"dependencies": {
+		"@astrojs/cloudflare": "^12.6.7",
 		"@astrojs/rss": "4.0.12",
 		"@astrojs/sitemap": "3.5.1",
 		"@astrojs/starlight": "0.35.2",
 		"@astrojs/starlight-tailwind": "^4.0.1",
 		"@lucide/astro": "^0.542.0",
 		"@tailwindcss/typography": "^0.5.16",
-		"@tailwindcss/vite": "^4.1.12",
+		"@tailwindcss/vite": "^4.1.13",
 		"astro": "5.13.5",
 		"astro-meta-tags": "^0.4.0",
 		"astro-page-insight": "^0.10.2",
@@ -29,7 +33,8 @@
 		"simple-icons-astro": "^15.13.0",
 		"starlight-openapi": "^0.20.0",
 		"tailwind-merge": "^3.3.1",
-		"tailwindcss": "^4.1.12"
+		"tailwindcss": "^4.1.13",
+		"vite": "^7.1.4"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.4",

@@ -1,5 +1,6 @@
 dist/
 .astro/
+.wrangler
 
 # dependencies
 node_modules/
@@ -8,6 +9,7 @@ node_modules/
 .env
 .env.*
 !.env.example
+.dev.vars
 
 # lock files
 bun.lockb

@@ -6,33 +6,28 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  # Use docker.io for Docker Hub if empty
-  REGISTRY: ghcr.io
-  # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
-
 jobs:
   build:
     name: Building
     runs-on: ubuntu-latest
+    env:
+      TWITCH_CLIENT_ID: ${{ vars.TWITCH_CLIENT_ID }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install, build, and upload your site
         uses: withastro/action@v2
         with:
           package-manager: bun@latest
   deploy:
-    name: Deploying to GH Pages
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy with Wrangler
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.38.0"
+          command: pages deploy
+          packageManager: bun

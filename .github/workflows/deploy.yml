@@ -7,22 +7,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Building
+  main:
+    name: Building & Deploying
     runs-on: ubuntu-latest
     env:
       TWITCH_CLIENT_ID: ${{ vars.TWITCH_CLIENT_ID }}
+      TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v5
       - name: Install, build, and upload your site
         uses: withastro/action@v2
         with:
           package-manager: bun@latest
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy with Wrangler
         uses: cloudflare/wrangler-action@v3
         with:
@@ -30,4 +26,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4.38.0"
           command: pages deploy
-          packageManager: bun
+          packageManager: npm

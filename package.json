@@ -12,9 +12,7 @@
 		"fmt": "dprint fmt",
 		"check": "dprint check && astro check"
 	},
-	"trustedDependencies": [
-		"sharp"
-	],
+	"trustedDependencies": ["sharp"],
 	"dependencies": {
 		"@astrojs/cloudflare": "^12.6.7",
 		"@astrojs/rss": "4.0.12",

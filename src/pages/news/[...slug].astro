@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import Layout from "@/layouts/layout.astro";
 import { Image } from "astro:assets";
 import { render } from "astro:content";
@@ -15,10 +17,9 @@ export async function getStaticPaths() {
 }
 const post = Astro.props;
 const { Content } = await render(post);
-const author: CollectionEntry<"authors"> | undefined = await getEntry(
-	"authors",
-	post.data.author.id,
-);
+const author: CollectionEntry<"authors"> | undefined = post.data.author
+	? await getEntry("authors", post.data.author.id)
+	: undefined;
 const authorData = author?.data;
 const banner = post.data.banner;
 ---

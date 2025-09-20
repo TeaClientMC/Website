@@ -11,6 +11,7 @@ import TwitchEmbed from "@/components/TwitchEmbed.astro";
 
 interface AditionalProps {
 	agreement?: boolean | true;
+	store?: boolean | false;
 }
 
 export type Props = HeadProps & AditionalProps;
@@ -29,7 +30,7 @@ const agree = props.agreement ?? true;
     <Navbar />
     <div class="absolute -top-10 -z-5 m-auto h-1/6 w-full rounded-full bg-linear-to-b from-white/5 blur-[100px]">
     </div>
-    {agree && <AgreementModel />}
+    {agree && <AgreementModel store />}
     <Scroll />
     <main class="flex flex-col w-full z-0 transition-opacity duration-300 sm:pt-none pt-24">
       <slot />

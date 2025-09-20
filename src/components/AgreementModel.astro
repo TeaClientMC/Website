@@ -2,18 +2,45 @@
 Astro.csp.insertScriptHash(
 	"sha256-PakSVNHBpXPQAm41HgKEusVOt6qq9eqQfbQ1IU+lIks=",
 );
+
+interface Props {
+	store: boolean;
+}
+
+const { store } = Astro.props;
 ---
 <div
   id="termsModal"
-  class="fixed inset-0 z-9999 hidden bg-black/60 flex items-center justify-center"
+  class="fixed inset-0 z-9999 hidden bg-black/60 items-center justify-center"
 >
   <div class="bg-purple-950 p-6 rounded-lg max-w-md w-full text-center shadow-lg">
     <h2 class="text-xl font-semibold mb-4">Terms & Privacy Policy</h2>
     <p class="mb-4">
       Please read and accept our
-      <a href="/terms" class="text-blue-600 underline" target="_blank"
-      >Terms of Service</a> and
-      <!-- <a href="/privacy" class="text-blue-600 underline" target="_blank">Privacy Policy</a>. -->
+      {
+        store ? (
+          <>
+            <a href="/terms" class="text-blue-600 underline" target="_blank"
+            >Terms of Service,</a>
+            <a href="/privacy" class="text-blue-600 underline" target="_blank"
+            >Privacy Policy</a>
+            {" and "}
+            <a
+              href="/store-policy"
+              class="text-blue-600 underline"
+              target="_blank"
+            >Store Policy</a>{"."}
+          </>
+        ) : (
+          <>
+            <a href="/terms" class="text-blue-600 underline" target="_blank"
+            >Terms of Service</a>
+            {" and "}
+            <a href="/privacy" class="text-blue-600 underline" target="_blank"
+            >Privacy Policy.</a>
+          </>
+        )
+      }
     </p>
     <label class="flex items-center justify-center gap-2 mb-4">
       <input type="checkbox" id="agreeCheckbox" class="form-checkbox" />
@@ -31,8 +58,10 @@ Astro.csp.insertScriptHash(
 
 <script is:inline>
 if (!localStorage.getItem("termsAccepted")) {
+	let termsmodal = document.getElementById("termsModal");
 	document.addEventListener("DOMContentLoaded", () => {
-		document.getElementById("termsModal")?.classList.remove("hidden");
+		termsmodal?.classList.remove("hidden");
+		termsmodal?.classList.add("flex");
 
 		const checkbox = document.getElementById("agreeCheckbox");
 		const button = document.getElementById("acceptBtn");
@@ -44,7 +73,8 @@ if (!localStorage.getItem("termsAccepted")) {
 		button?.addEventListener("click", () => {
 			if (checkbox.checked) {
 				localStorage.setItem("termsAccepted", "true");
-				document.getElementById("termsModal").classList.add("hidden");
+				termsmodal?.classList.remove("flex");
+				termsmodal?.classList.add("hidden");
 			}
 		});
 	});
